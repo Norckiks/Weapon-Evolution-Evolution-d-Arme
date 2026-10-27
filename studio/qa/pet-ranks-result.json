@@ -1,0 +1,85 @@
+{
+  "Restored": true,
+  "Passed": true,
+  "Checks": [
+    "Legacy profile gains ranks without losing receipts",
+    "Rank zero preserves existing bonuses: Civilian",
+    "Rank zero preserves existing bonuses: Runner",
+    "Rank zero preserves existing bonuses: Brute",
+    "Rank zero preserves existing bonuses: Worker",
+    "Rank zero preserves existing bonuses: Soldier",
+    "Rank zero preserves existing bonuses: Scrapper",
+    "Rank zero preserves existing bonuses: Hazmat",
+    "Rank zero preserves existing bonuses: Stalker",
+    "Rank zero preserves existing bonuses: Abomination",
+    "Rank zero preserves existing bonuses: Drowned",
+    "Rank zero preserves existing bonuses: Raider",
+    "Rank zero preserves existing bonuses: AnchorTitan",
+    "Rank zero preserves existing bonuses: Lineman",
+    "Rank zero preserves existing bonuses: SparkRunner",
+    "Rank zero preserves existing bonuses: CoilGolem",
+    "Rank zero preserves existing bonuses: Conductor",
+    "Rank zero preserves existing bonuses: TunnelRunner",
+    "Rank zero preserves existing bonuses: RailTitan",
+    "Rank zero preserves existing bonuses: Buddy",
+    "Two copies cannot evolve",
+    "Evolution before Play refused",
+    "Forged rank request rejected: Unknown",
+    "Forged rank request rejected: RailTitan:3",
+    "Forged rank request rejected: ",
+    "Forged rank request rejected: 3",
+    "Forged rank request rejected: table: 0x175bd489e3ad9a5d",
+    "Unowned pet cannot evolve",
+    "Rank 1 consumes copies and keeps active pet",
+    "Rank 1 applies exact coin/XP/walk/sprint bonuses",
+    "Rank 2 consumes copies and keeps active pet",
+    "Rank 2 applies exact coin/XP/walk/sprint bonuses",
+    "Rank 3 consumes copies and keeps active pet",
+    "Rank 3 applies exact coin/XP/walk/sprint bonuses",
+    "Maximum rank cannot consume the last copy",
+    "Simultaneous burst advances once",
+    "Buddy duplicates also evolve",
+    "Calendar copy preserves existing rank",
+    "Fragment fusion preserves species rank",
+    "Full inventory cannot waste fragments",
+    "Full inventory preserves timed pet gift",
+    "Last inventory slot accepts timed gift without resetting rank",
+    "Unequip removes all rank bonuses",
+    "Malformed and unknown saved ranks normalized",
+    "Real director death uses evolved multipliers and integer rewards",
+    "Time boosts multiply evolved bonuses once",
+    "Daily rollover and JSON preserve rank, active copy and unrelated receipts",
+    "Robux stays disabled"
+  ],
+  "UI": [
+    {
+      "Phase": "Ready",
+      "Checks": 10,
+      "Rank": 0,
+      "Viewport": "1, 1"
+    },
+    {
+      "Phase": "RankOnly",
+      "Rank": 1,
+      "Viewport": "1, 1",
+      "Checks": 11
+    },
+    {
+      "Phase": "Locked",
+      "Rank": 0,
+      "Viewport": "1, 1",
+      "Checks": 10
+    },
+    {
+      "Phase": "Max",
+      "Rank": 3,
+      "Viewport": "1, 1",
+      "Checks": 11
+    }
+  ],
+  "Limits": [
+    "Viewport 1x1; no visual review, TextFits or mobile validation",
+    "No native click or multiplayer/DataStore reconnect test",
+    "Initial burst test used five sequential round trips; corrected to one callback with five FireServer calls"
+  ]
+}

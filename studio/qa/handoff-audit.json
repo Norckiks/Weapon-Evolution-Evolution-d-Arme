@@ -1,0 +1,30 @@
+{
+  "supersededBy": "handoff-audit-2026-10-22T2011Z.json",
+  "historicalOnly": true,
+  "date": "2026-10-22",
+  "studioMode": "Edit",
+  "scripts": 36,
+  "localFiles": 36,
+  "mismatches": [],
+  "method": "UTF-8 length and rolling checksum modulo 2^32 after CRLF normalization and edge whitespace removal. PlayerCurrency explanatory local comment ignored. Non-cryptographic consistency check.",
+  "studioModified": false,
+  "lastUpdatedScripts": [
+    "StarterPlayer.StarterPlayerScripts.FirearmsClient",
+    "StarterPlayer.StarterPlayerScripts.FistsClient",
+    "ServerScriptService.FirearmsServer"
+  ],
+  "activeBackups": [
+    "BeforeFirearmsPolish",
+    "BeforeGunStances",
+    "BeforeSMG",
+    "BeforeTouchLayout",
+    "BeforeGiftRefresh",
+    "BeforeReloadPresentation",
+    "BeforeQuickContracts",
+    "BeforeFirearms",
+    "BeforeAdvancedMovement",
+    "BeforeCharacterCombat",
+    "BeforeCartoonRefresh",
+    "BeforeGameplayExpansion"
+  ]
+}

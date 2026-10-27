@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-27",
+  "server": {
+    "Restored": true,
+    "Checks": [
+      "Five zones; Power requires level 28",
+      "Clear arrival/spawn ground: 2480, 4, 10",
+      "Clear arrival/spawn ground: 2450, 4, -70",
+      "Clear arrival/spawn ground: 2510, 4, -95",
+      "Clear arrival/spawn ground: 2448, 4, -135",
+      "Clear arrival/spawn ground: 2512, 4, -160",
+      "Clear arrival/spawn ground: 2452, 4, -205",
+      "Clear arrival/spawn ground: 2510, 4, -235",
+      "Distinct complete rig: Lineman",
+      "Two live configured spawns: Lineman",
+      "Distinct complete rig: SparkRunner",
+      "Two live configured spawns: SparkRunner",
+      "Distinct complete rig: CoilGolem",
+      "Two live configured spawns: CoilGolem",
+      "Level 27 access denied",
+      "Unauthorized direct entry returns to refuge",
+      "Level 28 unlock points to Power portal",
+      "Level 28 access granted",
+      "Authorized player remains in Power",
+      "Large zombie route through central courtyard",
+      "Spawned zombie really chases player",
+      "Real director death callback: Lineman",
+      "Real director death callback: SparkRunner",
+      "Real director death callback: CoilGolem",
+      "Exact base rewards and XP rollover",
+      "Dead zombies cannot pay twice",
+      "Observed fragments with new species ID: Lineman",
+      "Two fragments refused: Lineman",
+      "Three fragments fuse: Lineman",
+      "Coin/XP/speed pet bonuses: Lineman",
+      "Observed fragments with new species ID: SparkRunner",
+      "Two fragments refused: SparkRunner",
+      "Three fragments fuse: SparkRunner",
+      "Coin/XP/speed pet bonuses: SparkRunner",
+      "Observed fragments with new species ID: CoilGolem",
+      "Two fragments refused: CoilGolem",
+      "Three fragments fuse: CoilGolem",
+      "Coin/XP/speed pet bonuses: CoilGolem",
+      "Permanent Power dossier 1",
+      "Duplicate dossier refused 1",
+      "Permanent Power dossier 2",
+      "Duplicate dossier refused 2",
+      "Permanent Power dossier 3",
+      "Duplicate dossier refused 3",
+      "Respawn restores two living Lineman",
+      "Respawn restores two living SparkRunner",
+      "Respawn restores two living CoilGolem",
+      "JSON keeps Power dossiers and pets",
+      "Robux disabled"
+    ],
+    "Passed": true,
+    "Metrics": {
+      "RemainderXP": 1200,
+      "Level": 31,
+      "XP": 4800,
+      "Coins": 3550
+    }
+  },
+  "combat": {
+    "Restored": true,
+    "Passed": true,
+    "Checks": [
+      "Real Carbine body hit 38 with one bullet: Lineman",
+      "Real Carbine body hit 38 with one bullet: SparkRunner",
+      "Real Carbine body hit 38 with one bullet: CoilGolem"
+    ]
+  },
+  "scene": {
+    "complete": true,
+    "templates": {
+      "Lineman": {
+        "size": "4.0543999671936035, 7.055992603302002, 2.1112000942230225",
+        "descendants": 43
+      },
+      "CoilGolem": {
+        "size": "7.713999271392822, 12.682487487792969, 4.227499961853027",
+        "descendants": 51
+      },
+      "SparkRunner": {
+        "size": "3.980640411376953, 6.3599853515625, 1.9238998889923096",
+        "descendants": 49
+      }
+    },
+    "portals": 6,
+    "sceneCount": 238
+  },
+  "buildIdempotence": "Power already built; no mutation",
+  "capturesInspected": [
+    "PowerEditOverview"
+  ],
+  "renderProbeInitial": {
+    "Heart": 44,
+    "Render": 0
+  },
+  "renderProbeFresh": {
+    "Heart": 36
+  },
+  "nativePortalVerified": false,
+  "limits": [
+    "Le rendu client est resté inactif ; caméra figée au refuge malgré le déplacement du personnage.",
+    "Essai E sans téléportation ; désactiver temporairement Slam en Play n'a pas suffi. Aucun correctif de touches appliqué sans preuve.",
+    "InputHoldBegin/End n'a pas non plus déclenché le portail sans rendu ; pas de validation des interactions ni UI mobiles.",
+    "Une capture Play est restée en attente ; l'orchestration a été arrêtée avant ses étapes suivantes, puis Studio revalidé actif et Play relancé après restauration.",
+    "Vue d'ensemble inspectée en Edit, pas de capture rapprochée des trois modèles ou pets en Play.",
+    "49 contrôles services : décès attribués synthétiquement aux vrais zombies apparus ; 3 contrôles séparés par vrais tirs de carabine.",
+    "Pas de multijoueur, tactile physique, équilibre en longue session ni reconnexion DataStore.",
+    "Données/position/statistiques restaurées avant Stop."
+  ]
+}

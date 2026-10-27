@@ -1,0 +1,24 @@
+Genre: Roblox Simulator / PvE Wave Defense / Action
+
+Game Overview:
+A third-person action simulator where players fight waves of zombies to earn Coins. Players use Coins to upgrade weapons, unlock new zones, and hatch Eggs to get Pets that boost stats (Speed, Damage, Luck, and Coin multipliers).
+
+Core Loop:
+
+    Combat: Defeat various zombie types (Normal, Fast, Tank, Explosive) and World Bosses to gain Coins and Gems.
+
+    Pets & Hatching: Spend Coins on Eggs with weighted random drop rates (Common to Legendary). Pets follow the player in 3D space and boost stats. Include a Pet Crafting/Fusion feature (combining duplicates into Golden/Rainbow variants).
+
+    Weapons & Upgrades: Purchase new weapons (Melee, Guns, AoE/Status Effect weapons) and upgrade current weapon stats (Fire Rate, Critical Chance).
+
+    Progression: Unlock themed zones (e.g., Abandoned City, Wasteland, Sci-Fi Lab) with tougher enemies and better eggs. Safe zone hub with leaderboards.
+
+Key Technical Systems Needed:
+
+    Leaderstats & DataStore: Save Coins, Gems, Unlocked Weapons, and Pet Inventory.
+
+    Zombie AI & Spawning: Modular zombie spawner system with pathfinding and hit detection.
+
+    Weapon System: Server-validated combat logic handling damage and rewarding players on kill.
+
+    Egg & Pet System: Egg hatching mechanics, pet placement/following script, and stat multiplier application.

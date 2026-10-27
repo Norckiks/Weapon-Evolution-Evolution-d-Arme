@@ -1,0 +1,52 @@
+{
+  "Passed": true,
+  "Checks": [
+    "Remote shop purchase refused",
+    "Insufficient coins refused",
+    "Health purchase and price",
+    "Speed affects walking and sprint",
+    "Weapon purchase equip and model",
+    "Weapon level gate",
+    "Unowned weapon equip refused",
+    "Fusion requires three matching fragments",
+    "Fusion consumes fragments and creates pet",
+    "Duplicate fusion request refused",
+    "Pet coin XP multipliers",
+    "Early time claim refused",
+    "Five minute x2 XP boost",
+    "Time reward cannot be claimed twice",
+    "Alternate time reward IDs cannot bypass claim history",
+    "Thirty minute free pet",
+    "Pet and timed boost compose",
+    "Daily mission claim once including alternate IDs",
+    "Robux shop disabled",
+    "Receipt cannot grant against nonpersistent profile",
+    "All nine zombie types feed daily progression",
+    "Valid fragment inventory: Hazmat",
+    "Valid fragment inventory: Runner",
+    "Valid fragment inventory: Stalker",
+    "Valid fragment inventory: Civilian",
+    "Valid fragment inventory: Abomination"
+  ],
+  "Environment": "Roblox Studio, session profile only",
+  "Integration": {
+    "PipeBaseDamage": 16,
+    "CityKillCoins": 8,
+    "CityKillCounterIncrement": 1,
+    "DashKey": "LeftControl",
+    "CompanionRendered": true,
+    "DesktopStartButton": true
+  },
+  "Mobile": {
+    "Preset": "iPhone 17 Pro",
+    "Orientation": "LandscapeLeft",
+    "Viewport": [
+      750,
+      381
+    ],
+    "FinalConsole": "No output",
+    "PhysicalDeviceTested": false
+  },
+  "ProductionDataStoreTested": false,
+  "RealPurchasesTested": false
+}

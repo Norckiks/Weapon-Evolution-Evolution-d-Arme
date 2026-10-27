@@ -1,0 +1,1334 @@
+{
+  "checkedAt": "2026-10-23 07:58:16 UTC",
+  "studioId": "45bb0222-99c2-4b04-8be7-6667f480d5e2",
+  "placeId": 78882167241715,
+  "session": "SessionStudio",
+  "navigation": {
+    "Metrics": {
+      "PausedTravel": 0.121856689453125,
+      "DestroyedTravel": 0.12186813354492188,
+      "Dynamic": {
+        "MaximumDeviationZ": 13.503307342529297,
+        "MaximumY": 123,
+        "Reached": true,
+        "Seconds": 12.015052099945024,
+        "BlockedEvents": 0,
+        "Revisions": 2,
+        "Recoveries": 1
+      },
+      "Direct": {
+        "MaximumDeviationZ": 0,
+        "Seconds": 2.5815591999562457,
+        "Reached": true,
+        "MaximumY": 123
+      },
+      "FinalStats": {
+        "MaxQueued": 4,
+        "Started": 11,
+        "MaxRunning": 2,
+        "Discarded": 3,
+        "Completed": 7,
+        "Running": 0,
+        "Limit": 2,
+        "QueueLimit": 64,
+        "Failed": 1,
+        "Queued": 0
+      },
+      "LowBarrier": {
+        "MaximumDeviationZ": 0.4322166442871094,
+        "MaximumY": 130.11978149414062,
+        "Reached": true,
+        "JumpRequests": 1,
+        "Seconds": 7.114555499982089,
+        "Recoveries": 1
+      },
+      "Queue": {
+        "MaxQueued": 4,
+        "Started": 5,
+        "MaxRunning": 2,
+        "Discarded": 2,
+        "Completed": 3,
+        "Running": 0,
+        "Limit": 2,
+        "QueueLimit": 64,
+        "Failed": 0,
+        "Queued": 0
+      }
+    },
+    "Passed": true,
+    "Checks": [
+      "Direct route physically reaches goal",
+      "Clear direct route schedules no path computation",
+      "Pause physically stops the current MoveTo command",
+      "Controller destruction physically stops an existing direct pursuit",
+      "Actual compute workers bounded to two with queued agents",
+      "Updating queued destination does not duplicate work",
+      "Queue drains while respecting worker limit",
+      "Paused in-flight result cannot resume movement",
+      "Destroyed in-flight result cannot install a route",
+      "Queued stale route cannot override direct movement",
+      "Queued replacement uses the latest actual goal",
+      "Cancelled in-flight computations discarded when they return",
+      "Fresh path computation is live before replacement",
+      "Moving target invalidates old in-flight destination",
+      "Intentional pause does not cause a false stuck recovery",
+      "Non-finite destination rejected without a path",
+      "Blocked direct pursuit recovers and physically reaches beyond low cover",
+      "Real jump waypoint produces an actual vertical crossing",
+      "Initial physical route installed before obstruction",
+      "Inserted obstruction replans and is physically bypassed",
+      "Obstruction recovery observed via blocked event or measured stall",
+      "Unreachable destination fails safely",
+      "Failed path retry is throttled"
+    ]
+  },
+  "meleeRegression": {
+    "Metrics": {
+      "Abomination": {
+        "ObservedDelay": 0.905724048614502,
+        "Windup": 0.9,
+        "Damage": 25
+      },
+      "Stalker": {
+        "ObservedDelay": 0.29745006561279297,
+        "Windup": 0.28,
+        "Damage": 18
+      },
+      "Civilian": {
+        "ObservedDelay": 0.4908120632171631,
+        "Windup": 0.45,
+        "Damage": 4
+      },
+      "Brute": {
+        "ObservedDelay": 0.7050459384918213,
+        "Windup": 0.7,
+        "Damage": 10
+      },
+      "Scrapper": {
+        "ObservedDelay": 0.8070080280303955,
+        "Windup": 0.8,
+        "Damage": 16
+      },
+      "Worker": {
+        "ObservedDelay": 0.49227213859558105,
+        "Windup": 0.48,
+        "Damage": 10
+      },
+      "Hazmat": {
+        "ObservedDelay": 0.505169153213501,
+        "Windup": 0.5,
+        "Damage": 14
+      },
+      "Runner": {
+        "ObservedDelay": 0.3252298831939697,
+        "Windup": 0.32,
+        "Damage": 6
+      },
+      "AnchorTitan": {
+        "ObservedDelay": 1.009988784790039,
+        "Windup": 1,
+        "Damage": 38
+      },
+      "Soldier": {
+        "ObservedDelay": 0.43842291831970215,
+        "Windup": 0.42,
+        "Damage": 12
+      },
+      "Drowned": {
+        "ObservedDelay": 0.506903886795044,
+        "Windup": 0.5,
+        "Damage": 24
+      },
+      "Raider": {
+        "ObservedDelay": 0.3535959720611572,
+        "Windup": 0.34,
+        "Damage": 28
+      }
+    },
+    "Passed": true,
+    "Checks": [
+      "Enabled warning, stopped movement, no immediate hit: Civilian",
+      "One delayed configured hit: Civilian",
+      "Enabled warning, stopped movement, no immediate hit: Runner",
+      "One delayed configured hit: Runner",
+      "Enabled warning, stopped movement, no immediate hit: Brute",
+      "One delayed configured hit: Brute",
+      "Enabled warning, stopped movement, no immediate hit: Worker",
+      "One delayed configured hit: Worker",
+      "Enabled warning, stopped movement, no immediate hit: Soldier",
+      "One delayed configured hit: Soldier",
+      "Enabled warning, stopped movement, no immediate hit: Scrapper",
+      "One delayed configured hit: Scrapper",
+      "Enabled warning, stopped movement, no immediate hit: Hazmat",
+      "One delayed configured hit: Hazmat",
+      "Enabled warning, stopped movement, no immediate hit: Stalker",
+      "One delayed configured hit: Stalker",
+      "Enabled warning, stopped movement, no immediate hit: Abomination",
+      "One delayed configured hit: Abomination",
+      "Enabled warning, stopped movement, no immediate hit: Drowned",
+      "One delayed configured hit: Drowned",
+      "Enabled warning, stopped movement, no immediate hit: Raider",
+      "One delayed configured hit: Raider",
+      "Enabled warning, stopped movement, no immediate hit: AnchorTitan",
+      "One delayed configured hit: AnchorTitan",
+      "Ordinary attack accepted",
+      "Parallel attack rejected",
+      "Recovery blocks another swing and hides warning",
+      "Idle cannot bypass start-to-start cooldown",
+      "Full cooldown rearms",
+      "Sidestep behind committed direction dodges",
+      "Leaving melee range during windup dodges",
+      "Protruding avatar accessory cannot hide a solid wall",
+      "Solid transparent wall inserted during windup blocks hit",
+      "Noncollidable trigger permits an attack",
+      "Noncollidable trigger permits impact",
+      "Stun immediately cancels warning and windup",
+      "Expired short stun cannot resurrect delayed damage or bypass cooldown",
+      "Attacker death cancels delayed hit",
+      "Removing attacker from world prevents delayed damage",
+      "Player before Start cannot be attacked",
+      "Unauthorized Factory level refused before damage",
+      "Cross-zone victim refused",
+      "Real director begins new warning state",
+      "Real director holds facing and misses a dodge",
+      "Real director rearms after cooldown",
+      "Real director cancels a windup even after short stun expires",
+      "Actual respawn invalidates old windup target"
+    ]
+  },
+  "pulseRegression": {
+    "Metrics": {
+      "RunnerDuring": {
+        "Speed": 0,
+        "Remaining": 0.5786712169647217,
+        "Health": 30
+      },
+      "KnockbackDistance": 2.5702662467956543,
+      "NormalFX": {
+        "Button": "Button",
+        "Last": {
+          "Sounds": 1,
+          "PoseDistance": 0,
+          "Hits": 4,
+          "Arcs": 12
+        },
+        "Count": 1
+      },
+      "ReducedFX": {
+        "Button": "Button",
+        "Last": {
+          "Sounds": 0,
+          "PoseDistance": 0,
+          "Hits": 12,
+          "Arcs": 6
+        },
+        "Count": 2
+      }
+    },
+    "Passed": true,
+    "Checks": [
+      "Refused: Action",
+      "Refused: State",
+      "Refused: State",
+      "Refused: Level",
+      "Refused: Stamina",
+      "Refused: Busy",
+      "Refused: Busy",
+      "Refused: Busy",
+      "Refused: Busy",
+      "Refused: Ground",
+      "Refused: Zone",
+      "Real remote starts fourteen-second cooldown",
+      "Real SprintServer stamina charged exactly thirty",
+      "Nearby front and side zombies each take twenty damage",
+      "Transparent solid wall blocks pulse",
+      "Wrong-zone, distant and untagged targets untouched",
+      "Pulse credits attacker and sets bounded stun",
+      "Pulse kill awards real director coins and XP",
+      "Real zombie director stops a stunned runner in clear sight",
+      "Repeated remote cannot spend stamina or damage during cooldown",
+      "Client-supplied damage/cost table rejected",
+      "Real impulse physically moves the target",
+      "Accepted event renders twelve arcs and an enabled sound",
+      "Runner recovers its configured speed after stun",
+      "Cooldown survives actual character respawn",
+      "Respawning cannot bypass ability cooldown",
+      "Pulse affects at most twelve of fifteen valid targets",
+      "Reduced-motion effect uses six arcs and respects muted sound",
+      "Cooldown expires and rearms only after the full interval"
+    ]
+  },
+  "finalChecks": 99,
+  "directorComparison": {
+    "before": {
+      "VerticalWaypointStallSeconds": 4.248321699909866,
+      "Checks": [
+        "Temporary physical arena has a valid detour path"
+      ],
+      "Elapsed": 12.03295329993125,
+      "Samples": [
+        {
+          "WaypointVertical": 1.0500030517578125,
+          "Distance": 19.012710571289062,
+          "Y": 64.05000305175781,
+          "X": -8,
+          "Time": 0.204077799920924,
+          "Z": -154.01271057128906,
+          "Speed": 5,
+          "WaypointHorizontal": 19.012710571289062
+        },
+        {
+          "WaypointVertical": 1.0500030517578125,
+          "Distance": 18.012680053710938,
+          "Y": 64.05000305175781,
+          "X": -8,
+          "Time": 0.40894150000531226,
+          "Z": -153.01268005371094,
+          "Speed": 5,
+          "WaypointHorizontal": 18.012680053710938
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.004236221313477,
+          "Y": 64.05000305175781,
+          "X": -9.116649627685547,
+          "Time": 0.6249750999268144,
+          "Z": -152.96957397460938,
+          "Speed": 5,
+          "WaypointHorizontal": 3.4050276279449463
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.06609344482422,
+          "Y": 64.05000305175781,
+          "X": -10.15779972076416,
+          "Time": 0.8329501999542117,
+          "Z": -152.936767578125,
+          "Speed": 5,
+          "WaypointHorizontal": 2.363360643386841
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.193578720092773,
+          "Y": 64.05000305175781,
+          "X": -11.240595817565918,
+          "Time": 1.049961999990046,
+          "Z": -152.90264892578125,
+          "Speed": 5,
+          "WaypointHorizontal": 1.2800272703170776
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.368633270263672,
+          "Y": 64.05000305175781,
+          "X": -12.246895790100098,
+          "Time": 1.2722927998984233,
+          "Z": -152.87094116210938,
+          "Speed": 0.013904577121138573,
+          "WaypointHorizontal": 0.27322784066200256
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.368637084960938,
+          "Y": 64.05000305175781,
+          "X": -12.24691390991211,
+          "Time": 1.4825612999266014,
+          "Z": -152.87094116210938,
+          "Speed": 0,
+          "WaypointHorizontal": 0.27320975065231323
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.368637084960938,
+          "Y": 64.05000305175781,
+          "X": -12.24691390991211,
+          "Time": 1.682802699971944,
+          "Z": -152.87094116210938,
+          "Speed": 0,
+          "WaypointHorizontal": 0.27320975065231323
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.368637084960938,
+          "Y": 64.05000305175781,
+          "X": -12.24691390991211,
+          "Time": 1.8993219999829307,
+          "Z": -152.87094116210938,
+          "Speed": 0,
+          "WaypointHorizontal": 0.27320975065231323
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.368637084960938,
+          "Y": 64.05000305175781,
+          "X": -12.24691390991211,
+          "Time": 2.1164694000035524,
+          "Z": -152.87094116210938,
+          "Speed": 0,
+          "WaypointHorizontal": 0.27320975065231323
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.368637084960938,
+          "Y": 64.05000305175781,
+          "X": -12.24691390991211,
+          "Time": 2.3174867999041453,
+          "Z": -152.87094116210938,
+          "Speed": 0,
+          "WaypointHorizontal": 0.27320975065231323
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.26119613647461,
+          "Y": 64.05000305175781,
+          "X": -12.769464492797852,
+          "Time": 2.533592699910514,
+          "Z": -152.62734985351562,
+          "Speed": 5,
+          "WaypointHorizontal": 4.423462390899658
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.10735511779785,
+          "Y": 64.05000305175781,
+          "X": -13.751392364501953,
+          "Time": 2.749250900000334,
+          "Z": -152.169677734375,
+          "Speed": 5,
+          "WaypointHorizontal": 3.3401129245758057
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.02212905883789,
+          "Y": 64.05000305175781,
+          "X": -14.657787322998047,
+          "Time": 2.949691899935715,
+          "Z": -151.7472686767578,
+          "Speed": 5,
+          "WaypointHorizontal": 2.3401222229003906
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 17.992162704467773,
+          "Y": 64.05000305175781,
+          "X": -15.56418228149414,
+          "Time": 3.1502976999618113,
+          "Z": -151.32485961914062,
+          "Speed": 5,
+          "WaypointHorizontal": 1.3401317596435547
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.022335052490234,
+          "Y": 64.05000305175781,
+          "X": -16.54610824584961,
+          "Time": 3.366793399909511,
+          "Z": -150.86721801757812,
+          "Speed": 5.000000476837158,
+          "WaypointHorizontal": 0.25679686665534973
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.022741317749023,
+          "Y": 64.05000305175781,
+          "X": -16.552288055419922,
+          "Time": 3.5831652999622747,
+          "Z": -150.86434936523438,
+          "Speed": 0,
+          "WaypointHorizontal": 0.24998369812965393
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.022741317749023,
+          "Y": 64.05000305175781,
+          "X": -16.552288055419922,
+          "Time": 3.799603199935518,
+          "Z": -150.86434936523438,
+          "Speed": 0,
+          "WaypointHorizontal": 0.24998369812965393
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.022741317749023,
+          "Y": 64.05000305175781,
+          "X": -16.552288055419922,
+          "Time": 4.016889299964532,
+          "Z": -150.86434936523438,
+          "Speed": 0,
+          "WaypointHorizontal": 0.24998369812965393
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.022741317749023,
+          "Y": 64.05000305175781,
+          "X": -16.552288055419922,
+          "Time": 4.23277539992705,
+          "Z": -150.86434936523438,
+          "Speed": 0,
+          "WaypointHorizontal": 0.24998369812965393
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.026512145996094,
+          "Y": 64.05000305175781,
+          "X": -16.62139892578125,
+          "Time": 4.43355039996095,
+          "Z": -150.83119201660156,
+          "Speed": 4.901123046875,
+          "WaypointHorizontal": 4.9233503341674805
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.114526748657227,
+          "Y": 64.05000305175781,
+          "X": -17.598072052001953,
+          "Time": 4.651724700001068,
+          "Z": -150.3627166748047,
+          "Speed": 5,
+          "WaypointHorizontal": 3.8401331901550293
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.266483306884766,
+          "Y": 64.05000305175781,
+          "X": -18.574867248535156,
+          "Time": 4.866995899938047,
+          "Z": -149.89418029785156,
+          "Speed": 5,
+          "WaypointHorizontal": 2.756779432296753
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.480804443359375,
+          "Y": 64.05000305175781,
+          "X": -19.55166244506836,
+          "Time": 5.083039999939501,
+          "Z": -149.42564392089844,
+          "Speed": 5.000000476837158,
+          "WaypointHorizontal": 1.6734257936477661
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.73216438293457,
+          "Y": 64.05000305175781,
+          "X": -20.45334243774414,
+          "Time": 5.283799999975599,
+          "Z": -148.99314880371094,
+          "Speed": 5,
+          "WaypointHorizontal": 0.6733863353729248
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.853652954101562,
+          "Y": 64.05000305175781,
+          "X": -20.835205078125,
+          "Time": 5.5001344999764115,
+          "Z": -148.81005859375,
+          "Speed": 1.1694187014143348e-13,
+          "WaypointHorizontal": 0.2498994767665863
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.853652954101562,
+          "Y": 64.05000305175781,
+          "X": -20.835205078125,
+          "Time": 5.700393199920654,
+          "Z": -148.81005859375,
+          "Speed": 0,
+          "WaypointHorizontal": 0.2498994767665863
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.853652954101562,
+          "Y": 64.05000305175781,
+          "X": -20.835205078125,
+          "Time": 5.916335799964145,
+          "Z": -148.81005859375,
+          "Speed": 0,
+          "WaypointHorizontal": 0.2498994767665863
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.853652954101562,
+          "Y": 64.05000305175781,
+          "X": -20.835205078125,
+          "Time": 6.116755699971691,
+          "Z": -148.81005859375,
+          "Speed": 0,
+          "WaypointHorizontal": 0.2498994767665863
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.853652954101562,
+          "Y": 64.05000305175781,
+          "X": -20.835205078125,
+          "Time": 6.3333436999237165,
+          "Z": -148.81005859375,
+          "Speed": 0,
+          "WaypointHorizontal": 0.2498994767665863
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.997838973999023,
+          "Y": 64.05000305175781,
+          "X": -21.399263381958008,
+          "Time": 6.549550399999134,
+          "Z": -148.4676513671875,
+          "Speed": 5.000001430511475,
+          "WaypointHorizontal": 3.7546584606170654
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 19.340930938720703,
+          "Y": 64.05000305175781,
+          "X": -22.221628189086914,
+          "Time": 6.750857900013216,
+          "Z": -148.10789489746094,
+          "Speed": 3.8010311126708984,
+          "WaypointHorizontal": 2.8674771785736084
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 19.761241912841797,
+          "Y": 64.05000305175781,
+          "X": -22.992467880249023,
+          "Time": 6.966164999990724,
+          "Z": -147.87371826171875,
+          "Speed": 3.6779394149780273,
+          "WaypointHorizontal": 2.1088221073150635
+        },
+        {
+          "WaypointVertical": 4.049995422363281,
+          "Distance": 19.965023040771484,
+          "Y": 64.04999542236328,
+          "X": -23.720691680908203,
+          "Time": 7.167357099941,
+          "Z": -147.30699157714844,
+          "Speed": 5,
+          "WaypointHorizontal": 1.187131404876709
+        },
+        {
+          "WaypointVertical": 4.049995422363281,
+          "Distance": 20.15177345275879,
+          "Y": 64.04999542236328,
+          "X": -24.411582946777344,
+          "Time": 7.383401499944739,
+          "Z": -146.69418334960938,
+          "Speed": 0.0019553289748728275,
+          "WaypointHorizontal": 0.2636246681213379
+        },
+        {
+          "WaypointVertical": 4.049995422363281,
+          "Distance": 20.151775360107422,
+          "Y": 64.04999542236328,
+          "X": -24.411584854125977,
+          "Time": 7.59974799992051,
+          "Z": -146.69418334960938,
+          "Speed": 0,
+          "WaypointHorizontal": 0.26362326741218567
+        },
+        {
+          "WaypointVertical": 4.049995422363281,
+          "Distance": 20.151775360107422,
+          "Y": 64.04999542236328,
+          "X": -24.411584854125977,
+          "Time": 7.799928299966268,
+          "Z": -146.69418334960938,
+          "Speed": 0,
+          "WaypointHorizontal": 0.26362326741218567
+        },
+        {
+          "WaypointVertical": 4.049995422363281,
+          "Distance": 20.151775360107422,
+          "Y": 64.04999542236328,
+          "X": -24.411584854125977,
+          "Time": 8.016408099909313,
+          "Z": -146.69418334960938,
+          "Speed": 0,
+          "WaypointHorizontal": 0.26362326741218567
+        },
+        {
+          "WaypointVertical": 4.049995422363281,
+          "Distance": 20.151775360107422,
+          "Y": 64.04999542236328,
+          "X": -24.411584854125977,
+          "Time": 8.232628299971111,
+          "Z": -146.69418334960938,
+          "Speed": 0,
+          "WaypointHorizontal": 0.26362326741218567
+        },
+        {
+          "WaypointVertical": 4.049995422363281,
+          "Distance": 20.04158592224121,
+          "Y": 64.04999542236328,
+          "X": -24.388593673706055,
+          "Time": 8.433263199985959,
+          "Z": -146.53599548339844,
+          "Speed": 4.998044013977051,
+          "WaypointHorizontal": 4.608047008514404
+        },
+        {
+          "WaypointVertical": 4.049995422363281,
+          "Distance": 19.368038177490234,
+          "Y": 64.04999542236328,
+          "X": -24.24476432800293,
+          "Time": 8.633447699947283,
+          "Z": -145.54649353027344,
+          "Speed": 5.000000953674316,
+          "WaypointHorizontal": 3.6081461906433105
+        },
+        {
+          "WaypointVertical": 1.0499954223632812,
+          "Distance": 18.716197967529297,
+          "Y": 64.04999542236328,
+          "X": -24.073223114013672,
+          "Time": 8.849794999929145,
+          "Z": -144.58892822265625,
+          "Speed": 3.9545037746429443,
+          "WaypointHorizontal": 18.716197967529297
+        },
+        {
+          "WaypointVertical": 1.0499954223632812,
+          "Distance": 18.3617000579834,
+          "Y": 64.04999542236328,
+          "X": -24.08306121826172,
+          "Time": 9.066761899972335,
+          "Z": -143.8592987060547,
+          "Speed": 3.4295926094055176,
+          "WaypointHorizontal": 18.3617000579834
+        },
+        {
+          "WaypointVertical": 1.0440521240234375,
+          "Distance": 17.62975311279297,
+          "Y": 64.04405212402344,
+          "X": -23.585691452026367,
+          "Time": 9.283229499938898,
+          "Z": -143.23980712890625,
+          "Speed": 3.7591922283172607,
+          "WaypointHorizontal": 17.62975311279297
+        },
+        {
+          "WaypointVertical": 1.0460357666015625,
+          "Distance": 16.940168380737305,
+          "Y": 64.04603576660156,
+          "X": -23.042625427246094,
+          "Time": 9.48389029991813,
+          "Z": -142.79029846191406,
+          "Speed": 3.313804864883423,
+          "WaypointHorizontal": 16.940168380737305
+        },
+        {
+          "WaypointVertical": 1.049896240234375,
+          "Distance": 16.539531707763672,
+          "Y": 64.04989624023438,
+          "X": -22.84439468383789,
+          "Time": 9.69985460001044,
+          "Z": -142.29383850097656,
+          "Speed": 3.386530876159668,
+          "WaypointHorizontal": 16.539531707763672
+        },
+        {
+          "WaypointVertical": 1.04998779296875,
+          "Distance": 15.745903015136719,
+          "Y": 64.04998779296875,
+          "X": -22.211267471313477,
+          "Time": 9.915437399991788,
+          "Z": -141.78036499023438,
+          "Speed": 4.999999523162842,
+          "WaypointHorizontal": 15.745903015136719
+        },
+        {
+          "WaypointVertical": 1.04998779296875,
+          "Distance": 14.745890617370605,
+          "Y": 64.04998779296875,
+          "X": -21.308740615844727,
+          "Time": 10.117243699962273,
+          "Z": -141.34970092773438,
+          "Speed": 5,
+          "WaypointHorizontal": 14.745890617370605
+        },
+        {
+          "WaypointVertical": 1.04998779296875,
+          "Distance": 13.662542343139648,
+          "Y": 64.04998779296875,
+          "X": -20.331003189086914,
+          "Time": 10.332283900002949,
+          "Z": -140.88314819335938,
+          "Speed": 5.000000953674316,
+          "WaypointHorizontal": 13.662542343139648
+        },
+        {
+          "WaypointVertical": 1.04998779296875,
+          "Distance": 12.662529945373535,
+          "Y": 64.04998779296875,
+          "X": -19.428476333618164,
+          "Time": 10.533357999986038,
+          "Z": -140.45248413085938,
+          "Speed": 5,
+          "WaypointHorizontal": 12.662529945373535
+        },
+        {
+          "WaypointVertical": 1.04998779296875,
+          "Distance": 11.579181671142578,
+          "Y": 64.04998779296875,
+          "X": -18.45073890686035,
+          "Time": 10.749888299964368,
+          "Z": -139.98593139648438,
+          "Speed": 4.999999523162842,
+          "WaypointHorizontal": 11.579181671142578
+        },
+        {
+          "WaypointVertical": 1.04998779296875,
+          "Distance": 10.495834350585938,
+          "Y": 64.04998779296875,
+          "X": -17.47300148010254,
+          "Time": 10.96719180000946,
+          "Z": -139.51937866210938,
+          "Speed": 5,
+          "WaypointHorizontal": 10.495834350585938
+        },
+        {
+          "WaypointVertical": 1.04998779296875,
+          "Distance": 9.412456512451172,
+          "Y": 64.04998779296875,
+          "X": -16.495229721069336,
+          "Time": 11.18304839998018,
+          "Z": -139.05282592773438,
+          "Speed": 4.999999523162842,
+          "WaypointHorizontal": 9.412456512451172
+        },
+        {
+          "WaypointVertical": 1.04998779296875,
+          "Distance": 8.32907485961914,
+          "Y": 64.04998779296875,
+          "X": -15.517455101013184,
+          "Time": 11.399946799967438,
+          "Z": -138.58627319335938,
+          "Speed": 5.000000476837158,
+          "WaypointHorizontal": 8.32907485961914
+        },
+        {
+          "WaypointVertical": 1.04998779296875,
+          "Distance": 7.245704650878906,
+          "Y": 64.04998779296875,
+          "X": -14.539692878723145,
+          "Time": 11.615618199924938,
+          "Z": -138.11972045898438,
+          "Speed": 5.000000953674316,
+          "WaypointHorizontal": 7.245704650878906
+        },
+        {
+          "WaypointVertical": 1.04998779296875,
+          "Distance": 6.1623125076293945,
+          "Y": 64.04998779296875,
+          "X": -13.561905860900879,
+          "Time": 11.83246780000627,
+          "Z": -137.65316772460938,
+          "Speed": 5.000000476837158,
+          "WaypointHorizontal": 6.1623125076293945
+        },
+        {
+          "WaypointVertical": 1.04998779296875,
+          "Distance": 5.162258148193359,
+          "Y": 64.04998779296875,
+          "X": -12.659333229064941,
+          "Time": 12.032937299925834,
+          "Z": -137.22250366210938,
+          "Speed": 5.000000476837158,
+          "WaypointHorizontal": 5.162258148193359
+        }
+      ],
+      "IdleSeconds": 4.248321699909866,
+      "Passed": true,
+      "Reached": true,
+      "ProbeWaypoints": 10,
+      "MaximumDetourX": 16.411584854125977,
+      "Label": "Before",
+      "MinimumDistance": 5.162258148193359,
+      "ProbeY": 60
+    },
+    "after": {
+      "VerticalWaypointStallSeconds": 0,
+      "Checks": [
+        "Temporary physical arena has a valid detour path",
+        "Real director physically navigates around the solid wall"
+      ],
+      "Elapsed": 7.764562000054866,
+      "Samples": [
+        {
+          "WaypointVertical": 0,
+          "Distance": 20,
+          "Y": 64.05000305175781,
+          "X": -8,
+          "Time": 0.21423490007873625,
+          "Z": -155,
+          "Speed": 0,
+          "WaypointHorizontal": 0,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 0,
+          "Distance": 20,
+          "Y": 64.05000305175781,
+          "X": -8,
+          "Time": 0.4312958000227809,
+          "Z": -155,
+          "Speed": 0,
+          "WaypointHorizontal": 0,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 19.660900115966797,
+          "Y": 64.05000305175781,
+          "X": -8.747163772583008,
+          "Time": 0.6314558000303805,
+          "Z": -154.64669799804688,
+          "Speed": 5,
+          "WaypointHorizontal": 4.173518180847168,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 19.28994369506836,
+          "Y": 64.05000305175781,
+          "X": -9.651155471801758,
+          "Time": 0.8317177999997512,
+          "Z": -154.21914672851562,
+          "Speed": 5,
+          "WaypointHorizontal": 3.173517942428589,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.93952751159668,
+          "Y": 64.05000305175781,
+          "X": -10.63047981262207,
+          "Time": 1.0471639001043513,
+          "Z": -153.75596618652344,
+          "Speed": 5.000000476837158,
+          "WaypointHorizontal": 2.090183973312378,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.666099548339844,
+          "Y": 64.05000305175781,
+          "X": -11.53447151184082,
+          "Time": 1.2474830000428483,
+          "Z": -153.3284149169922,
+          "Speed": 5,
+          "WaypointHorizontal": 1.0901833772659302,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.42671012878418,
+          "Y": 64.05000305175781,
+          "X": -12.513795852661133,
+          "Time": 1.4639414000557736,
+          "Z": -152.8653106689453,
+          "Speed": 5,
+          "WaypointHorizontal": 5.006879806518555,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.260007858276367,
+          "Y": 64.05000305175781,
+          "X": -13.417787551879883,
+          "Time": 1.6651617001043633,
+          "Z": -152.43775939941406,
+          "Speed": 5,
+          "WaypointHorizontal": 4.0068793296813965,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.146957397460938,
+          "Y": 64.05000305175781,
+          "X": -14.321779251098633,
+          "Time": 1.8652673000469804,
+          "Z": -152.0102081298828,
+          "Speed": 5,
+          "WaypointHorizontal": 3.006878614425659,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.08620262145996,
+          "Y": 64.05000305175781,
+          "X": -15.301103591918945,
+          "Time": 2.0804803000064567,
+          "Z": -151.5470428466797,
+          "Speed": 5.000000953674316,
+          "WaypointHorizontal": 6.923553943634033,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.08891487121582,
+          "Y": 64.05000305175781,
+          "X": -16.242761611938477,
+          "Time": 2.2868127000983804,
+          "Z": -151.1017303466797,
+          "Speed": 5,
+          "WaypointHorizontal": 5.881909370422363,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.151460647583008,
+          "Y": 64.05000305175781,
+          "X": -17.184419631958008,
+          "Time": 2.497051000013016,
+          "Z": -150.6563720703125,
+          "Speed": 5.000000476837158,
+          "WaypointHorizontal": 4.840245246887207,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.26726722717285,
+          "Y": 64.05000305175781,
+          "X": -18.088411331176758,
+          "Time": 2.6980512000154704,
+          "Z": -150.22882080078125,
+          "Speed": 5,
+          "WaypointHorizontal": 3.840244770050049,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.453155517578125,
+          "Y": 64.05000305175781,
+          "X": -19.06773567199707,
+          "Time": 2.914058200083673,
+          "Z": -149.76564025878906,
+          "Speed": 5,
+          "WaypointHorizontal": 2.756910800933838,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.678958892822266,
+          "Y": 64.05000305175781,
+          "X": -19.97172737121582,
+          "Time": 3.115157900028862,
+          "Z": -149.33810424804688,
+          "Speed": 5,
+          "WaypointHorizontal": 1.756916880607605,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 18.980119705200195,
+          "Y": 64.05000305175781,
+          "X": -20.951051712036133,
+          "Time": 3.3314515000674874,
+          "Z": -148.87498474121094,
+          "Speed": 5,
+          "WaypointHorizontal": 3.7430295944213867,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 19.33730697631836,
+          "Y": 64.05000305175781,
+          "X": -21.930376052856445,
+          "Time": 3.5481465000193566,
+          "Z": -148.4117889404297,
+          "Speed": 4.999999523162842,
+          "WaypointHorizontal": 2.65968918800354,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.04998779296875,
+          "Distance": 19.548646926879883,
+          "Y": 64.04998779296875,
+          "X": -22.688337326049805,
+          "Time": 3.748460700036958,
+          "Z": -147.8997039794922,
+          "Speed": 3.9325172901153564,
+          "WaypointHorizontal": 5.429956436157227,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 19.785659790039062,
+          "Y": 64.05000305175781,
+          "X": -23.4133243560791,
+          "Time": 3.963915100088343,
+          "Z": -147.4057159423828,
+          "Speed": 4.373012065887451,
+          "WaypointHorizontal": 4.770190715789795,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.0500030517578125,
+          "Distance": 19.59531021118164,
+          "Y": 64.05000305175781,
+          "X": -23.809730529785156,
+          "Time": 4.164663900039159,
+          "Z": -146.5770721435547,
+          "Speed": 4.851617336273193,
+          "WaypointHorizontal": 3.8873279094696045,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 4.049919128417969,
+          "Distance": 19.123308181762695,
+          "Y": 64.04991912841797,
+          "X": -23.973922729492188,
+          "Time": 4.380573500064202,
+          "Z": -145.5135498046875,
+          "Speed": 5,
+          "WaypointHorizontal": 2.811439037322998,
+          "NavState": "Following"
+        },
+        {
+          "WaypointVertical": 1.04998779296875,
+          "Distance": 18.794124603271484,
+          "Y": 64.04998779296875,
+          "X": -24.08160972595215,
+          "Time": 4.59761460009031,
+          "Z": -144.72630310058594,
+          "Speed": 3.131284475326538,
+          "WaypointHorizontal": 18.794124603271484,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0499801635742188,
+          "Distance": 18.456947326660156,
+          "Y": 64.04998016357422,
+          "X": -24.107675552368164,
+          "Time": 4.813929400057532,
+          "Z": -144.01119995117188,
+          "Speed": 3.4440062046051025,
+          "WaypointHorizontal": 18.456947326660156,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.04998779296875,
+          "Distance": 17.833248138427734,
+          "Y": 64.04998779296875,
+          "X": -23.72711753845215,
+          "Time": 5.014737399993464,
+          "Z": -143.40728759765625,
+          "Speed": 3.771254301071167,
+          "WaypointHorizontal": 17.833248138427734,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0500030517578125,
+          "Distance": 17.078369140625,
+          "Y": 64.05000305175781,
+          "X": -23.15468406677246,
+          "Time": 5.230815300019458,
+          "Z": -142.87440490722656,
+          "Speed": 3.403689384460449,
+          "WaypointHorizontal": 17.078369140625,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0499267578125,
+          "Distance": 16.650531768798828,
+          "Y": 64.0499267578125,
+          "X": -22.897388458251953,
+          "Time": 5.431349700083956,
+          "Z": -142.4369354248047,
+          "Speed": 3.3071625232696533,
+          "WaypointHorizontal": 16.650531768798828,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0499954223632812,
+          "Distance": 16.03966522216797,
+          "Y": 64.04999542236328,
+          "X": -22.476421356201172,
+          "Time": 5.648114500101656,
+          "Z": -141.9068145751953,
+          "Speed": 4.999998569488525,
+          "WaypointHorizontal": 16.03966522216797,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0499954223632812,
+          "Distance": 14.956317901611328,
+          "Y": 64.04999542236328,
+          "X": -21.49868392944336,
+          "Time": 5.863561000092886,
+          "Z": -141.4402618408203,
+          "Speed": 5,
+          "WaypointHorizontal": 14.956317901611328,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0499954223632812,
+          "Distance": 13.872970581054688,
+          "Y": 64.04999542236328,
+          "X": -20.520946502685547,
+          "Time": 6.080444800085388,
+          "Z": -140.9737091064453,
+          "Speed": 5,
+          "WaypointHorizontal": 13.872970581054688,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0499954223632812,
+          "Distance": 12.872956275939941,
+          "Y": 64.04999542236328,
+          "X": -19.618419647216797,
+          "Time": 6.281221400015056,
+          "Z": -140.5430450439453,
+          "Speed": 5,
+          "WaypointHorizontal": 12.872956275939941,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0499954223632812,
+          "Distance": 11.789609909057617,
+          "Y": 64.04999542236328,
+          "X": -18.640682220458984,
+          "Time": 6.498497000080533,
+          "Z": -140.0764923095703,
+          "Speed": 5,
+          "WaypointHorizontal": 11.789609909057617,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0499954223632812,
+          "Distance": 10.706252098083496,
+          "Y": 64.04999542236328,
+          "X": -17.662933349609375,
+          "Time": 6.713713200064376,
+          "Z": -139.6099395751953,
+          "Speed": 5.000000476837158,
+          "WaypointHorizontal": 10.706252098083496,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0499954223632812,
+          "Distance": 9.706197738647461,
+          "Y": 64.04999542236328,
+          "X": -16.760360717773438,
+          "Time": 6.914104100083932,
+          "Z": -139.1792755126953,
+          "Speed": 4.999999523162842,
+          "WaypointHorizontal": 9.706197738647461,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0499954223632812,
+          "Distance": 8.706146240234375,
+          "Y": 64.04999542236328,
+          "X": -15.857791900634766,
+          "Time": 7.114454800030217,
+          "Z": -138.7486114501953,
+          "Speed": 4.999999523162842,
+          "WaypointHorizontal": 8.706146240234375,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0499954223632812,
+          "Distance": 7.622772693634033,
+          "Y": 64.04999542236328,
+          "X": -14.880025863647461,
+          "Time": 7.3310119000962,
+          "Z": -138.2820587158203,
+          "Speed": 5.000000953674316,
+          "WaypointHorizontal": 7.622772693634033,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0499954223632812,
+          "Distance": 6.5393805503845215,
+          "Y": 64.04999542236328,
+          "X": -13.902238845825195,
+          "Time": 7.548972600023262,
+          "Z": -137.8155059814453,
+          "Speed": 5,
+          "WaypointHorizontal": 6.5393805503845215,
+          "NavState": "Direct"
+        },
+        {
+          "WaypointVertical": 1.0499954223632812,
+          "Distance": 5.45598840713501,
+          "Y": 64.04999542236328,
+          "X": -12.92445182800293,
+          "Time": 7.764537200098857,
+          "Z": -137.3489532470703,
+          "Speed": 5,
+          "WaypointHorizontal": 5.45598840713501,
+          "NavState": "Direct"
+        }
+      ],
+      "IdleSeconds": 0.4312958000227809,
+      "Passed": true,
+      "Reached": true,
+      "ProbeWaypoints": 10,
+      "MaximumDetourX": 16.107675552368164,
+      "Label": "After",
+      "MinimumDistance": 5.45598840713501,
+      "ProbeY": 60
+    },
+    "qualification": "Same temporary physical floor/wall and real director Brute. A single controlled comparison, not a global performance benchmark. Measured before final Destroy-only cleanup fix; path-following code unchanged by that fix. Comparison checks are separate from the 99 final regression checks.",
+    "beforeSourceBackup": "ServerStorage.BeforeZombieNavigation.ZombieDirector"
+  },
+  "destructionBeforeFix": {
+    "Before": "-14.844301223754883, 163, 60",
+    "State": "Dead",
+    "After": "-9.244295120239258, 163, 60",
+    "TravelAfterDestroy": 5.600006103515625
+  },
+  "nativeBlockedObservation": {
+    "Waited": 8.049956899951212,
+    "StallRecoveries": 0,
+    "InitialWaypoints": 13,
+    "Events": 0,
+    "Status": "NotObserved",
+    "InitialRevision": 1,
+    "FixtureCompleted": true
+  },
+  "nativeBlockedQualification": "No native Blocked event observed in either dynamic route test or eight-second stationary observer. Physical-stall fallback was observed and passed. Signal wiring is not proof of engine emission.",
+  "queueQualification": "Two simultaneous module workers and four queued jobs observed. 64 is configured queue cap, not a stress-tested queue length. Final navigation-only suite drained all running/queued work. Its one Failed count is the intentional NoPath case.",
+  "cacheQualification": "A final direct execute_luau require(SS.ZombieNavigation).Stats returned an independent zeroed cache and was not used as gameplay evidence. Service measurements above came from ordinary temporary server Scripts.",
+  "sourceChanges": [
+    "studio/ZombieNavigation.luau (new ModuleScript)",
+    "studio/ZombieDirector.server.luau"
+  ],
+  "backup": "ServerStorage.BeforeZombieNavigation (one existing director Script)",
+  "qa": [
+    "NavigationDirector.server.luau",
+    "ZombieNavigation.server.luau",
+    "NavigationBlocked.server.luau"
+  ],
+  "console": "Empty at final Play read",
+  "rendering": {
+    "lastClientViewport": [
+      1,
+      1
+    ],
+    "screenshots": false,
+    "pulsePoseDistances": [
+      0,
+      0
+    ],
+    "qualification": "Physical server trajectories and created FX instances are not visual/UI pose verification."
+  },
+  "limits": [
+    "No physical-input, multiplayer, production persistence, audio listening or FPS benchmark",
+    "No complete multi-floor/narrow-area/crowd/latency coverage",
+    "Seven-page catalog and attack/critical visuals remain pending",
+    "Native Path.Blocked positive event not observed"
+  ],
+  "finalState": {
+    "studioMode": "Edit",
+    "playStopped": true,
+    "scripts": 43,
+    "simulator": "default",
+    "orientation": "LandscapeLeft",
+    "robuxEnabled": false,
+    "published": false
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-10-26 14:14 UTC",
+  "environment": "Roblox Studio Play, PersistenceMode=SessionStudio; stopped afterward and Edit confirmed",
+  "passed": true,
+  "gameplayAssertions": 16,
+  "rangedCryo": {
+    "remote": "UseAbility:FireServer(\"Frost\", Vector3.new(0,0,-1))",
+    "rangeStuds": 70,
+    "targetDistanceStuds": 58,
+    "targetHealth": "100 -> 70",
+    "offAxis9Studs": "untouched",
+    "outOfRange72Studs": "untouched",
+    "stun": "applied",
+    "stamina": "charged server-side",
+    "cooldown": "armed server-side",
+    "clientEffects": {"chargeMarks": 8, "projectile": 1, "beams": 2, "impactShards": 7}
+  },
+  "aegis": {
+    "durationSeconds": 3.2,
+    "meleeDuringGuard": "TryAttack refused with Guarded; no damage",
+    "meleeAfterExpiry": "accepted and ordinary damage resumed",
+    "clientEffects": {"segmentedHaloParts": 36, "reducedMotionHaloParts": 8}
+  },
+  "secondSouffle": {"healthRestored": 20, "atMaxHealth": true, "spiralSparks": 12},
+  "slam": {"damage": 34, "stun": true, "groundCracks": 12},
+  "motion": {"samples": 20, "allReturnedCFrame": true, "allWeightsBoundedZeroToOne": true},
+  "studio": {"consoleAtFinalCheck": "empty", "modeAfterTest": "Edit", "qaScriptsLeftInActiveTree": false, "runtimeManifestScripts": 46},
+  "limits": [
+    "No dedicated cryo wall-blocker scenario was run",
+    "Studio screenshots returned loading art or a black viewport; effect counts and pose samples do not prove final visual quality on screen",
+    "No physical mobile/gamepad, multiplayer, production DataStore, publication, or rbxl save"
+  ]
+}

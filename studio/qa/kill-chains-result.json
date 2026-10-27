@@ -1,0 +1,26 @@
+{
+  "uiFollowup": "Notification overlap corrected and inspected; see notification-layout-result.json. Original limitations below describe the earlier test.",
+  "date": "2026-10-22",
+  "scope": "Normal server Script in Studio Play, synthetic validated-kill callbacks; one test character respawned; not multiplayer proof",
+  "result": {
+    "Passed": true,
+    "Checks": [
+      "First elimination starts a chain",
+      "Eight second server deadline",
+      "Unknown species and reward-only Buddy cannot extend a chain",
+      "Second elimination extends the deadline",
+      "Old expiration cannot clear a newer chain",
+      "Idle chain expires and clears deadline",
+      "Session record survives expiry",
+      "Next elimination starts at one",
+      "Death immediately clears chain",
+      "Posthumous elimination cannot start a chain",
+      "Respawn clears chain and retains session record"
+    ]
+  },
+  "limitations": [
+    "HUD overlap found on desktop screenshot",
+    "GameHub notification stacking correction is local and pending installation",
+    "Mobile rendering and real zombie combat sequence not yet verified"
+  ]
+}

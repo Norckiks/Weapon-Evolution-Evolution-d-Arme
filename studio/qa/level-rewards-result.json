@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-27",
+  "server": {
+    "Restored": true,
+    "Passed": true,
+    "Checks": [
+      "Legacy profile receives a claim map",
+      "Locked level refused",
+      "Before Play refused",
+      "Exact coins without pet/time multiplier or XP",
+      "Canonical duplicate refused: 2",
+      "Canonical duplicate refused: 02",
+      "Canonical duplicate refused: 2.0",
+      "Canonical duplicate refused: 2e0",
+      "Invalid claim refused: string 0",
+      "Invalid claim refused: string -2",
+      "Invalid claim refused: string 2.5",
+      "Invalid claim refused: string 999",
+      "Invalid claim refused: string nan",
+      "Invalid claim refused: string 1e999",
+      "Invalid claim refused: string 22222222222222222222222222222222222222222222222222222222222222222",
+      "Invalid claim refused: table table: 0x4adb31c0dc1f84e8",
+      "Invalid claim refused: number 22",
+      "Exact one-time reward level 3",
+      "Exact one-time reward level 5",
+      "Exact one-time reward level 7",
+      "Exact one-time reward level 10",
+      "Exact one-time reward level 12",
+      "Exact one-time reward level 16",
+      "Exact one-time reward level 20",
+      "Exact one-time reward level 22",
+      "Repeated burst cannot pay twice",
+      "JSON preserves milestones and existing receipts",
+      "Daily rollover preserves permanent receipts",
+      "Daily rollover cannot replay milestone",
+      "Robux remains disabled"
+    ]
+  },
+  "uiSnapshots": [
+    {
+      "phase": "milestoneUIPCSnapshot",
+      "viewport": "1447, 824",
+      "rows": 10,
+      "page": "CADEAUX DE TEMPS",
+      "checks": 45
+    },
+    {
+      "phase": "milestoneUIPortrait",
+      "viewport": "401, 778",
+      "rows": 10,
+      "page": "CADEAUX DE TEMPS",
+      "checks": 55
+    },
+    {
+      "phase": "milestoneUILandscape",
+      "viewport": "750, 381",
+      "rows": 10,
+      "page": "CADEAUX DE TEMPS",
+      "checks": 55
+    },
+    {
+      "phase": "milestoneFinalUIPCSnapshot",
+      "viewport": "1447, 824",
+      "rows": 10,
+      "page": "CADEAUX & PALIERS",
+      "checks": 45
+    },
+    {
+      "phase": "milestoneFinalUIPortrait",
+      "viewport": "401, 778",
+      "rows": 10,
+      "page": "CADEAUX & PALIERS",
+      "checks": 55
+    },
+    {
+      "phase": "milestoneFinalUILandscape",
+      "viewport": "750, 381",
+      "rows": 10,
+      "page": "CADEAUX & PALIERS",
+      "checks": 55
+    }
+  ],
+  "nativeClaimLevel2": {
+    "Claims": {
+      "2": true
+    },
+    "Coins": 650
+  },
+  "nativeClaimLevel22": {
+    "Claimed": true,
+    "Coins": 4500
+  },
+  "capturesInspected": [
+    "LevelRewardReadyPC",
+    "LevelRewardLockedPortrait",
+    "LevelReward22PortraitFinal"
+  ],
+  "limits": [
+    "SessionStudio, profils et statistiques restaurés avant Stop.",
+    "Snapshots des trois formats ; clics réels sur PC uniquement.",
+    "Sérialisation JSON des reçus vérifiée ; pas de reconnexion DataStore ni de multijoueur.",
+    "Le titre/footer a été corrigé après les tests serveur ; les trois snapshots finaux couvrent cette correction.",
+    "Plafond de pièces 2 milliards inchangé, pas de test au plafond.",
+    "Captures MCP inspectées, non sauvegardées en fichiers locaux."
+  ]
+}

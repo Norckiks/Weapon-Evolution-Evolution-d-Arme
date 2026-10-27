@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-22",
+  "placeId": 78882167241715,
+  "scope": "Sequential single-player Studio Play regression; firearm remotes emitted by client bridge",
+  "results": {
+    "Contracts": {
+      "Passed": true,
+      "Checks": [
+        "No early payout",
+        "Partial progress survives serialization",
+        "First contract awards once and advances",
+        "Variety requires distinct species",
+        "Variety payout",
+        "Cycle restarts without waiting",
+        "Unknown zombie cannot progress contracts"
+      ]
+    },
+    "Expansion": {
+      "Passed": true,
+      "Checks": [
+        "Insufficient coins refused away from shop",
+        "Health purchase and price",
+        "Speed affects walking and sprint",
+        "Weapon purchase from menu away from shop, equip and model",
+        "Owned weapon cannot be charged twice",
+        "Weapon level gate",
+        "Unowned weapon equip refused",
+        "Fusion requires three matching fragments",
+        "Fusion consumes fragments and creates pet",
+        "Duplicate fusion request refused",
+        "Pet coin XP multipliers",
+        "Early time claim refused",
+        "Five minute x2 XP boost",
+        "Time reward cannot be claimed twice",
+        "Alternate time reward IDs cannot bypass claim history",
+        "Thirty minute free pet",
+        "Pet and timed boost compose",
+        "Daily mission claim once including alternate IDs",
+        "Robux shop disabled",
+        "Receipt cannot grant against nonpersistent profile",
+        "All nine zombie types feed daily progression",
+        "Valid fragment inventory: Hazmat",
+        "Valid fragment inventory: Runner",
+        "Valid fragment inventory: Civilian",
+        "Valid fragment inventory: Scrapper",
+        "Valid fragment inventory: Abomination"
+      ]
+    },
+    "Movement": {
+      "Passed": true,
+      "Checks": [
+        "Slide accepted and costs 15 stamina",
+        "Vault blocked while sliding",
+        "Slide physically moves character",
+        "Slide constraint cleaned after duration",
+        "Low obstacle vault accepted and costs 12 stamina",
+        "Vault applies upward impulse",
+        "Vault crosses the obstacle",
+        "Vault lands on the far side",
+        "No obstacle means no vault or cost",
+        "Tall wall rejected",
+        "Insufficient vault stamina rejected",
+        "Menu rejects movement actions"
+      ]
+    },
+    "Firearms": {
+      "Passed": true,
+      "Checks": [
+        "Pistol level gate (requires level 3)",
+        "Pistol purchase and coin deduction",
+        "Duplicate Pistol purchase rejected without charge",
+        "Pistol equipped with 12 ammo",
+        "Invalid shoot directions rejected without consuming ammo",
+        "Valid shot consumes 1 ammo",
+        "Rapid burst rate-limited to single shot within cooldown",
+        "SMG level gate (requires level 7)",
+        "SMG purchase and coin deduction",
+        "SMG equipped with 24 ammo",
+        "Wall obstruction blocks gunshot damage",
+        "Direct gunshot deals damage and credits attacker",
+        "Melee punch rejected while firearm is equipped",
+        "Reload starts with GunReloading=true and 2.1s duration",
+        "Shooting blocked during reload",
+        "Switching weapon cancels ongoing reload",
+        "Full reload refilled SMG magazine to 24"
+      ]
+    }
+  }
+}

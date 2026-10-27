@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-26",
+  "studio": "1810e323-f08c-4cee-af08-45d071dcc952",
+  "persistence": "SessionStudio",
+  "serverChecks": {"movementConfigAndBonuses": 5, "expansion": 33, "movement": 12, "passed": true},
+  "nativeRun": {
+    "Passed": true, "Frames": 100, "PeakSpeed": 32, "Displacement": 50.32928466796875,
+    "TrackSpeed": 2, "StartStamina": 98, "EndStamina": 65.2,
+    "ThirdPerson": true, "ReducedMotion": false, "Viewport": "1447, 801"
+  },
+  "reducedNativeRun": {
+    "Passed": true, "Frames": 104, "PeakSpeed": 32, "Displacement": 55.07049560546875,
+    "TrackSpeed": 2, "StartStamina": 97.7, "EndStamina": 65,
+    "ThirdPerson": true, "ReducedMotion": true, "Viewport": "1447, 801"
+  },
+  "camera": {
+    "nativeOFirstPerson": {"mode": "LockFirstPerson", "headDistance": 0.6850898265838623, "viewmodelPresent": true, "offset": "0, 0, 0"},
+    "nativeOThirdPerson": {"mode": "Classic", "headDistance": 8.33538818359375, "viewmodelPresent": false, "offset": "1.5, 0.25, 0"},
+    "optionsBlockO": true,
+    "respawn": {"ThirdPerson": true, "mode": "Classic", "min": 8, "max": 14, "offset": "1.5, 0.25, 0"},
+    "mouseDragRotationConfirmed": false
+  },
+  "nativeThirdPersonShot": {"initialHP": 1000, "afterShotHP": 976, "ammoAfterShot": 11, "afterWallShotHP": 976, "ammoAfterWallShot": 10, "wallBlocked": true},
+  "layout": {
+    "desktop": "1447, 801",
+    "device": "iphone_17_pro",
+    "portrait": {"viewport": "401, 778", "cameraButtonPosition": "14, 219", "cameraButtonSize": "144, 44", "nativeCoordinateClickActivatedView": true},
+    "landscape": {"viewport": "750, 381", "shortcutPositions": ["229, 76", "329, 76", "429, 76"], "shortcutSize": "92, 44", "movementHintHidden": true},
+    "capturesInspected": ["IdeasShoulderView", "IdeasPortrait", "IdeasLandscape", "IdeasLandscapeFinal"]
+  },
+  "correctedAttempts": [
+    "First reduced-run attempt did not enable ReducedMotion because a preceding simulator orientation call errored; collision with the shot dummy shortened the run. Dummy removed, character reset, ReducedMotion confirmed; rerun passed.",
+    "Portrait instance_path click returned Success without activation. Explicit center minus ScreenGui origin with down/up activated the view.",
+    "Landscape quick-navigation initially overlapped the status cards; horizontal placement installed in Edit and inspected in a new Play session."
+  ],
+  "limits": ["No physical touch or gamepad test", "No multiplayer or production DataStore test", "Native right-mouse rotation not confirmed by automation", "No full camera collision or R6 visual sweep", "No review of every shop page or weapon animation", "No rbxl save or publication"],
+  "finalState": {"mode": "Edit", "device": "default", "orientation": "LandscapeLeft", "monetizationEnabled": false, "profilesRestoredBeforeStop": true, "runtimeScriptsMatching": 46, "runtimeScriptsCompiling": 46, "installedQA": 0}
+}

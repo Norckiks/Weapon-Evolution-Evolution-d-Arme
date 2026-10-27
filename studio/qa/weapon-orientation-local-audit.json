@@ -1,0 +1,303 @@
+[
+  {
+    "path": "ServerScriptService.ZombieNavigation",
+    "file": "studio/ZombieNavigation.luau",
+    "cls": "ModuleScript",
+    "length": 7985,
+    "hash": 3965717377
+  },
+  {
+    "path": "ServerScriptService.ZombieMelee",
+    "file": "studio/ZombieMelee.luau",
+    "cls": "ModuleScript",
+    "length": 6268,
+    "hash": 1502743324
+  },
+  {
+    "path": "ReplicatedStorage.FirearmBallistics",
+    "file": "studio/FirearmBallistics.luau",
+    "cls": "ModuleScript",
+    "length": 1100,
+    "hash": 981831956
+  },
+  {
+    "path": "ReplicatedStorage.Expeditions",
+    "file": "studio/Expeditions.luau",
+    "cls": "ModuleScript",
+    "length": 2536,
+    "hash": 242768770
+  },
+  {
+    "path": "ServerScriptService.PulseAbility",
+    "file": "studio/PulseAbility.luau",
+    "cls": "ModuleScript",
+    "length": 3966,
+    "hash": 193474921
+  },
+  {
+    "path": "StarterPlayer.StarterPlayerScripts.PulseClient",
+    "file": "studio/Pulse.client.luau",
+    "cls": "LocalScript",
+    "length": 7387,
+    "hash": 1131626450
+  },
+  {
+    "path": "StarterPlayer.StarterPlayerScripts.ZoneGuide",
+    "file": "studio/ZoneGuide.client.luau",
+    "cls": "LocalScript",
+    "length": 9035,
+    "hash": 711781533
+  },
+  {
+    "path": "ReplicatedStorage.FistsConfig",
+    "file": "studio/FistsConfig.luau",
+    "cls": "ModuleScript",
+    "length": 793,
+    "hash": 569123499
+  },
+  {
+    "path": "ReplicatedStorage.CoinIcon",
+    "file": "studio/CoinIcon.luau",
+    "cls": "ModuleScript",
+    "length": 2039,
+    "hash": 684080390
+  },
+  {
+    "path": "ReplicatedStorage.SprintConfig",
+    "file": "studio/SprintConfig.luau",
+    "cls": "ModuleScript",
+    "length": 334,
+    "hash": 3535596739
+  },
+  {
+    "path": "ReplicatedStorage.WorldConfig",
+    "file": "studio/WorldConfig.luau",
+    "cls": "ModuleScript",
+    "length": 4450,
+    "hash": 3131984644
+  },
+  {
+    "path": "ReplicatedStorage.PresentationConfig",
+    "file": "studio/PresentationConfig.luau",
+    "cls": "ModuleScript",
+    "length": 681,
+    "hash": 1952020643
+  },
+  {
+    "path": "ReplicatedStorage.GameplayConfig",
+    "file": "studio/GameplayConfig.luau",
+    "cls": "ModuleScript",
+    "length": 5213,
+    "hash": 479482235
+  },
+  {
+    "path": "ReplicatedStorage.WeaponVisuals",
+    "file": "studio/WeaponVisuals.luau",
+    "cls": "ModuleScript",
+    "length": 11294,
+    "hash": 75826962
+  },
+  {
+    "path": "ReplicatedStorage.WeaponMotion",
+    "file": "studio/WeaponMotion.luau",
+    "cls": "ModuleScript",
+    "length": 4542,
+    "hash": 3612207770
+  },
+  {
+    "path": "ReplicatedStorage.MovementConfig",
+    "file": "studio/MovementConfig.luau",
+    "cls": "ModuleScript",
+    "length": 268,
+    "hash": 1840169921
+  },
+  {
+    "path": "ReplicatedStorage.CartoonArt",
+    "file": "studio/CartoonArt.luau",
+    "cls": "ModuleScript",
+    "length": 762,
+    "hash": 1967572027
+  },
+  {
+    "path": "ReplicatedStorage.QuickContracts",
+    "file": "studio/QuickContracts.luau",
+    "cls": "ModuleScript",
+    "length": 1143,
+    "hash": 1137854737
+  },
+  {
+    "path": "ServerScriptService.FistsServer",
+    "file": "studio/FistsServer.server.luau",
+    "cls": "Script",
+    "length": 4743,
+    "hash": 392768675
+  },
+  {
+    "path": "ServerScriptService.TrainingDummyService",
+    "file": "studio/TrainingDummyService.server.luau",
+    "cls": "Script",
+    "length": 504,
+    "hash": 4184327649
+  },
+  {
+    "path": "ServerScriptService.PlayerCurrency",
+    "file": "studio/PlayerCurrency.server.luau",
+    "cls": "Script",
+    "length": 64,
+    "hash": 1105339177
+  },
+  {
+    "path": "ServerScriptService.SprintState",
+    "file": "studio/SprintState.luau",
+    "cls": "ModuleScript",
+    "length": 862,
+    "hash": 972634421
+  },
+  {
+    "path": "ServerScriptService.SprintServer",
+    "file": "studio/Sprint.server.luau",
+    "cls": "Script",
+    "length": 6493,
+    "hash": 2062976672
+  },
+  {
+    "path": "ServerScriptService.ProgressionService",
+    "file": "studio/ProgressionService.luau",
+    "cls": "ModuleScript",
+    "length": 6466,
+    "hash": 3820594369
+  },
+  {
+    "path": "ServerScriptService.ZombieFactory",
+    "file": "studio/ZombieFactory.luau",
+    "cls": "ModuleScript",
+    "length": 12715,
+    "hash": 1517255485
+  },
+  {
+    "path": "ServerScriptService.ZoneService",
+    "file": "studio/ZoneService.luau",
+    "cls": "ModuleScript",
+    "length": 2548,
+    "hash": 574421116
+  },
+  {
+    "path": "ServerScriptService.ZombieDirector",
+    "file": "studio/ZombieDirector.server.luau",
+    "cls": "Script",
+    "length": 7168,
+    "hash": 2942292419
+  },
+  {
+    "path": "ServerScriptService.NPCPresentation",
+    "file": "studio/NPCPresentation.luau",
+    "cls": "ModuleScript",
+    "length": 2901,
+    "hash": 3175865266
+  },
+  {
+    "path": "ServerScriptService.EconomyService",
+    "file": "studio/EconomyService.luau",
+    "cls": "ModuleScript",
+    "length": 14767,
+    "hash": 802189730
+  },
+  {
+    "path": "ServerScriptService.GameSystems",
+    "file": "studio/GameSystems.server.luau",
+    "cls": "Script",
+    "length": 60,
+    "hash": 3043342086
+  },
+  {
+    "path": "ServerScriptService.AdvancedMovement",
+    "file": "studio/AdvancedMovement.luau",
+    "cls": "ModuleScript",
+    "length": 5498,
+    "hash": 2010252630
+  },
+  {
+    "path": "ServerScriptService.FirearmsServer",
+    "file": "studio/Firearms.server.luau",
+    "cls": "Script",
+    "length": 5098,
+    "hash": 3138344030
+  },
+  {
+    "path": "StarterPlayer.StarterPlayerScripts.FistsClient",
+    "file": "studio/FistsClient.client.luau",
+    "cls": "LocalScript",
+    "length": 19857,
+    "hash": 119265012
+  },
+  {
+    "path": "StarterPlayer.StarterPlayerScripts.SprintClient",
+    "file": "studio/Sprint.client.luau",
+    "cls": "LocalScript",
+    "length": 6546,
+    "hash": 3322266790
+  },
+  {
+    "path": "StarterPlayer.StarterPlayerScripts.ProgressionClient",
+    "file": "studio/Progression.client.luau",
+    "cls": "LocalScript",
+    "length": 10271,
+    "hash": 904976024
+  },
+  {
+    "path": "StarterPlayer.StarterPlayerScripts.PresentationClient",
+    "file": "studio/Presentation.client.luau",
+    "cls": "LocalScript",
+    "length": 16174,
+    "hash": 218355360
+  },
+  {
+    "path": "StarterPlayer.StarterPlayerScripts.InterfaceV2",
+    "file": "studio/InterfaceV2.client.luau",
+    "cls": "LocalScript",
+    "length": 29073,
+    "hash": 96344110
+  },
+  {
+    "path": "StarterPlayer.StarterPlayerScripts.GameHub",
+    "file": "studio/GameHub.client.luau",
+    "cls": "LocalScript",
+    "length": 48374,
+    "hash": 2108216420
+  },
+  {
+    "path": "StarterPlayer.StarterPlayerScripts.TargetHUD",
+    "file": "studio/TargetHUD.client.luau",
+    "cls": "LocalScript",
+    "length": 3610,
+    "hash": 3555368142
+  },
+  {
+    "path": "StarterPlayer.StarterPlayerScripts.CharacterCombat",
+    "file": "studio/CharacterCombat.client.luau",
+    "cls": "LocalScript",
+    "length": 6283,
+    "hash": 4144661738
+  },
+  {
+    "path": "StarterPlayer.StarterPlayerScripts.MovementClient",
+    "file": "studio/Movement.client.luau",
+    "cls": "LocalScript",
+    "length": 5093,
+    "hash": 3362130570
+  },
+  {
+    "path": "StarterPlayer.StarterPlayerScripts.FirearmsClient",
+    "file": "studio/Firearms.client.luau",
+    "cls": "LocalScript",
+    "length": 8800,
+    "hash": 1379583767
+  },
+  {
+    "path": "StarterGui.SurvivalHUD.HUDController",
+    "file": "studio/SurvivalHUD.client.luau",
+    "cls": "LocalScript",
+    "length": 4343,
+    "hash": 2959621976
+  }
+]

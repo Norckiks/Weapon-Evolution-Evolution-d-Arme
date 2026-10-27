@@ -1,0 +1,315 @@
+{
+  "checkedAt": "2026-10-22 21:19:00 UTC",
+  "scope": "Studio SessionStudio; no production DataStore or publishing",
+  "regression": {
+    "Passed": true,
+    "Checks": [
+      "Pistol level gate (requires level 3)",
+      "Pistol purchase and coin deduction",
+      "Duplicate Pistol purchase rejected without charge",
+      "Pistol equipped with 12 ammo",
+      "Invalid shoot directions rejected without consuming ammo",
+      "Valid shot consumes 1 ammo",
+      "Rapid burst rate-limited to single shot within cooldown",
+      "SMG level gate (requires level 7)",
+      "SMG purchase and coin deduction",
+      "SMG equipped with 24 ammo",
+      "Wall obstruction blocks gunshot damage",
+      "Transparent solid wall still blocks damage",
+      "Noncollidable trigger permits damage",
+      "Direct gunshot deals damage and credits attacker",
+      "Melee punch rejected while firearm is equipped",
+      "Reload starts with GunReloading=true and 2.1s duration",
+      "Shooting blocked during reload",
+      "Switching weapon cancels ongoing reload",
+      "Full reload refilled SMG magazine to 24",
+      "Revolver level 12 gate",
+      "Revolver insufficient funds refused",
+      "Revolver purchase deducts exactly 6800",
+      "Duplicate revolver purchase does not charge",
+      "Revolver equipped with six chambers",
+      "Revolver distinct world model",
+      "Revolver deals 72 damage and consumes one round",
+      "Revolver spam limited to one shot",
+      "Revolver reload starts with 2.6 second duration",
+      "Revolver cannot shoot during reload",
+      "Cancelled revolver reload grants no ammunition",
+      "Revolver full reload refills six chambers",
+      "Cylinder opens mid reload and returns at completion",
+      "Revolver reload pose differs from pistol"
+    ]
+  },
+  "presentation": {
+    "Reports": [
+      {
+        "MaximumCylinderOffset": 0.35441282391548157,
+        "MidPoseAngle": 1.014011025428772,
+        "SoundPitches": [
+          1.2000000476837158,
+          1.75,
+          1.0499999523162842
+        ],
+        "AmmoAfter": 6,
+        "ReducedMotion": false,
+        "CylinderClosedOffset": 0.0000010662403155947686
+      },
+      {
+        "MaximumCylinderOffset": 0.3544018566608429,
+        "MidPoseAngle": 0.25350281596183777,
+        "SoundPitches": [
+          1.2000000476837158,
+          1.75,
+          1.0499999523162842
+        ],
+        "AmmoAfter": 6,
+        "ReducedMotion": true,
+        "CylinderClosedOffset": 0.00001529599649074953
+      }
+    ],
+    "Passed": true
+  },
+  "guideRace": {"transitions":100,"scope":"SessionStudio fixture after pending guard", "serverResult":"100 level changes completed in SessionStudio","finalConsole":"empty","screenArrow":"LABO NIV.12 visible in final portrait capture"},
+  "finalState": {"mode":"Edit","simulator":"default","orientation":"LandscapeLeft","runtimeScriptsMatching":37,"runtimeScriptsCompiling":37},
+  "UI": {
+    "purchasePC": {
+      "method": "Real mouse click on displayed 6800-piece row",
+      "beforeCoins": 10000,
+      "afterCoins": 3200,
+      "equipped": "Revolver",
+      "ammo": 6
+    },
+    "landscape": {
+      "AmmoOverlap": {
+        "QuickNavigation": 0,
+        "OptionsButton": 0,
+        "ProgressCard": 0,
+        "StatusPanel": 0
+      },
+      "Buttons": {
+        "SurvivalReload": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 168.5,
+            "X": 591,
+            "W": 54,
+            "H": 54
+          }
+        },
+        "SurvivalVault": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 240.5,
+            "X": 591,
+            "W": 54,
+            "H": 54
+          }
+        },
+        "SurvivorFlashlight": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 240.5,
+            "X": 231,
+            "W": 54,
+            "H": 54
+          }
+        },
+        "SurvivalCrouch": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 240.5,
+            "X": 523,
+            "W": 54,
+            "H": 54
+          }
+        },
+        "FistsPunch": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 168.5,
+            "X": 663,
+            "W": 54,
+            "H": 54
+          }
+        },
+        "SurvivalSprint": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 240.5,
+            "X": 163,
+            "W": 54,
+            "H": 54
+          }
+        },
+        "SurvivalDash": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 240.5,
+            "X": 455,
+            "W": 54,
+            "H": 54
+          }
+        }
+      },
+      "Viewport": "750, 381",
+      "OptionsProgressOverlap": 0,
+      "Rects": {
+        "QuickNavigation": {
+          "Y": 20,
+          "X": 45,
+          "Visible": true,
+          "W": 120,
+          "H": 44
+        },
+        "OptionsButton": {
+          "Y": 22,
+          "X": 646,
+          "Visible": true,
+          "W": 86,
+          "H": 27
+        },
+        "Ammo": {
+          "Y": 86,
+          "X": 556,
+          "Visible": true,
+          "W": 170,
+          "H": 42
+        },
+        "ProgressCard": {
+          "Y": 14,
+          "X": 195,
+          "Visible": true,
+          "W": 360,
+          "H": 64
+        },
+        "StatusPanel": {
+          "Y": 96,
+          "X": 14,
+          "Visible": true,
+          "W": 201.27999877929688,
+          "H": 115.5999984741211
+        }
+      },
+      "Weapon": "Revolver"
+    },
+    "portrait": {
+      "AmmoOverlap": {
+        "QuickNavigation": 0,
+        "OptionsButton": 0,
+        "ProgressCard": 0,
+        "StatusPanel": 0
+      },
+      "Buttons": {
+        "SurvivalReload": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 553,
+            "X": 110.69998168945312,
+            "W": 54,
+            "H": 54
+          }
+        },
+        "SurvivalVault": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 485,
+            "X": 178.69998168945312,
+            "W": 54,
+            "H": 54
+          }
+        },
+        "SurvivorFlashlight": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 553,
+            "X": 246.69998168945312,
+            "W": 54,
+            "H": 54
+          }
+        },
+        "SurvivalCrouch": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 553,
+            "X": 178.69998168945312,
+            "W": 54,
+            "H": 54
+          }
+        },
+        "FistsPunch": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 553,
+            "X": 313.6999816894531,
+            "W": 54,
+            "H": 54
+          }
+        },
+        "SurvivalSprint": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 485,
+            "X": 246.69998168945312,
+            "W": 54,
+            "H": 54
+          }
+        },
+        "SurvivalDash": {
+          "AmmoOverlap": 0,
+          "Rect": {
+            "Y": 621,
+            "X": 178.69998168945312,
+            "W": 54,
+            "H": 54
+          }
+        }
+      },
+      "Viewport": "401, 778",
+      "OptionsProgressOverlap": 0,
+      "Rects": {
+        "QuickNavigation": {
+          "Y": 94,
+          "X": 263,
+          "Visible": true,
+          "W": 120,
+          "H": 44
+        },
+        "OptionsButton": {
+          "Y": 61,
+          "X": 297,
+          "Visible": true,
+          "W": 86,
+          "H": 27
+        },
+        "Ammo": {
+          "Y": 242,
+          "X": 207,
+          "Visible": true,
+          "W": 170,
+          "H": 42
+        },
+        "ProgressCard": {
+          "Y": 14,
+          "X": 78.0999984741211,
+          "Visible": true,
+          "W": 244.8000030517578,
+          "H": 43.52000045776367
+        },
+        "StatusPanel": {
+          "Y": 95.99998474121094,
+          "X": 14,
+          "Visible": true,
+          "W": 201.27999877929688,
+          "H": 115.5999984741211
+        }
+      },
+      "Weapon": "Revolver"
+    }
+  },
+  "limits": [
+    "No physical touch/gamepad or multiplayer test",
+    "Sound instances, pitches and stages observed; audio not auditioned",
+    "Portrait simulated mouse clicks did not start the welcome menu in the last attempts; cause unverified",
+    "Shadow size equality measured after the shadow fix; final portrait gameplay screenshot inspected",
+    "Extra final client geometry request did not return. Observation cancelled after independent Studio state, capture and console checks; Play stopped normally. No measurement result inferred from timeout."
+  ]
+}

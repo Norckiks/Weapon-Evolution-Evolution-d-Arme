@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-22",
+  "scope": "Studio Play via real client bridge, pistol and SMG",
+  "result": {
+    "Passed": true,
+    "Checks": [
+      "Pistol level gate (requires level 3)",
+      "Pistol purchase and coin deduction",
+      "Duplicate Pistol purchase rejected without charge",
+      "Pistol equipped with 12 ammo",
+      "Invalid shoot directions rejected without consuming ammo",
+      "Valid shot consumes 1 ammo",
+      "Rapid burst rate-limited to single shot within cooldown",
+      "SMG level gate (requires level 7)",
+      "SMG purchase and coin deduction",
+      "SMG equipped with 24 ammo",
+      "Wall obstruction blocks gunshot damage",
+      "Transparent solid wall still blocks damage",
+      "Noncollidable trigger permits damage",
+      "Direct gunshot deals damage and credits attacker",
+      "Melee punch rejected while firearm is equipped",
+      "Reload starts with GunReloading=true and 2.1s duration",
+      "Shooting blocked during reload",
+      "Switching weapon cancels ongoing reload",
+      "Full reload refilled SMG magazine to 24"
+    ]
+  },
+  "limits": [
+    "No multiplayer latency test",
+    "32-ray traversal cap inspected in source, not stress-tested"
+  ]
+}

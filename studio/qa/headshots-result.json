@@ -1,0 +1,172 @@
+{
+  "checkedAt": "2026-10-23 06:52:27 UTC",
+  "studioId": "45bb0222-99c2-4b04-8be7-6667f480d5e2",
+  "placeId": 78882167241715,
+  "mode": "SessionStudio",
+  "headshots": {
+    "Passed": true,
+    "Checks": [
+      "Forged critical flag and damage ignored; body stays 24",
+      "One ordinary body feedback event",
+      "Legacy Head deals 36 and costs one round",
+      "Server sends one explicit headshot feedback",
+      "Accessory is not a canonical head",
+      "SMG exact critical damage 21",
+      "SMG groups pellets into one damage/feedback",
+      "Revolver exact critical damage 108",
+      "Revolver groups pellets into one damage/feedback",
+      "Shotgun exact critical damage 210",
+      "Shotgun groups pellets into one damage/feedback",
+      "Mixed pellets: one head + two body = 70 grouped",
+      "Transparent solid wall blocks critical and feedback",
+      "Wrong zone rejects headshot damage",
+      "Actual visual mesh head ray: Abomination",
+      "Actual visual mesh head ray: Stalker",
+      "Actual visual mesh head ray: Civilian",
+      "Actual visual mesh head ray: Brute",
+      "Actual visual mesh head ray: Scrapper",
+      "Actual visual mesh head ray: Worker",
+      "Actual visual mesh head ray: Hazmat",
+      "Actual visual mesh head ray: Runner",
+      "Actual visual mesh head ray: Soldier",
+      "Actual visual mesh head ray: Drowned",
+      "Actual visual mesh head ray: Raider",
+      "Actual visual mesh head ray: AnchorTitan",
+      "All twelve visual-head templates exercised",
+      "One headshot kills real 35 HP Civilian",
+      "Headshot kill awards one normal 8 coins/20 XP reward",
+      "Real death sends one 36-damage headshot confirmation"
+    ]
+  },
+  "firearmsRegression": {
+    "Passed": true,
+    "Checks": [
+      "Pistol level gate (requires level 3)",
+      "Pistol purchase and coin deduction",
+      "Duplicate Pistol purchase rejected without charge",
+      "Pistol equipped with 12 ammo",
+      "Invalid shoot directions rejected without consuming ammo",
+      "Valid shot consumes 1 ammo",
+      "Rapid burst rate-limited to single shot within cooldown",
+      "SMG level gate (requires level 7)",
+      "SMG purchase and coin deduction",
+      "SMG equipped with 24 ammo",
+      "Wall obstruction blocks gunshot damage",
+      "Transparent solid wall still blocks damage",
+      "Noncollidable trigger permits damage",
+      "Direct gunshot deals damage and credits attacker",
+      "Melee punch rejected while firearm is equipped",
+      "Reload starts with GunReloading=true and 2.1s duration",
+      "Shooting blocked during reload",
+      "Switching weapon cancels ongoing reload",
+      "Full reload refilled SMG magazine to 24",
+      "Revolver level 12 gate",
+      "Revolver insufficient funds refused",
+      "Revolver purchase deducts exactly 6800",
+      "Duplicate revolver purchase does not charge",
+      "Revolver equipped with six chambers",
+      "Revolver distinct world model",
+      "Revolver deals 72 damage and consumes one round",
+      "Revolver spam limited to one shot",
+      "Revolver reload starts with 2.6 second duration",
+      "Revolver cannot shoot during reload",
+      "Cancelled revolver reload grants no ammunition",
+      "Revolver full reload refills six chambers",
+      "Cylinder opens mid reload and returns at completion",
+      "Revolver reload pose differs from pistol"
+    ]
+  },
+  "shotgunBodyRegression": {
+    "Passed": true,
+    "Checks": [
+      "Level 15 refused",
+      "Insufficient funds refused",
+      "Purchase from remote arena costs 11500",
+      "Duplicate purchase free",
+      "Five shells equipped",
+      "Distinct shotgun world model",
+      "Seven pellets; pistol remains single ray",
+      "Unit direction within spread",
+      "Unit direction within spread",
+      "Unit direction within spread",
+      "Unit direction within spread",
+      "Unit direction within spread",
+      "Unit direction within spread",
+      "Unit direction within spread",
+      "Deterministic server spread",
+      "Seven pellets aggregate to 140; one shell",
+      "One health change and attacker attribution per target",
+      "One shot damages two spread targets within total budget",
+      "Transparent solid wall blocks all pellets",
+      "Noncollidable trigger passes all pellets",
+      "Beyond 75 studs misses",
+      "Last shell triggers automatic reload",
+      "Reload blocks shooting",
+      "Reload fills five shells atomically",
+      "Burst spam consumes one shell",
+      "Reload duration 2.9 seconds",
+      "Switch cancels reload without granting shells",
+      "Wrong zone blocks damage",
+      "Pump cycle moves and returns",
+      "Dedicated reload pose"
+    ]
+  },
+  "totalChecks": 93,
+  "weaponHeadDamage": {
+    "Pistol": 36,
+    "SMG": 21,
+    "Revolver": 108,
+    "Shotgun": {
+      "perPellet": 30,
+      "allSeven": 210,
+      "mixedOneHeadTwoBody": 70
+    }
+  },
+  "realDeath": {
+    "species": "Civilian",
+    "health": 35,
+    "weapon": "Pistol",
+    "damage": 36,
+    "coins": 8,
+    "xp": 20,
+    "confirmationCount": 1
+  },
+  "rendering": {
+    "lastClientViewport": [
+      1,
+      1
+    ],
+    "preset": "iphone_17_pro",
+    "nativeCaptures": false,
+    "clientFeedback": "Actual PunchHit headshot amount/flag/kind recorded by temporary client bridge",
+    "limitations": "TETE label, reduced-motion rendered effects, armory note and seven-page UI still need visual verification."
+  },
+  "sourceChanges": [
+    "studio/GameplayConfig.luau",
+    "studio/FirearmBallistics.luau",
+    "studio/Firearms.server.luau",
+    "studio/FistsClient.client.luau",
+    "studio/GameHub.client.luau"
+  ],
+  "backup": "ServerStorage.BeforeHeadshots (5 scripts)",
+  "qaChanges": [
+    "Headshots.server.luau and HeadshotsBridge.client.luau added as temporary Play-only fixtures",
+    "Shotgun.server.luau broad body dummy renamed Head to Torso to distinguish body regression from new anatomical headshot tests"
+  ],
+  "console": "Empty at final Play check",
+  "persistence": "Profiles restored by each harness; Play stopped; no production DataStore/reconnect test",
+  "limitations": [
+    "Headshot checks use actual client Shoot remotes but no physical input",
+    "Twelve actual mesh templates are anchored clones in temporary isolated arena; one additional live director Civilian death tested",
+    "No multiplayer, physical touch/gamepad, hearing, long balance or performance benchmark",
+    "Armory hint installed/compiled after combat tests; visual fit pending"
+  ],
+  "finalState": {
+    "studioMode": "Edit",
+    "playStopped": true,
+    "simulator": "default",
+    "orientation": "LandscapeLeft",
+    "robuxEnabled": false,
+    "published": false
+  }
+}

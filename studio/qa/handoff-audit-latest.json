@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-10-26T12:07:26Z",
+  "studioId": "1810e323-f08c-4cee-af08-45d071dcc952",
+  "placeId": 78882167241715,
+  "studioMode": "Edit",
+  "simulator": "default",
+  "orientation": "LandscapeLeft",
+  "scripts": 45,
+  "localFiles": 45,
+  "matching": 45,
+  "compiling": 45,
+  "mismatches": [],
+  "missing": [],
+  "unmapped": [],
+  "pendingChanges": [],
+  "resolvedChanges": [
+    "Three coin crates, disclosed probabilities and server draws installed",
+    "39 real service checks and two isolated policy guard checks passed",
+    "Native PC/mobile confirmations and normal/reduced/muted/skip presentation verified"
+  ],
+  "method": "UTF-8 length and rolling checksum modulo 2^32 after normalizing CRLF, edge whitespace and the known explanatory PlayerCurrency comment. Class names also compared against manifest. Non-cryptographic consistency check; exact source compared before replacing.",
+  "studioModifiedByAudit": false,
+  "evidence": "studio/qa/crates-result.json",
+  "scene": {
+    "harborComplete": true,
+    "harborParts": 180,
+    "zombieTemplates": 12,
+    "builderRepeated": "no mutation",
+    "lastVerifiedAt": "2026-10-22 21:42:20 UTC"
+  },
+  "pendingValidation": [
+    "Capture all seven final pages",
+    "Final source layout checks portrait 401x778 and smaller 320px",
+    "Landscape and desktop restoration",
+    "Actual UI purchases upgrades/weapons, pet fusion/equipment, time claim, option toggle, disabled Robux",
+    "Last-row scroll reachability, scroll preservation after purchase and page reset",
+    "TETE impact and ReducedMotion rendered appearance",
+    "New armory headshot note visual fit",
+    "Zombie windup Highlight and animation rendering on PC/mobile, both rig joint classes and ReducedMotion",
+    "Audition and physical-input/latency balance of telegraphed attacks",
+    "Positive native Path.Blocked event emission (fallback proved; engine signal not observed)",
+    "Navigation on narrow multi-floor terrain, crowd and latency cases; no FPS guarantee"
+  ],
+  "validationStatus": "99 final state/physics/protocol checks passed; UI and attack visual validation remain incomplete",
+  "studioName": "78882167241715_AutoRecovery_0.rbxl"
+}

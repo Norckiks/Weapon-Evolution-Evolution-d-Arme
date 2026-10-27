@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-27",
+  "checks": 252,
+  "snapshots": [
+    {
+      "requested": "Missions",
+      "orientation": "Portrait",
+      "viewport": "401, 778",
+      "rows": 9,
+      "page": "MISSIONS & DOSSIERS",
+      "checks": 49
+    },
+    {
+      "requested": "Missions",
+      "orientation": "LandscapeLeft",
+      "viewport": "750, 381",
+      "rows": 9,
+      "page": "MISSIONS & DOSSIERS",
+      "checks": 49
+    },
+    {
+      "requested": "Robux",
+      "orientation": "Portrait",
+      "viewport": "401, 778",
+      "rows": 5,
+      "page": "BOUTIQUE ROBUX",
+      "checks": 29
+    },
+    {
+      "requested": "Robux",
+      "orientation": "LandscapeLeft",
+      "viewport": "750, 381",
+      "rows": 5,
+      "page": "BOUTIQUE ROBUX",
+      "checks": 29
+    },
+    {
+      "requested": "Options",
+      "orientation": "Portrait",
+      "viewport": "401, 778",
+      "rows": 5,
+      "page": "OPTIONS",
+      "checks": 29
+    },
+    {
+      "requested": "Options",
+      "orientation": "LandscapeLeft",
+      "viewport": "750, 381",
+      "rows": 5,
+      "page": "OPTIONS",
+      "checks": 29
+    },
+    {
+      "requested": "Crates",
+      "orientation": "Portrait",
+      "viewport": "401, 778",
+      "rows": 3,
+      "page": "CAISSES",
+      "checks": 19
+    },
+    {
+      "requested": "Crates",
+      "orientation": "LandscapeLeft",
+      "viewport": "750, 381",
+      "rows": 3,
+      "page": "CAISSES",
+      "checks": 19
+    }
+  ],
+  "shopLabelRegression": [
+    {
+      "viewport": "1447, 824",
+      "rows": 2,
+      "page": "ATELIER",
+      "checks": 13
+    },
+    {
+      "viewport": "401, 778",
+      "rows": 2,
+      "page": "ATELIER",
+      "checks": 15
+    },
+    {
+      "viewport": "1447, 824",
+      "rows": 2,
+      "page": "ATELIER",
+      "checks": 13
+    }
+  ],
+  "regressionChecks": 41,
+  "limits": [
+    "Snapshots de géométrie/texte/images, sans test tactile physique.",
+    "Pages ouvertes sur PC par clic natif puis affichées dans chaque orientation du simulateur.",
+    "Capture caisses portrait inspectée ; pas de captures visuelles exhaustives des huit nouveaux snapshots.",
+    "Aucun achat ni test de persistance ; données du joueur non modifiées par les sondes."
+  ]
+}

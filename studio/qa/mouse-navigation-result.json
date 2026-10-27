@@ -1,0 +1,117 @@
+{
+  "checkedAt": "2026-10-22 20:36:29 UTC",
+  "scope": "Single-player Studio, real input tools for key/click tests; client attribute timing probe for queued melee cancellation; phone emulator",
+  "checks": [
+    {
+      "name": "M releases the cursor across 30 rendered frames",
+      "passed": true
+    },
+    {
+      "name": "Options button opens Options rather than underlying shop",
+      "passed": true
+    },
+    {
+      "name": "M cannot enable navigation while Options is open",
+      "passed": true
+    },
+    {
+      "name": "Closing Options restores centered combat cursor",
+      "passed": true
+    },
+    {
+      "name": "M toggles navigation off",
+      "passed": true
+    },
+    {
+      "name": "Mouse hold while navigating causes no melee request",
+      "passed": true
+    },
+    {
+      "name": "Navigation interruption cancels queued melee windup",
+      "passed": true
+    },
+    {
+      "name": "Respawn resets navigation and restores the button",
+      "passed": true
+    },
+    {
+      "name": "Navigation click does not consume pistol ammunition",
+      "passed": true
+    },
+    {
+      "name": "Mouse, Options and quick navigation rectangles do not overlap",
+      "passed": true
+    },
+    {
+      "name": "Mouse M control stays hidden and inactive on simulated phone",
+      "passed": true
+    }
+  ],
+  "evidence": {
+    "unlock": {
+      "buttonText": "REPRENDRE [M]",
+      "modal": true,
+      "nonDefaultFrames": 0,
+      "icon": true,
+      "unlocked": true,
+      "buttonVisible": true
+    },
+    "options": {
+      "options": true,
+      "modal": false,
+      "behavior": "Enum.MouseBehavior.Default",
+      "unlocked": false,
+      "menu": false
+    },
+    "ignored": {
+      "mouseUnlockDuringOptions": false
+    },
+    "closed": {
+      "behavior": "Enum.MouseBehavior.LockCenter",
+      "options": false,
+      "unlocked": false,
+      "icon": false
+    },
+    "freeClick": {
+      "swingAt": -1
+    },
+    "toggleOff": {
+      "behavior": "Enum.MouseBehavior.LockCenter",
+      "unlocked": false,
+      "modal": false
+    },
+    "cancelled": {
+      "swingSoundObserved": true,
+      "unlockedAtEnd": false,
+      "swingAt": -1
+    },
+    "respawn": {
+      "behavior": "Enum.MouseBehavior.LockCenter",
+      "visible": true,
+      "unlocked": false,
+      "modal": false
+    },
+    "pistol": {
+      "mouseQuickGap": 10,
+      "modal": true,
+      "mouseOptionsGap": 7,
+      "ammo": 12,
+      "unlocked": true,
+      "weapon": "Pistol"
+    },
+    "mobile": {
+      "touch": true,
+      "modal": false,
+      "viewport": "750, 381",
+      "started": true,
+      "unlocked": false,
+      "buttonVisible": false
+    }
+  },
+  "consoleErrorsObserved": 0,
+  "limits": [
+    "No physical phone test",
+    "No multiplayer or production persistence test",
+    "Queued melee timing probe toggles MouseUnlocked synthetically after real mouse input"
+  ]
+}

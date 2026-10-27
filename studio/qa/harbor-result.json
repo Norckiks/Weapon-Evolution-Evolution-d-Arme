@@ -1,0 +1,399 @@
+{
+  "checkedAt": "2026-10-22 21:41:31 UTC",
+  "scope": "Studio SessionStudio; real spawned zombies with synthetic attributed lethal damage for reward checks; no production writes",
+  "services": {
+    "Metrics": {
+      "RemainderXP": 430,
+      "Level": 22,
+      "XP": 2150,
+      "Coins": 1390
+    },
+    "Passed": true,
+    "Checks": [
+      "Four configured zones; Harbor requires level 20",
+      "Clear arrival/spawn ground: 1860, 4, 10",
+      "Clear arrival/spawn ground: 1830, 4, -70",
+      "Clear arrival/spawn ground: 1890, 4, -95",
+      "Clear arrival/spawn ground: 1828, 4, -135",
+      "Clear arrival/spawn ground: 1892, 4, -160",
+      "Clear arrival/spawn ground: 1832, 4, -205",
+      "Clear arrival/spawn ground: 1890, 4, -235",
+      "Distinct complete moving rig: Drowned",
+      "Two live configured spawns: Drowned",
+      "Distinct complete moving rig: Raider",
+      "Two live configured spawns: Raider",
+      "Distinct complete moving rig: AnchorTitan",
+      "Two live configured spawns: AnchorTitan",
+      "Level 19 access denied",
+      "Unauthorized direct entry returned to refuge",
+      "Level 20 access granted",
+      "Authorized character remains in Harbor",
+      "Director rewarded real spawned death: Drowned",
+      "Director rewarded real spawned death: Raider",
+      "Director rewarded real spawned death: AnchorTitan",
+      "Exact Harbor rewards and XP level rollover",
+      "Dead zombies cannot reward twice",
+      "Fragment drops use new species id: Drowned",
+      "Two fragments refused: Drowned",
+      "Three fragments fuse: Drowned",
+      "Pet coin/XP/speed bonuses: Drowned",
+      "Fragment drops use new species id: Raider",
+      "Two fragments refused: Raider",
+      "Three fragments fuse: Raider",
+      "Pet coin/XP/speed bonuses: Raider",
+      "Fragment drops use new species id: AnchorTitan",
+      "Two fragments refused: AnchorTitan",
+      "Three fragments fuse: AnchorTitan",
+      "Pet coin/XP/speed bonuses: AnchorTitan",
+      "Respawn restores two living Drowned",
+      "Respawn restores two living Raider",
+      "Respawn restores two living AnchorTitan"
+    ]
+  },
+  "economy": {
+    "Passed": true,
+    "Checks": [
+      "Insufficient coins refused away from shop",
+      "Health purchase and price",
+      "Speed affects walking and sprint",
+      "Weapon purchase from menu away from shop, equip and model",
+      "Owned weapon cannot be charged twice",
+      "Weapon level gate",
+      "Unowned weapon equip refused",
+      "Fusion requires three matching fragments",
+      "Fusion consumes fragments and creates pet",
+      "Duplicate fusion request refused",
+      "Pet coin XP multipliers",
+      "Early time claim refused",
+      "Five minute x2 XP boost",
+      "Time reward cannot be claimed twice",
+      "Alternate time reward IDs cannot bypass claim history",
+      "Thirty minute free pet",
+      "Pet and timed boost compose",
+      "Daily mission claim once including alternate IDs",
+      "Robux shop disabled",
+      "Receipt cannot grant against nonpersistent profile",
+      "All configured zombie types feed daily progression",
+      "Valid fragment inventory: Hazmat",
+      "Valid fragment inventory: Runner",
+      "Valid fragment inventory: Civilian",
+      "Valid fragment inventory: Brute",
+      "Valid fragment inventory: Scrapper",
+      "Valid fragment inventory: AnchorTitan",
+      "Valid fragment inventory: Abomination"
+    ]
+  },
+  "portal": {
+    "denied19": {
+      "Level": 19,
+      "Zone": "REFUGE",
+      "Position": "64.86669921875, 3.9248046875, 216.2333984375"
+    },
+    "unlockGuide": {
+      "Visible": true,
+      "Label": "PORT · NIV. 20",
+      "Target": "64, 4.5, 208",
+      "Destination": "Harbor",
+      "Stage": "Portal",
+      "Prompt": "Entrer"
+    },
+    "arrived20": {
+      "Level": 20,
+      "Zone": "PORT DES CENDRES",
+      "Position": "1860, 3.82421875, 10"
+    },
+    "return": {
+      "Zone": "REFUGE",
+      "Position": "0, 5.125, 220"
+    },
+    "method": "Actual E hold after preparing portal approaches and camera visibility; not a fully walked route"
+  },
+  "locomotion": {
+    "PeakSpeed": 65.07940673828125,
+    "DashDuringSlide": false,
+    "Crouch": false,
+    "Slide": true,
+    "StartStamina": 100,
+    "Sprint": true,
+    "Passed": true,
+    "Zone": "Harbor",
+    "Dash": true,
+    "EndStamina": 79.2,
+    "Displacement": 72.83984375
+  },
+  "vaults": {
+    "Routes": [
+      {
+        "Rise": 3.3537240028381348,
+        "Zone": "City",
+        "Landed": true,
+        "Name": "CitySandbags",
+        "Crossed": true,
+        "Start": [
+          -12.25,
+          3.9248046875,
+          28
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          -12.25421142578125,
+          3.9248046875,
+          20.76873779296875
+        ]
+      },
+      {
+        "Rise": 3.4094338417053223,
+        "Zone": "Factory",
+        "Landed": true,
+        "Name": "FactoryCrate",
+        "Crossed": true,
+        "Start": [
+          638,
+          3.82421875,
+          -24.30078125
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          637.998046875,
+          3.82421875,
+          -32.81640625
+        ]
+      },
+      {
+        "Rise": 3.3259096145629883,
+        "Zone": "Factory",
+        "Landed": true,
+        "Name": "FactoryPipeRack",
+        "Crossed": true,
+        "Start": [
+          602,
+          3.82421875,
+          -38.44921875
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          601.998046875,
+          3.82421875,
+          -46.666015625
+        ]
+      },
+      {
+        "Rise": 3.361717700958252,
+        "Zone": "Lab",
+        "Landed": true,
+        "Name": "LabConsole",
+        "Crossed": true,
+        "Start": [
+          1258,
+          3.82421875,
+          -24.30078125
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          1258,
+          3.82421875,
+          -32.21484375
+        ]
+      },
+      {
+        "Rise": 3.3902931213378906,
+        "Zone": "Lab",
+        "Landed": true,
+        "Name": "LabBarrier",
+        "Crossed": true,
+        "Start": [
+          1222,
+          3.82421875,
+          -38.6015625
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          1222.00390625,
+          3.82421875,
+          -46.21875
+        ]
+      },
+      {
+        "Rise": 3.3253769874572754,
+        "Zone": "Harbor",
+        "Landed": true,
+        "Name": "HarborCargo_17",
+        "Crossed": true,
+        "Start": [
+          1842,
+          3.82421875,
+          -24.3984375
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          1842,
+          3.82421875,
+          -31.71875
+        ]
+      },
+      {
+        "Rise": 3.4075069427490234,
+        "Zone": "Harbor",
+        "Landed": true,
+        "Name": "HarborCargo_19",
+        "Crossed": true,
+        "Start": [
+          1882,
+          3.82421875,
+          -41.3984375
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          1882.00390625,
+          3.82421875,
+          -49.01953125
+        ]
+      },
+      {
+        "Rise": 3.382491111755371,
+        "Zone": "Harbor",
+        "Landed": true,
+        "Name": "HarborCargo_21",
+        "Crossed": true,
+        "Start": [
+          1808,
+          3.625,
+          -158.3984375
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          1808.00390625,
+          3.625,
+          -166.3984375
+        ]
+      }
+    ],
+    "Passed": true
+  },
+  "limits": [
+    "No multiplayer, physical touch/gamepad, production DataStore or audio audition",
+    "Fragment callbacks sampled 45 times per new species to observe drops, not to estimate the 1/3 probability",
+    "First locomotion observation finished before input; repeated in one tool sequence",
+    "First vault pass contaminated by input; fresh pass exposed CitySandbags stopping on top. Assistance .38s with matching clearance/landing checks then passed all eight."
+  ],
+  "combat": {
+    "Passed": true,
+    "Checks": [
+      "Revolver bought in test session",
+      "Shooter remains in authorized Harbor",
+      "Accepted Harbor revolver hit 1",
+      "Accepted Harbor revolver hit 2",
+      "Accepted Harbor revolver hit 3",
+      "Accepted Harbor revolver hit 4",
+      "Accepted Harbor revolver hit 5",
+      "Accepted Harbor revolver hit 6",
+      "Accepted Harbor revolver hit 7",
+      "Accepted Harbor revolver hit 8",
+      "Accepted Harbor revolver hit 9",
+      "Accepted Harbor revolver hit 10",
+      "Ten actual remote shots kill the 650 HP matelot",
+      "Real gun kill awards 320 coins and 500 XP",
+      "Reward flag and remaining two rounds after automatic reload"
+    ]
+  },
+  "movementRegression": {
+    "Passed": true,
+    "Checks": [
+      "Slide accepted and costs 15 stamina",
+      "Vault blocked while sliding",
+      "Slide physically moves character",
+      "Slide constraint cleaned after duration",
+      "Low obstacle vault accepted and costs 12 stamina",
+      "Vault applies upward impulse",
+      "Vault crosses the obstacle",
+      "Vault lands on the far side",
+      "No obstacle means no vault or cost",
+      "Tall wall rejected",
+      "Insufficient vault stamina rejected",
+      "Menu rejects movement actions"
+    ]
+  },
+  "mobile": {
+    "landscape": {
+      "Visible": true,
+      "Bounds": [
+        580.2498779296875,
+        89.92489624023438,
+        97.50025939941406,
+        72.15019226074219
+      ],
+      "InBounds": true,
+      "Viewport": [
+        750,
+        381
+      ],
+      "Destination": "Harbor",
+      "Pet": "Drowned",
+      "Text": "PORT · NIV. 20"
+    },
+    "portrait": {
+      "Visible": true,
+      "Bounds": [
+        287.0869140625,
+        282.8043212890625,
+        97.82616424560547,
+        72.39136505126953
+      ],
+      "InBounds": true,
+      "Viewport": [
+        401,
+        778
+      ],
+      "Destination": "Harbor",
+      "Pet": "Drowned",
+      "Text": "PORT · NIV. 20"
+    }
+  },
+  "renderedPets": [
+    {
+      "Id": "Drowned",
+      "SignatureParts": 2,
+      "Name": "Crabi",
+      "Parts": 20
+    },
+    {
+      "Id": "Raider",
+      "SignatureParts": 1,
+      "Name": "Requinou",
+      "Parts": 12
+    },
+    {
+      "Id": "AnchorTitan",
+      "SignatureParts": 6,
+      "Name": "Krakenou",
+      "Parts": 20
+    }
+  ],
+  "visualEvidence": {
+    "scene": "Edit overview and live player arrival inspected",
+    "pets": "Three equipped companions cloned into temporary QA viewport and inspected",
+    "zombies": "Native close views of three live models inspected; anchored roots and hidden first-person arms only in the temporary Play fixture",
+    "discarded": "Zombie clone viewport appeared empty and was not used as evidence; native live close views replaced it"
+  },
+  "finalState": {
+    "mode": "Edit",
+    "simulator": "default",
+    "orientation": "LandscapeLeft",
+    "runtime": {
+      "matching": 37,
+      "compiling": 37,
+      "total": 37,
+      "unmapped": []
+    },
+    "console": "empty at final combat check"
+  },
+  "builderRepeat": "Harbor already built; no mutation"
+}

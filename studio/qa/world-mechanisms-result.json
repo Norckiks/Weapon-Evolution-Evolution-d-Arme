@@ -1,0 +1,142 @@
+{
+  "date": "2026-10-26",
+  "persistence": "SessionStudio",
+  "Samples": {
+    "revolverReload": {
+      "Swing": "Revolver",
+      "Ammo": 5,
+      "Frames": 24,
+      "MaxPosition": 0.8738312721252441,
+      "LastPosition": 0.859915018081665,
+      "Count": 14,
+      "LastAngle": 2.814941167831421,
+      "MaxAngle": 3.1238489151000977,
+      "Age": 1.8529410362243652
+    },
+    "revolverClosed": {
+      "Swing": "Revolver",
+      "Ammo": 6,
+      "Frames": 1,
+      "MaxPosition": 0,
+      "LastPosition": 0,
+      "Count": 14,
+      "LastAngle": 0,
+      "MaxAngle": 0,
+      "Age": 5.8421759605407715
+    },
+    "shotgunPump": {
+      "Swing": "Shotgun",
+      "Ammo": 4,
+      "Frames": 13,
+      "MaxPosition": 0.21969567239284515,
+      "LastPosition": 0,
+      "Count": 6,
+      "LastAngle": 0,
+      "MaxAngle": 0,
+      "Age": 0.8559792041778564
+    },
+    "shotgunReduced": {
+      "Swing": "Shotgun",
+      "Ammo": 3,
+      "Frames": 29,
+      "MaxPosition": 0.05499796196818352,
+      "LastPosition": 0,
+      "Count": 6,
+      "LastAngle": 0,
+      "MaxAngle": 0,
+      "Age": 0.8365039825439453
+    },
+    "revolverRest": {
+      "Swing": "Revolver",
+      "Ammo": 6,
+      "Frames": 4,
+      "MaxPosition": 0,
+      "LastPosition": 0,
+      "Count": 14,
+      "LastAngle": 0,
+      "MaxAngle": 0,
+      "Age": 93.24705982208252
+    },
+    "abilityReduced": {
+      "Normal": 0.4188792407512665,
+      "Reduced": 0.10472013056278229
+    },
+    "revolverShot": {
+      "Swing": "Revolver",
+      "Ammo": 5,
+      "Frames": 5,
+      "MaxPosition": 0.37000003457069397,
+      "LastPosition": 0.37000003457069397,
+      "Count": 14,
+      "LastAngle": 1.0471975803375244,
+      "MaxAngle": 1.0471975803375244,
+      "Age": 0.2548999786376953
+    }
+  },
+  "Passed": true,
+  "Checks": [
+    "Only moving pieces have motors: Pistol",
+    "Only moving pieces have motors: SMG",
+    "Mechanism is attached and massless: Revolver/Cylinder",
+    "Mechanism is attached and massless: Revolver/ChamberRim",
+    "Mechanism is attached and massless: Revolver/ChamberPrimer",
+    "Mechanism is attached and massless: Revolver/ChamberRim",
+    "Mechanism is attached and massless: Revolver/ChamberPrimer",
+    "Mechanism is attached and massless: Revolver/ChamberRim",
+    "Mechanism is attached and massless: Revolver/ChamberPrimer",
+    "Mechanism is attached and massless: Revolver/ChamberRim",
+    "Mechanism is attached and massless: Revolver/ChamberPrimer",
+    "Mechanism is attached and massless: Revolver/ChamberRim",
+    "Mechanism is attached and massless: Revolver/ChamberPrimer",
+    "Mechanism is attached and massless: Revolver/ChamberRim",
+    "Mechanism is attached and massless: Revolver/ChamberPrimer",
+    "Mechanism is attached and massless: Revolver/CylinderAxle",
+    "Only moving pieces have motors: Revolver",
+    "Mechanism is attached and massless: Shotgun/Foreend",
+    "Mechanism is attached and massless: Shotgun/PumpRib",
+    "Mechanism is attached and massless: Shotgun/PumpRib",
+    "Mechanism is attached and massless: Shotgun/PumpRib",
+    "Mechanism is attached and massless: Shotgun/PumpRib",
+    "Mechanism is attached and massless: Shotgun/PumpRib",
+    "Only moving pieces have motors: Shotgun",
+    "Only moving pieces have motors: Pipe",
+    "Revolver rests with closed cylinder",
+    "Real revolver shot indexes world cylinder",
+    "Real reload opens and turns world cylinder",
+    "Reload refills and closes world cylinder",
+    "Real shotgun shot cycles all six pump pieces and settles",
+    "ReducedMotion limits pump travel to one quarter",
+    "Ability torso lean respects ReducedMotion",
+    "Switching removes previous weapon mechanisms"
+  ],
+  "correctedAttempts": [
+    "First pass: shotgun sample remained at zero. Added expected mechanism count to refresh the cache while joints arrive; subsequent pump sampling passed.",
+    "Second pass: closed-cylinder assertion included an initial stale frame in a maximum. Final settling now checks the last sample; intermediate maxima remain recorded."
+  ],
+  "limits": [
+    "One player only",
+    "Motor transform sampling is separate from visual quality",
+    "No physical touch or gamepad test",
+    "No production persistence test"
+  ],
+  "visualChecks": {
+    "previewCapture": "WorldRevolverMechanismPreview",
+    "previewSyntheticFrozenPose": true,
+    "portraitCapture": "AmmoPortraitAfterMovement",
+    "device": "iphone_17_pro",
+    "viewport": "401, 778",
+    "ammoPosition": "207, 271",
+    "movementHintPosition": "168, 219",
+    "gapPixels": 8
+  },
+  "finalState": {
+    "mode": "Edit",
+    "runtimeScriptsMatched": 46,
+    "runtimeScriptsCompiled": 46,
+    "installedQA": 0,
+    "monetizationEnabled": false,
+    "simulator": "default",
+    "orientation": "LandscapeLeft",
+    "profilesRestored": true
+  }
+}

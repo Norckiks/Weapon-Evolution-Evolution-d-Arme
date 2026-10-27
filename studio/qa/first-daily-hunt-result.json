@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-27",
+  "server": {
+    "Restored": true,
+    "Passed": true,
+    "Checks": [
+      "Configured reward 100 coins and 50 XP",
+      "Legacy daily field initialized without erasing receipts",
+      "No kill means no reward",
+      "Client cannot forge daily kills",
+      "Real director death increments goal without altering base rewards",
+      "Claim before Play refused",
+      "Claim adds exact 100 coins and 50 XP",
+      "Repeated daily claim refused",
+      "Invalid ID refused: string ",
+      "Invalid ID refused: string firsthunt",
+      "Invalid ID refused: string FirstHunt:1",
+      "Invalid ID refused: table table: 0x12f414b4c2393c7d",
+      "Invalid ID refused: number 1",
+      "Full wallet preserves daily claim and XP",
+      "Insufficient wallet capacity preserves claim",
+      "Exact capacity gives full reward; boosts do not multiply it",
+      "JSON preserves daily receipt and unrelated receipts",
+      "UTC day rollover resets hunt only with daily state",
+      "New day requires another kill",
+      "New day can pay once after new server kill callback",
+      "Robux remains disabled"
+    ]
+  },
+  "uiLogic": [
+    {
+      "phase": "Locked",
+      "fill": 0,
+      "text": "1 ZOMBIE REQUIS",
+      "title": "PREMIERE CHASSE DU JOUR",
+      "active": false
+    },
+    {
+      "phase": "Ready",
+      "fill": 1,
+      "text": "RECUPERER",
+      "title": "PREMIERE CHASSE DU JOUR",
+      "active": true
+    },
+    {
+      "phase": "Claimed",
+      "fill": 1,
+      "text": "RECUPERE",
+      "title": "PREMIERE CHASSE DU JOUR",
+      "active": false
+    },
+    {
+      "phase": "Full",
+      "fill": 1,
+      "text": "DEPENSE D'ABORD",
+      "title": "PREMIERE CHASSE DU JOUR",
+      "active": false
+    }
+  ],
+  "renderProbe": {
+    "Render": 0,
+    "Heart": 31
+  },
+  "limits": [
+    "21 checks serveur via vrais GameAction:FireServer ; le premier décès est attribué synthétiquement au vrai directeur, sans tir utilisateur.",
+    "Quatre états client par propriétés Text/Active/Fill, pas de preuve de rendu, de TextFits ou de clic natif.",
+    "RenderStepped toujours nul ; pas de nouveau test de portails Centrale ou mobile physique.",
+    "Restauration Meta/statistiques/attributs et Stop ; pas de test de reconnexion DataStore ou multijoueur."
+  ]
+}

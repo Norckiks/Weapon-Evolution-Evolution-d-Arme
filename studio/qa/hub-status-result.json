@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-27",
+  "baseline": {
+    "windowVisible": true,
+    "quickVisible": true,
+    "buttons": [
+      "BOUTIQUES [B]",
+      "PETS [N]",
+      "CADEAUX [G]"
+    ]
+  },
+  "pipeline": {
+    "counters": {
+      "Render": 0,
+      "Last": 0,
+      "Heart": 49,
+      "First": 0,
+      "PreRender": 0
+    },
+    "renderEnableAccepted": false,
+    "error": "The current thread cannot call 'Set3dRenderingEnabled' (lacking capability RobloxScript)"
+  },
+  "after": {
+    "Metrics": {
+      "MaxGap": 0.10176400002092123,
+      "RenderFrames": 0,
+      "Updates": 13,
+      "FirstUpdate": 0.016036499990150332,
+      "SampleSeconds": 1.2688109999289736,
+      "Heartbeats": 117
+    },
+    "Passed": true,
+    "Checks": [
+      "Menu hides shortcuts without a render frame",
+      "Gift counter combines ready time and level rewards",
+      "Boost timer refreshes without a render frame",
+      "Dash label updates at bounded UI cadence",
+      "First status refresh within 300 ms in this run",
+      "No status refresh gap over 350 ms in this run"
+    ]
+  },
+  "logicalTransitions": {
+    "restored": {
+      "quick": true,
+      "boost": true
+    },
+    "hidden": {
+      "quick": false,
+      "boost": false
+    },
+    "closed": {
+      "menu": false,
+      "started": true,
+      "boostText": "XP x2 09:54",
+      "window": false,
+      "quick": true,
+      "boost": true
+    }
+  },
+  "limits": [
+    "Aucun rendu client ; la commande Set3dRenderingEnabled a été refusée par la capacité RobloxScript. Aucun contournement essayé.",
+    "Les six checks et les transitions vérifient les propriétés logiques, pas les pixels ou TextFits.",
+    "13 changements de texte en 1,269 s : mesure courte de cadence UI, pas de benchmark FPS/CPU/GPU.",
+    "Les tentatives natives G/P n'ont pas réalisé les transitions attendues. Les transitions finales ont été provoquées par attributs dans une fixture Play.",
+    "La première fixture XP de 60 s a expiré pendant les essais ; la finale utilise 600 s pour distinguer expiration et affichage.",
+    "Une première synchronisation a échoué au parsing ; Studio n'avait pas été modifié. Synchronisation corrigée avant les vérifications.",
+    "Profils/attributs temporaires restaurés avant Stop ; caméra, visuels/portails Centrale et mobile restent à vérifier une fois le rendu actif."
+  ]
+}

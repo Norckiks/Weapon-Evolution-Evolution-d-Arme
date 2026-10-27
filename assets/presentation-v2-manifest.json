@@ -1,0 +1,148 @@
+{
+  "version": "presentation-v2",
+  "generatedMeshes": [
+    {
+      "name": "WreckSedan",
+      "assetId": "100211423861501",
+      "trianglesBudget": 10000
+    },
+    {
+      "name": "Weeds",
+      "assetId": "90962015738494",
+      "trianglesBudget": 1800
+    },
+    {
+      "name": "Rubble",
+      "assetId": "83455624019199",
+      "trianglesBudget": 4000
+    },
+    {
+      "name": "CivilianBody",
+      "assetId": "135332047673624",
+      "trianglesBudget": 10000
+    },
+    {
+      "name": "WorkerBody",
+      "assetId": "86247019584364",
+      "trianglesBudget": 10000
+    },
+    {
+      "name": "HazmatBody",
+      "assetId": "86447878874745",
+      "trianglesBudget": 10000
+    },
+    {
+      "name": "Gloves",
+      "assetId": "123967557377409",
+      "trianglesBudget": 5000
+    },
+    {
+      "name": "Sleeve",
+      "assetId": "125285219295573",
+      "trianglesBudget": 3000
+    },
+    {
+      "name": "Tent",
+      "assetId": "108773839072165",
+      "trianglesBudget": 6500
+    },
+    {
+      "name": "ArmoredTruck",
+      "assetId": "133833714733250",
+      "trianglesBudget": 10000
+    }
+  ],
+  "materials": [
+    {
+      "ColorMap": "rbxassetid://77129694376000",
+      "NormalMap": "rbxassetid://105911352091199",
+      "Name": "V2_OxidizedSteel",
+      "MetalnessMap": "rbxassetid://108251618729230",
+      "StudsPerTile": 10,
+      "RoughnessMap": "rbxassetid://114182450712823",
+      "BaseMaterial": "CorrodedMetal"
+    },
+    {
+      "ColorMap": "rbxassetid://111572143750442",
+      "NormalMap": "rbxassetid://112606053179986",
+      "Name": "V2_AgedConcrete",
+      "MetalnessMap": "rbxassetid://140411070983299",
+      "StudsPerTile": 10,
+      "RoughnessMap": "rbxassetid://133389193266567",
+      "BaseMaterial": "Concrete"
+    },
+    {
+      "ColorMap": "rbxassetid://129985679293036",
+      "NormalMap": "rbxassetid://85729175133728",
+      "Name": "V2_WetBrokenAsphalt",
+      "MetalnessMap": "rbxassetid://81438785781494",
+      "StudsPerTile": 10,
+      "RoughnessMap": "rbxassetid://137405433485999",
+      "BaseMaterial": "Asphalt"
+    }
+  ],
+  "audio": [
+    {
+      "name": "Wind",
+      "assetId": "9118747853",
+      "creator": "ProSoundEffects"
+    },
+    {
+      "name": "Rain",
+      "assetId": "5911952995",
+      "creator": "F_ergy"
+    },
+    {
+      "name": "Metal",
+      "assetId": "9125667610",
+      "creator": "ProSoundEffects"
+    },
+    {
+      "name": "Fire",
+      "assetId": "112352139435056",
+      "creator": "Zebbigcool"
+    },
+    {
+      "name": "Growl",
+      "assetId": "130156156621885",
+      "creator": "ZeOddy"
+    },
+    {
+      "name": "StepConcrete",
+      "assetId": "87061775498714",
+      "creator": "IDogeffI"
+    },
+    {
+      "name": "Cloth",
+      "assetId": "140370671134057",
+      "creator": "V3NOMlay"
+    },
+    {
+      "name": "Reward",
+      "assetId": "113730061669739",
+      "creator": "Narplox"
+    },
+    {
+      "name": "Breath",
+      "assetId": "101395573137763",
+      "creator": "CYGONLURD"
+    },
+    {
+      "name": "Heartbeat",
+      "assetId": "139481207162657",
+      "creator": "Marksmansz"
+    },
+    {
+      "name": "LabHum",
+      "assetId": "136271631723876",
+      "creator": "TheAngelMake"
+    },
+    {
+      "name": "Radio",
+      "assetId": "8028069841",
+      "creator": "NoobMatthew3",
+      "source": "Freesound Static #171257"
+    }
+  ],
+  "builtInFootsteps": "rbxasset://sounds/action_footsteps_plastic.mp3"
+}

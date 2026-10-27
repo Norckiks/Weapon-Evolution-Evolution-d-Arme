@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-26",
+  "persistence": "SessionStudio",
+  "bindings": {
+    "Bindings": {
+      "Enum.KeyCode.LeftShift": "SurvivalSprint",
+      "Enum.KeyCode.T": "SurvivalFrost",
+      "Enum.KeyCode.R": "SurvivalReload",
+      "Enum.KeyCode.DPadLeft": "SurvivalSlam",
+      "Enum.KeyCode.DPadRight": "SurvivalFrost",
+      "Enum.KeyCode.DPadUp": "SurvivorFlashlight",
+      "Enum.KeyCode.H": "SurvivalAegis",
+      "Enum.UserInputType.MouseButton1": "FistsPunch",
+      "Enum.KeyCode.E": "SurvivalSlam",
+      "Enum.KeyCode.O": "SurvivalView",
+      "Enum.KeyCode.P": "SurvivalOptions",
+      "Enum.KeyCode.ButtonR2": "FistsPunch",
+      "Enum.KeyCode.Q": "SurvivalPulse",
+      "Enum.KeyCode.ButtonL3": "SurvivalSprint",
+      "Enum.KeyCode.RightShift": "SurvivalSprint",
+      "Enum.KeyCode.ButtonR1": "SurvivalCrouch",
+      "Enum.KeyCode.F": "SurvivorFlashlight",
+      "Enum.KeyCode.ButtonR3": "SurvivalAegis",
+      "Enum.KeyCode.C": "SurvivalCrouch",
+      "Enum.KeyCode.ButtonL1": "SurvivalPulse",
+      "Enum.KeyCode.J": "SurvivalSecondSouffle",
+      "Enum.KeyCode.ButtonB": "SurvivalDash",
+      "Enum.KeyCode.LeftControl": "SurvivalDash",
+      "Enum.KeyCode.ButtonSelect": "SurvivalView",
+      "Enum.KeyCode.M": "SurvivalMouseUnlock",
+      "Enum.KeyCode.ButtonX": "SurvivalReload",
+      "Enum.KeyCode.DPadDown": "SurvivalSecondSouffle",
+      "Enum.KeyCode.V": "SurvivalVault",
+      "Enum.KeyCode.ButtonY": "SurvivalVault"
+    },
+    "Passed": true,
+    "Checks": [
+      "Expected inputs: SurvivalAegis",
+      "Expected inputs: SurvivalFrost",
+      "Expected inputs: SurvivalSecondSouffle",
+      "Expected inputs: SurvivalDash",
+      "Expected inputs: SurvivalVault",
+      "Expected inputs: SurvivalReload",
+      "Expected inputs: SurvivalSlam",
+      "No shared input among survival, survivor and fists actions"
+    ]
+  },
+  "nativeServerEvents": [
+    {
+      "Value": 12,
+      "Kind": "InitialAmmo",
+      "At": 1793040141.095768
+    },
+    {
+      "Value": 11,
+      "Kind": "GunAmmo",
+      "At": 1793040141.33989
+    },
+    {
+      "Value": true,
+      "Kind": "GunReloading",
+      "At": 1793040141.60286
+    },
+    {
+      "Value": 12,
+      "Kind": "GunAmmo",
+      "At": 1793040143.203963
+    },
+    {
+      "Value": false,
+      "Kind": "GunReloading",
+      "At": 1793040143.204015
+    },
+    {
+      "Value": 1793040161.50352,
+      "Kind": "FrostReadyAt",
+      "At": 1793040143.515411
+    },
+    {
+      "Value": 1793040143.50352,
+      "Kind": "AbilityAt",
+      "At": 1793040143.515462
+    },
+    {
+      "Value": "Frost",
+      "Kind": "AbilityId",
+      "At": 1793040143.515489
+    },
+    {
+      "Value": 1793040196.118729,
+      "Kind": "SecondSouffleReadyAt",
+      "At": 1793040168.123588
+    },
+    {
+      "Value": 1793040168.118729,
+      "Kind": "AbilityAt",
+      "At": 1793040168.127225
+    },
+    {
+      "Value": "SecondSouffle",
+      "Kind": "AbilityId",
+      "At": 1793040168.127651
+    },
+    {
+      "Value": 1793040181.469327,
+      "Kind": "SlamReadyAt",
+      "At": 1793040169.473147
+    },
+    {
+      "Value": 1793040169.469327,
+      "Kind": "AbilityAt",
+      "At": 1793040169.473204
+    },
+    {
+      "Value": "Slam",
+      "Kind": "AbilityId",
+      "At": 1793040169.473234
+    }
+  ],
+  "keyboardGiftPage": "CADEAUX DE TEMPS",
+  "mobile": {
+    "device": "iphone_17_pro",
+    "portraitViewport": "401, 778",
+    "selectedText": "Égide astrale\n30 END.",
+    "ready": true,
+    "serverAbility": "Aegis",
+    "serverCooldown": 1793040512.328919,
+    "serverGuardUntil": 1793040491.528919,
+    "observedAt": 1793040491.985898,
+    "capture": "SelectedMobileAegis",
+    "landscapeViewport": "750, 381",
+    "landscapeAbilityButton": {
+      "Visible": true,
+      "Size": "56, 56",
+      "Position": "380, 151"
+    },
+    "landscapeSelector": {
+      "Visible": true,
+      "Size": "42, 56",
+      "Position": "325, 151"
+    }
+  },
+  "cameraWall": {
+    "before": 8.285487174987793,
+    "obstructed": 3.0185370445251465,
+    "restored": 8.313071250915527
+  },
+  "limits": [
+    "No physical touch or gamepad device test",
+    "No multiplayer or production DataStore test",
+    "PC-to-phone switch mid-session left AbilityHUD in desktop layout; fresh phone sessions were tested",
+    "Landscape Play mouse click did not start; normal Start remote used for layout and wall tests",
+    "Initial instantaneous reload query missed short transition; server observer recorded real true/false changes",
+    "Camera rotation at right mouse is still not physically tested"
+  ],
+  "finalState": {
+    "mode": "Edit",
+    "device": "default",
+    "orientation": "LandscapeLeft",
+    "profilesRestored": true,
+    "runtimeScriptsMatched": 46,
+    "runtimeScriptsCompiled": 46,
+    "installedQA": 0,
+    "monetizationEnabled": false
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "Restored": true,
+  "Pages": [
+    {
+      "Checks": 18,
+      "Viewport": "1, 1",
+      "Rows": 3,
+      "Page": "Upgrades",
+      "Images": 3
+    },
+    {
+      "Checks": 24,
+      "Viewport": "1, 1",
+      "Rows": 13,
+      "Page": "Weapons",
+      "Images": 1
+    },
+    {
+      "Checks": 72,
+      "Viewport": "1, 1",
+      "Rows": 16,
+      "Page": "Pets",
+      "Images": 16
+    },
+    {
+      "Checks": 39,
+      "Viewport": "1, 1",
+      "Rows": 10,
+      "Page": "Time",
+      "Images": 10
+    },
+    {
+      "Checks": 42,
+      "Viewport": "1, 1",
+      "Rows": 11,
+      "Page": "Missions",
+      "Images": 11
+    },
+    {
+      "Checks": 29,
+      "Viewport": "1, 1",
+      "Rows": 5,
+      "Page": "Robux",
+      "Images": 5
+    },
+    {
+      "Checks": 24,
+      "Viewport": "1, 1",
+      "Rows": 5,
+      "Page": "Options",
+      "Images": 5
+    },
+    {
+      "Checks": 18,
+      "Viewport": "1, 1",
+      "Rows": 3,
+      "Page": "Crates",
+      "Images": 3
+    }
+  ],
+  "Passed": true,
+  "Checks": 266,
+  "Limits": [
+    "Viewport 1x1 / RenderStepped 0; no visual or responsive validation",
+    "No native click, physical touch, multiplayer or persistence test"
+  ]
+}

@@ -1,0 +1,5 @@
+ameliorer L'UI
+avoir des mouvement plus rapide
+comparer le jeu a des jeu trending pour voir quoi ameliorer
+ameliorer les animation quand on cours
+integrer un mode 3 eme personne

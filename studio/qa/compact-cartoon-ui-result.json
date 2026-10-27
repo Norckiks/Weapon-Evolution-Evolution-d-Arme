@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-26",
+  "checks": 752,
+  "snapshots": [
+    {
+      "viewport": "1447, 824",
+      "rows": 2,
+      "page": "ATELIER",
+      "checks": 12
+    },
+    {
+      "viewport": "1447, 824",
+      "rows": 13,
+      "page": "FRAGMENTS & PETS",
+      "checks": 80
+    },
+    {
+      "viewport": "1447, 824",
+      "rows": 9,
+      "page": "CADEAUX DE TEMPS",
+      "checks": 40
+    },
+    {
+      "viewport": "1447, 824",
+      "rows": 9,
+      "page": "MISSIONS & DOSSIERS",
+      "checks": 40
+    },
+    {
+      "viewport": "1447, 824",
+      "rows": 5,
+      "page": "BOUTIQUE ROBUX",
+      "checks": 24
+    },
+    {
+      "viewport": "1447, 824",
+      "rows": 5,
+      "page": "OPTIONS",
+      "checks": 24
+    },
+    {
+      "viewport": "1447, 824",
+      "rows": 3,
+      "page": "CAISSES",
+      "checks": 16
+    },
+    {
+      "viewport": "1447, 824",
+      "rows": 12,
+      "page": "ARMURERIE",
+      "checks": 52
+    },
+    {
+      "viewport": "750, 381",
+      "rows": 2,
+      "page": "ATELIER",
+      "checks": 14
+    },
+    {
+      "viewport": "750, 381",
+      "rows": 13,
+      "page": "FRAGMENTS & PETS",
+      "checks": 105
+    },
+    {
+      "viewport": "750, 381",
+      "rows": 9,
+      "page": "CADEAUX DE TEMPS",
+      "checks": 49
+    },
+    {
+      "viewport": "401, 778",
+      "rows": 2,
+      "page": "ATELIER",
+      "checks": 14
+    },
+    {
+      "viewport": "401, 778",
+      "rows": 13,
+      "page": "FRAGMENTS & PETS",
+      "checks": 105
+    },
+    {
+      "viewport": "401, 778",
+      "rows": 12,
+      "page": "ARMURERIE",
+      "checks": 64
+    },
+    {
+      "viewport": "750, 381",
+      "rows": 12,
+      "page": "ARMURERIE",
+      "checks": 64
+    },
+    {
+      "viewport": "401, 778",
+      "rows": 9,
+      "page": "CADEAUX DE TEMPS",
+      "checks": 49
+    }
+  ],
+  "captures": [
+    "CompactCartoonShopPC",
+    "CompactCartoonArmoryPC",
+    "CompactCartoonPortrait",
+    "CompactCartoonPetsPortrait",
+    "CompactCartoonWeaponsPortrait",
+    "CompactCartoonWeaponsLandscape",
+    "CompactCartoonHudFinal"
+  ],
+  "audit": {
+    "backup": 2,
+    "compiled": 46,
+    "matching": 46,
+    "robux": false
+  },
+  "limits": [
+    "Simulateur uniquement, aucun tactile/manette physiques.",
+    "PC : huit onglets par clic natif. Mobile : atelier, armurerie, pets et cadeaux contrôlés, quatre autres pages non revalidées.",
+    "Une première sonde portrait cadeaux a échoué car G a fermé l'onglet déjà ouvert ; réouverture et snapshot réussi.",
+    "Pas de test d'achat ni de sauvegarde DataStore pendant ce lot ; code économie inchangé.",
+    "Captures inspectées via MCP, non enregistrées comme fichiers locaux."
+  ]
+}

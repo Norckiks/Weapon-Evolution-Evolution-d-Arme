@@ -1,0 +1,60 @@
+{
+  "Restored": true,
+  "Checks": [
+    "Shoot accepted by server",
+    "Shoot sampled real world motors",
+    "Shoot returns to rest",
+    "ReducedShoot accepted by server",
+    "ReducedShoot sampled real world motors",
+    "ReducedShoot returns to rest",
+    "MutedShoot accepted by server",
+    "MutedShoot sampled real world motors",
+    "MutedShoot returns to rest",
+    "Reload sampled real world motors",
+    "Reload returns to rest",
+    "World bolt moves full stroke",
+    "Reduced stroke is one quarter",
+    "World magazine insertion",
+    "World bolt cycles during reload",
+    "Three accepted shots and refill",
+    "Shot and delayed bolt sound created",
+    "Muted shot creates no sounds"
+  ],
+  "Samples": {
+    "Shoot": {
+      "Sounds": {
+        "GunShot": 1,
+        "MarksmanBolt": 1
+      },
+      "Last": 4.251129983838265e-17,
+      "Magazine": 0,
+      "Frames": 71,
+      "Bolt": 0.33990395069122314
+    },
+    "MutedShoot": {
+      "Sounds": [],
+      "Last": 4.251129983838265e-17,
+      "Magazine": 0,
+      "Frames": 70,
+      "Bolt": 0.3399999141693115
+    },
+    "ReducedShoot": {
+      "Sounds": {
+        "GunShot": 1,
+        "MarksmanBolt": 1
+      },
+      "Last": 1.0627824959595663e-17,
+      "Magazine": 0,
+      "Frames": 71,
+      "Bolt": 0.08498319238424301
+    },
+    "Reload": {
+      "Sounds": [],
+      "Last": 4.251129983838265e-17,
+      "Magazine": 0.7399622201919556,
+      "Frames": 205,
+      "Bolt": 0.33998996019363403
+    }
+  },
+  "Passed": true
+}

@@ -1,0 +1,255 @@
+{
+  "checkedAt": "2026-10-23 07:21:10 UTC",
+  "studioId": "45bb0222-99c2-4b04-8be7-6667f480d5e2",
+  "placeId": 78882167241715,
+  "session": "SessionStudio",
+  "melee": {
+    "Metrics": {
+      "Abomination": {
+        "ObservedDelay": 0.9111781120300293,
+        "Windup": 0.9,
+        "Damage": 25
+      },
+      "Stalker": {
+        "ObservedDelay": 0.43929219245910645,
+        "Windup": 0.28,
+        "Damage": 18
+      },
+      "Civilian": {
+        "ObservedDelay": 0.4649009704589844,
+        "Windup": 0.45,
+        "Damage": 4
+      },
+      "Brute": {
+        "ObservedDelay": 0.705374002456665,
+        "Windup": 0.7,
+        "Damage": 10
+      },
+      "Scrapper": {
+        "ObservedDelay": 0.8081519603729248,
+        "Windup": 0.8,
+        "Damage": 16
+      },
+      "Worker": {
+        "ObservedDelay": 0.4867839813232422,
+        "Windup": 0.48,
+        "Damage": 10
+      },
+      "Hazmat": {
+        "ObservedDelay": 0.5168581008911133,
+        "Windup": 0.5,
+        "Damage": 14
+      },
+      "Runner": {
+        "ObservedDelay": 0.33139610290527344,
+        "Windup": 0.32,
+        "Damage": 6
+      },
+      "AnchorTitan": {
+        "ObservedDelay": 1.0043599605560303,
+        "Windup": 1,
+        "Damage": 38
+      },
+      "Soldier": {
+        "ObservedDelay": 0.429063081741333,
+        "Windup": 0.42,
+        "Damage": 12
+      },
+      "Drowned": {
+        "ObservedDelay": 0.5027248859405518,
+        "Windup": 0.5,
+        "Damage": 24
+      },
+      "Raider": {
+        "ObservedDelay": 0.3543708324432373,
+        "Windup": 0.34,
+        "Damage": 28
+      }
+    },
+    "Passed": true,
+    "Checks": [
+      "Enabled warning, stopped movement, no immediate hit: Civilian",
+      "One delayed configured hit: Civilian",
+      "Enabled warning, stopped movement, no immediate hit: Runner",
+      "One delayed configured hit: Runner",
+      "Enabled warning, stopped movement, no immediate hit: Brute",
+      "One delayed configured hit: Brute",
+      "Enabled warning, stopped movement, no immediate hit: Worker",
+      "One delayed configured hit: Worker",
+      "Enabled warning, stopped movement, no immediate hit: Soldier",
+      "One delayed configured hit: Soldier",
+      "Enabled warning, stopped movement, no immediate hit: Scrapper",
+      "One delayed configured hit: Scrapper",
+      "Enabled warning, stopped movement, no immediate hit: Hazmat",
+      "One delayed configured hit: Hazmat",
+      "Enabled warning, stopped movement, no immediate hit: Stalker",
+      "One delayed configured hit: Stalker",
+      "Enabled warning, stopped movement, no immediate hit: Abomination",
+      "One delayed configured hit: Abomination",
+      "Enabled warning, stopped movement, no immediate hit: Drowned",
+      "One delayed configured hit: Drowned",
+      "Enabled warning, stopped movement, no immediate hit: Raider",
+      "One delayed configured hit: Raider",
+      "Enabled warning, stopped movement, no immediate hit: AnchorTitan",
+      "One delayed configured hit: AnchorTitan",
+      "Ordinary attack accepted",
+      "Parallel attack rejected",
+      "Recovery blocks another swing and hides warning",
+      "Idle cannot bypass start-to-start cooldown",
+      "Full cooldown rearms",
+      "Sidestep behind committed direction dodges",
+      "Leaving melee range during windup dodges",
+      "Protruding avatar accessory cannot hide a solid wall",
+      "Solid transparent wall inserted during windup blocks hit",
+      "Noncollidable trigger permits an attack",
+      "Noncollidable trigger permits impact",
+      "Stun immediately cancels warning and windup",
+      "Expired short stun cannot resurrect delayed damage or bypass cooldown",
+      "Attacker death cancels delayed hit",
+      "Removing attacker from world prevents delayed damage",
+      "Player before Start cannot be attacked",
+      "Unauthorized Factory level refused before damage",
+      "Cross-zone victim refused",
+      "Real director begins new warning state",
+      "Real director holds facing and misses a dodge",
+      "Real director rearms after cooldown",
+      "Real director cancels a windup even after short stun expires",
+      "Actual respawn invalidates old windup target"
+    ]
+  },
+  "pulseRegression": {
+    "Metrics": {
+      "RunnerDuring": {
+        "Speed": 0,
+        "Remaining": 0.4989449977874756,
+        "Health": 30
+      },
+      "KnockbackDistance": 2.5785837173461914,
+      "NormalFX": {
+        "Button": "Button",
+        "Last": {
+          "Sounds": 1,
+          "PoseDistance": 0,
+          "Hits": 4,
+          "Arcs": 12
+        },
+        "Count": 1
+      },
+      "ReducedFX": {
+        "Button": "Button",
+        "Last": {
+          "Sounds": 0,
+          "PoseDistance": 0,
+          "Hits": 12,
+          "Arcs": 6
+        },
+        "Count": 2
+      }
+    },
+    "Passed": true,
+    "Checks": [
+      "Refused: Action",
+      "Refused: State",
+      "Refused: State",
+      "Refused: Level",
+      "Refused: Stamina",
+      "Refused: Busy",
+      "Refused: Busy",
+      "Refused: Busy",
+      "Refused: Busy",
+      "Refused: Ground",
+      "Refused: Zone",
+      "Real remote starts fourteen-second cooldown",
+      "Real SprintServer stamina charged exactly thirty",
+      "Nearby front and side zombies each take twenty damage",
+      "Transparent solid wall blocks pulse",
+      "Wrong-zone, distant and untagged targets untouched",
+      "Pulse credits attacker and sets bounded stun",
+      "Pulse kill awards real director coins and XP",
+      "Real zombie director stops a stunned runner in clear sight",
+      "Repeated remote cannot spend stamina or damage during cooldown",
+      "Client-supplied damage/cost table rejected",
+      "Real impulse physically moves the target",
+      "Accepted event renders twelve arcs and an enabled sound",
+      "Runner recovers its configured speed after stun",
+      "Cooldown survives actual character respawn",
+      "Respawning cannot bypass ability cooldown",
+      "Pulse affects at most twelve of fifteen valid targets",
+      "Reduced-motion effect uses six arcs and respects muted sound",
+      "Cooldown expires and rearms only after the full interval"
+    ]
+  },
+  "totalChecks": 76,
+  "focusedDiagnosticChecks": {
+    "Metrics": [],
+    "Passed": true,
+    "Checks": [
+      "Ordinary attack accepted",
+      "Parallel attack rejected",
+      "Recovery blocks another swing and hides warning",
+      "Idle cannot bypass start-to-start cooldown",
+      "Full cooldown rearms",
+      "Sidestep behind committed direction dodges",
+      "Leaving melee range during windup dodges",
+      "Protruding avatar accessory cannot hide a solid wall",
+      "Solid transparent wall inserted during windup blocks hit",
+      "Noncollidable trigger permits an attack",
+      "Noncollidable trigger permits impact",
+      "Stun immediately cancels warning and windup",
+      "Expired short stun cannot resurrect delayed damage or bypass cooldown",
+      "Attacker death cancels delayed hit",
+      "Removing attacker from world prevents delayed damage",
+      "Player before Start cannot be attacked",
+      "Unauthorized Factory level refused before damage",
+      "Cross-zone victim refused",
+      "Real director begins new warning state",
+      "Real director holds facing and misses a dodge",
+      "Real director rearms after cooldown",
+      "Real director cancels a windup even after short stun expires",
+      "Actual respawn invalidates old windup target"
+    ]
+  },
+  "occlusionBugBeforeFix": {
+    "Sight": true,
+    "Outcome": "Hit",
+    "EndRoot": "100, 60, -120",
+    "EndHead": "100, 62.400001525878906, -123",
+    "RawPosition": "100, 61.51605224609375, -121.89506530761719",
+    "Wall": "100, 61, -121.5",
+    "RawHit": "Workspace.Bruno_ban369.Pink Hair.Handle"
+  },
+  "initialFailure": {
+    "check": "Solid transparent wall inserted during windup blocks hit",
+    "reason": "Actual avatar Pink Hair.Handle ray hit before the wall accepted as target; fixed by excluding target cosmetics."
+  },
+  "harnessCorrection": "The first strict synthetic accessory assertion failed with an accessory parented directly to the avatar. Final fixture isolates the accessory under a character folder and places the wall before body limbs. Raw ray must hit that accessory and filtered sight must hit the wall. Focused 23 and final full 47 checks passed.",
+  "newModule": "ServerScriptService.ZombieMelee",
+  "sourceChanges": [
+    "studio/ZombieMelee.luau",
+    "studio/WorldConfig.luau",
+    "studio/ZombieDirector.server.luau",
+    "studio/NPCPresentation.luau",
+    "studio/Presentation.client.luau"
+  ],
+  "backup": "ServerStorage.BeforeZombieWindups (four existing scripts)",
+  "visualQualification": "Warnings asserted Highlight.Enabled and replicated phase state only. No final capture/pose validation. Camera was 1x1. Pulse regression legacy check labels saying renders mean effect instances were observed; PoseDistance was 0 for normal and reduced.",
+  "timingQualification": "Observed impact never preceded configured windup. Scheduling may delay an impact; final Stalker observation ~0.439 s vs configured 0.28 s. No upper latency or FPS guarantee.",
+  "inputQualification": "Dodges prepared by controlled server character movement with anchored roots, not native keyboard/touch. Real director and actual character respawn exercised.",
+  "economy": "Pulse regression killed a real Civilian and awarded usual 8 coins/20 XP. No reward/receipt/profile schema change.",
+  "console": "Empty at final Play read",
+  "limits": [
+    "No rendered Highlight/animation proof, including AnimationConstraint poses",
+    "No hearing test; existing cloth assets reused through WorldFoley",
+    "No physical touch/gamepad, multiplayer, production persistence, benchmark or long balance test",
+    "Portrait catalog verification remains pending"
+  ],
+  "finalState": {
+    "studioMode": "Edit",
+    "playStopped": true,
+    "simulator": "default",
+    "orientation": "LandscapeLeft",
+    "scripts": 42,
+    "robuxEnabled": false,
+    "published": false
+  }
+}

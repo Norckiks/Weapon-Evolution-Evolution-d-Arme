@@ -1,0 +1,99 @@
+{
+  "checkedAt": "2026-10-22T20:21:35Z",
+  "scope": "Studio single-player UI with synthetic chain, boost and fragment notices; real mobile emulator; screenshots inspected",
+  "desktopStackingBeforeResponsivePass": {
+    "viewport": "1447, 801",
+    "gap": 8,
+    "bothVisible": true,
+    "screenshotInspected": true
+  },
+  "landscape": {
+    "touch": true,
+    "notificationsOverlap": false,
+    "progress": {
+      "visible": true,
+      "h": 48,
+      "name": "ProgressToast",
+      "x": 225,
+      "w": 300,
+      "y": 86
+    },
+    "boost": {
+      "visible": true,
+      "h": 24,
+      "name": "ActiveBoosts",
+      "x": 14,
+      "w": 201,
+      "y": 217
+    },
+    "gap": 8,
+    "fragmentOverlapsBoost": false,
+    "fragment": {
+      "visible": true,
+      "h": 50,
+      "name": "HubToast",
+      "x": 225,
+      "w": 300,
+      "y": 142
+    },
+    "viewport": "750, 381",
+    "fragmentOverlapsStatus": false,
+    "progressOverlapsStatus": false,
+    "progressOverlapsBoost": false
+  },
+  "portrait": {
+    "progressOverlapsAmmo": false,
+    "notificationsOverlap": false,
+    "progress": {
+      "visible": true,
+      "h": 31.19999885559082,
+      "name": "ProgressToast",
+      "x": 76.50000762939453,
+      "w": 246.99998474121094,
+      "y": 292
+    },
+    "ammo": {
+      "visible": true,
+      "h": 42,
+      "name": "Ammo",
+      "x": 207,
+      "w": 170,
+      "y": 242
+    },
+    "gap": 7.80000114440918,
+    "fragmentOverlapsAmmo": false,
+    "touch": true,
+    "fragmentOverlapsBoost": false,
+    "fragment": {
+      "visible": true,
+      "h": 47.56410217285156,
+      "name": "HubToast",
+      "x": 14.5,
+      "w": 371,
+      "y": 331
+    },
+    "progressOverlapsStatus": false,
+    "viewport": "401, 778",
+    "fragmentOverlapsStatus": false,
+    "boost": {
+      "visible": true,
+      "h": 24,
+      "name": "ActiveBoosts",
+      "x": 14,
+      "w": 201,
+      "y": 217
+    },
+    "progressOverlapsBoost": false
+  },
+  "consoleErrorsObserved": 0,
+  "studioFinalState": {
+    "mode": "Edit",
+    "device": "default",
+    "orientation": "LandscapeLeft"
+  },
+  "limits": [
+    "No physical touch or multiplayer validation",
+    "No framerate claim",
+    "Mouse M draft remains local and untested"
+  ]
+}

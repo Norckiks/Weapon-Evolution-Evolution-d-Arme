@@ -1,0 +1,33 @@
+{
+  "Passed": true,
+  "Checks": [
+    "Level 21 cannot buy carbine",
+    "Unowned equip rejected",
+    "Insufficient coins rejected",
+    "Remote UI purchase costs 18000 at level 22",
+    "Owned carbine cannot charge twice",
+    "Eighteen-round magazine",
+    "Distinct carbine model",
+    "Three animated mechanisms without mass or collisions",
+    "Real body shot at 160 studs deals 38",
+    "Five simultaneous requests consume one round",
+    "Headshot deals 57",
+    "Target beyond 175 studs is safe",
+    "Wall blocks carbine damage",
+    "Invalid aim cannot spend ammunition or damage",
+    "Server starts 2.4-second reload",
+    "Cannot fire during reload",
+    "Reload refills eighteen rounds",
+    "Switching cancels reload without free rounds",
+    "Dedicated reload pose",
+    "Magazine drops during insertion sequence",
+    "Charging handle pulls at reload end",
+    "All new mechanism samples finite",
+    "First progression goal is the pipe",
+    "Premium item does not skip normal progression",
+    "Shotgun ownership leads to carbine goal",
+    "Carbine now leads to marksman progression",
+    "Final marksman tier is acknowledged without inventing a purchase",
+    "Existing gun rules and disabled payments preserved"
+  ]
+}

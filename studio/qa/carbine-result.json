@@ -1,0 +1,240 @@
+{
+  "date": "2026-10-26",
+  "persistence": "SessionStudio",
+  "combat": {
+    "Passed": true,
+    "Checks": [
+      "Level 21 cannot buy carbine",
+      "Unowned equip rejected",
+      "Insufficient coins rejected",
+      "Remote UI purchase costs 18000 at level 22",
+      "Owned carbine cannot charge twice",
+      "Eighteen-round magazine",
+      "Distinct carbine model",
+      "Three animated mechanisms without mass or collisions",
+      "Real body shot at 160 studs deals 38",
+      "Five simultaneous requests consume one round",
+      "Headshot deals 57",
+      "Target beyond 175 studs is safe",
+      "Wall blocks carbine damage",
+      "Invalid aim cannot spend ammunition or damage",
+      "Server starts 2.4-second reload",
+      "Cannot fire during reload",
+      "Reload refills eighteen rounds",
+      "Switching cancels reload without free rounds",
+      "Dedicated reload pose",
+      "Magazine drops during insertion sequence",
+      "Charging handle pulls at reload end",
+      "All new mechanism samples finite",
+      "First progression goal is the pipe",
+      "Premium item does not skip normal progression",
+      "Shotgun ownership leads to carbine goal",
+      "Final tier is acknowledged without inventing a purchase",
+      "Existing gun rules and disabled payments preserved"
+    ]
+  },
+  "presentation": {
+    "Sounds": {
+      "GunShot": 1,
+      "CarbineBolt": 1,
+      "ReloadClick": 3
+    },
+    "Checks": [
+      "Carbine equipped for presentation",
+      "Native third-person shot cycles bolt",
+      "One report and one delayed bolt sound",
+      "World magazine leaves and returns during real reload",
+      "Three reload sound stages",
+      "Presentation reload uses authoritative magazine",
+      "First-person carbine visible",
+      "Reduced first-person bolt travel",
+      "Muted native shot creates no gun sounds",
+      "Exactly two native shots accepted"
+    ],
+    "Metrics": {
+      "ReducedFPBolt": 0.04443359375,
+      "WorldMagazine": 0.627962052822113,
+      "WorldBolt": 0.12749741971492767
+    },
+    "Shots": 2,
+    "Passed": true
+  },
+  "existingMechanisms": {
+    "Samples": {
+      "revolverReload": {
+        "Swing": "Revolver",
+        "Ammo": 5,
+        "Frames": 91,
+        "MaxPosition": 0.8738913536071777,
+        "LastPosition": 0.8636736869812012,
+        "Count": 14,
+        "LastAngle": 2.7695322036743164,
+        "MaxAngle": 3.1304047107696533,
+        "Age": 1.8159990310668945
+      },
+      "revolverClosed": {
+        "Swing": "Revolver",
+        "Ammo": 6,
+        "Frames": 13,
+        "MaxPosition": 0,
+        "LastPosition": 0,
+        "Count": 14,
+        "LastAngle": 0,
+        "MaxAngle": 0,
+        "Age": 3.5819671154022217
+      },
+      "shotgunPump": {
+        "Swing": "Shotgun",
+        "Ammo": 4,
+        "Frames": 52,
+        "MaxPosition": 0.2199629247188568,
+        "LastPosition": 0,
+        "Count": 6,
+        "LastAngle": 0,
+        "MaxAngle": 0,
+        "Age": 0.8354380130767822
+      },
+      "shotgunReduced": {
+        "Swing": "Shotgun",
+        "Ammo": 3,
+        "Frames": 52,
+        "MaxPosition": 0.05497153848409653,
+        "LastPosition": 0,
+        "Count": 6,
+        "LastAngle": 0,
+        "MaxAngle": 0,
+        "Age": 0.8365349769592285
+      },
+      "revolverRest": {
+        "MaxAngle": 0,
+        "LastPosition": 0,
+        "Count": 14,
+        "Frames": 7,
+        "LastAngle": 0,
+        "Ammo": 6,
+        "Age": 1793044887.398132,
+        "MaxPosition": 0
+      },
+      "abilityReduced": {
+        "Normal": 0.4188792407512665,
+        "Reduced": 0.10472013056278229
+      },
+      "revolverShot": {
+        "Swing": "Revolver",
+        "Ammo": 5,
+        "Frames": 17,
+        "MaxPosition": 0.37000003457069397,
+        "LastPosition": 0.37000003457069397,
+        "Count": 14,
+        "LastAngle": 1.0471975803375244,
+        "MaxAngle": 1.0471975803375244,
+        "Age": 0.2531709671020508
+      }
+    },
+    "Passed": true,
+    "Checks": [
+      "Only moving pieces have motors: Pistol",
+      "Only moving pieces have motors: SMG",
+      "Mechanism is attached and massless: Revolver/Cylinder",
+      "Mechanism is attached and massless: Revolver/ChamberRim",
+      "Mechanism is attached and massless: Revolver/ChamberPrimer",
+      "Mechanism is attached and massless: Revolver/ChamberRim",
+      "Mechanism is attached and massless: Revolver/ChamberPrimer",
+      "Mechanism is attached and massless: Revolver/ChamberRim",
+      "Mechanism is attached and massless: Revolver/ChamberPrimer",
+      "Mechanism is attached and massless: Revolver/ChamberRim",
+      "Mechanism is attached and massless: Revolver/ChamberPrimer",
+      "Mechanism is attached and massless: Revolver/ChamberRim",
+      "Mechanism is attached and massless: Revolver/ChamberPrimer",
+      "Mechanism is attached and massless: Revolver/ChamberRim",
+      "Mechanism is attached and massless: Revolver/ChamberPrimer",
+      "Mechanism is attached and massless: Revolver/CylinderAxle",
+      "Only moving pieces have motors: Revolver",
+      "Mechanism is attached and massless: Shotgun/Foreend",
+      "Mechanism is attached and massless: Shotgun/PumpRib",
+      "Mechanism is attached and massless: Shotgun/PumpRib",
+      "Mechanism is attached and massless: Shotgun/PumpRib",
+      "Mechanism is attached and massless: Shotgun/PumpRib",
+      "Mechanism is attached and massless: Shotgun/PumpRib",
+      "Only moving pieces have motors: Shotgun",
+      "Only moving pieces have motors: Pipe",
+      "Revolver rests with closed cylinder",
+      "Real revolver shot indexes world cylinder",
+      "Real reload opens and turns world cylinder",
+      "Reload refills and closes world cylinder",
+      "Real shotgun shot cycles all six pump pieces and settles",
+      "ReducedMotion limits pump travel to one quarter",
+      "Ability torso lean respects ReducedMotion",
+      "Switching removes previous weapon mechanisms"
+    ]
+  },
+  "goalLocked": {
+    "Size": "666, 100",
+    "Description": "Niveau 21 / 22 · 9000 / 18000 pieces\nEncore 1 niveau(x) · Manque 9000 pieces",
+    "Position": "383.5, 214",
+    "Title": "ARMURERIE",
+    "Action": "NIVEAU 22",
+    "Active": false,
+    "Fill": 0.5
+  },
+  "goalPurchase": {
+    "Equipped": "Carbine",
+    "Coins": 4000
+  },
+  "portraitCatalog": {
+    "DescriptionFits": true,
+    "Action": "NIVEAU 22",
+    "TitleFits": true,
+    "Button": "333.016663, 48.1722221",
+    "Preview": true,
+    "Viewport": "401, 778"
+  },
+  "ui": {
+    "pc": "1447, 824",
+    "portrait": "401, 778",
+    "landscape": "750, 381",
+    "portraitAction": "333.016663, 48.1722221",
+    "landscapeAction": "113.657143, 45.1714287",
+    "portraitTextsFit": true,
+    "landscapeTextsFit": true,
+    "readyGoalFill": 1,
+    "finalTierAcknowledged": true
+  },
+  "capturesInspected": [
+    "CarbineNextGoalPC",
+    "CarbineNextGoalPortrait",
+    "CarbineCatalogPortrait",
+    "CarbineNextGoalLandscape"
+  ],
+  "correctedAttempts": [
+    "First Studio session had a CorePackages timeout and missing SurvivalHUD errors. Later fresh sessions confirmed HUD present; UI evidence belongs to those sessions.",
+    "World bolt first sampled zero: replicated SwingAt arrived with age about .196, after the .13 cycle. CharacterCombat now starts firearm visuals on accepted ShotFX receipt; regressions and native presentation retested.",
+    "First-person reduced sampler initially began after server FX and missed immediate local animation. Observer now records before the native input; runtime first-person timing was not delayed for the test.",
+    "Immediate Edit source comparison after Stop hit a transient unavailable datamodel response. Revalidated Edit and actual sources before changes."
+  ],
+  "limits": [
+    "No physical touch/gamepad test",
+    "No multiplayer or production DataStore/reconnection test",
+    "Sight is decorative; no secondary zoom",
+    "Model preview and sampled transforms do not validate every R6 pose",
+    "No rbxl save or publication"
+  ],
+  "finalState": {
+    "mode": "Edit",
+    "device": "default",
+    "orientation": "LandscapeLeft",
+    "profileRestored": true,
+    "runtimeScriptsMatched": 46,
+    "runtimeScriptsCompiled": 46,
+    "installedQA": 0,
+    "monetizationEnabled": false,
+    "disabledRuntimeScripts": 0,
+    "nonzeroProductIds": 0,
+    "backupScripts": 7
+  },
+  "lateGuard": {
+    "characterAndHeadRequiredForDelayedBoltSound": true,
+    "compiledAndSynced": true,
+    "specificDeathWindowTested": false
+  }
+}

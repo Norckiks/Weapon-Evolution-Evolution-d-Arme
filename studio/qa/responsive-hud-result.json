@@ -1,0 +1,174 @@
+{
+  "date": "2026-10-26",
+  "persistence": "SessionStudio",
+  "bindings": {
+    "Bindings": {
+      "Enum.KeyCode.LeftShift": "SurvivalSprint",
+      "Enum.KeyCode.DPadLeft": "SurvivalSlam",
+      "Enum.KeyCode.E": "SurvivalSlam",
+      "Enum.KeyCode.T": "SurvivalFrost",
+      "Enum.KeyCode.R": "SurvivalReload",
+      "Enum.KeyCode.ButtonX": "SurvivalReload",
+      "Enum.KeyCode.M": "SurvivalMouseUnlock",
+      "Enum.KeyCode.DPadRight": "SurvivalFrost",
+      "Enum.KeyCode.DPadUp": "SurvivorFlashlight",
+      "Enum.KeyCode.H": "SurvivalAegis",
+      "Enum.UserInputType.MouseButton1": "FistsPunch",
+      "Enum.KeyCode.ButtonR1": "SurvivalCrouch",
+      "Enum.KeyCode.O": "SurvivalView",
+      "Enum.KeyCode.P": "SurvivalOptions",
+      "Enum.KeyCode.ButtonR2": "FistsPunch",
+      "Enum.KeyCode.Q": "SurvivalPulse",
+      "Enum.KeyCode.Return": "SurvivalStart",
+      "Enum.KeyCode.F": "SurvivorFlashlight",
+      "Enum.KeyCode.ButtonL3": "SurvivalSprint",
+      "Enum.KeyCode.RightShift": "SurvivalSprint",
+      "Enum.KeyCode.DPadDown": "SurvivalSecondSouffle",
+      "Enum.KeyCode.C": "SurvivalCrouch",
+      "Enum.KeyCode.ButtonL1": "SurvivalPulse",
+      "Enum.KeyCode.J": "SurvivalSecondSouffle",
+      "Enum.KeyCode.ButtonB": "SurvivalDash",
+      "Enum.KeyCode.LeftControl": "SurvivalDash",
+      "Enum.KeyCode.ButtonSelect": "SurvivalView",
+      "Enum.KeyCode.ButtonA": "SurvivalStart",
+      "Enum.KeyCode.ButtonStart": "SurvivalStart",
+      "Enum.KeyCode.ButtonR3": "SurvivalAegis",
+      "Enum.KeyCode.V": "SurvivalVault",
+      "Enum.KeyCode.ButtonY": "SurvivalVault"
+    },
+    "Passed": true,
+    "Checks": [
+      "Expected inputs: SurvivalAegis",
+      "Expected inputs: SurvivalFrost",
+      "Expected inputs: SurvivalSecondSouffle",
+      "Expected inputs: SurvivalDash",
+      "Expected inputs: SurvivalVault",
+      "Expected inputs: SurvivalReload",
+      "Expected inputs: SurvivalSlam",
+      "No shared input among survival, survivor and fists actions"
+    ]
+  },
+  "hud": {
+    "Touch": true,
+    "Checks": [
+      "Playing without menu",
+      "Ability card remains visible",
+      "Selector follows touch capability",
+      "Correct card width",
+      "Selector touch target at least 44",
+      "Exactly seven native action buttons"
+    ],
+    "Viewport": "750, 381",
+    "Text": "ONDE\nNIV. 5",
+    "Passed": true,
+    "TouchButtons": 7
+  },
+  "transitions": [
+    {
+      "Mode": "pc",
+      "Button": "190, 48",
+      "Text": "Q · ONDE DE CHOC\nNIV. 5",
+      "Viewport": "1447, 824",
+      "Selector": false
+    },
+    {
+      "TouchButtons": 7,
+      "Mode": "portrait",
+      "Viewport": "401, 778",
+      "Text": "ONDE\nNIV. 5",
+      "Button": "56, 56",
+      "Selector": true
+    },
+    {
+      "TouchButtons": 7,
+      "Mode": "landscape",
+      "Viewport": "750, 381",
+      "Text": "ONDE\nNIV. 5",
+      "Button": "56, 56",
+      "Selector": true
+    },
+    {
+      "Mode": "pc",
+      "Button": "190, 48",
+      "Text": "Q · ONDE DE CHOC\nNIV. 5",
+      "Viewport": "1447, 824",
+      "Selector": false
+    },
+    {
+      "TouchButtons": 7,
+      "Mode": "portrait",
+      "Viewport": "401, 778",
+      "Text": "ONDE\nNIV. 5",
+      "Button": "56, 56",
+      "Selector": true
+    }
+  ],
+  "enter": {
+    "Entered": true,
+    "Menu": false
+  },
+  "gamepadA": {
+    "AStarted": true,
+    "Menu": false,
+    "Hint": "ENTREE / A : JOUER"
+  },
+  "playingAPassesToLowerPriority": true,
+  "startInputProbe": "ButtonA;Return;",
+  "welcomePointer": {
+    "requested": {
+      "X": 375,
+      "Y": 210
+    },
+    "received": {
+      "Kind": "Touch",
+      "X": 313,
+      "Y": 112.5,
+      "Hits": [
+        "WelcomeIllustration"
+      ]
+    },
+    "activated": false,
+    "automaticPlayClickValidated": false
+  },
+  "capturesInspected": [
+    "TransitionReproduced",
+    "WelcomeStartHintLandscape"
+  ],
+  "correctedAttempts": [
+    "Heartbeat alone did not explain the freeze. Probes isolated a pending GetButton call with no ContextActionGui; guarded lookups and touch rebinding fixed the mode switches.",
+    "First switch loop exposed InterfaceV2 positioning a replaced button with nil Parent. Parent guards added; the five-mode loop repeated in a fresh Play session with empty console.",
+    "ButtonStart did not arrive in an ordinary high-priority input probe; ButtonA and Return did. A was added as the advertised controller start input.",
+    "Welcome click probe received touch coordinates different from the requested point; automatic Play click remains unvalidated."
+  ],
+  "limits": [
+    "No physical touch/gamepad test",
+    "No multiplayer or production DataStore test",
+    "PreferredInput conversion for all game interfaces is outside this lot; touch capability still determines the existing layout",
+    "No full shop page sweep or R6 visual sweep",
+    "Pointer calibration remains simulator-specific"
+  ],
+  "rootConditionProbes": {
+    "desktop": {
+      "ContextGui": false,
+      "Seconds": 0.6,
+      "CallReturned": true
+    },
+    "touchWithoutGui": {
+      "Touch": true,
+      "ContextGui": false,
+      "Bound": true,
+      "Seconds": 0.6,
+      "CallReturned": false
+    }
+  },
+  "enterPC": true,
+  "finalState": {
+    "mode": "Edit",
+    "device": "default",
+    "orientation": "LandscapeLeft",
+    "runtimeScriptsMatched": 46,
+    "runtimeScriptsCompiled": 46,
+    "installedQA": 0,
+    "monetizationEnabled": false
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "scope": "Normal Studio Play character with client ownership; real MovementAction requests through temporary client bridge",
+  "result": {
+    "Routes": [
+      {
+        "Rise": 3.416443347930908,
+        "Zone": "City",
+        "Landed": true,
+        "Name": "CitySandbags",
+        "Crossed": true,
+        "Start": [
+          -12.25,
+          3.9248046875,
+          28
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          -12.25408935546875,
+          3.9248046875,
+          20.99676513671875
+        ]
+      },
+      {
+        "Rise": 3.3889212608337402,
+        "Zone": "Factory",
+        "Landed": true,
+        "Name": "FactoryCrate",
+        "Crossed": true,
+        "Start": [
+          638,
+          3.82421875,
+          -24.30078125
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          638,
+          3.82421875,
+          -30.134765625
+        ]
+      },
+      {
+        "Rise": 3.380859375,
+        "Zone": "Factory",
+        "Landed": true,
+        "Name": "FactoryPipeRack",
+        "Crossed": true,
+        "Start": [
+          602,
+          3.82421875,
+          -38.44921875
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          601.998046875,
+          3.82421875,
+          -43.583984375
+        ]
+      },
+      {
+        "Rise": 3.327951431274414,
+        "Zone": "Lab",
+        "Landed": true,
+        "Name": "LabConsole",
+        "Crossed": true,
+        "Start": [
+          1258,
+          3.82421875,
+          -24.30078125
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          1258.00390625,
+          3.82421875,
+          -29.8125
+        ]
+      },
+      {
+        "Rise": 3.383373260498047,
+        "Zone": "Lab",
+        "Landed": true,
+        "Name": "LabBarrier",
+        "Crossed": true,
+        "Start": [
+          1222,
+          3.82421875,
+          -38.6015625
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          1222.00390625,
+          3.82421875,
+          -45.0078125
+        ]
+      }
+    ],
+    "Passed": true
+  },
+  "limits": [
+    "No high-latency multiplayer test",
+    "Five selected obstacles, not every object on the map"
+  ]
+}

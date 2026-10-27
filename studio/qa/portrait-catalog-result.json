@@ -1,0 +1,138 @@
+{
+  "checkedAt": "2026-10-23 06:38:04 UTC",
+  "status": "implemented_verification_incomplete",
+  "runtimeChanges": [
+    "StarterPlayer.StarterPlayerScripts.GameHub"
+  ],
+  "backup": "ServerStorage.BeforePortraitCatalog.GameHub",
+  "startInput": {
+    "before": {
+      "Started": false,
+      "Ready": true
+    },
+    "after": {
+      "Started": true,
+      "Menu": false
+    },
+    "input": "Native mouse after closing Options; raw absolute center worked at 374x666, origin-corrected first click opened Options instead.",
+    "profile": "SessionStudio money/level/pets prepared; no server modification of HasStarted/MenuState."
+  },
+  "finalStartInputBefore": {
+    "Before": false,
+    "X": 187,
+    "Y": 292.2000026702881
+  },
+  "draftGeometry": [
+    {
+      "Passed": true,
+      "Issues": [],
+      "Portrait": true,
+      "Rows": [
+        {
+          "Bounds": {
+            "Y": 179.0319366455078,
+            "X": 22.472213745117188,
+            "W": 348.7250061035156,
+            "H": 157.08334350585938
+          },
+          "Name": "Upgrade_Health",
+          "Buttons": [
+            {
+              "Selectable": true,
+              "Text": "100 pieces",
+              "Rect": {
+                "Y": 278.51806640625,
+                "X": 29.802764892578125,
+                "W": 333.01666259765625,
+                "H": 48.17222213745117
+              },
+              "Active": true
+            }
+          ]
+        },
+        {
+          "Bounds": {
+            "Y": 341.35137939453125,
+            "X": 22.472213745117188,
+            "W": 348.7250061035156,
+            "H": 157.08334350585938
+          },
+          "Name": "Upgrade_Speed",
+          "Buttons": [
+            {
+              "Selectable": true,
+              "Text": "150 pieces",
+              "Rect": {
+                "Y": 440.83746337890625,
+                "X": 29.802764892578125,
+                "W": 333.01666259765625,
+                "H": 48.17222213745117
+              },
+              "Active": true
+            }
+          ]
+        }
+      ],
+      "Viewport": {
+        "Y": 778,
+        "X": 401
+      },
+      "Window": {
+        "Y": 12,
+        "X": 12,
+        "W": 377,
+        "H": 754
+      },
+      "Page": "ATELIER",
+      "CanvasY": 0
+    }
+  ],
+  "draftGeometryQualification": "ATELIER geometry passed on actual 401x778 viewport after temporary footer minimum font correction, subsequently persisted. This is not seven-page validation of final source.",
+  "implemented": [
+    "All seven pages use tall portrait window",
+    "Two-row category tabs; close/actions round up to at least 44 UI offset pixels in portrait",
+    "Stacked full-width weapon/upgrade/time/options/Robux actions; paired pet actions",
+    "128x128 logical weapon previews and larger text",
+    "Disabled actions not active/selectable",
+    "Scroll reset on page change; render generation guards delayed restores",
+    "Transient viewport smaller than 100x100 is ignored"
+  ],
+  "deviceCorrection": {
+    "earlierPreset": "iphone_7",
+    "earlierLabelIncorrectly": "iPhone 17 Pro",
+    "reason": "Lua %s did not match NBSP in localized newer iPhone names",
+    "actualRecentPresetSelected": "iphone_17_pro",
+    "actualRecentViewportObserved": [
+      401,
+      778
+    ],
+    "revisedEvidence": "studio/qa/shotgun-result.json"
+  },
+  "diagnostics": [
+    "Some client starts returned ViewportSize=1,1 with PlayerGui size 800x600/800x504; not valid geometry evidence",
+    "Capture requests and a native mouse request did not complete; waits cancelled after independent Studio state/viewport checks; no image or input success inferred",
+    "RenderStepped wait was removed from temporary inspector to avoid a render-dependent QA wait",
+    "Set3dRenderingEnabled call refused due to missing RobloxScript capability; no rendering-setting change succeeded",
+    "Play stopped to persist actual footer/minimum-size fixes, not solely because a capture observation timed out"
+  ],
+  "pending": [
+    "Capture all seven final pages",
+    "Final source layout checks portrait 401x778 and smaller 320px",
+    "Landscape and desktop restoration",
+    "Actual UI purchases upgrades/weapons, pet fusion/equipment, time claim, option toggle, disabled Robux",
+    "Last-row scroll reachability, scroll preservation after purchase and page reset"
+  ],
+  "limits": [
+    "No final screenshots accepted",
+    "No physical touch/gamepad, multiplayer or production persistence tests",
+    "Only one runtime script changed; no economy/receipt/server authorization changes"
+  ],
+  "finalState": {
+    "mode": "Edit",
+    "playStopped": true,
+    "simulator": "default",
+    "orientation": "LandscapeLeft",
+    "noPublishing": true,
+    "robuxEnabled": false
+  }
+}

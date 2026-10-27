@@ -1,0 +1,34 @@
+{
+  "supersededBy": "handoff-audit-2026-10-22T2011Z.json",
+  "scopeNote": "This earlier four-file check was accurate for those files only. The later full audit also found a pending local InterfaceV2 mouse-unlock feature.",
+  "checkedAt": "2026-10-22T20:09:57Z",
+  "studioId": "45bb0222-99c2-4b04-8be7-6667f480d5e2",
+  "placeId": 78882167241715,
+  "studioMode": "Edit",
+  "files": [
+    {
+      "path": "ReplicatedStorage.GameplayConfig",
+      "file": "studio/GameplayConfig.luau",
+      "matches": true
+    },
+    {
+      "path": "ServerScriptService.EconomyService",
+      "file": "studio/EconomyService.luau",
+      "matches": true
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.ProgressionClient",
+      "file": "studio/Progression.client.luau",
+      "matches": true
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.GameHub",
+      "file": "studio/GameHub.client.luau",
+      "matches": false
+    }
+  ],
+  "pendingChange": "GameHub notification stacking: GuiService inset offset places HubToast below ProgressToast",
+  "onlyPendingDifferenceIsNotificationStacking": true,
+  "reason": "Installation not executed: automatic approval review could not complete because account usage limit was reached. No unsafe-action determination.",
+  "nextStep": "When review is available, rediscover Studio, recompare GameHub, compile and install local source in Edit, then verify both toast rectangles and mobile layouts in Play."
+}

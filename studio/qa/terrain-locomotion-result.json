@@ -1,0 +1,48 @@
+{
+  "scope": "Real Shift/W/C/Ctrl inputs in each existing zone, server motion sampler, Studio session",
+  "courses": {
+    "City": {
+      "PeakSpeed": 65.59015655517578,
+      "DashDuringSlide": false,
+      "Crouch": false,
+      "Slide": true,
+      "StartStamina": 100,
+      "Sprint": true,
+      "Passed": true,
+      "Zone": "City",
+      "Dash": true,
+      "EndStamina": 66.3,
+      "Displacement": 71.33984375
+    },
+    "Factory": {
+      "PeakSpeed": 65.10106658935547,
+      "DashDuringSlide": false,
+      "Crouch": false,
+      "Slide": true,
+      "StartStamina": 90.6,
+      "Sprint": true,
+      "Passed": true,
+      "Zone": "Factory",
+      "Dash": true,
+      "EndStamina": 64.1,
+      "Displacement": 72.35546875
+    },
+    "Lab": {
+      "PeakSpeed": 65.06932830810547,
+      "DashDuringSlide": false,
+      "Crouch": false,
+      "Slide": true,
+      "StartStamina": 91.2,
+      "Sprint": true,
+      "Passed": true,
+      "Zone": "Lab",
+      "Dash": true,
+      "EndStamina": 81.7,
+      "Displacement": 72.3359375
+    }
+  },
+  "limits": [
+    "Selected main avenues, not every terrain slope",
+    "No physical gamepad/touch or high-latency multiplayer test"
+  ]
+}

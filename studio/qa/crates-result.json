@@ -1,0 +1,176 @@
+{
+  "checkedAt": "2026-10-26",
+  "studioId": "1810e323-f08c-4cee-af08-45d071dcc952",
+  "server": {
+    "Outcomes": [
+      {
+        "Rarity": "Rare",
+        "Id": "Pistol",
+        "Kind": "CrateResult",
+        "CrateId": "Salvage",
+        "Refund": 0
+      },
+      {
+        "Rarity": "Rare",
+        "Id": "SMG",
+        "Kind": "CrateResult",
+        "CrateId": "Arsenal",
+        "Refund": 0
+      },
+      {
+        "Rarity": "Common",
+        "Id": "Civilian",
+        "Kind": "CrateResult",
+        "CrateId": "Pets",
+        "Refund": 0
+      }
+    ],
+    "Passed": true,
+    "Checks": [
+      "Salvage exact ticket coverage Pipe",
+      "Salvage exact ticket coverage Bat",
+      "Salvage exact ticket coverage Pistol",
+      "Salvage exact ticket coverage Axe",
+      "Arsenal exact ticket coverage SMG",
+      "Arsenal exact ticket coverage Revolver",
+      "Arsenal exact ticket coverage Katana",
+      "Arsenal exact ticket coverage Shotgun",
+      "Pets exact ticket coverage Civilian",
+      "Pets exact ticket coverage Runner",
+      "Pets exact ticket coverage Brute",
+      "Pets exact ticket coverage Worker",
+      "Pets exact ticket coverage Buddy",
+      "Robux remains disabled",
+      "Real PolicyService allows this test player",
+      "Malformed crate id does not debit",
+      "Unknown crate rejects without debit",
+      "Start gate blocks crate",
+      "Level gate rejects without debit",
+      "Insufficient funds cannot grant pet",
+      "Salvage outcome and rarity selected by server; forged payload ignored",
+      "Salvage exactly one debit",
+      "Salvage grant before presentation",
+      "Salvage does not replace equipment",
+      "Salvage replay in cooldown does not debit",
+      "Arsenal outcome and rarity selected by server; forged payload ignored",
+      "Arsenal exactly one debit",
+      "Arsenal grant before presentation",
+      "Arsenal does not replace equipment",
+      "Arsenal replay in cooldown does not debit",
+      "Pets outcome and rarity selected by server; forged payload ignored",
+      "Pets exactly one debit",
+      "Pets grant before presentation",
+      "Pets does not replace equipment",
+      "Pets replay in cooldown does not debit",
+      "Duplicate weapon grants exact unmultiplied recycling coins",
+      "Pet duplicate adds one inventory copy",
+      "Crate pet uses normal equipment bonuses",
+      "Pet inventory cap rejects before debit"
+    ]
+  },
+  "policy": [
+    "CratePolicyRestrictedQA denies without debit",
+    "CratePolicyUnknownQA denies without debit"
+  ],
+  "normalPC": {
+    "Sound": true,
+    "MaximumLidY": 1.6941086053848267,
+    "MaximumAngle": 2.0071287155151367,
+    "Viewport": "1447, 801",
+    "Packet": {
+      "Rarity": "Common",
+      "Id": "Pipe",
+      "Kind": "CrateResult",
+      "CrateId": "Salvage",
+      "Refund": 0
+    },
+    "Revealed": true,
+    "Frames": 79,
+    "MinimumLidY": 0.9399998784065247
+  },
+  "ui": {
+    "Skip": {
+      "SkipAge": 0.7355418000370264,
+      "StillOpen": true,
+      "Title": "COMMUN ! · Tuyau de recuperation",
+      "ObservedAge": 0.783915700041689
+    },
+    "Reduced": {
+      "MaximumAngle": 0,
+      "Frames": 0,
+      "Viewport": "401, 778",
+      "Revealed": true,
+      "Sound": false,
+      "Packet": {
+        "Rarity": "Common",
+        "Id": "Civilian",
+        "Kind": "CrateResult",
+        "CrateId": "Pets",
+        "Refund": 0
+      }
+    }
+  },
+  "mobileLayout": {
+    "device": "iphone_17_pro",
+    "portrait": {
+      "viewport": "401, 778",
+      "detailsFits": true,
+      "titleFits": true,
+      "buttonHeight": 44.22321701049805
+    },
+    "landscape": {
+      "viewport": "750, 381",
+      "detailsFits": true,
+      "titleFits": true,
+      "buttonHeight": 44.122222900390625
+    }
+  },
+  "nativePurchases": {
+    "pc": {
+      "before": 20000,
+      "after": 19550,
+      "item": "Pipe"
+    },
+    "portrait": {
+      "before": 19550,
+      "after": 18750,
+      "item": "Civilian"
+    },
+    "landscapeDuplicate": {
+      "before": 18750,
+      "after": 18337,
+      "item": "Pipe",
+      "refund": 37
+    }
+  },
+  "diagnostics": [
+    "First crate lid rotated into body; measured max Y 0.94/min -0.134, corrected sign. Final max Y 1.694/min 0.94.",
+    "Ordinary Script cannot read/write Source. Initial isolated-policy harness failed on capability; fixtures were prepared by MCP in Server Play, then required by ordinary server Script.",
+    "Mobile native click coordinates differed from GuiObject positions. Input observer measured actual event positions, then native activation was verified. Do not generalize offsets across sessions.",
+    "Initial skip observer read title before the UI callback. Deferred observation proved reveal at 0.784s, before automatic 1.3s."
+  ],
+  "limits": [
+    "No physical touch/controller hardware test",
+    "No multiplayer test",
+    "No hearing verification",
+    "No production persistence/reconnection test",
+    "PolicyService real test player allowed; restricted/unknown guards tested in isolated module copies",
+    "All eight existing pages not fully revalidated"
+  ],
+  "robuxEnabled": false,
+  "publication": false,
+  "rbxlSaved": false,
+  "audit": {
+    "Unmapped": [],
+    "Errors": [],
+    "Missing": [],
+    "Compiling": 45,
+    "CheckedAt": "2026-10-26T12:07:26Z",
+    "Matching": 45,
+    "Mismatches": [],
+    "Orientation": "Enum.ScreenOrientation.LandscapeLeft",
+    "Mode": "Edit",
+    "Device": "default",
+    "Count": 45
+  }
+}

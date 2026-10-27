@@ -1,0 +1,177 @@
+{
+  "checkedAt": "2026-10-23 05:50:40 UTC",
+  "scope": "Studio SessionStudio. Claims use a real client bridge; most kill increments are synthetic server callbacks, plus one real director death with attributed lethal test damage.",
+  "services": {
+    "Rewards": {
+      "XP": 10125,
+      "Coins": 22815
+    },
+    "Passed": true,
+    "Checks": [
+      "Legacy profile adds dossiers without erasing other fields",
+      "Malformed counters bounded; unrelated future zone retained",
+      "Early reward refused",
+      "Client cannot forge expedition kills",
+      "Inaccessible species does not advance dossier",
+      "Real director death callback advances correct zone",
+      "Malformed, forged and out-of-order claims refused",
+      "Exact one-time reward City:1",
+      "Duplicate claim refused City:1",
+      "Species stage requires all three different species",
+      "Exact one-time reward City:2",
+      "Duplicate claim refused City:2",
+      "Exact one-time reward City:3",
+      "Duplicate claim refused City:3",
+      "Reward checks ran with pet and time boosts active",
+      "JSON round trip preserves progress and claim receipts",
+      "Completed dossier counters remain bounded",
+      "Daily reset does not reset permanent dossier",
+      "Exact one-time reward Factory:1",
+      "Duplicate claim refused Factory:1",
+      "Exact one-time reward Factory:2",
+      "Duplicate claim refused Factory:2",
+      "Exact one-time reward Factory:3",
+      "Duplicate claim refused Factory:3",
+      "Exact one-time reward Lab:1",
+      "Duplicate claim refused Lab:1",
+      "Exact one-time reward Lab:2",
+      "Duplicate claim refused Lab:2",
+      "Exact one-time reward Lab:3",
+      "Duplicate claim refused Lab:3",
+      "Exact one-time reward Harbor:1",
+      "Duplicate claim refused Harbor:1",
+      "Exact one-time reward Harbor:2",
+      "Duplicate claim refused Harbor:2",
+      "Exact one-time reward Harbor:3",
+      "Duplicate claim refused Harbor:3",
+      "Claim from locked zone refused even with completed counters",
+      "Unknown species rejected"
+    ]
+  },
+  "economyRegression": {
+    "Passed": true,
+    "Checks": [
+      "Insufficient coins refused away from shop",
+      "Health purchase and price",
+      "Speed affects walking and sprint",
+      "Weapon purchase from menu away from shop, equip and model",
+      "Owned weapon cannot be charged twice",
+      "Weapon level gate",
+      "Unowned weapon equip refused",
+      "Fusion requires three matching fragments",
+      "Fusion consumes fragments and creates pet",
+      "Duplicate fusion request refused",
+      "Pet coin XP multipliers",
+      "Early time claim refused",
+      "Five minute x2 XP boost",
+      "Time reward cannot be claimed twice",
+      "Alternate time reward IDs cannot bypass claim history",
+      "Thirty minute free pet",
+      "Pet and timed boost compose",
+      "Daily mission claim once including alternate IDs",
+      "Robux shop disabled",
+      "Receipt cannot grant against nonpersistent profile",
+      "All configured zombie types feed daily progression",
+      "Valid fragment inventory: Stalker",
+      "Valid fragment inventory: Civilian",
+      "Valid fragment inventory: Soldier",
+      "Valid fragment inventory: Scrapper",
+      "Valid fragment inventory: Drowned",
+      "Valid fragment inventory: Brute"
+    ]
+  },
+  "UI": {
+    "PCClaim": {
+      "XP": 60,
+      "Claimed": 1,
+      "Coins": 1120
+    },
+    "portraitClaim": {
+      "XP": 60,
+      "Claimed": 1,
+      "Coins": 1120
+    },
+    "desktop": {
+      "Visible": true,
+      "TextFits": true,
+      "Viewport": "1200, 720",
+      "Text": "Elimine 3 zombies\n0 / 3  ·  +40 pieces\nDOSSIER 1/3 · 6/6\nA RECUPERER · MISSIONS",
+      "Overlap": 0
+    },
+    "compact": {
+      "Viewport": "1200, 539",
+      "ObjectivesVisible": false,
+      "AbilityVisible": true
+    },
+    "portraitBefore": {
+      "Description": "Eliminations dans la zone : 6 / 6\n120 pieces + 60 XP · permanent",
+      "ButtonSize": "81.6833344, 32.4638901",
+      "Window": {
+        "Size": "377, 256.569458",
+        "Position": "12, 202.715271"
+      },
+      "DescriptionFits": true,
+      "Title": "VILLE · DOSSIER 1/3",
+      "Button": "RECUPERER",
+      "Input": {
+        "Y": 395.80694580078125,
+        "X": 322.50140380859375
+      },
+      "Viewport": "401, 778",
+      "HUDVisible": false
+    },
+    "portraitAfter": {
+      "Description": "Eliminations dans la zone : 6 / 6\n120 pieces + 60 XP · permanent",
+      "ButtonSize": "81.6833344, 48.1722221",
+      "Window": {
+        "Size": "377, 754",
+        "Position": "12, -46"
+      },
+      "DescriptionFits": true,
+      "Title": "VILLE · DOSSIER 1/3",
+      "Button": "RECUPERER",
+      "Input": {
+        "Y": 270.1402587890625,
+        "X": 322.50140380859375
+      },
+      "Viewport": "401, 778",
+      "HUDVisible": false
+    },
+    "landscapeAfter": {
+      "Description": "Especes eliminees : 1 / 3\n180 pieces + 90 XP · permanent",
+      "ButtonSize": "113.657143, 45.1714287",
+      "Window": {
+        "Size": "524.571411, 357",
+        "Position": "112.714294, -46"
+      },
+      "DescriptionFits": true,
+      "Title": "VILLE · DOSSIER 2/3",
+      "Button": "EN COURS",
+      "Input": {
+        "Y": 237.12857055664062,
+        "X": 544.7571411132812
+      },
+      "Viewport": "750, 381",
+      "HUDVisible": false
+    }
+  },
+  "finalState": {
+    "mode": "Edit",
+    "simulator": "default",
+    "orientation": "LandscapeLeft",
+    "runtime": {
+      "matching": 40,
+      "compiling": 40,
+      "total": 40,
+      "unmapped": []
+    },
+    "console": "empty at final regression check"
+  },
+  "limits": [
+    "No production DataStore writes or reconnect test; JSON round trip checks serialization and receipt preservation only",
+    "No physical touch/gamepad or multiplayer test",
+    "Only Missions page receives portrait reflow; other pages retain existing layout",
+    "Coordinates that worked: desktop absolute button center; phone simulator center minus ancestor ScreenGui.AbsolutePosition",
+    "Desktop first lookup by English laptop name found no match; French preset was then identified by DeviceForm.Desktop; actual measured sizes are recorded"
+  ]
+}

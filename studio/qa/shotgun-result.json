@@ -1,0 +1,201 @@
+{
+  "checkedAt": "2026-10-23 06:13:50 UTC",
+  "studioId": "45bb0222-99c2-4b04-8be7-6667f480d5e2",
+  "placeId": 78882167241715,
+  "regression": {
+    "Passed": true,
+    "Checks": [
+      "Pistol level gate (requires level 3)",
+      "Pistol purchase and coin deduction",
+      "Duplicate Pistol purchase rejected without charge",
+      "Pistol equipped with 12 ammo",
+      "Invalid shoot directions rejected without consuming ammo",
+      "Valid shot consumes 1 ammo",
+      "Rapid burst rate-limited to single shot within cooldown",
+      "SMG level gate (requires level 7)",
+      "SMG purchase and coin deduction",
+      "SMG equipped with 24 ammo",
+      "Wall obstruction blocks gunshot damage",
+      "Transparent solid wall still blocks damage",
+      "Noncollidable trigger permits damage",
+      "Direct gunshot deals damage and credits attacker",
+      "Melee punch rejected while firearm is equipped",
+      "Reload starts with GunReloading=true and 2.1s duration",
+      "Shooting blocked during reload",
+      "Switching weapon cancels ongoing reload",
+      "Full reload refilled SMG magazine to 24",
+      "Revolver level 12 gate",
+      "Revolver insufficient funds refused",
+      "Revolver purchase deducts exactly 6800",
+      "Duplicate revolver purchase does not charge",
+      "Revolver equipped with six chambers",
+      "Revolver distinct world model",
+      "Revolver deals 72 damage and consumes one round",
+      "Revolver spam limited to one shot",
+      "Revolver reload starts with 2.6 second duration",
+      "Revolver cannot shoot during reload",
+      "Cancelled revolver reload grants no ammunition",
+      "Revolver full reload refills six chambers",
+      "Cylinder opens mid reload and returns at completion",
+      "Revolver reload pose differs from pistol"
+    ]
+  },
+  "shotgun": {
+    "Passed": true,
+    "Checks": [
+      "Level 15 refused",
+      "Insufficient funds refused",
+      "Purchase from remote arena costs 11500",
+      "Duplicate purchase free",
+      "Five shells equipped",
+      "Distinct shotgun world model",
+      "Seven pellets; pistol remains single ray",
+      "Unit direction within spread",
+      "Unit direction within spread",
+      "Unit direction within spread",
+      "Unit direction within spread",
+      "Unit direction within spread",
+      "Unit direction within spread",
+      "Unit direction within spread",
+      "Deterministic server spread",
+      "Seven pellets aggregate to 140; one shell",
+      "One health change and attacker attribution per target",
+      "One shot damages two spread targets within total budget",
+      "Transparent solid wall blocks all pellets",
+      "Noncollidable trigger passes all pellets",
+      "Beyond 75 studs misses",
+      "Last shell triggers automatic reload",
+      "Reload blocks shooting",
+      "Reload fills five shells atomically",
+      "Burst spam consumes one shell",
+      "Reload duration 2.9 seconds",
+      "Switch cancels reload without granting shells",
+      "Wrong zone blocks damage",
+      "Pump cycle moves and returns",
+      "Dedicated reload pose"
+    ]
+  },
+  "realZombie": {
+    "Passed": true,
+    "Checks": [
+      "Shotgun bought in test session",
+      "Shooter remains in authorized City",
+      "One actual shotgun shot kills real Civilian",
+      "One death awards exactly 8 coins and 20 XP",
+      "Rewarded once; one shell consumed"
+    ]
+  },
+  "presentation": {
+    "Report": {
+      "ShotSounds": 2,
+      "Flashes": 3,
+      "MaximumPump": 0.2197723388671875,
+      "MutedShotPassed": true,
+      "PumpReturned": 9.5367431640625e-07,
+      "EndpointCount": 7,
+      "Tracers": 21,
+      "Shots": 3,
+      "Reloads": [
+        {
+          "Clicks": 6,
+          "Ammo": 5,
+          "ReducedMotion": false,
+          "MaximumAngle": 0.6566600799560547
+        },
+        {
+          "Clicks": 6,
+          "Ammo": 5,
+          "ReducedMotion": true,
+          "MaximumAngle": 0.16416320204734802
+        }
+      ],
+      "PumpSounds": 2
+    },
+    "Passed": true
+  },
+  "earlierPCPresentation": {
+    "Report": {
+      "ShotSounds": 2,
+      "Flashes": 3,
+      "MaximumPump": 0.2199859619140625,
+      "MutedShotPassed": true,
+      "PumpReturned": 3.075507265748456e-05,
+      "EndpointCount": 7,
+      "Tracers": 21,
+      "Shots": 3,
+      "Reloads": [
+        {
+          "Clicks": 6,
+          "Ammo": 5,
+          "ReducedMotion": false,
+          "MaximumAngle": 0.6566606760025024
+        },
+        {
+          "Clicks": 6,
+          "Ammo": 5,
+          "ReducedMotion": true,
+          "MaximumAngle": 0.16416391730308533
+        }
+      ],
+      "PumpSounds": 2
+    },
+    "Passed": true
+  },
+  "purchase": {
+    "input": "Native mouse PC",
+    "coinsBefore": 20000,
+    "coinsAfter": 8500,
+    "equipped": "Shotgun",
+    "note": "Existing session ammo preserved when rebuying after a QA profile restoration; purchase does not refill."
+  },
+  "mobile": {
+    "device": "iPhone 7 simulated (corrected during following portrait UI lot: locale lookup had skipped NBSP iPhone names)",
+    "landscape": [
+      666,
+      374
+    ],
+    "portrait": [
+      374,
+      666
+    ],
+    "landscapeAmmoWithBoosts": {
+      "x": 14,
+      "y": 249,
+      "width": 170,
+      "height": 42
+    },
+    "portraitAmmoWithBoosts": {
+      "x": 180,
+      "y": 249,
+      "width": 170,
+      "height": 42
+    },
+    "boosts": {
+      "x": 14,
+      "y": 217,
+      "width": 201,
+      "height": 24
+    },
+    "input": "Mouse activated original TIR button after temporary QA-only cursor override; ammo 5→4; override removed.",
+    "limits": "The invisible dynamic thumbstick input frame spans the area; ammo is a noninteractive label. Visible controls and stats separated. No physical touchscreen test."
+  },
+  "captures": [
+    "ShotgunShopBeforePurchase",
+    "ShotgunFirstPersonPC (before final support-hand placement)",
+    "ShotgunNarrowLandscapeFixed",
+    "ShotgunNarrowBoosts",
+    "ShotgunPortraitFinalBoosts"
+  ],
+  "harnessCorrections": [
+    "Real kill harness initially assumed a fresh magazine after previous tests; changed to actual pre-shot ammo. No product fix needed.",
+    "Following lot identified actual preset iphone_7, not iphone_17_pro: legacy lookup required ASCII whitespace before the generation number. Dimensions and measured results unchanged."
+  ],
+  "console": "Final Play output contained one Roblox Assistant RemoteServiceGate warning, no observed game script errors.",
+  "limits": [
+    "SessionStudio only",
+    "No production DataStore, reconnect, multiplayer, physical gamepad/touch or audio listening test",
+    "Five shell insertion gestures are visual; magazine refill is atomic after 2.9s",
+    "No shotgun balance or performance benchmark",
+    "Full portrait shop reflow remains pending"
+  ]
+}

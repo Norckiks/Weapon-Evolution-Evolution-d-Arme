@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-22",
+  "scope": "Automated Studio Play end-to-end integration and regression suite for firearms (Pistol and SMG)",
+  "checks": [
+    {
+      "name": "Pistol level gate",
+      "expected": "Level 1 purchase rejected, coins unchanged at 10000",
+      "passed": true
+    },
+    {
+      "name": "Pistol purchase",
+      "expected": "Level 3 purchase costs 1400 coins, coins 10000 -> 8600, equipped Pistol",
+      "passed": true
+    },
+    {
+      "name": "Duplicate Pistol purchase",
+      "expected": "No second deduction, coins remain 8600",
+      "passed": true
+    },
+    {
+      "name": "Pistol initial ammo",
+      "expected": "12 in magazine, 12 in ammo attribute",
+      "passed": true
+    },
+    {
+      "name": "Invalid shoot vectors",
+      "expected": "Zero vector, sub-magnitude, and excessive magnitude rejected without consuming ammo",
+      "passed": true
+    },
+    {
+      "name": "Single valid shot",
+      "expected": "Ammo decrements 12 -> 11",
+      "passed": true
+    },
+    {
+      "name": "Spam rate limiting",
+      "expected": "5 rapid bursts within 0.28s cooldown consume only 1 bullet (11 -> 10)",
+      "passed": true
+    },
+    {
+      "name": "Pistol reload cycle",
+      "expected": "GunReloading=true for 1.6s duration, refilled 10 -> 12 upon completion",
+      "passed": true
+    },
+    {
+      "name": "SMG level gate",
+      "expected": "Level 3 purchase of SMG (requires lvl 7) rejected, coins remain 8600",
+      "passed": true
+    },
+    {
+      "name": "SMG purchase",
+      "expected": "Level 7 purchase costs 4200 coins, coins 8600 -> 4400, equipped SMG",
+      "passed": true
+    },
+    {
+      "name": "SMG initial ammo",
+      "expected": "24 in magazine, 24 in ammo attribute",
+      "passed": true
+    },
+    {
+      "name": "Raycast wall obstruction",
+      "expected": "Wall blocks bullet, target dummy takes 0 damage (health remains 1000)",
+      "passed": true
+    },
+    {
+      "name": "Transparent trigger pass-through",
+      "expected": "Portal field transparent non-collidable trigger does not block bullets",
+      "passed": true
+    },
+    {
+      "name": "Clear line of fire damage",
+      "expected": "Target dummy takes 14 damage (health 1000 -> 986) and LastAttacker matches UserId",
+      "passed": true
+    },
+    {
+      "name": "Melee punch remote rejection",
+      "expected": "Punch remote rejected while holding firearm, dummy takes 0 melee damage",
+      "passed": true
+    },
+    {
+      "name": "Shooting blocked during reload",
+      "expected": "Shoot requests during GunReloading=true do not consume ammo or fire",
+      "passed": true
+    },
+    {
+      "name": "Weapon switch reload cancellation",
+      "expected": "Switching weapon cancels GunReloading and prevents premature magazine refill",
+      "passed": true
+    },
+    {
+      "name": "Full SMG reload cycle",
+      "expected": "GunReloading=true for 2.1s duration, refilled to 24 upon completion",
+      "passed": true
+    }
+  ],
+  "totalChecks": 18,
+  "passedChecks": 18,
+  "failedChecks": 0,
+  "limits": [
+    "Single-player Play integration; multiplayer network replication under high ping not measured",
+    "No live DataStore write (SessionStudio mode maintained)",
+    "Audio assets use built-in Roblox sound effects and transients with custom pitch/layering"
+  ]
+}

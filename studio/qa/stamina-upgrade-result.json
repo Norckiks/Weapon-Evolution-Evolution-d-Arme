@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-27",
+  "server": {
+    "Restored": true,
+    "Passed": true,
+    "Checks": [
+      "Legacy profile starts at zero upgrades",
+      "Base capacity remains 100",
+      "Insufficient coins refused",
+      "First purchase costs 250 and adds 20",
+      "Purchase works away from stand",
+      "Dash still costs exactly 25 from 120",
+      "Second price 475, capacity 140",
+      "Upgrade adds 20 without refilling spent reserve",
+      "Repeated economy refresh does not refill stamina",
+      "Exact tier price and capacity 3",
+      "Exact tier price and capacity 4",
+      "Exact tier price and capacity 5",
+      "Max tier refuses further debit",
+      "Malformed and forged upgrade IDs refused",
+      "Existing Health upgrade still works",
+      "Existing Speed upgrade still works",
+      "JSON keeps upgrade and existing receipts",
+      "Daily rollover leaves capacity intact",
+      "Drain remains 20 per second at upgraded capacity",
+      "Upgraded reserve still exhausts",
+      "Regeneration reaches upgraded maximum",
+      "Regeneration clamps at 200",
+      "Default reserve still clamps at 100",
+      "Respawn restores purchased full capacity",
+      "Capacity reduction clamps current reserve",
+      "Robux stays disabled"
+    ]
+  },
+  "uiSnapshots": [
+    {
+      "viewport": "1447, 824",
+      "rows": 3,
+      "page": "ATELIER",
+      "checks": 17
+    },
+    {
+      "viewport": "401, 778",
+      "rows": 3,
+      "page": "ATELIER",
+      "checks": 20
+    },
+    {
+      "viewport": "750, 381",
+      "rows": 3,
+      "page": "ATELIER",
+      "checks": 20
+    }
+  ],
+  "nativePurchase": {
+    "Max": 120,
+    "Level": 1,
+    "Stamina": 120,
+    "Coins": 750
+  },
+  "capturesInspected": [
+    "StaminaUpgradePC",
+    "StaminaUpgradePortrait"
+  ],
+  "limits": [
+    "SessionStudio uniquement, profil/statistiques/position restaurés ; une réapparition réelle a remplacé le personnage de test.",
+    "Drain et saturation de régénération mesurés par SprintState pur ; consommation réelle du dash vérifiée via client distant.",
+    "Achat par clic natif PC ; portraits/paysage simulés, pas de tactile physique.",
+    "JSON du profil vérifié, pas de reconnexion DataStore ni de test multijoueur.",
+    "Captures inspectées via MCP, non enregistrées comme fichiers locaux."
+  ]
+}

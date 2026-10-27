@@ -1,0 +1,240 @@
+{
+  "version": 1,
+  "inspectedAt": "2026-10-26",
+  "place": "Ã‰volution des armes",
+  "placeId": 78882167241715,
+  "originalPlace": "76184777294422_AutoRecovery_0.rbxl",
+  "note": "Mapping only. Does not reconstruct terrain, models, GUI instances, assets or remotes. Never install builders or QA as runtime scripts.",
+  "scripts": [
+    {
+      "path": "ReplicatedStorage.CrateReveal",
+      "class": "ModuleScript",
+      "file": "studio/CrateReveal.luau"
+    },
+    {
+      "path": "ReplicatedStorage.CrateCatalog",
+      "class": "ModuleScript",
+      "file": "studio/CrateCatalog.luau"
+    },
+    {
+      "path": "ServerScriptService.ZombieNavigation",
+      "class": "ModuleScript",
+      "file": "studio/ZombieNavigation.luau"
+    },
+    {
+      "path": "ServerScriptService.ZombieMelee",
+      "class": "ModuleScript",
+      "file": "studio/ZombieMelee.luau"
+    },
+    {
+      "path": "ReplicatedStorage.FirearmBallistics",
+      "class": "ModuleScript",
+      "file": "studio/FirearmBallistics.luau"
+    },
+    {
+      "path": "ReplicatedStorage.Expeditions",
+      "class": "ModuleScript",
+      "file": "studio/Expeditions.luau"
+    },
+    {
+      "path": "ServerScriptService.PulseAbility",
+      "class": "ModuleScript",
+      "file": "studio/PulseAbility.luau"
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.PulseClient",
+      "class": "LocalScript",
+      "file": "studio/Pulse.client.luau"
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.ZoneGuide",
+      "class": "LocalScript",
+      "file": "studio/ZoneGuide.client.luau"
+    },
+    {
+      "path": "ReplicatedStorage.FistsConfig",
+      "class": "ModuleScript",
+      "file": "studio/FistsConfig.luau"
+    },
+    {
+      "path": "ReplicatedStorage.CoinIcon",
+      "class": "ModuleScript",
+      "file": "studio/CoinIcon.luau"
+    },
+    {
+      "path": "ReplicatedStorage.SprintConfig",
+      "class": "ModuleScript",
+      "file": "studio/SprintConfig.luau"
+    },
+    {
+      "path": "ReplicatedStorage.WorldConfig",
+      "class": "ModuleScript",
+      "file": "studio/WorldConfig.luau"
+    },
+    {
+      "path": "ReplicatedStorage.PresentationConfig",
+      "class": "ModuleScript",
+      "file": "studio/PresentationConfig.luau"
+    },
+    {
+      "path": "ReplicatedStorage.GameplayConfig",
+      "class": "ModuleScript",
+      "file": "studio/GameplayConfig.luau"
+    },
+    {
+      "path": "ReplicatedStorage.WeaponVisuals",
+      "class": "ModuleScript",
+      "file": "studio/WeaponVisuals.luau"
+    },
+    {
+      "path": "ReplicatedStorage.WeaponMotion",
+      "class": "ModuleScript",
+      "file": "studio/WeaponMotion.luau"
+    },
+    {
+      "path": "ReplicatedStorage.MovementConfig",
+      "class": "ModuleScript",
+      "file": "studio/MovementConfig.luau"
+    },
+    {
+      "path": "ReplicatedStorage.CartoonArt",
+      "class": "ModuleScript",
+      "file": "studio/CartoonArt.luau"
+    },
+    {
+      "path": "ReplicatedStorage.QuickContracts",
+      "class": "ModuleScript",
+      "file": "studio/QuickContracts.luau"
+    },
+    {
+      "path": "ServerScriptService.FistsServer",
+      "class": "Script",
+      "file": "studio/FistsServer.server.luau"
+    },
+    {
+      "path": "ServerScriptService.TrainingDummyService",
+      "class": "Script",
+      "file": "studio/TrainingDummyService.server.luau"
+    },
+    {
+      "path": "ServerScriptService.PlayerCurrency",
+      "class": "Script",
+      "file": "studio/PlayerCurrency.server.luau"
+    },
+    {
+      "path": "ServerScriptService.SprintState",
+      "class": "ModuleScript",
+      "file": "studio/SprintState.luau"
+    },
+    {
+      "path": "ServerScriptService.SprintServer",
+      "class": "Script",
+      "file": "studio/Sprint.server.luau"
+    },
+    {
+      "path": "ServerScriptService.ProgressionService",
+      "class": "ModuleScript",
+      "file": "studio/ProgressionService.luau"
+    },
+    {
+      "path": "ServerScriptService.ZombieFactory",
+      "class": "ModuleScript",
+      "file": "studio/ZombieFactory.luau"
+    },
+    {
+      "path": "ServerScriptService.ZoneService",
+      "class": "ModuleScript",
+      "file": "studio/ZoneService.luau"
+    },
+    {
+      "path": "ServerScriptService.ZombieDirector",
+      "class": "Script",
+      "file": "studio/ZombieDirector.server.luau"
+    },
+    {
+      "path": "ServerScriptService.NPCPresentation",
+      "class": "ModuleScript",
+      "file": "studio/NPCPresentation.luau"
+    },
+    {
+      "path": "ServerScriptService.EconomyService",
+      "class": "ModuleScript",
+      "file": "studio/EconomyService.luau"
+    },
+    {
+      "path": "ServerScriptService.GameSystems",
+      "class": "Script",
+      "file": "studio/GameSystems.server.luau"
+    },
+    {
+      "path": "ServerScriptService.AdvancedMovement",
+      "class": "ModuleScript",
+      "file": "studio/AdvancedMovement.luau"
+    },
+    {
+      "path": "ServerScriptService.FirearmsServer",
+      "class": "Script",
+      "file": "studio/Firearms.server.luau"
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.FistsClient",
+      "class": "LocalScript",
+      "file": "studio/FistsClient.client.luau"
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.SprintClient",
+      "class": "LocalScript",
+      "file": "studio/Sprint.client.luau"
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.ProgressionClient",
+      "class": "LocalScript",
+      "file": "studio/Progression.client.luau"
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.PresentationClient",
+      "class": "LocalScript",
+      "file": "studio/Presentation.client.luau"
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.InterfaceV2",
+      "class": "LocalScript",
+      "file": "studio/InterfaceV2.client.luau"
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.GameHub",
+      "class": "LocalScript",
+      "file": "studio/GameHub.client.luau"
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.TargetHUD",
+      "class": "LocalScript",
+      "file": "studio/TargetHUD.client.luau"
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.CharacterCombat",
+      "class": "LocalScript",
+      "file": "studio/CharacterCombat.client.luau"
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.MovementClient",
+      "class": "LocalScript",
+      "file": "studio/Movement.client.luau"
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.FirearmsClient",
+      "class": "LocalScript",
+      "file": "studio/Firearms.client.luau"
+    },
+    {
+      "path": "StarterGui.SurvivalHUD.HUDController",
+      "class": "LocalScript",
+      "file": "studio/SurvivalHUD.client.luau"
+    },
+    {
+      "path": "ServerScriptService.AdminService",
+      "class": "ModuleScript",
+      "file": "studio/AdminService.luau"
+    }
+  ]
+}

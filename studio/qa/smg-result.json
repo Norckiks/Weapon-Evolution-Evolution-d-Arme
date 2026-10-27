@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-22",
+  "scope": "Manual Studio Play integration checks; temporary profile and target removed by stopping Play",
+  "level6Rejected": true,
+  "level7PurchaseCost": 4200,
+  "duplicatePurchaseNoCharge": true,
+  "initialAmmo": 24,
+  "afterFiveSimultaneousRequests": 23,
+  "afterTwoFurtherSpacedShots": 21,
+  "reloadDuration": 2.1,
+  "afterReload": 24,
+  "targetInitialHealth": 1000,
+  "targetHealthAfterOneShot": 986,
+  "consoleErrorsObserved": 0,
+  "visualInspection": "Desktop in-game model and ammo HUD",
+  "limits": ["Not a multiplayer test", "No live persistence check", "No prolonged balance test", "Shared temporary gun audio"]
+}

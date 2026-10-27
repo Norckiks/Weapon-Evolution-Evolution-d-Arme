@@ -1,0 +1,177 @@
+{
+  "checkedAt": "2026-10-22 22:04:23 UTC",
+  "scope": "SessionStudio only. Rejection reasons use direct calls with temporary server state; accepted casts use real UseAbility:FireServer via a temporary client bridge.",
+  "integration": {
+    "Metrics": {
+      "RunnerDuring": {
+        "Speed": 0,
+        "Remaining": 0.4651212692260742,
+        "Health": 30
+      },
+      "KnockbackDistance": 2.5705502033233643,
+      "NormalFX": {
+        "Button": "Q · ONDE DE CHOC\n13.3 s",
+        "Last": {
+          "Sounds": 1,
+          "PoseDistance": 0.3765825033187866,
+          "Hits": 4,
+          "Arcs": 12
+        },
+        "Count": 3
+      },
+      "ReducedFX": {
+        "Button": "Q · ONDE DE CHOC\n13.6 s",
+        "Last": {
+          "Sounds": 0,
+          "PoseDistance": 0.09399926662445068,
+          "Hits": 12,
+          "Arcs": 6
+        },
+        "Count": 4
+      }
+    },
+    "Passed": true,
+    "Checks": [
+      "Refused: Action",
+      "Refused: State",
+      "Refused: State",
+      "Refused: Level",
+      "Refused: Stamina",
+      "Refused: Busy",
+      "Refused: Busy",
+      "Refused: Busy",
+      "Refused: Busy",
+      "Refused: Ground",
+      "Refused: Zone",
+      "Real remote starts fourteen-second cooldown",
+      "Real SprintServer stamina charged exactly thirty",
+      "Nearby front and side zombies each take twenty damage",
+      "Transparent solid wall blocks pulse",
+      "Wrong-zone, distant and untagged targets untouched",
+      "Pulse credits attacker and sets bounded stun",
+      "Pulse kill awards real director coins and XP",
+      "Real zombie director stops a stunned runner in clear sight",
+      "Repeated remote cannot spend stamina or damage during cooldown",
+      "Client-supplied damage/cost table rejected",
+      "Real impulse physically moves the target",
+      "Accepted event renders twelve arcs and an enabled sound",
+      "Runner recovers its configured speed after stun",
+      "Cooldown survives actual character respawn",
+      "Respawning cannot bypass ability cooldown",
+      "Pulse affects at most twelve of fifteen valid targets",
+      "Reduced-motion effect uses six arcs and respects muted sound",
+      "Cooldown expires and rearms only after the full interval"
+    ]
+  },
+  "keyboard": {
+    "Stamina": 63.1,
+    "ReadyAt": 1792706065.618575,
+    "Now": 1792706053.35399,
+    "PulseAt": 1792706051.618575
+  },
+  "mobile": {
+    "landscape": {
+      "Visible": true,
+      "Bounds": [
+        522,
+        167,
+        56,
+        56
+      ],
+      "Overlaps": {
+        "QuickNavigation": 0,
+        "SurvivalVault": 0,
+        "FistsPunch": 0,
+        "ProgressCard": 0,
+        "StatusPanel": 0,
+        "SurvivorFlashlight": 0,
+        "OptionsButton": 0,
+        "SurvivalCrouch": 0,
+        "SurvivalSprint": 0,
+        "JumpButton": 0,
+        "SurvivalDash": 0
+      },
+      "Viewport": [
+        750,
+        381
+      ],
+      "Text": "ONDE\n30 END.",
+      "InBounds": true,
+      "Ready": true
+    },
+    "portrait": {
+      "Visible": true,
+      "Bounds": [
+        109,
+        484,
+        56,
+        56
+      ],
+      "Overlaps": {
+        "QuickNavigation": 0,
+        "SurvivalVault": 0,
+        "FistsPunch": 0,
+        "ProgressCard": 0,
+        "StatusPanel": 0,
+        "SurvivorFlashlight": 0,
+        "OptionsButton": 0,
+        "SurvivalCrouch": 0,
+        "SurvivalSprint": 0,
+        "JumpButton": 0,
+        "SurvivalDash": 0
+      },
+      "Viewport": [
+        401,
+        778
+      ],
+      "Text": "ONDE\n30 END.",
+      "InBounds": true,
+      "Ready": true
+    },
+    "nativeClickWithOriginalFistBinding": {
+      "PulseAt": 1792706485.677493,
+      "Clicks": 1,
+      "FistsBound": true,
+      "Text": "ONDE\n11.9 s",
+      "SwingAt": 1792706479.861007
+    },
+    "preparedWelcomeBefore": {
+      "Started": false,
+      "Menu": true
+    },
+    "preparedWelcomeAfter": {
+      "Menu": false,
+      "Started": true
+    },
+    "preparedWelcomeGUI": {
+      "Clicks": 1,
+      "WelcomeVisible": false
+    }
+  },
+  "limits": [
+    "No physical touchscreen or gamepad hardware, multiplayer or production DataStore verification",
+    "Mouse tests in phone simulator used a temporary cursor release after Camera render priority; the override was removed and all fixtures disappear when Play stops",
+    "Coordinates are derived from GuiObject absolute center minus ancestor ScreenGui.AbsolutePosition. Raw instance-path targeting did not hit the button in this simulator.",
+    "Prepared welcome menu verifies the real Activated callback and server Start transition; the earlier fresh-start observation already had HasStarted=true and is not evidence of a false-to-true transition.",
+    "Initial failed QA runs exposed fixture races (menu synchronization, accumulated FX count, reused runner health). Corrected harness observed the AI tick and completed 29 checks.",
+    "Queued enemy attack cancellation is implemented but was not separately staged during a windup in this test",
+    "Sound instance and muting verified; audio not auditioned"
+  ],
+  "finalState": {
+    "checkedAt": "2026-10-22 22:08:13 UTC",
+    "mode": "Edit",
+    "simulator": "default",
+    "orientation": "LandscapeLeft",
+    "runtime": {
+      "matching": 39,
+      "compiling": 39,
+      "total": 39,
+      "unmapped": []
+    },
+    "console": "empty at final input check",
+    "newScripts": [
+      "ServerScriptService.PulseAbility",
+      "StarterPlayer.StarterPlayerScripts.PulseClient"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "pc": {
+    "coins99": "BOUTIQUES [B]",
+    "coins100": "ATELIER ! [B]",
+    "afterServerUpgrade": {
+      "coins": 0,
+      "maxHealth": 120,
+      "label": "BOUTIQUES [B]"
+    },
+    "staminaOnly250": "ATELIER ! [B]",
+    "allMaxed": "BOUTIQUES [B]"
+  },
+  "simulatedMobile": {
+    "landscape": "ATELIER ! +1",
+    "portrait": "ATELIER ! +1",
+    "textFits": true
+  },
+  "limitations": [
+    "Purchase was sent through GameAction from client, not clicked in UI",
+    "No physical touch test",
+    "Gift count is retained as +1 in the shared mobile shortcut"
+  ]
+}

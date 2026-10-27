@@ -1,0 +1,868 @@
+{
+  "date": "2026-10-22",
+  "scope": "One client view at refuge/start screen, not whole-map FPS proof",
+  "data": {
+    "GetTriangleCompositionAsync": {
+      "Children": [
+        {
+          "Name": "Opaque",
+          "Sizes": {
+            "Drawcalls": 40,
+            "Triangles": 129318
+          }
+        },
+        {
+          "Name": "Transparent",
+          "Sizes": {
+            "Drawcalls": 8,
+            "Triangles": 159
+          }
+        },
+        {
+          "Name": "UI",
+          "Sizes": {
+            "Drawcalls": 16,
+            "Triangles": 578
+          }
+        },
+        {
+          "Name": "Cloud",
+          "Sizes": {
+            "Drawcalls": 4,
+            "Triangles": 4
+          }
+        },
+        {
+          "Name": "Particles",
+          "Sizes": {
+            "Drawcalls": 1,
+            "Triangles": 326
+          }
+        }
+      ],
+      "Name": "TriangleComposition",
+      "Sizes": {
+        "Drawcalls": 69,
+        "Triangles": 130385
+      }
+    },
+    "GetScriptMemoryAsync": {
+      "Children": [
+        {
+          "Children": [
+            {
+              "Children": [
+                {
+                  "Name": "Players.Bruno_ban369.PlayerScripts.RbxCharacterSounds.AtomicBinding",
+                  "Size": 14817
+                }
+              ],
+              "Name": "ModuleScripts",
+              "Size": 14817
+            },
+            {
+              "Children": [
+                {
+                  "Name": "Players.Bruno_ban369.PlayerGui.Freecam.FreecamScript",
+                  "Size": 214645
+                },
+                {
+                  "Name": "Players.Bruno_ban369.PlayerScripts.GameHub",
+                  "Size": 125593
+                },
+                {
+                  "Name": "Players.Bruno_ban369.PlayerScripts.PresentationClient",
+                  "Size": 76023
+                },
+                {
+                  "Name": "Players.Bruno_ban369.PlayerScripts.InterfaceV2",
+                  "Size": 58351
+                },
+                {
+                  "Name": "Players.Bruno_ban369.PlayerScripts.FistsClient",
+                  "Size": 46242
+                },
+                {
+                  "Name": "Players.Bruno_ban369.PlayerScripts.RbxCharacterSounds",
+                  "Size": 39869
+                },
+                {
+                  "Name": "Players.Bruno_ban369.PlayerScripts.ProgressionClient",
+                  "Size": 19888
+                },
+                {
+                  "Name": "Players.Bruno_ban369.PlayerScripts.SprintClient",
+                  "Size": 18220
+                },
+                {
+                  "Name": "Players.Bruno_ban369.PlayerScripts.FirearmsClient",
+                  "Size": 15935
+                },
+                {
+                  "Name": "Players.Bruno_ban369.PlayerGui.SurvivalHUD.HUDController",
+                  "Size": 14364
+                },
+                {
+                  "Name": "Players.Bruno_ban369.PlayerScripts.CharacterCombat",
+                  "Size": 13913
+                },
+                {
+                  "Name": "Players.Bruno_ban369.PlayerScripts.MovementClient",
+                  "Size": 13739
+                },
+                {
+                  "Name": "Players.Bruno_ban369.PlayerScripts.TargetHUD",
+                  "Size": 9462
+                }
+              ],
+              "Name": "Scripts",
+              "Size": 666244
+            }
+          ],
+          "Name": "Players",
+          "Size": 681061
+        },
+        {
+          "Children": [
+            {
+              "Children": [
+                {
+                  "Name": "ReplicatedStorage.GameplayConfig",
+                  "Size": 36168
+                },
+                {
+                  "Name": "ReplicatedStorage.WorldConfig",
+                  "Size": 23016
+                },
+                {
+                  "Name": "ReplicatedStorage.WeaponMotion",
+                  "Size": 15271
+                },
+                {
+                  "Name": "ReplicatedStorage.WeaponVisuals",
+                  "Size": 14783
+                },
+                {
+                  "Name": "ReplicatedStorage.CoinIcon",
+                  "Size": 7061
+                },
+                {
+                  "Name": "ReplicatedStorage.QuickContracts",
+                  "Size": 5703
+                },
+                {
+                  "Name": "ReplicatedStorage.CartoonArt",
+                  "Size": 4543
+                },
+                {
+                  "Name": "ReplicatedStorage.PresentationConfig",
+                  "Size": 4206
+                },
+                {
+                  "Name": "ReplicatedStorage.FistsConfig",
+                  "Size": 3029
+                },
+                {
+                  "Name": "ReplicatedStorage.SprintConfig",
+                  "Size": 2761
+                }
+              ],
+              "Name": "ModuleScripts",
+              "Size": 116541
+            }
+          ],
+          "Name": "ReplicatedStorage",
+          "Size": 116541
+        },
+        {
+          "Children": [
+            {
+              "Children": [
+                {
+                  "Name": "StarterPlayer.PlayerModule.ControlModule.ClickToMoveController",
+                  "Size": 82438
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.ControlModule",
+                  "Size": 60392
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.BaseCamera",
+                  "Size": 47113
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.ControlModule.DynamicThumbstick",
+                  "Size": 42399
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule",
+                  "Size": 38283
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.ControlModule.ClickToMoveDisplay",
+                  "Size": 37127
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.ControlModule.AvatarAbilitiesInterface",
+                  "Size": 34544
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.Invisicam",
+                  "Size": 33409
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.ZoomController.Popper",
+                  "Size": 26604
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.VRCamera",
+                  "Size": 23455
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.VRBaseCamera",
+                  "Size": 22740
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.CameraUtils",
+                  "Size": 21922
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.VRVehicleCamera",
+                  "Size": 21345
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.ControlModule.ClassicThumbstick",
+                  "Size": 18010
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.CameraInput",
+                  "Size": 17282
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.OrbitalCamera",
+                  "Size": 16051
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.ControlModule.TouchJump",
+                  "Size": 15073
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.VehicleCamera.VehicleCameraCore",
+                  "Size": 13708
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.VehicleCamera",
+                  "Size": 13083
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.TransparencyController",
+                  "Size": 12756
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.Poppercam",
+                  "Size": 11779
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.MouseLockController",
+                  "Size": 11170
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.ClassicCamera",
+                  "Size": 10660
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CommonUtils.CharacterUtil",
+                  "Size": 9831
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.ZoomController",
+                  "Size": 9094
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule",
+                  "Size": 8916
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CommonUtils.CameraWrapper",
+                  "Size": 7351
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.ControlModule.ActionController",
+                  "Size": 5950
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.LegacyCamera",
+                  "Size": 5685
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.ControlModule.VehicleController",
+                  "Size": 5484
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.BaseOcclusion",
+                  "Size": 5054
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.ServerAuthority",
+                  "Size": 4914
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.VehicleCamera.VehicleCameraConfig",
+                  "Size": 4234
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CommonUtils.ConnectionUtil",
+                  "Size": 3916
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.CameraToggleStateController",
+                  "Size": 3883
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CommonUtils.EventBus",
+                  "Size": 3117
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.CameraUI",
+                  "Size": 2557
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CommonUtils",
+                  "Size": 2244
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CameraModule.VRCameraTeleportDetector",
+                  "Size": 1874
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CommonUtils.FlagUtil",
+                  "Size": 1622
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CommonUtils.PlayerModuleEventBus",
+                  "Size": 1217
+                },
+                {
+                  "Name": "StarterPlayer.PlayerModule.CommonUtils.VRFirstPersonState",
+                  "Size": 941
+                }
+              ],
+              "Name": "ModuleScripts",
+              "Size": 719227
+            },
+            {
+              "Children": [
+                {
+                  "Name": "StarterPlayer.PlayerModule.PlayerScriptsLoader",
+                  "Size": 1510
+                }
+              ],
+              "Name": "Scripts",
+              "Size": 1510
+            }
+          ],
+          "Name": "StarterPlayer",
+          "Size": 720737
+        },
+        {
+          "Children": [
+            {
+              "Children": [
+                {
+                  "Name": "Workspace.Bruno_ban369.Animate",
+                  "Size": 96106
+                }
+              ],
+              "Name": "Scripts",
+              "Size": 96106
+            }
+          ],
+          "Name": "Workspace",
+          "Size": 96106
+        }
+      ],
+      "Name": "ScriptMemory",
+      "Size": 1912022
+    },
+    "GetInstanceCompositionAsync": {
+      "Children": [
+        {
+          "Children": [
+            {
+              "Name": "Camera",
+              "Size": 1
+            },
+            {
+              "Name": "Model",
+              "Size": 330
+            },
+            {
+              "Name": "Status",
+              "Size": 2
+            },
+            {
+              "Name": "MeshPart",
+              "Size": 208
+            },
+            {
+              "Name": "Part",
+              "Size": 2702
+            },
+            {
+              "Name": "ProceduralModel",
+              "Size": 2
+            },
+            {
+              "Name": "UnionOperation",
+              "Size": 42
+            },
+            {
+              "Name": "Terrain",
+              "Size": 1
+            },
+            {
+              "Name": "SpawnLocation",
+              "Size": 1
+            }
+          ],
+          "Name": "3D Objects",
+          "Size": 3289
+        },
+        {
+          "Children": [
+            {
+              "Name": "Attachment",
+              "Size": 108
+            },
+            {
+              "Name": "AnimationConstraint",
+              "Size": 30
+            },
+            {
+              "Name": "NoCollisionConstraint",
+              "Size": 38
+            },
+            {
+              "Name": "BallSocketConstraint",
+              "Size": 28
+            },
+            {
+              "Name": "Motor6D",
+              "Size": 90
+            },
+            {
+              "Name": "WeldConstraint",
+              "Size": 110
+            },
+            {
+              "Name": "RigidConstraint",
+              "Size": 1
+            }
+          ],
+          "Name": "Physics",
+          "Size": 405
+        },
+        {
+          "Children": [
+            {
+              "Name": "SurfaceGui",
+              "Size": 33
+            },
+            {
+              "Name": "TextLabel",
+              "Size": 107
+            },
+            {
+              "Name": "ProximityPrompt",
+              "Size": 8
+            },
+            {
+              "Name": "BillboardGui",
+              "Size": 12
+            },
+            {
+              "Name": "Frame",
+              "Size": 90
+            },
+            {
+              "Name": "PlayerGui",
+              "Size": 1
+            },
+            {
+              "Name": "ScreenGui",
+              "Size": 10
+            },
+            {
+              "Name": "ImageLabel",
+              "Size": 12
+            },
+            {
+              "Name": "UICorner",
+              "Size": 73
+            },
+            {
+              "Name": "UIStroke",
+              "Size": 41
+            },
+            {
+              "Name": "UIGradient",
+              "Size": 27
+            },
+            {
+              "Name": "UIScale",
+              "Size": 22
+            },
+            {
+              "Name": "TextButton",
+              "Size": 19
+            },
+            {
+              "Name": "UIPadding",
+              "Size": 8
+            },
+            {
+              "Name": "ScrollingFrame",
+              "Size": 1
+            },
+            {
+              "Name": "UIListLayout",
+              "Size": 1
+            },
+            {
+              "Name": "UITextSizeConstraint",
+              "Size": 2
+            },
+            {
+              "Name": "ChannelTabsConfiguration",
+              "Size": 1
+            },
+            {
+              "Name": "ChatWindowConfiguration",
+              "Size": 1
+            },
+            {
+              "Name": "BubbleChatConfiguration",
+              "Size": 1
+            },
+            {
+              "Name": "ChatInputBarConfiguration",
+              "Size": 1
+            },
+            {
+              "Name": "TextChannel",
+              "Size": 2
+            },
+            {
+              "Name": "TextSource",
+              "Size": 2
+            },
+            {
+              "Name": "TextChatCommand",
+              "Size": 9
+            }
+          ],
+          "Name": "UI",
+          "Size": 484
+        },
+        {
+          "Children": [
+            {
+              "Name": "PointLight",
+              "Size": 33
+            },
+            {
+              "Name": "SpotLight",
+              "Size": 11
+            }
+          ],
+          "Name": "Lights",
+          "Size": 44
+        },
+        {
+          "Children": [
+            {
+              "Name": "Clouds",
+              "Size": 1
+            },
+            {
+              "Name": "Sky",
+              "Size": 1
+            },
+            {
+              "Name": "ColorCorrectionEffect",
+              "Size": 3
+            },
+            {
+              "Name": "BloomEffect",
+              "Size": 2
+            },
+            {
+              "Name": "DepthOfFieldEffect",
+              "Size": 2
+            },
+            {
+              "Name": "SunRaysEffect",
+              "Size": 2
+            },
+            {
+              "Name": "Atmosphere",
+              "Size": 1
+            }
+          ],
+          "Name": "PostProcessing",
+          "Size": 12
+        },
+        {
+          "Children": [
+            {
+              "Name": "LocalScript",
+              "Size": 27
+            },
+            {
+              "Name": "BindableFunction",
+              "Size": 2
+            },
+            {
+              "Name": "ModuleScript",
+              "Size": 69
+            },
+            {
+              "Name": "Script",
+              "Size": 5
+            },
+            {
+              "Name": "RemoteEvent",
+              "Size": 11
+            }
+          ],
+          "Name": "Scripts",
+          "Size": 114
+        },
+        {
+          "Children": [
+            {
+              "Name": "AudioListener",
+              "Size": 1
+            },
+            {
+              "Name": "Wire",
+              "Size": 1
+            },
+            {
+              "Name": "Sound",
+              "Size": 21
+            },
+            {
+              "Name": "SoundGroup",
+              "Size": 5
+            },
+            {
+              "Name": "ReverbSoundEffect",
+              "Size": 1
+            },
+            {
+              "Name": "EqualizerSoundEffect",
+              "Size": 1
+            },
+            {
+              "Name": "AudioDeviceOutput",
+              "Size": 1
+            }
+          ],
+          "Name": "Audio",
+          "Size": 31
+        },
+        {
+          "Children": [
+            {
+              "Name": "Animation",
+              "Size": 55
+            },
+            {
+              "Name": "Animator",
+              "Size": 20
+            },
+            {
+              "Name": "AnimationController",
+              "Size": 3
+            }
+          ],
+          "Name": "Animation",
+          "Size": 78
+        },
+        {
+          "Children": [
+            {
+              "Name": "StringValue",
+              "Size": 56
+            },
+            {
+              "Name": "NumberValue",
+              "Size": 37
+            },
+            {
+              "Name": "Vector3Value",
+              "Size": 140
+            },
+            {
+              "Name": "IntValue",
+              "Size": 3
+            },
+            {
+              "Name": "CFrameValue",
+              "Size": 117
+            }
+          ],
+          "Name": "Values",
+          "Size": 353
+        },
+        {
+          "Children": [
+            {
+              "Name": "Humanoid",
+              "Size": 20
+            },
+            {
+              "Name": "HumanoidDescription",
+              "Size": 2
+            },
+            {
+              "Name": "BodyColors",
+              "Size": 2
+            },
+            {
+              "Name": "WrapTarget",
+              "Size": 30
+            },
+            {
+              "Name": "FaceControls",
+              "Size": 2
+            },
+            {
+              "Name": "Shirt",
+              "Size": 1
+            },
+            {
+              "Name": "BodyPartDescription",
+              "Size": 6
+            },
+            {
+              "Name": "AccessoryDescription",
+              "Size": 1
+            },
+            {
+              "Name": "Pants",
+              "Size": 1
+            },
+            {
+              "Name": "Accessory",
+              "Size": 1
+            }
+          ],
+          "Name": "Character",
+          "Size": 66
+        },
+        {
+          "Children": [
+            {
+              "Name": "Decal",
+              "Size": 1
+            },
+            {
+              "Name": "Texture",
+              "Size": 1
+            },
+            {
+              "Name": "MaterialVariant",
+              "Size": 12
+            }
+          ],
+          "Name": "Textures",
+          "Size": 14
+        },
+        {
+          "Children": [
+            {
+              "Name": "Smoke",
+              "Size": 2
+            },
+            {
+              "Name": "Fire",
+              "Size": 3
+            },
+            {
+              "Name": "ParticleEmitter",
+              "Size": 3
+            }
+          ],
+          "Name": "Particles",
+          "Size": 8
+        },
+        {
+          "Children": [
+            {
+              "Name": "Folder",
+              "Size": 28
+            },
+            {
+              "Name": "GeneratedFolder",
+              "Size": 2
+            },
+            {
+              "Name": "Player",
+              "Size": 1
+            }
+          ],
+          "Name": "Services & Storage",
+          "Size": 31
+        },
+        {
+          "Children": [
+            {
+              "Name": "PlayerScripts",
+              "Size": 1
+            },
+            {
+              "Name": "StarterGear",
+              "Size": 1
+            },
+            {
+              "Name": "Backpack",
+              "Size": 1
+            },
+            {
+              "Name": "StarterPlayerScripts",
+              "Size": 1
+            },
+            {
+              "Name": "StarterCharacterScripts",
+              "Size": 1
+            }
+          ],
+          "Name": "Misc",
+          "Size": 5
+        },
+        {
+          "Children": [
+            {
+              "Name": "InputContext",
+              "Size": 6
+            },
+            {
+              "Name": "InputAction",
+              "Size": 40
+            },
+            {
+              "Name": "InputBinding",
+              "Size": 95
+            }
+          ],
+          "Name": "Unclassified",
+          "Size": 141
+        }
+      ],
+      "Name": "InstanceComposition",
+      "Size": 5075
+    }
+  }
+}

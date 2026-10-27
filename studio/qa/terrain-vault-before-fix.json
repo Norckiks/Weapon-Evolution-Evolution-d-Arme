@@ -1,0 +1,103 @@
+{
+  "scope": "Real-map vaults via actual client MovementAction requests before owning-client launch correction",
+  "result": {
+    "Routes": [
+      {
+        "Rise": 0,
+        "Zone": "City",
+        "Landed": true,
+        "Name": "CitySandbags",
+        "Crossed": false,
+        "Start": [
+          -12.25,
+          3.9248046875,
+          28
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          -12.25152587890625,
+          3.923095703125,
+          26.50848388671875
+        ]
+      },
+      {
+        "Rise": 2.010927200317383,
+        "Zone": "Factory",
+        "Landed": true,
+        "Name": "FactoryCrate",
+        "Crossed": true,
+        "Start": [
+          638,
+          3.82421875,
+          -24.30078125
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          637.998046875,
+          3.82421875,
+          -30.107421875
+        ]
+      },
+      {
+        "Rise": 0.771484375,
+        "Zone": "Factory",
+        "Landed": true,
+        "Name": "FactoryPipeRack",
+        "Crossed": true,
+        "Start": [
+          602,
+          3.82421875,
+          -38.44921875
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          601.998046875,
+          3.822265625,
+          -44.55859375
+        ]
+      },
+      {
+        "Rise": 0.00390625,
+        "Zone": "Lab",
+        "Landed": true,
+        "Name": "LabConsole",
+        "Crossed": false,
+        "Start": [
+          1258,
+          3.8203125,
+          -24.30078125
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          1258,
+          3.82421875,
+          -24.66796875
+        ]
+      },
+      {
+        "Rise": 0,
+        "Zone": "Lab",
+        "Landed": true,
+        "Name": "LabBarrier",
+        "Crossed": true,
+        "Start": [
+          1222,
+          3.82421875,
+          -38.6015625
+        ],
+        "Started": true,
+        "CostPaid": true,
+        "Finish": [
+          1221.99609375,
+          3.82421875,
+          -45.3828125
+        ]
+      }
+    ],
+    "Passed": false
+  }
+}

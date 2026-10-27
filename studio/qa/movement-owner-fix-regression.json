@@ -1,0 +1,17 @@
+{
+  "Passed": true,
+  "Checks": [
+    "Slide accepted and costs 15 stamina",
+    "Vault blocked while sliding",
+    "Slide physically moves character",
+    "Slide constraint cleaned after duration",
+    "Low obstacle vault accepted and costs 12 stamina",
+    "Vault applies upward impulse",
+    "Vault crosses the obstacle",
+    "Vault lands on the far side",
+    "No obstacle means no vault or cost",
+    "Tall wall rejected",
+    "Insufficient vault stamina rejected",
+    "Menu rejects movement actions"
+  ]
+}

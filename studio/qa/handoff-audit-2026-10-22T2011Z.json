@@ -1,0 +1,44 @@
+{
+  "supersededBy": "handoff-audit-latest.json",
+  "historicalOnly": true,
+  "checkedAt": "2026-10-22T20:11:47Z",
+  "studioId": "45bb0222-99c2-4b04-8be7-6667f480d5e2",
+  "placeId": 78882167241715,
+  "studioMode": "Edit",
+  "scripts": 36,
+  "localFiles": 36,
+  "matching": 34,
+  "mismatches": [
+    {
+      "Path": "StarterPlayer.StarterPlayerScripts.InterfaceV2",
+      "Class": "LocalScript",
+      "Checksum": 327318402,
+      "File": "studio/InterfaceV2.client.luau",
+      "Bytes": 26275
+    },
+    {
+      "Path": "StarterPlayer.StarterPlayerScripts.GameHub",
+      "Class": "LocalScript",
+      "Checksum": 2034820018,
+      "File": "studio/GameHub.client.luau",
+      "Bytes": 38677
+    }
+  ],
+  "missing": [],
+  "unmapped": [],
+  "method": "UTF-8 length + rolling checksum modulo 2^32, CRLF/edge whitespace normalized. PlayerCurrency explanatory local comment ignored. Non-cryptographic consistency check; inspect differences before replacing sources.",
+  "studioModified": false,
+  "pendingChanges": [
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.GameHub",
+      "description": "Stack HubToast below ProgressToast using GuiService inset; prepared here; installation blocked by approval-review account usage limit",
+      "verified": "Exact source comparison previously confirmed this was the only GameHub difference"
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.InterfaceV2",
+      "description": "Local mouse unlock button [M], MouseUnlocked handling and styling; absent in Studio; preserve and review before installation",
+      "verified": "Compared live 333 lines with local 397 lines; common first 115 and last 23 lines; differing regions inspected"
+    }
+  ],
+  "nextStep": "After review availability is restored, rediscover Studio and compare current sources again. Install/review each pending change independently, compile before mutation, then verify keyboard, menus, notifications and mobile layouts."
+}

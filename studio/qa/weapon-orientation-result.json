@@ -1,0 +1,753 @@
+{
+  "checkedAt": "2026-10-26",
+  "studioId": "1810e323-f08c-4cee-af08-45d071dcc952",
+  "fix": "First-person melee weapon orientation only; hands/WeaponMotion/server unchanged",
+  "checks": {
+    "runs": 16,
+    "passed": 16,
+    "allMeleeCombos": true,
+    "maxGripError": 0.000015258905477821827,
+    "maxFirearmAngleError": 0.0006905339541845024
+  },
+  "report": {
+    "Runs": [
+      {
+        "Passed": true,
+        "MaximumGripError": 4.76837158203125e-7,
+        "Frames": 297,
+        "Viewport": "1447, 801",
+        "Impacts": [
+          {
+            "Forward": 0.9152352213859558,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.925607442855835,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.9224206805229187,
+            "Firearm": false,
+            "Combo": 3
+          },
+          {
+            "Forward": 0.9240944385528564,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.9256808161735535,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.9225936532020569,
+            "Firearm": false,
+            "Combo": 3
+          }
+        ],
+        "ReducedMotion": false,
+        "Weapon": "Pipe"
+      },
+      {
+        "Passed": true,
+        "MaximumGripError": 0.000015258905477821827,
+        "Frames": 259,
+        "Viewport": "1447, 801",
+        "Impacts": [
+          {
+            "Forward": 0.9527198076248169,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.9534119963645935,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.9050514698028564,
+            "Firearm": false,
+            "Combo": 3
+          },
+          {
+            "Forward": 0.9532104730606079,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.9535960555076599,
+            "Firearm": false,
+            "Combo": 2
+          }
+        ],
+        "ReducedMotion": false,
+        "Weapon": "Bat"
+      },
+      {
+        "Passed": true,
+        "MaximumGripError": 4.76837158203125e-7,
+        "Frames": 274,
+        "Viewport": "1447, 801",
+        "Impacts": [
+          {
+            "Forward": 0.974308967590332,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.9748437404632568,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.9084766507148743,
+            "Firearm": false,
+            "Combo": 3
+          },
+          {
+            "Forward": 0.9747889041900635,
+            "Firearm": false,
+            "Combo": 1
+          }
+        ],
+        "ReducedMotion": false,
+        "Weapon": "Axe"
+      },
+      {
+        "Passed": true,
+        "MaximumGripError": 0.0000152587890625,
+        "Frames": 379,
+        "Viewport": "1447, 801",
+        "Impacts": [
+          {
+            "Forward": 0.9279186725616455,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.4250115156173706,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.8960363864898682,
+            "Firearm": false,
+            "Combo": 3
+          },
+          {
+            "Forward": 0.9282193183898926,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.4242340624332428,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.8713820576667786,
+            "Firearm": false,
+            "Combo": 3
+          }
+        ],
+        "ReducedMotion": false,
+        "Weapon": "Katana"
+      },
+      {
+        "Passed": true,
+        "MaximumGripError": 4.805480102731963e-7,
+        "Frames": 271,
+        "Viewport": "1447, 801",
+        "Impacts": [
+          {
+            "Forward": 0.10321422666311264,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.10315923392772675,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.14002157747745514,
+            "Firearm": false,
+            "Combo": 3
+          },
+          {
+            "Forward": 0.10233836621046066,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.1024322658777237,
+            "Firearm": false,
+            "Combo": 2
+          }
+        ],
+        "ReducedMotion": false,
+        "Weapon": "LimitedBlade"
+      },
+      {
+        "Passed": true,
+        "MaximumGripError": 4.76837158203125e-7,
+        "Frames": 256,
+        "Viewport": "1447, 801",
+        "Impacts": [
+          {
+            "Forward": 0.605017364025116,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.6178396940231323,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.6462089419364929,
+            "Firearm": false,
+            "Combo": 3
+          },
+          {
+            "Forward": 0.6176853179931641,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.6183968782424927,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.6437211632728577,
+            "Firearm": false,
+            "Combo": 3
+          }
+        ],
+        "ReducedMotion": true,
+        "Weapon": "Pipe"
+      },
+      {
+        "Passed": true,
+        "MaximumGripError": 0.0000152587890625,
+        "Frames": 290,
+        "Viewport": "1447, 801",
+        "Impacts": [
+          {
+            "Forward": 0.647820234298706,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.6269264221191406,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.6921463012695312,
+            "Firearm": false,
+            "Combo": 3
+          },
+          {
+            "Forward": 0.6456493139266968,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.6470022201538086,
+            "Firearm": false,
+            "Combo": 2
+          }
+        ],
+        "ReducedMotion": true,
+        "Weapon": "Bat"
+      },
+      {
+        "Passed": true,
+        "MaximumGripError": 4.76837158203125e-7,
+        "Frames": 267,
+        "Viewport": "1447, 801",
+        "Impacts": [
+          {
+            "Forward": 0.6560807228088379,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.6541751623153687,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.6866226196289062,
+            "Firearm": false,
+            "Combo": 3
+          },
+          {
+            "Forward": 0.6540056467056274,
+            "Firearm": false,
+            "Combo": 1
+          }
+        ],
+        "ReducedMotion": true,
+        "Weapon": "Axe"
+      },
+      {
+        "Passed": true,
+        "MaximumGripError": 4.777675712830387e-7,
+        "Frames": 274,
+        "Viewport": "1447, 801",
+        "Impacts": [
+          {
+            "Forward": 0.6310324668884277,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.3799099326133728,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.6752610206604004,
+            "Firearm": false,
+            "Combo": 3
+          },
+          {
+            "Forward": 0.6298729181289673,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.37967413663864136,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.6739278435707092,
+            "Firearm": false,
+            "Combo": 3
+          }
+        ],
+        "ReducedMotion": true,
+        "Weapon": "Katana"
+      },
+      {
+        "Passed": true,
+        "MaximumGripError": 0.0000152587890625,
+        "Frames": 283,
+        "Viewport": "1447, 801",
+        "Impacts": [
+          {
+            "Forward": 0.30683964490890503,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.3060654401779175,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.3298543393611908,
+            "Firearm": false,
+            "Combo": 3
+          },
+          {
+            "Forward": 0.30719029903411865,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.30682337284088135,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.32963961362838745,
+            "Firearm": false,
+            "Combo": 3
+          }
+        ],
+        "ReducedMotion": true,
+        "Weapon": "LimitedBlade"
+      },
+      {
+        "ReducedMotion": false,
+        "Impacts": [
+          {
+            "Forward": 0.44458499550819397,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.4543105661869049,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.45511534810066223,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.45509397983551025,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.4550752639770508,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.4551962912082672,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.45506542921066284,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.4296732544898987,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.45516693592071533,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.45510154962539673,
+            "Firearm": true,
+            "Combo": 1
+          }
+        ],
+        "MaximumGunAngleError": 0,
+        "Passed": true,
+        "Viewport": "1447, 801",
+        "Frames": 313,
+        "MaximumGripError": 4.777675712830387e-7,
+        "Weapon": "Pistol"
+      },
+      {
+        "ReducedMotion": false,
+        "Impacts": [
+          {
+            "Forward": 0.1957249939441681,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24458646774291992,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.2428755760192871,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24288541078567505,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.2663019001483917,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24427899718284607,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.2434135377407074,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24601802229881287,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.2425524890422821,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24043068289756775,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24318471550941467,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24258705973625183,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24428072571754456,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24324172735214233,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.2425694763660431,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24361029267311096,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.2443370670080185,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24325677752494812,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24191325902938843,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24058644473552704,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.2414613962173462,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.24482649564743042,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.26775315403938293,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.13683830201625824,
+            "Firearm": true,
+            "Combo": 1
+          }
+        ],
+        "MaximumGunAngleError": 0.0006905339541845024,
+        "Passed": true,
+        "Viewport": "1447, 801",
+        "Frames": 277,
+        "MaximumGripError": 9.5367431640625e-7,
+        "Weapon": "SMG"
+      },
+      {
+        "ReducedMotion": false,
+        "Impacts": [
+          {
+            "Forward": 0.6258378624916077,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.6078280806541443,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.6075886487960815,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.6096986532211304,
+            "Firearm": true,
+            "Combo": 1
+          }
+        ],
+        "MaximumGunAngleError": 0.00048828125,
+        "Passed": true,
+        "Viewport": "1447, 801",
+        "Frames": 276,
+        "MaximumGripError": 0.000015258818166330457,
+        "Weapon": "Revolver"
+      },
+      {
+        "ReducedMotion": false,
+        "Impacts": [
+          {
+            "Forward": 0.5694097280502319,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.5176181793212891,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.5461063981056213,
+            "Firearm": true,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.5952214002609253,
+            "Firearm": true,
+            "Combo": 1
+          }
+        ],
+        "MaximumGunAngleError": 0,
+        "Passed": true,
+        "Viewport": "1447, 801",
+        "Frames": 324,
+        "MaximumGripError": 9.5413986400672e-7,
+        "Weapon": "Shotgun"
+      },
+      {
+        "Passed": true,
+        "MaximumGripError": 0.0000152587890625,
+        "Frames": 101,
+        "Viewport": "750, 381",
+        "Impacts": [
+          {
+            "Forward": 0.9256815314292908,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.8535662889480591,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.9070669412612915,
+            "Firearm": false,
+            "Combo": 3
+          },
+          {
+            "Forward": 0.9256472587585449,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.8524911403656006,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.9067196846008301,
+            "Firearm": false,
+            "Combo": 3
+          }
+        ],
+        "ReducedMotion": false,
+        "Weapon": "Pipe"
+      },
+      {
+        "Passed": true,
+        "MaximumGripError": 4.777675712830387e-7,
+        "Frames": 340,
+        "Viewport": "401, 778",
+        "Impacts": [
+          {
+            "Forward": 0.6046382188796997,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.6032590866088867,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.6453069448471069,
+            "Firearm": false,
+            "Combo": 3
+          },
+          {
+            "Forward": 0.6184959411621094,
+            "Firearm": false,
+            "Combo": 1
+          },
+          {
+            "Forward": 0.6181760430335999,
+            "Firearm": false,
+            "Combo": 2
+          },
+          {
+            "Forward": 0.6627911329269409,
+            "Firearm": false,
+            "Combo": 3
+          }
+        ],
+        "ReducedMotion": true,
+        "Weapon": "Pipe"
+      }
+    ]
+  },
+  "baselineNative": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[{\"Age\":0.0007923000957816839,\"Forward\":0.4201173186302185},{\"Age\":0.014090400072745979,\"Forward\":0.4338130056858063},{\"Age\":0.023126100073568524,\"Forward\":0.44092485308647158},{\"Age\":0.03888230002485216,\"Forward\":0.4426747262477875},{\"Age\":0.054732599994167688,\"Forward\":0.427359014749527},{\"Age\":0.071263000019826,\"Forward\":0.3990301787853241},{\"Age\":0.08762180001940578,\"Forward\":0.37286069989204409},{\"Age\":0.10369440005160868,\"Forward\":0.3549853265285492},{\"Age\":0.1207068000221625,\"Forward\":-0.005561992526054382},{\"Age\":0.1368644000031054,\"Forward\":-0.3206927180290222},{\"Age\":0.1539627000456676,\"Forward\":-0.46431949734687807},{\"Age\":0.17232730006799103,\"Forward\":-0.501983642578125},{\"Age\":0.1870975000783801,\"Forward\":-0.5020029544830322},{\"Age\":0.20520150009542705,\"Forward\":-0.48653098940849306},{\"Age\":0.22078259999398143,\"Forward\":-0.4596075415611267},{\"Age\":0.23746990005020053,\"Forward\":-0.415714293718338},{\"Age\":0.26690000004600736,\"Forward\":-0.3013070225715637},{\"Age\":0.27936879999469968,\"Forward\":-0.24054725468158723},{\"Age\":0.2900315000442788,\"Forward\":-0.1840524673461914},{\"Age\":0.3065281000453979,\"Forward\":-0.09072982519865036},{\"Age\":0.3222394000040367,\"Forward\":0.0005268678069114685},{\"Age\":0.3490506000816822,\"Forward\":0.14961150288581849},{\"Age\":0.3584151000250131,\"Forward\":0.19604137539863587},{\"Age\":0.37585200008470567,\"Forward\":0.27341338992118838},{\"Age\":0.3953237000387162,\"Forward\":0.34064599871635439},{\"Age\":0.4091402000049129,\"Forward\":0.3747798502445221},{\"Age\":0.43019270000513645,\"Forward\":0.4042011797428131},{\"Age\":0.44465150008909407,\"Forward\":0.4081687927246094},{\"Age\":0.4565932000987232,\"Forward\":0.408168762922287}]"
+      }
+    ],
+    "isError": false
+  },
+  "screenshots": {
+    "pc": "First capture was idle, not counted as impact",
+    "portrait": {
+      "file": "studio/qa/screenshots/pipe-impact-portrait.png",
+      "device": "iphone_17_pro",
+      "viewport": "401, 778",
+      "heldObservedFrameAge": 0.20176940003875643,
+      "forward": 0.9151376485824585
+    }
+  },
+  "limits": [
+    "No physical touch/gamepad hardware test",
+    "No multiplayer test",
+    "No production DataStore test",
+    "Third-person animation code unchanged; not part of clarified fix"
+  ],
+  "audit": {
+    "Unmapped": [],
+    "Errors": [],
+    "Missing": [],
+    "Compiling": 43,
+    "CheckedAt": "2026-10-26T11:38:12Z",
+    "Matching": 43,
+    "Mismatches": [],
+    "Orientation": "Enum.ScreenOrientation.LandscapeLeft",
+    "Mode": "Edit",
+    "Device": "default",
+    "Count": 43
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-27",
+  "server": {
+    "Restored": true,
+    "Passed": true,
+    "Checks": [
+      "Legacy profile receives a claim map",
+      "Locked level refused",
+      "Before Play refused",
+      "Exact coins without pet/time multiplier or XP",
+      "Canonical duplicate refused: 2",
+      "Canonical duplicate refused: 02",
+      "Canonical duplicate refused: 2.0",
+      "Canonical duplicate refused: 2e0",
+      "Invalid claim refused: string 0",
+      "Invalid claim refused: string -2",
+      "Invalid claim refused: string 2.5",
+      "Invalid claim refused: string 999",
+      "Invalid claim refused: string nan",
+      "Invalid claim refused: string 1e999",
+      "Invalid claim refused: string 22222222222222222222222222222222222222222222222222222222222222222",
+      "Invalid claim refused: table table: 0xd7b518c5f8e2265d",
+      "Invalid claim refused: number 22",
+      "Exact one-time reward level 3",
+      "Exact one-time reward level 5",
+      "Exact one-time reward level 7",
+      "Exact one-time reward level 10",
+      "Exact one-time reward level 12",
+      "Exact one-time reward level 16",
+      "Exact one-time reward level 20",
+      "Exact one-time reward level 22",
+      "Exact one-time reward level 28",
+      "Repeated burst cannot pay twice",
+      "JSON preserves milestones and existing receipts",
+      "Daily rollover preserves permanent receipts",
+      "Daily rollover cannot replay milestone",
+      "Full wallet preserves unclaimed reward",
+      "One coin short of capacity preserves reward",
+      "Exact capacity grants entire reward",
+      "Robux remains disabled"
+    ]
+  },
+  "uiLogicFullWallet": {
+    "text": "DEPENSE D'ABORD",
+    "level": 2,
+    "page": "CADEAUX & PALIERS",
+    "active": false
+  },
+  "uiLogicExactCapacity": {
+    "active": true,
+    "text": "RECUPERER · 150"
+  },
+  "renderProbe": {
+    "Render": 0,
+    "Heart": 43
+  },
+  "limits": [
+    "UI : propriétés Text/Active seulement, pas de capture ni contrôle TextFits/géométrie ; rendu client inactif.",
+    "34 contrôles serveur incluent la dixième prime et trois frontières du plafond.",
+    "Données et statistiques restaurées avant Stop ; aucune écriture DataStore de production.",
+    "Portails et visuels Centrale restent en attente d'une fenêtre Play visible ; question utilisateur du lot précédent toujours sans réponse.",
+    "La protection du plafond concerne ClaimLevel, pas tous les autres types de récompenses."
+  ]
+}

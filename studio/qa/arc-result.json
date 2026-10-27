@@ -1,0 +1,124 @@
+{
+  "Combat": {
+    "Restored": true,
+    "Checks": [
+      "Rejected without cost: Level",
+      "Rejected without cost: Stamina",
+      "Rejected without cost: Busy",
+      "Rejected without cost: State",
+      "Rejected without cost: Ground",
+      "Configured unlock, stamina and target cap",
+      "Four real remote hits deal 42/32/24/18",
+      "Cap, zone, tag and initial facing respected",
+      "Attacker attribution and stun",
+      "Real stamina and cooldown charged",
+      "Server transmits only selected chain path",
+      "Twelve safe bolt segments and one sound instance",
+      "Rejected without cost: Cooldown",
+      "Rebinding preserves cooldown",
+      "Solid wall blocks bounce beyond second target",
+      "Reduced visuals preserve real damage",
+      "Reduced mode has four static links and muted audio",
+      "Dedicated ability pose settles",
+      "Existing abilities and disabled Robux preserved"
+    ],
+    "Samples": {
+      "Normal": {
+        "Sounds": 1,
+        "Path": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Events": 1,
+        "Hits": 4,
+        "Safe": true,
+        "Bolts": 12
+      },
+      "Reduced": {
+        "Sounds": 0,
+        "Path": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Events": 3,
+        "Hits": 4,
+        "Safe": true,
+        "Bolts": 4
+      }
+    },
+    "Passed": true
+  },
+  "Regression": {
+    "Restored": true,
+    "Passed": true,
+    "Checks": [
+      "Frost retains exact damage through shared pipeline",
+      "Slam retains exact damage through shared pipeline",
+      "Pulse retains exact damage through shared pipeline",
+      "Aegis still grants server guard",
+      "Second souffle still heals 35 percent",
+      "All Arc pose components finite and settled"
+    ]
+  },
+  "Bindings": {
+    "Bindings": {
+      "Enum.KeyCode.LeftShift": "SurvivalSprint",
+      "Enum.KeyCode.R": "SurvivalReload",
+      "Enum.KeyCode.ButtonA": "SurvivalStart",
+      "Enum.KeyCode.DPadUp": "SurvivorFlashlight",
+      "Enum.KeyCode.H": "SurvivalAegis",
+      "Enum.KeyCode.O": "SurvivalView",
+      "Enum.KeyCode.P": "SurvivalOptions",
+      "Enum.KeyCode.ButtonR3": "SurvivalAegis",
+      "Enum.KeyCode.C": "SurvivalCrouch",
+      "Enum.KeyCode.J": "SurvivalSecondSouffle",
+      "Enum.KeyCode.ButtonSelect": "SurvivalView",
+      "Enum.KeyCode.ButtonX": "SurvivalReload",
+      "Enum.KeyCode.DPadLeft": "SurvivalSlam",
+      "Enum.KeyCode.ButtonY": "SurvivalVault",
+      "Enum.KeyCode.K": "SurvivalArc",
+      "Enum.KeyCode.DPadRight": "SurvivalFrost",
+      "Enum.UserInputType.MouseButton1": "FistsPunch",
+      "Enum.KeyCode.M": "SurvivalMouseUnlock",
+      "Enum.KeyCode.ButtonL3": "SurvivalSprint",
+      "Enum.KeyCode.E": "SurvivalSlam",
+      "Enum.KeyCode.ButtonR1": "SurvivalCrouch",
+      "Enum.KeyCode.Q": "SurvivalPulse",
+      "Enum.KeyCode.DPadDown": "SurvivalSecondSouffle",
+      "Enum.KeyCode.T": "SurvivalFrost",
+      "Enum.KeyCode.ButtonL1": "SurvivalPulse",
+      "Enum.KeyCode.ButtonL2": "SurvivalArc",
+      "Enum.KeyCode.ButtonB": "SurvivalDash",
+      "Enum.KeyCode.LeftControl": "SurvivalDash",
+      "Enum.KeyCode.ButtonR2": "FistsPunch",
+      "Enum.KeyCode.F": "SurvivorFlashlight",
+      "Enum.KeyCode.ButtonStart": "SurvivalStart",
+      "Enum.KeyCode.Return": "SurvivalStart",
+      "Enum.KeyCode.V": "SurvivalVault",
+      "Enum.KeyCode.RightShift": "SurvivalSprint"
+    },
+    "Passed": true,
+    "Checks": [
+      "Expected inputs: SurvivalAegis",
+      "Expected inputs: SurvivalFrost",
+      "Expected inputs: SurvivalSecondSouffle",
+      "Expected inputs: SurvivalDash",
+      "Expected inputs: SurvivalArc",
+      "Expected inputs: SurvivalVault",
+      "Expected inputs: SurvivalReload",
+      "Expected inputs: SurvivalSlam",
+      "No shared input among survival, survivor and fists actions"
+    ]
+  },
+  "Limits": [
+    "Viewport 1x1 / RenderStepped 0",
+    "No native keyboard/gamepad/touch or rendered animation test",
+    "No physical audio listening, multiplayer, live DataStore or exact >12-stud hop boundary test"
+  ]
+}

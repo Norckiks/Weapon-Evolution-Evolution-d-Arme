@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-22",
+  "scope": "Studio SessionStudio only",
+  "checks": {
+    "guideInitial": {
+      "marker": false,
+      "destination": "",
+      "billboard": false
+    },
+    "guideBelowGate": {
+      "marker": false,
+      "destination": ""
+    },
+    "guideFactoryUnlock": {
+      "billboard": true,
+      "rotation": 248.7041015625,
+      "marker": true,
+      "position": "888.244873, 103.921219",
+      "target": "0, 4.5, 208",
+      "destination": "Factory",
+      "stage": "Portal",
+      "adornee": "Workspace.ProgressionZones.RefugePortals.Travel_Factory.Field"
+    },
+    "guideFactoryArrived": {
+      "billboard": false,
+      "position": "620, 3.824781656265259, 10",
+      "marker": false,
+      "destination": "",
+      "stage": "Arrived"
+    },
+    "guideLabReturnStage": {
+      "label": "REFUGE",
+      "target": "642, 4.5, 20",
+      "destination": "Lab",
+      "stage": "Return",
+      "adornee": "Workspace.ProgressionZones.Factory.Return_Factory.Field"
+    },
+    "guideMenuHidden": {
+      "marker": false,
+      "destination": "Lab",
+      "menu": true,
+      "billboard": false
+    },
+    "guideLabRefugeStage": {
+      "position": "-1.6763806343078613e-07, 5.124781131744385, 220",
+      "target": "32, 4.5, 208",
+      "destination": "Lab",
+      "stage": "Portal",
+      "adornee": "Workspace.ProgressionZones.RefugePortals.Travel_Lab.Field"
+    },
+    "guideLabArrived": {
+      "billboard": false,
+      "position": "1240, 3.824781656265259, 10",
+      "marker": false,
+      "destination": "",
+      "stage": "Arrived"
+    },
+    "guideMobileLandscape": {
+      "Visible": true,
+      "Adornee": "Workspace.ProgressionZones.RefugePortals.Travel_Factory.Field",
+      "InBounds": true,
+      "Billboard": true,
+      "Menu": false,
+      "Position": [
+        571.7880859375,
+        71.10316467285156
+      ],
+      "Viewport": [
+        750,
+        381
+      ],
+      "Destination": "Factory",
+      "Stage": "Portal",
+      "Size": [
+        102.42388153076172,
+        75.79367065429688
+      ]
+    },
+    "guideMobilePortrait": {
+      "Visible": true,
+      "Adornee": "Workspace.ProgressionZones.RefugePortals.Travel_Factory.Field",
+      "InBounds": true,
+      "Billboard": true,
+      "Menu": false,
+      "Position": [
+        258.2498474121094,
+        158.92486572265625
+      ],
+      "Viewport": [
+        401,
+        778
+      ],
+      "Destination": "Factory",
+      "Stage": "Portal",
+      "Size": [
+        97.50032043457031,
+        72.15023803710938
+      ]
+    },
+    "guideReducedMotion": {
+      "ReducedMotionScaleEnd": 1,
+      "ReducedMotionScaleStart": 1
+    }
+  },
+  "limits": [
+    "No physical touch, gamepad or multiplayer testing",
+    "Portal journeys used prepared test approaches plus actual E input",
+    "Billboard enabled/adornee verified; mobile screenshots establish the screen arrow, not visibility of the world billboard"
+  ],
+  "console": "Only the failed assistant fixture assertion (wrong SessionStudio attribute) was present; corrected to PersistenceMode before fixture mutations."
+}

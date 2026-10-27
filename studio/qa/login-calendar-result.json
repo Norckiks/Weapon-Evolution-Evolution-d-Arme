@@ -1,0 +1,75 @@
+{
+  "Restored": true,
+  "Passed": true,
+  "Checks": [
+    "Legacy profile initialized without receipt loss",
+    "Claim before Play refused",
+    "Forged identifier refused: ",
+    "Forged identifier refused: daily",
+    "Forged identifier refused: Daily:7",
+    "Forged identifier refused: 7",
+    "Forged identifier refused: 7",
+    "Forged identifier refused: table: 0x3982110f2bc5eadd",
+    "Day 1 advances one step",
+    "Day 1 fixed coins ignore boosts",
+    "Day 1 duplicate pays nothing",
+    "Day 2 advances one step",
+    "XP boost extends existing expiry",
+    "Day 2 duplicate pays nothing",
+    "Day 3 advances one step",
+    "Day 3 fixed coins ignore boosts",
+    "Day 3 duplicate pays nothing",
+    "Day 4 advances one step",
+    "Coin boost extends existing expiry",
+    "Day 4 duplicate pays nothing",
+    "Day 5 advances one step",
+    "Day 5 fixed coins ignore boosts",
+    "Day 5 duplicate pays nothing",
+    "Day 6 advances one step",
+    "Day 6 fixed XP ignores boosts",
+    "Day 6 duplicate pays nothing",
+    "Day 7 advances one step",
+    "Permanent Buddy granted and equipped when empty",
+    "Day 7 duplicate pays nothing",
+    "Seventh claim restarts cycle",
+    "Full wallet preserves claim",
+    "Partial capacity cannot consume reward",
+    "Exact capacity pays full amount",
+    "Full pet inventory preserves claim",
+    "Last pet slot accepted",
+    "Missed days preserve progress without granting skipped gifts",
+    "Future timestamp cannot double claim",
+    "Daily reset preserves calendar progress",
+    "JSON round trip preserves calendar and receipts",
+    "Malformed fields normalized",
+    "Robux stays disabled"
+  ],
+  "UI": [
+    {
+      "Phase": "Ready",
+      "Text": "RECUPERER",
+      "Viewport": "1, 1",
+      "Checks": 5
+    },
+    {
+      "Phase": "Claimed",
+      "Text": "DEMAIN",
+      "Viewport": "1, 1",
+      "Checks": 5
+    },
+    {
+      "Phase": "Full",
+      "Text": "DEPENSE D'ABORD",
+      "Viewport": "1, 1",
+      "Checks": 5
+    }
+  ],
+  "Limits": [
+    "No live DataStore reconnect",
+    "Viewport 1x1; no visual/mobile/native input proof"
+  ],
+  "BadgeChecks": [
+    "Full wallet: no available gift badge",
+    "Room in wallet: one available gift badge"
+  ]
+}

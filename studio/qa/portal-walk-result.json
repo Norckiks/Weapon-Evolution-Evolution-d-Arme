@@ -1,0 +1,30 @@
+{
+  "mode": "Play SessionStudio, clavier natif",
+  "locked": {
+    "level": 1,
+    "position": "-30.54, 3.92, 220",
+    "prompt": "USINE CONDAMNEE - NIV. 5 / VERROUILLE",
+    "result": "REFUGE",
+    "feedback": "NIVEAU 5 REQUIS"
+  },
+  "unlocked": {
+    "level": 5,
+    "prompt": "USINE CONDAMNEE - NIV. 5 / MAINTIENS E",
+    "arrival": "620, 3.82, 10",
+    "zone": "USINE CONDAMNEE"
+  },
+  "return": {
+    "approach": "D puis S depuis l’arrivée",
+    "position": "640.13, 4.12, 22.63",
+    "prompt": "REFUGE / MAINTIENS E",
+    "arrival": "0, 5.12, 220",
+    "zone": "REFUGE"
+  },
+  "fixture": "PortalWalk.server : niveau modifié par bindable, ForceField temporaire, Meta/statistiques/position/santé/flags restaurés",
+  "limits": [
+    "pas de tactile physique",
+    "aucune autre zone testée",
+    "pas de multijoueur",
+    "niveau 5 préparé par fixture"
+  ]
+}
