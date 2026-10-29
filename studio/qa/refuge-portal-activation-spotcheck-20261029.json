@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "SessionStudio",
+  "serverAccessCheck": {
+    "profileReady": true,
+    "level": 1,
+    "cityLevel": 1,
+    "cityAllowed": true,
+    "factoryLevel": 5,
+    "factoryAllowed": false,
+    "labLevel": 12,
+    "labAllowed": false,
+    "method": "ZoneService.CanAccess"
+  },
+  "promptActivation": {
+    "cityFieldDistanceAtSpawn": 12.016,
+    "cityFieldDistanceAfterNavigation": 3.632,
+    "promptEnabled": true,
+    "activationDistance": 14,
+    "holdDuration": 0.35,
+    "promptShown": false,
+    "reasonNotConclusive": "Client Camera.ViewportSize stayed 1x1; custom prompt UI did not become visible. Keyboard E and InputHoldBegin/End did not activate travel in this non-rendering session."
+  },
+  "sideEffects": {
+    "coinsOrXpChanged": false,
+    "purchase": false,
+    "tutorialComplete": false,
+    "dataStoreWrite": false,
+    "placeSaved": false,
+    "published": false
+  },
+  "console": "empty",
+  "playStopped": true,
+  "studioModeAfterTest": "Edit"
+}

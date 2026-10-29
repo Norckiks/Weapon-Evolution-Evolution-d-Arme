@@ -1,0 +1,39 @@
+{
+  "testId": "TEST-FISTS-REAL-REMOTE-PLAY-20261029",
+  "date": "2026-10-29",
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "placeId": 89391796839094,
+  "mode": "Studio Play, SessionStudio",
+  "result": "PASS_REAL_MELEE_DAMAGE",
+  "setup": {
+    "start": "GameAction.Start fired by the actual Play client",
+    "target": "Live City Civilian (Rodeur), initially 35/35 HP",
+    "playerZone": "VILLE EN RUINE",
+    "playerLevel": 1,
+    "persistence": "SessionStudio"
+  },
+  "action": "Actual Client fired ReplicatedStorage.Remotes.Punch once toward the live Civilian; server FistsServer processed the event.",
+  "observed": {
+    "zombieHealthAfter": 25,
+    "zombieLastAttacker": 10565455042,
+    "coinsBeforeAfter": [0, 0],
+    "xpBeforeAfter": [0, 0],
+    "levelBeforeAfter": [1, 1],
+    "playerHealthDuring": 75.06498,
+    "playerHealthRestored": 100,
+    "zombieHealthRestored": 35,
+    "consoleOutput": "empty"
+  },
+  "cleanup": "Returned the player to the Refuge, restored HasStarted=false and InGameMenu=true, restored the live Civilian to 35 HP and cleared LastAttacker/LastHitAt. Play stopped and Studio returned to Edit.",
+  "sideEffects": {
+    "purchase": false,
+    "persistentProfileChange": false,
+    "DataStoreWrite": false,
+    "placeSaved": false,
+    "published": false
+  },
+  "limits": [
+    "Only one normal punch was exercised; no kill reward, combo, ability, firearm, mobile, multiplayer, or pixel-level combat review was tested.",
+    "The nearby zombie landed one attack during the test; player health was restored before Play stopped."
+  ]
+}

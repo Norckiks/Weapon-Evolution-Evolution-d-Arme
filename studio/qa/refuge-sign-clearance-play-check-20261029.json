@@ -1,0 +1,50 @@
+{
+  "testId": "TEST-REFUGE-SIGN-CLEARANCE-PLAY-20261029",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "mode": "Studio Edit repair and fresh Play client/server inspection",
+  "result": "PASS",
+  "before": {
+    "travelPrompts": 19,
+    "travelSigns": 16,
+    "wideSignsAt22Studs": 13,
+    "smallSignsAt15Studs": 3,
+    "collidableAndQueryableSigns": ["Travel_City", "Travel_Factory", "Travel_Lab"],
+    "minimumClearanceBetween22StudSigns": 2
+  },
+  "after": {
+    "travelPrompts": 19,
+    "enabledTravelPrompts": 19,
+    "alignedPortalFrames": 19,
+    "travelSigns": 16,
+    "signWidth": 18,
+    "nonCollidingNonTouchingNonQueryableSigns": 16,
+    "minimumSameRowSignClearance": 6,
+    "testRayHitsOnSigns": 0,
+    "weaponModels": 30,
+    "weaponMeshParts": 335,
+    "armoryCards": 31,
+    "armoryViewportsWithCamera": 31,
+    "armoryPreviewGeometryParts": 337,
+    "armoryModelTextMatches": 0,
+    "ArcPikePreviewColors": 5,
+    "ArcPikePreviewAverageSaturation": 0.812,
+    "BlackoutEdgePreviewColors": 5,
+    "BlackoutEdgePreviewAverageSaturation": 0.762,
+    "EclipseGlaivePreviewColors": 5,
+    "EclipseGlaivePreviewAverageSaturation": 0.655
+  },
+  "method": [
+    "In Edit, ran studio/qa/CompactRefugePortalSigns.edit.luau after it validated the target place, current 19 field coordinates, 16 sign inventory, expected original widths, and prompt count.",
+    "Saved all 16 original sign parts in ServerStorage.BeforeRefugeSignClearance_20261029 before changing size and query/collision properties.",
+    "In Play, verified all 19 travel prompts remain enabled, all 19 imported portal frames remain aligned with their fields, and all 16 changed signs replicate with width 18 and CanCollide/CanTouch/CanQuery disabled.",
+    "Raycast checks filtered to each sign returned no sign hits. Opened the actual ARMURERIE state with a temporary self-destroying Play-only server Script and inspected all 31 live ViewportFrames.",
+    "Measured five distinct colors in each of the ArcPike, BlackoutEdge, and EclipseGlaive runtime previews; the actual GameHub page contained no model/modéliser text. Studio Output was empty.",
+    "A second fresh Play confirmed 30 replicated weapon Models/335 MeshParts, no model text in the client menu, HasStarted=false, and empty Studio Output; Play was stopped again."
+  ],
+  "limitations": [
+    "Studio screen capture timed out, so the map layout and weapon colors are validated through live instance geometry and color properties, not screenshot pixels.",
+    "HasStarted remained false. No purchase, equip, grant, profile/DataStore change, place save, or publish was performed. Play was stopped and Studio returned to Edit."
+  ]
+}

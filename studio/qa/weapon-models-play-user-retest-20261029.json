@@ -1,0 +1,30 @@
+{
+  "testId": "TEST-WEAPON-MODELS-PLAY-20261029-FRESH",
+  "date": "2026-10-29",
+  "place": "Évolution des armes",
+  "placeId": 89391796839094,
+  "mode": "Studio Play",
+  "result": "PASS_GEOMETRY_LABEL_NOT_REPRODUCED_UI_NOT_OPENED",
+  "catalog": {
+    "weaponDefinitions": 31,
+    "modelPendingDefinitions": 0,
+    "replicatedModels": 30,
+    "replicatedMeshParts": 335,
+    "nonFistWeaponBuilds": 30,
+    "buildsWithGeometry": 30,
+    "emptyBuilds": 0,
+    "equippedWeapon": "Fists"
+  },
+  "checks": [
+    "A fresh Studio Play client loaded GameplayConfig and WeaponVisuals; all 30 non-fist weapon entries built geometry and the temporary preview clones were destroyed.",
+    "ReplicatedStorage.WeaponModels contained 30 Models with 335 MeshParts and no non-mesh BaseParts.",
+    "Studio script search returned no ModelPending or à modéliser matches; PlayerGui text search returned no model labels in the initial menu state.",
+    "Studio Output was empty. Play was stopped and Studio returned to Edit."
+  ],
+  "limitations": [
+    "The ARMES tab was not opened in this fresh run: client viewport size was 1x1 and automated click timed out.",
+    "Auto-review rejected creating a temporary QA Script in ServerScriptService from Edit, so that route was not used or bypassed.",
+    "No purchase, grant, equipment change, profile save, place save, or publish was performed.",
+    "The existing prior Play report verified 31 populated armory ViewportFrames and zero model-pending labels, but this run did not reproduce the rendered cards."
+  ]
+}

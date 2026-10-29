@@ -1,0 +1,99 @@
+{
+  "testId": "TEST-REFUGE-HUB-REDESIGN-001",
+  "date": "2026-10-29",
+  "studio": {
+    "name": "Évolution des armes",
+    "placeId": 89391796839094,
+    "finalMode": "Edit",
+    "backup": "ServerStorage.BeforeRefugeHubRedesign_20261029"
+  },
+  "edit": {
+    "courtyardSizeStuds": [380, 0.2, 190],
+    "courtyardCenterXZ": [16, 295],
+    "travelGates": 19,
+    "visualFrames": 19,
+    "alignedGates": 19,
+    "unpairedGates": [],
+    "overlappingFieldPairs": 0,
+    "blockingVisualParts": 0,
+    "promptPropertyDifferencesFromBackup": 0,
+    "cityMeshParts": 112,
+    "cityDistinctColors": 13,
+    "lightingRestored": {
+      "clockTime": 0.75,
+      "brightness": 0.45,
+      "exposureCompensation": -0.15,
+      "globalShadows": true
+    }
+  },
+  "play": {
+    "profileLevel": 1,
+    "startingCoins": 0,
+    "factoryGateLevelRequired": 5,
+    "factoryAttemptRemainedInRefuge": true,
+    "cityGateEntered": true,
+    "destination": "VILLE EN RUINE",
+    "destinationPositionStuds": [0, 3.921875, 10],
+    "healthAfterTravel": 100,
+    "coinsAfterTravel": 0,
+    "testOnlyClientMovementAndTutorialOverlay": true,
+    "progressionOrPurchasesChanged": false,
+    "playStopped": true
+  },
+  "visualReview": {
+    "darkHubCaptureReviewed": true,
+    "cityCaptureUnderTemporaryNeutralQaLightingReviewed": true,
+    "lightingRestoredAfterCapture": true,
+    "capturesStoredAsProjectFiles": false
+  },
+  "console": {
+    "gameScriptErrorsObserved": false,
+    "inspectionError": "One diagnostic command queried missing Workspace.PVPZone; this was an inspection-path error, not a game script error."
+  },
+  "geometryCorrection": {
+    "testId": "TEST-REFUGE-FRAME-GEOMETRY-001",
+    "initialFinding": "17 of 19 models had correct pivots but physical bounds offset from those pivots by up to 389.7 studs; the earlier alignment check had compared pivots only.",
+    "framesAligned": 19,
+    "partsTranslated": 162,
+    "worstRemainingOffsetStuds": 0.005,
+    "blockingParts": 0,
+    "backup": "ServerStorage.BeforePortalFrameGeometryFix_20261029",
+    "play": {
+      "clientFramesAligned": 19,
+      "clientWorstRemainingOffsetStuds": 0.005,
+      "clientBlockingParts": 0,
+      "cityGateEntered": true,
+      "destination": "VILLE EN RUINE",
+      "destinationPositionStuds": [0, 3.9248, 10],
+      "health": 100,
+      "coins": 0,
+      "consoleOutput": "empty",
+      "playStopped": true
+    }
+  },
+  "signageCorrection": {
+    "testId": "TEST-REFUGE-PORTAL-SIGNAGE-001",
+    "finding": "Ten cloned destination frames retained the baked Citadel/Niveau 80 lettering.",
+    "backup": "ServerStorage.BeforeRefugePortalSignage_20261029",
+    "edit": {
+      "portalsRelabeledFromWorldConfig": 18,
+      "obsoleteLabelMeshesHidden": 36,
+      "tierHeaders": 3,
+      "visibleIncorrectLabelMeshes": 0,
+      "blockingParts": 0,
+      "examples": ["LABORATOIRE TOXIQUE / NIVEAU 12", "VOUTE DE L'ECLIPSE / NIVEAU 280"]
+    },
+    "play": {
+      "clientLabelsMatchingWorldConfig": 18,
+      "clientTierHeaders": 3,
+      "consoleOutput": "empty",
+      "playStopped": true
+    },
+    "visualCapture": "Attempted in Play and Edit; Studio screen-capture tool did not return, so on-screen legibility was not confirmed."
+  },
+  "notVerified": [
+    "All lateral paths, mobile, multiplayer and every shop interaction.",
+    "All weapons, zombie combat, damage animations and the broader bug audit.",
+    "DataStore persistence, .rbxl save or experience publication."
+  ]
+}

@@ -2,7 +2,7 @@
 
 Lire README.md puis RELAIS_IA.md avant de modifier le jeu. Les guides fonctionnels sont dans docs/reference/. Les notes de docs/historique/ décrivent des intentions anciennes et ne prouvent pas une fonctionnalité. Voir docs/README.md pour choisir les documents utiles.
 
-- Projet Roblox/Luau. Les sources locales sont dans studio/. La documentation est organisée dans docs/reference/ et docs/historique/ ; commencer par docs/README.md. Le mapping des 46 scripts actifs est studio/runtime-manifest.json. Ce dépôt seul ne reconstruit pas la scène Studio.
+- Projet Roblox/Luau. Les sources locales sont dans studio/. La documentation est organisée dans docs/reference/ et docs/historique/ ; commencer par docs/README.md. Le mapping des 47 scripts actifs est studio/runtime-manifest.json. Ce dépôt seul ne reconstruit pas la scène Studio.
 - Redécouvrir l'instance Studio et vérifier son état. Les changements persistants de scripts vont dans Edit, après arrêt de Play. Modifier les fichiers locaux et leurs instances correspondantes ; ne pas écraser les changements Studio sans comparaison préalable.
 - Ne pas installer studio/qa, studio/archive, Build*, Install*, Upgrade*, CreateSurvivalHUD ou AddAmbientWorldDetails comme scripts de démarrage. Ce sont des tests, archives ou constructeurs ponctuels, susceptibles de dupliquer/remplacer la scène.
 - Conserver les achats en pièces depuis l'UI, même loin des stands. Les contrôles de prix, niveau, possession, dégâts et récompenses restent côté serveur.

@@ -1,0 +1,35 @@
+{
+  "testId": "TEST-WEAPON-ARMORY-LIVE-PLAY-RETEST-004",
+  "date": "2026-10-29",
+  "studio": "Évolution des armes",
+  "placeId": 89391796839094,
+  "mode": "Play",
+  "result": "PASS_RUNTIME_INSTANCES",
+  "method": "Sent a complete synthetic GameState packet from the Play server to open the real client ARMURERIE page; no GameAction or profile mutation.",
+  "catalog": {
+    "weaponEntries": 31,
+    "catalogRows": 32,
+    "weaponViewports": 31,
+    "viewportsWithCamera": 31,
+    "emptyViewports": 0,
+    "viewportBaseParts": 337,
+    "viewportMeshParts": 335,
+    "modelTextLabels": 0,
+    "modelPendingEntries": 0,
+    "fists": "Two gloves are regular Parts; all other weapon preview geometry is MeshPart."
+  },
+  "profile": {
+    "started": false,
+    "syntheticStateOnly": true,
+    "purchasesGrantsEquipsOrRewards": false,
+    "profileChanged": false
+  },
+  "console": "Empty after clean rerun with complete synthetic state.",
+  "stoppedAndReturnedToEdit": true,
+  "limits": [
+    "Pixel capture was unavailable; instance counts/types verify geometry, not visual quality on screen.",
+    "First-person rendering and a real purchased/equipped weapon were not tested.",
+    "An earlier incomplete synthetic test packet caused harness errors; the complete-packet rerun had an empty console."
+  ],
+  "noSaveOrPublish": true
+}

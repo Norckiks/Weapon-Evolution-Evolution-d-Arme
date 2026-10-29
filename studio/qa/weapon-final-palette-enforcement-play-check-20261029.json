@@ -1,0 +1,49 @@
+{
+  "testId": "TEST-FINAL-WEAPON-PALETTE-ENFORCEMENT-20261029",
+  "status": "PASS",
+  "placeId": 89391796839094,
+  "mode": "Play",
+  "module": "ReplicatedStorage.WeaponVisuals",
+  "consumers": [
+    "StarterPlayer.StarterPlayerScripts.GameHub.WeaponPreview",
+    "StarterPlayer.StarterPlayerScripts.FistsClient"
+  ],
+  "method": "Temporary server Play script required the current WeaponVisuals module. It confirmed the three sources have no MeshPart.TextureID or SurfaceAppearance. For ArcPike, BlackoutEdge, and EclipseGlaive, it changed source parts to gray and to a five-plus-color saturated but wrong palette, called WeaponVisuals.Build, checked exact accent/hardware/core colors, Neon core, five unique output colors, saturation, and safe physics, then restored every source Color, Material, and MaterialVariant.",
+  "sourceTintCheck": "PASS: zero TextureID and zero SurfaceAppearance on the three source models",
+  "casesPassed": 6,
+  "sourceModelsRestored": true,
+  "weapons": {
+    "ArcPike": {
+      "parts": 19,
+      "uniqueColors": 5,
+      "saturationAverage": 0.811963,
+      "graySource": "PASS",
+      "wrongSaturatedSource": "PASS",
+      "accentHardwareCoreVerified": true,
+      "coreMaterial": "Neon"
+    },
+    "BlackoutEdge": {
+      "parts": 19,
+      "uniqueColors": 5,
+      "saturationAverage": 0.762039,
+      "graySource": "PASS",
+      "wrongSaturatedSource": "PASS",
+      "accentHardwareCoreVerified": true,
+      "coreMaterial": "Neon"
+    },
+    "EclipseGlaive": {
+      "parts": 17,
+      "uniqueColors": 5,
+      "saturationAverage": 0.65502,
+      "graySource": "PASS",
+      "wrongSaturatedSource": "PASS",
+      "accentHardwareCoreVerified": true,
+      "coreMaterial": "Neon"
+    }
+  },
+  "consoleOutput": "",
+  "temporaryScriptDestroyed": true,
+  "playStopped": true,
+  "studioModeAfter": "Edit",
+  "pixelCapture": "UNAVAILABLE"
+}

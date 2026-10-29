@@ -1,0 +1,9 @@
+{
+  "testId": "INVALIDATED-WEAPON-PALETTE-AUDIT-20261029",
+  "date": "2026-10-29",
+  "result": "SUPERSEDED_INVALID_HSV_MEASUREMENT",
+  "reason": "The earlier audit stored Color3:ToHSV()'s first return (hue) in a variable named saturation, so its gray-palette conclusion and saturation values were invalid. A separate execute_luau require cache also returned stale GameplayConfig values during the recolor pass.",
+  "recovery": "Weapon colors were restored from ServerStorage.BeforeWeaponPalettePass4_20261029. The current models were rechecked using local _, saturation = Color3:ToHSV().",
+  "supersededBy": "weapon-model-play-check-20261029-session5.json",
+  "doNotUseFor": ["claims about previous saturation", "claims that palette recoloring fixed gray models", "claims that all imported parts exceed saturation 0.5"]
+}

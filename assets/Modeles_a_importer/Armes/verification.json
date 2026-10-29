@@ -1,0 +1,418 @@
+[
+  {
+    "id": "Hook",
+    "meshes": 17,
+    "vertices": 420,
+    "triangles": 772,
+    "bounds": [
+      [
+        -0.27,
+        0.61
+      ],
+      [
+        -0.47,
+        2.34
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_Hook",
+    "accentColorLinear": [
+      0.83077,
+      0.102242,
+      0.009134
+    ]
+  },
+  {
+    "id": "Kris",
+    "meshes": 17,
+    "vertices": 424,
+    "triangles": 780,
+    "bounds": [
+      [
+        -0.27,
+        0.27
+      ],
+      [
+        -0.47,
+        2.25
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_Kris",
+    "accentColorLinear": [
+      0.0,
+      0.304987,
+      0.283149
+    ]
+  },
+  {
+    "id": "Spear",
+    "meshes": 17,
+    "vertices": 404,
+    "triangles": 740,
+    "bounds": [
+      [
+        -0.27,
+        0.27
+      ],
+      [
+        -0.47,
+        2.88
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_Spear",
+    "accentColorLinear": [
+      0.187821,
+      0.514918,
+      0.016807
+    ]
+  },
+  {
+    "id": "Cleaver",
+    "meshes": 17,
+    "vertices": 404,
+    "triangles": 740,
+    "bounds": [
+      [
+        -0.32,
+        0.48
+      ],
+      [
+        -0.47,
+        2.12
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_Cleaver",
+    "accentColorLinear": [
+      0.701102,
+      0.016807,
+      0.023153
+    ]
+  },
+  {
+    "id": "WarHammer",
+    "meshes": 22,
+    "vertices": 672,
+    "triangles": 1256,
+    "bounds": [
+      [
+        -0.61,
+        0.61
+      ],
+      [
+        -0.47,
+        1.8
+      ],
+      [
+        -0.265,
+        0.267
+      ]
+    ],
+    "accentMaterial": "Accent_WarHammer",
+    "accentColorLinear": [
+      0.514918,
+      0.102242,
+      0.006995
+    ]
+  },
+  {
+    "id": "Pike",
+    "meshes": 17,
+    "vertices": 404,
+    "triangles": 740,
+    "bounds": [
+      [
+        -0.27,
+        0.27
+      ],
+      [
+        -0.47,
+        2.88
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_Pike",
+    "accentColorLinear": [
+      0.0,
+      0.351533,
+      0.171441
+    ]
+  },
+  {
+    "id": "PhaseBlade",
+    "meshes": 19,
+    "vertices": 520,
+    "triangles": 964,
+    "bounds": [
+      [
+        -0.39,
+        0.39
+      ],
+      [
+        -0.47,
+        2.45
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_PhaseBlade",
+    "accentColorLinear": [
+      0.871367,
+      0.031896,
+      0.052861
+    ]
+  },
+  {
+    "id": "MirrorAxe",
+    "meshes": 17,
+    "vertices": 412,
+    "triangles": 756,
+    "bounds": [
+      [
+        -0.86,
+        0.27
+      ],
+      [
+        -0.47,
+        2.15
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_MirrorAxe",
+    "accentColorLinear": [
+      0.012983,
+      0.304987,
+      0.83077
+    ]
+  },
+  {
+    "id": "RelayLance",
+    "meshes": 19,
+    "vertices": 516,
+    "triangles": 956,
+    "bounds": [
+      [
+        -0.39,
+        0.39
+      ],
+      [
+        -0.47,
+        2.88
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_RelayLance",
+    "accentColorLinear": [
+      0.913099,
+      0.376262,
+      0.0
+    ]
+  },
+  {
+    "id": "OrbitalSpear",
+    "meshes": 19,
+    "vertices": 516,
+    "triangles": 956,
+    "bounds": [
+      [
+        -0.39,
+        0.39
+      ],
+      [
+        -0.47,
+        2.88
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_OrbitalSpear",
+    "accentColorLinear": [
+      0.83077,
+      0.07036,
+      0.009721
+    ]
+  },
+  {
+    "id": "RiftCleaver",
+    "meshes": 17,
+    "vertices": 412,
+    "triangles": 756,
+    "bounds": [
+      [
+        -0.86,
+        0.27
+      ],
+      [
+        -0.47,
+        2.15
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_RiftCleaver",
+    "accentColorLinear": [
+      0.004777,
+      0.283149,
+      0.141263
+    ]
+  },
+  {
+    "id": "ForgeMaul",
+    "meshes": 22,
+    "vertices": 672,
+    "triangles": 1256,
+    "bounds": [
+      [
+        -0.61,
+        0.61
+      ],
+      [
+        -0.47,
+        1.8
+      ],
+      [
+        -0.265,
+        0.267
+      ]
+    ],
+    "accentMaterial": "Accent_ForgeMaul",
+    "accentColorLinear": [
+      0.64448,
+      0.026241,
+      0.004777
+    ]
+  },
+  {
+    "id": "ConvoyEdge",
+    "meshes": 17,
+    "vertices": 408,
+    "triangles": 748,
+    "bounds": [
+      [
+        -0.29,
+        0.29
+      ],
+      [
+        -0.47,
+        2.45
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_ConvoyEdge",
+    "accentColorLinear": [
+      0.006995,
+      0.205079,
+      0.401978
+    ]
+  },
+  {
+    "id": "ArcPike",
+    "meshes": 19,
+    "vertices": 516,
+    "triangles": 956,
+    "bounds": [
+      [
+        -0.39,
+        0.39
+      ],
+      [
+        -0.47,
+        2.88
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_ArcPike",
+    "accentColorLinear": [
+      0.83077,
+      0.456411,
+      0.0
+    ]
+  },
+  {
+    "id": "BlackoutEdge",
+    "meshes": 19,
+    "vertices": 520,
+    "triangles": 964,
+    "bounds": [
+      [
+        -0.39,
+        0.39
+      ],
+      [
+        -0.47,
+        2.45
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_BlackoutEdge",
+    "accentColorLinear": [
+      0.026241,
+      0.304987,
+      0.791298
+    ]
+  },
+  {
+    "id": "EclipseGlaive",
+    "meshes": 17,
+    "vertices": 416,
+    "triangles": 764,
+    "bounds": [
+      [
+        -0.64,
+        0.27
+      ],
+      [
+        -0.47,
+        3.27
+      ],
+      [
+        -0.14,
+        0.14
+      ]
+    ],
+    "accentMaterial": "Accent_EclipseGlaive",
+    "accentColorLinear": [
+      0.242281,
+      0.026241,
+      0.752942
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "modules": 38,
+  "mesh_objects": 251,
+  "max_triangles_in_mesh": 1944,
+  "portal_max_x": -18.899999618530273,
+  "fbx_roundtrip_samples": {
+    "Refuge_Portal_01_Usine_Niv5": {
+      "mesh_objects": 9,
+      "polygons": 415
+    },
+    "Ville_Batiment_06": {
+      "mesh_objects": 6,
+      "polygons": 2526
+    },
+    "Ville_02_Checkpoint": {
+      "mesh_objects": 8,
+      "polygons": 336
+    }
+  }
+}

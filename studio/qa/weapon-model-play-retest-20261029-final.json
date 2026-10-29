@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "mode": "Play",
+  "result": "Le symptome ne se reproduit pas dans la session Studio courante.",
+  "test": {
+    "armoryOpened": true,
+    "openingPath": "EconomyService.Send(player, nil, 'Weapons') via un Script temporaire autodetruit en serveur Play",
+    "catalogCards": 31,
+    "viewportsWithCamera": 31,
+    "emptyViewports": 0,
+    "visibleViewportBaseParts": 337,
+    "modelOrPendingLabels": 0,
+    "weaponModelsInReplicatedStorage": 30,
+    "weaponModelBaseParts": 335,
+    "catalogWeaponIdsMissingModels": 0,
+    "playerLevel": 1,
+    "playerCoins": 0,
+    "equippedWeapon": "Fists"
+  },
+  "cleanup": {
+    "temporaryProbeRemoved": true,
+    "playStopped": true,
+    "studioReturnedToEdit": true,
+    "purchasesOrGrants": false,
+    "profileChanges": false,
+    "placeSavedOrPublished": false
+  },
+  "limits": [
+    "La capture ecran Studio et le clic souris automatise ont bloque; validation pixel impossible.",
+    "Le test confirme les ViewportFrames et leurs instances 3D, pas leur rendu visuel percu.",
+    "Deux erreurs AssistantCommand dans la console viennent de probes de diagnostic errones: nom de RemoteEvent absent puis concaténation boolean/texte; ce ne sont pas des erreurs des scripts du jeu."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "testId": "TEST-WEAPON-PALETTE-FALLBACK-PLAY-20261029",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "Studio Play, client-only source simulation",
+  "result": "PASS_16_OF_16",
+  "checks": {
+    "graySourceModelsRecolored": 16,
+    "totalImportedModels": 16,
+    "minimumDistinctColors": 5,
+    "meanSaturationRange": [0.66, 0.82],
+    "originalPalettePreserved": 16,
+    "finalThreeNeonCores": true,
+    "sourcePropertiesRestored": true
+  },
+  "method": "For each source model, temporarily gray every BasePart and SurfaceAppearance tint on the client, call WeaponVisuals.Build, assert palette diversity and expected markers, restore all source properties, then destroy the built clone.",
+  "sharedConsumers": ["GameHub", "FistsClient", "EconomyService", "CrateReveal", "BuildRefugeShops"],
+  "sideEffects": {
+    "serverStateChanged": false,
+    "profileChanged": false,
+    "purchase": false,
+    "sceneChanged": false,
+    "playStopped": true,
+    "studioMode": "Edit",
+    "placeSaved": false,
+    "published": false
+  },
+  "limitations": [
+    "No usable pixel capture; armory, first-person, and equipped third-person rendering were not visually confirmed.",
+    "This verifies the shared model builder, not complete UI or hand attachment behavior."
+  ]
+}

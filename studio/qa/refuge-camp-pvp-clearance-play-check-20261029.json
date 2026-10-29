@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-29",
+  "status": "REFUGE_CAMP_AND_BENCH_CLEARANCE_APPLIED",
+  "studio": "Évolution des armes",
+  "placeId": 89391796839094,
+  "edit": {
+    "camp": {
+      "path": "Workspace.ImportedEnvironmentModels.Refuge.Refuge_04_Vie_du_camp",
+      "meshParts": 4,
+      "center": [160, 4.8426013, 280],
+      "size": [75.7889938, 9.6852007, 49.6544991],
+      "geometryOrScaleChanged": false
+    },
+    "bench": {
+      "parts": 4,
+      "center": [40, 2, 380]
+    },
+    "backup": "ServerStorage.BeforeRefugeCampArenaClearance_20261029",
+    "destinationAssertionsPassed": true
+  },
+  "playServer": {
+    "campMeshPartsReplicated": 4,
+    "portalFrames": 19,
+    "portalOverlaps": 0,
+    "pvpAccessSeparatedByAtLeastStuds": 2,
+    "arenaFloorSeparatedByAtLeastStuds": 2,
+    "fightBoundsSeparatedByAtLeastStuds": 2,
+    "benchSeatCount": 6,
+    "movedBenchReplicatedAt": [40, 2, 380],
+    "assertionsPassed": true,
+    "console": "empty"
+  },
+  "afterTest": {
+    "studioMode": "Edit",
+    "savedRbx": false,
+    "published": false
+  },
+  "limits": [
+    "No usable pixel screenshot; placement confirmed by geometry and Play replication.",
+    "No mobile, multiplayer, or player walking test in this pass."
+  ]
+}

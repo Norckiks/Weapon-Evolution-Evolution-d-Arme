@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-29",
+  "studio": "Évolution des armes",
+  "placeId": 89391796839094,
+  "editChanges": {
+    "weaponBackup": "ServerStorage.BeforeFinalWeaponPaletteFix_Pass2_20261029",
+    "portalBackup": "ServerStorage.BeforeRefugePortalSpacing_20261029",
+    "weapons": {
+      "ArcPike": { "parts": 19, "distinctColors": 5, "coreNeon": true, "materialVariants": 0, "accentRgb": [255, 207, 25] },
+      "BlackoutEdge": { "parts": 19, "distinctColors": 5, "coreNeon": true, "materialVariants": 0, "accentRgb": [24, 146, 255] },
+      "EclipseGlaive": { "parts": 17, "distinctColors": 5, "coreNeon": true, "materialVariants": 0, "accentRgb": [164, 68, 255] }
+    },
+    "prototypeCopiesRecolored": 3,
+    "destinationPortalsRepositioned": 18,
+    "destinationPortalFramesAligned": 18,
+    "destinationFields": 19,
+    "enabledDestinationPrompts": 19,
+    "portalFrameOverlapCount": 0,
+    "portalFrameOverlapWithShopsCampTerminalArenaShelters": 0,
+    "path": { "width": 24, "length": 170, "center": [0, 0.24, 290], "collision": false, "edgeGuides": 2 },
+    "minimumHorizontalFrameGap": 11.8
+  },
+  "playCheck": {
+    "weaponModelsReplicated": 16,
+    "armoryCards": 31,
+    "weaponPreviews": 31,
+    "previewsWithCameraAndGeometry": 31,
+    "visibleModelPendingTextCount": 0,
+    "gameplayConfigModelPendingCount": 0,
+    "finalWeaponPreviewParts": { "ArcPike": 19, "BlackoutEdge": 19, "EclipseGlaive": 17 },
+    "finalWeaponPreviewMaterialVariantCount": 0,
+    "portalFieldsAtExpectedPositions": 18,
+    "expeditionPrompts": 18,
+    "allSafeZoneTravelPromptsEnabled": 19,
+    "expeditionFrameOverlapCount": 0,
+    "pathReplicated": { "width": 24, "length": 170, "edgeGuides": 2 }
+  },
+  "session": {
+    "persistenceMode": "SessionStudio",
+    "coins": 0,
+    "equippedWeapon": "Fists",
+    "purchases": 0,
+    "grants": 0,
+    "profileRewardsOrEquipmentChanged": false,
+    "playStopped": true,
+    "studioReturnedToEdit": true
+  },
+  "console": {
+    "gameplayScriptErrorsObserved": false,
+    "warning": "Setting GuiService.SelectedObject to invalid GuiObject; source not proven by this run."
+  },
+  "visualInspection": {
+    "studioPlayCapture": "Timed out",
+    "desktopWindowCapture": "Timed out",
+    "pixelAppearanceVerified": false
+  },
+  "limits": [
+    "The new weapon colors were verified in replicated instance properties and ViewportFrame geometry, not in an inspectable screenshot.",
+    "No player walk-through, mobile hardware, multiplayer, save, or publish check was performed."
+  ]
+}

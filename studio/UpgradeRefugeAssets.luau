@@ -5,11 +5,18 @@ for _,item in {{"Sleeve","Assistant-b7f1996a-8fc8-4ed5-a26f-b34063397b4e"},{"Ten
  local m=CS:GetTagged(item[2])[1] assert(m,item[1]) m.Name=item[1] m.Parent=assets
 end
 local folder=Instance.new("Folder") folder.Name="DetailedRefuge" folder.Parent=workspace.PresentationV2
+local tints={Tent={Color3.fromRGB(133,120,79)},ArmoredTruck={Color3.fromRGB(87,109,74)}}
+local tintIndex={}
 local function collider(model,size,cf)
  local p=Instance.new("Part") p.Name="CollisionProxy" p.Size=size p.CFrame=cf p.Transparency=1 p.Anchored=true p.Parent=model
 end
 local function place(template,name,position,yaw,scale)
  local m=template:Clone() m.Name=name m:ScaleTo(scale)
+ local palette=tints[template.Name]
+ if palette then
+  local index=(tintIndex[template.Name] or 0)%#palette+1 tintIndex[template.Name]=index
+  for _,p in m:GetDescendants() do if p:IsA("BasePart") then p.Color=palette[index] for _,surface in p:GetChildren() do if surface:IsA("SurfaceAppearance") then surface.Color=palette[index] end end end end
+ end
  local box,size=m:GetBoundingBox()
  local target=CFrame.new(position+Vector3.new(0,size.Y/2,0))*CFrame.Angles(0,yaw,0)
  m:PivotTo(target*box:ToObjectSpace(m:GetPivot()))

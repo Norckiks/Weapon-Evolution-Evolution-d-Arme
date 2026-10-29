@@ -30,7 +30,7 @@ end
 local function layer(joint,pose)
  if not joint or not joint.Parent then return end
  applied[joint]=applied[joint] or joint.Transform
- local axes=joint.C0.Rotation
+ local axes=joint:IsA("Motor6D") and joint.C0.Rotation or (joint.Attachment0 and joint.Attachment0.CFrame.Rotation or CFrame.identity)
  joint.Transform=joint.Transform*axes:Inverse()*pose*axes
 end
 RunService.PreSimulation:Connect(function(dt)
@@ -54,11 +54,12 @@ RunService.PreSimulation:Connect(function(dt)
   entry.Run=(entry.Run or 0)+(run-(entry.Run or 0))*blend
   local lean=entry.Run*motionScale
   layer(j.Waist or j.RootJoint,CFrame.Angles(-.16*lean,0,math.clamp(-velocity.X/40,-.12,.12)*lean))
-  local abilityPose,abilityWeight,bodyAngle=Motion.Ability(c:GetAttribute("AbilityId"),now-(c:GetAttribute("AbilityAt") or -math.huge),1)
-  abilityWeight*=motionScale
-  local ax,ay,az=abilityPose:ToOrientation()
-  layer(j.LeftShoulder,CFrame.Angles(ax*abilityWeight,ay*abilityWeight,-az*abilityWeight))
-  layer(j.RightShoulder,CFrame.Angles(ax*abilityWeight,-ay*abilityWeight,az*abilityWeight))
+  local abilityId=c:GetAttribute("AbilityId") local abilityAge=now-(c:GetAttribute("AbilityAt") or -math.huge)
+  local rightPose,_,bodyAngle=Motion.Ability(abilityId,abilityAge,1)
+  local leftPose=Motion.Ability(abilityId,abilityAge,-1)
+  local rx,ry,rz=rightPose:ToOrientation() local lx,ly,lz=leftPose:ToOrientation()
+  layer(j.LeftShoulder,CFrame.Angles(lx*motionScale,-ly*motionScale,lz*motionScale))
+  layer(j.RightShoulder,CFrame.Angles(rx*motionScale,-ry*motionScale,rz*motionScale))
   layer(j.Waist or j.RootJoint,CFrame.Angles(math.rad(bodyAngle)*motionScale,0,0))
   layer(j.Waist,CFrame.Angles(.22*crouch-.35*slide+.2*vault,0,0))
   layer(j.LeftHip,CFrame.Angles(-.55*crouch-.9*slide-.65*vault,0,-.08*slide))

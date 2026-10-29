@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-29",
+  "testId": "TEST-FRESH-SMOKE-PLAY-001",
+  "studio": "Évolution des armes",
+  "placeId": 89391796839094,
+  "mode": "Play",
+  "result": "PASS_RUNTIME_SMOKE",
+  "weapons": {
+    "replicatedModels": 30,
+    "armoryEntries": 31,
+    "previewViewports": 31,
+    "emptyWeaponPreviews": 0,
+    "entriesMarkedModelPending": 0,
+    "lastThree": {
+      "ArcPike": { "parts": 19, "uniqueColors": 5, "greyParts": 0, "averageSaturation": 0.809 },
+      "BlackoutEdge": { "parts": 19, "uniqueColors": 5, "greyParts": 0, "averageSaturation": 0.812 },
+      "EclipseGlaive": { "parts": 17, "uniqueColors": 5, "greyParts": 0, "averageSaturation": 0.678 }
+    }
+  },
+  "zombies": {
+    "liveModels": 114,
+    "zones": 19,
+    "liveModelsPerZone": 6,
+    "uniqueSpeciesPerZone": 3,
+    "modelsPerSpeciesPerZone": 2,
+    "invalidModels": 0
+  },
+  "playerMovement": {
+    "startActionUsed": "GameAction.Start in Play session",
+    "tutorialCompleted": false,
+    "route": ["Refuge", "PVPAccessPath", "SurvivorArena.ArenaFloor"],
+    "reachedPvpPath": true,
+    "reachedArena": true,
+    "coinsBeforeAfter": [0, 0],
+    "levelBeforeAfter": [1, 1]
+  },
+  "profileChanges": false,
+  "console": "empty after clean run",
+  "studioReturnedToEdit": true,
+  "savedRbx": false,
+  "published": false,
+  "limitations": [
+    "Roblox Studio exposes a 1x1 test viewport to the capture and mouse automation tools; visual pixel inspection was unavailable.",
+    "The armory test used the real EconomyService state in the Play server and did not purchase, grant, or equip an item.",
+    "Combat damage/reward, mobile layout, multiplayer, and performance under concurrent players were not tested.",
+    "Graphify snapshot commit aa5accaf is 33 hours old and does not include current local or Studio changes."
+  ]
+}

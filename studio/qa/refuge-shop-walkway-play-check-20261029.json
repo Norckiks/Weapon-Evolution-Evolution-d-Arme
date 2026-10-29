@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "change": "Two side aisles, two connectors to CentralPath, four shop spurs and eight subtle edge guides.",
+  "editChecks": {
+    "addedParts": 16,
+    "portalFrames": 19,
+    "portalFrameOverlaps": 0,
+    "decorativePartsCollidable": false,
+    "decorativePartsTouchable": false,
+    "decorativePartsQueryable": false,
+    "shopPromptToSpurEdgeStuds": 0.7
+  },
+  "playChecks": {
+    "pathfindingAgent": {"radius": 2, "height": 5, "canJump": true},
+    "routeWaypoints": {
+      "central": 41,
+      "leftSideAisle": 35,
+      "rightSideAisle": 36,
+      "upgrades": 30,
+      "weapons": 29,
+      "pets": 30,
+      "robux": 32
+    },
+    "allComputedPathsSucceeded": true,
+    "characterNavigation": ["central connector", "upgrades shop approach"],
+    "level": 1,
+    "coins": 0,
+    "xp": 0,
+    "studioAfterStop": "Edit",
+    "consoleAfterStop": "empty"
+  },
+  "limits": [
+    "No usable visual capture was obtained; these are geometry and pathfinding checks, not pixel approval.",
+    "No mobile or multiplayer route test was performed.",
+    "No shop purchase was triggered; the place was not saved as an RBXL or published."
+  ]
+}

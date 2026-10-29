@@ -1,0 +1,34 @@
+{
+  "testId": "TEST-STARTER-FIREARM-ACCENT-PLAY-20261029",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "Studio Edit + Play",
+  "result": "PASS",
+  "weaponColorFix": {
+    "backup": "ServerStorage.BeforeStarterFirearmAccent_20261029",
+    "Pistol": {"frame": "255,190,66", "barrel": "43,113,128", "uniquePartColors": 3, "averageSaturation": 0.63},
+    "Revolver": {"frame": "233,151,86", "barrel": "78,86,112", "uniquePartColors": 3, "averageSaturation": 0.47}
+  },
+  "playChecks": {
+    "weaponDefinitions": 31,
+    "modelPending": 0,
+    "weaponModels": 30,
+    "nonFistBuildsWithGeometry": 30,
+    "builtParts": 335,
+    "replicatedPistolAndRevolverColors": true,
+    "refugePortals": 19,
+    "activeZonePrompts": 19,
+    "tierAisles": 6,
+    "minimumAisleWidth": 8,
+    "portalConnectors": 18,
+    "minimumConnectorWidth": 8.5,
+    "collidableRouteParts": 0,
+    "console": "empty",
+    "studioAfterTest": "Edit"
+  },
+  "limitations": [
+    "ViewportSize remained 1x1; Studio screen capture and desktop window capture timed out, so weapon and refuge appearance were not visually inspected.",
+    "The armory page was not opened; this was a geometry/color replication and layout-property check.",
+    "No game place save (.rbxl), publish, purchase, profile grant, or weapon equip was performed."
+  ]
+}

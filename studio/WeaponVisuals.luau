@@ -1,5 +1,48 @@
 local C=require(script.Parent:WaitForChild("GameplayConfig"))
 local V={}
+local finalPalettes={
+ ArcPike={accent=Color3.fromRGB(255,207,25),hardware=Color3.fromRGB(42,205,225),core=Color3.fromRGB(99,238,255)},
+ BlackoutEdge={accent=Color3.fromRGB(24,146,255),hardware=Color3.fromRGB(255,141,73),core=Color3.fromRGB(255,190,74)},
+ EclipseGlaive={accent=Color3.fromRGB(164,68,255),hardware=Color3.fromRGB(255,201,84),core=Color3.fromRGB(255,101,216)}
+}
+local function recolorImported(model,id,definition)
+ local hasSilhouette,hasCore=false,false
+ local colors,saturation,partCount={},0,0
+ for _,part in model:GetDescendants() do
+  if part:IsA("BasePart") then
+   local name=string.lower(part.Name)
+   hasSilhouette=hasSilhouette or string.find(name,"silhouette",1,true)~=nil
+   hasCore=hasCore or string.find(name,"noyau",1,true)~=nil
+   local color=part.Color
+   colors[string.format("%d,%d,%d",math.round(color.R*255),math.round(color.G*255),math.round(color.B*255))]=true
+   local _,sat=color:ToHSV() saturation+=sat partCount+=1
+  end
+ end
+ local unique=0 for _ in colors do unique+=1 end
+ local palette=finalPalettes[id]
+ if not (hasSilhouette and hasCore) or (not palette and unique>=5 and saturation/math.max(partCount,1)>=.55) then return end
+ local hue,_,value=definition.Color:ToHSV()
+ local accent=palette and palette.accent or Color3.fromHSV(hue,.92,math.clamp(value,.72,.94))
+ local hardware=palette and palette.hardware or accent:Lerp(Color3.fromRGB(229,181,99),.25)
+ local core=palette and palette.core or accent:Lerp(Color3.new(1,1,1),.34)
+ local leather=accent:Lerp(Color3.fromRGB(39,25,23),.58)
+ local steel=accent:Lerp(Color3.fromRGB(33,43,50),.70)
+ for _,part in model:GetDescendants() do
+  if part:IsA("BasePart") then
+   local name=string.lower(part.Name)
+   local color,material
+   if string.find(name,"noyau",1,true) then color,material=core,palette and Enum.Material.Neon or Enum.Material.SmoothPlastic
+   elseif string.find(name,"silhouette",1,true) or string.find(name,"pommeau",1,true) or string.find(name,"ailette",1,true) then color,material=accent,palette and Enum.Material.Neon or Enum.Material.SmoothPlastic
+   elseif string.find(name,"bande",1,true) then color,material=leather,Enum.Material.Fabric
+   elseif string.find(name,"manche",1,true) then color,material=steel,Enum.Material.Metal
+   elseif string.find(name,"collier",1,true) or string.find(name,"garde",1,true) or string.find(name,"rivet",1,true) or string.find(name,"face",1,true) or string.find(name,"tete",1,true) then color,material=hardware,Enum.Material.Metal
+   elseif string.find(name,"renfort",1,true) then color,material=hardware:Lerp(Color3.fromRGB(30,39,53),.30),Enum.Material.Metal
+   else color,material=steel,Enum.Material.Metal end
+   part.Color,part.Material,part.MaterialVariant=color,material,""
+   for _,child in part:GetChildren() do if child:IsA("SurfaceAppearance") then child.Color=color end end
+  end
+ end
+end
 function V.Build(id)
  local d=C.Weapons[id] local m=Instance.new("Model") m.Name="EquippedWeaponVisual" local pieces={}
  local function p(name,size,cf,color,shape,material)
@@ -9,6 +52,34 @@ function V.Build(id)
   table.insert(pieces,{part=x,rel=cf}) return x
  end
  if not d or id=="Fists" then return m,pieces end
+ local models=script.Parent:FindFirstChild("WeaponModels")
+ local source=models and models:FindFirstChild(id)
+ if source and source:IsA("Model") then
+  m:Destroy() m=source:Clone() m.Name="EquippedWeaponVisual"
+  recolorImported(m,id,d)
+  local gripPart
+  for _,part in m:GetDescendants() do
+   if part:IsA("BasePart") and string.find(string.lower(part.Name),"manche",1,true) then gripPart=part break end
+  end
+  gripPart=gripPart or m:FindFirstChildWhichIsA("BasePart",true)
+  local pivot=m:GetPivot()
+  if gripPart then
+   local offset=pivot:PointToObjectSpace(gripPart.Position)
+   local shift=pivot:VectorToWorldSpace(-offset)
+   for _,part in m:GetDescendants() do
+    if part:IsA("BasePart") then
+     part.CFrame=CFrame.new(shift)*part.CFrame
+     part.Anchored=true part.CanCollide=false part.CanTouch=false part.CanQuery=false part.CastShadow=false
+    end
+   end
+   m.PrimaryPart=nil m.WorldPivot=pivot
+   pivot=m:GetPivot()
+  end
+  for _,part in m:GetDescendants() do
+   if part:IsA("BasePart") then table.insert(pieces,{part=part,rel=pivot:ToObjectSpace(part.CFrame)}) end
+  end
+  return m,pieces
+ end
  local ink=Color3.fromRGB(36,43,63) local metal=Color3.fromRGB(209,235,242)
  local gold=Color3.fromRGB(255,196,64)
  local function ring(name,y,r,color)
@@ -188,6 +259,28 @@ function V.Build(id)
   p("EjectionPort",Vector3.new(.012,.1,.21),CFrame.new(.167,.56,-.24),ink)
   p("SlideAccent",Vector3.new(.014,.035,.38),CFrame.new(-.168,.56,-.36),d.Color)
   for i=1,4 do p("SlideGroove",Vector3.new(.34,.12,.035),CFrame.new(0,.56,.09-i*.07),ink) end
+ elseif id=="Machete" then
+  local steel=Color3.fromRGB(63,151,165) local rust=Color3.fromRGB(163,76,54) local edge=Color3.fromRGB(177,239,220)
+  p("Blade",Vector3.new(.38,1.5,.12),CFrame.new(.04,1.15,0),steel,nil,Enum.Material.Metal)
+  p("BladeTip",Vector3.new(.38,.34,.12),CFrame.new(.04,2.06,0)*CFrame.Angles(0,0,math.pi),steel,Enum.PartType.Wedge,Enum.Material.Metal)
+  p("SharpenedEdge",Vector3.new(.065,1.48,.125),CFrame.new(.255,1.15,0),edge,nil,Enum.Material.Metal)
+  p("RustSpine",Vector3.new(.075,1.5,.13),CFrame.new(-.165,1.15,0),d.Color,nil,Enum.Material.Metal)
+  p("Guard",Vector3.new(.4,.1,.24),CFrame.new(0,.36,0),rust,nil,Enum.Material.Metal)
+  for _,side in {-1,1} do
+   for _,y in {.53,.73} do p("BladeRivet",Vector3.new(.035,.09,.09),CFrame.new(0,y,side*.08)*CFrame.Angles(0,math.pi/2,0),gold,Enum.PartType.Cylinder,Enum.Material.Metal) end
+   for _,y in {.9,1.1,1.3} do p("BladeScratch",Vector3.new(.09,.025,.015),CFrame.new(-.08,y,side*.069),edge,nil,Enum.Material.Metal) end
+  end
+ elseif id=="Sledgehammer" then
+  local steel=Color3.fromRGB(55,145,164) local rust=Color3.fromRGB(187,77,59)
+  p("Shaft",Vector3.new(.2,1.75,.2),CFrame.new(0,.63,0),ink,nil,Enum.Material.Metal)
+  ring("HeadCollar",1.48,.31,d.Color)
+  p("HammerHead",Vector3.new(1.05,.52,.52),CFrame.new(0,1.78,0),steel,nil,Enum.Material.Metal)
+  for _,x in {-.55,.55} do p("StrikingFace",Vector3.new(.13,.59,.59),CFrame.new(x,1.78,0),metal,nil,Enum.Material.Metal) end
+  for _,side in {-1,1} do
+   for _,x in {-.36,.36} do p("SafetyStripe",Vector3.new(.12,.43,.025),CFrame.new(x,1.78,side*.275),d.Color,nil,Enum.Material.Metal) end
+   p("HeadBrace",Vector3.new(.15,.43,.03),CFrame.new(0,1.78,side*.28),ink,nil,Enum.Material.Metal)
+   for _,x in {-.24,.24} do for _,y in {1.65,1.91} do p("HeadBolt",Vector3.new(.035,.09,.09),CFrame.new(x,y,side*.31)*CFrame.Angles(0,math.pi/2,0),rust,Enum.PartType.Cylinder,Enum.Material.Metal) end end
+  end
  elseif id=="Pipe" then
   p("Pipe",Vector3.new(0.2,1.9,0.2),CFrame.new(0,0.9,0),d.Color,nil,Enum.Material.Metal)
   p("Elbow",Vector3.new(0.55,0.22,0.22),CFrame.new(0.17,1.8,0),metal,nil,Enum.Material.Metal)

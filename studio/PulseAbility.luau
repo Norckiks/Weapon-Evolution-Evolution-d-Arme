@@ -7,6 +7,7 @@ local W=require(RS.WorldConfig)
 local Zones=require(script.Parent.ZoneService)
 local Movement=require(script.Parent.AdvancedMovement)
 local NPC=require(script.Parent.NPCPresentation)
+local PvP=require(script.Parent:WaitForChild("PvPService"))
 local M={} local ready={} local requests={}
 Players.PlayerRemoving:Connect(function(p) ready[p]=nil requests[p]=nil end)
 function M.Bind(player,character)
@@ -27,7 +28,7 @@ function M.Handle(player,s,id,aimDirection)
  local now=workspace:GetServerTimeNow()
  if now-(requests[player] or -math.huge)<.1 then return false,"Rate" end requests[player]=now
  if not s or s.character~=player.Character or not s.humanoid or s.humanoid.Health<=0 or player:GetAttribute("ProgressReady")~=true or player:GetAttribute("HasStarted")~=true or player:GetAttribute("InGameMenu") then return false,"State" end
- local c,h=s.character,s.humanoid local root=c:FindFirstChild("HumanoidRootPart")
+ local c,h=s.character,s.humanoid local root=c:FindFirstChild("HumanoidRootPart") local power=player:GetAttribute("AbilityPowerMultiplier") or 1
  if not root or root.Anchored or h.Sit or h.PlatformStand or h.FloorMaterial==Enum.Material.Air then return false,"Ground" end
  local aimedForward
  if id=="Frost" then
@@ -42,8 +43,8 @@ function M.Handle(player,s,id,aimDirection)
  if now<(ready[player][id] or 0) then return false,"Cooldown" end
  if s.crouching or Movement.Busy(s) or (c:GetAttribute("DashUntil") or 0)>now or player:GetAttribute("GunReloading") then return false,"Busy" end
  if s.stamina<d.Cost then return false,"Stamina" end
- local zone=W.ZoneAt(root.Position)
- if not zone or not Zones.CanAccess(player,zone) then return false,"Zone" end
+ local zone=W.ZoneAt(root.Position) local inArena=PvP.Contains(root.Position)
+ if not inArena and (not zone or not Zones.CanAccess(player,zone)) then return false,"Zone" end
  if id=="SecondSouffle" and h.Health>=h.MaxHealth then return false,"Health" end
  s.stamina-=d.Cost s.rest=0
  ready[player][id]=now+d.Cooldown
@@ -51,12 +52,12 @@ function M.Handle(player,s,id,aimDirection)
  c:SetAttribute(readyAttribute,ready[player][id]) c:SetAttribute("AbilityAt",now) c:SetAttribute("AbilityId",id)
  c:SetAttribute("Stamina",math.floor(s.stamina*10+.5)/10)
  if id=="Aegis" then
-  c:SetAttribute("GuardUntil",now+d.Duration)
+  c:SetAttribute("GuardUntil",now+d.Duration*power)
   RS.Remotes.AbilityFX:FireAllClients(id,player,root.Position,0)
   return true,0
  end
  if id=="SecondSouffle" then
-  local healed=math.min(h.MaxHealth-h.Health,math.floor(h.MaxHealth*d.Heal+.5))
+  local healed=math.min(h.MaxHealth-h.Health,math.floor(h.MaxHealth*d.Heal*power+.5))
   h.Health+=healed
   RS.Remotes.AbilityFX:FireAllClients(id,player,root.Position,0)
   return true,healed
@@ -66,12 +67,23 @@ function M.Handle(player,s,id,aimDirection)
  if aimedForward then forward=aimedForward end
  for _,m in CS:GetTagged("Zombie") do
   local r=m:FindFirstChild("HumanoidRootPart") local enemy=m:FindFirstChildOfClass("Humanoid")
-  if r and enemy and enemy.Health>0 and m:GetAttribute("ZoneId")==zone.Id then
+  if zone and r and enemy and enemy.Health>0 and m:GetAttribute("ZoneId")==zone.Id then
    local delta=r.Position-root.Position local distance=delta.Magnitude
    local facing=Vector3.new(delta.X,0,delta.Z)
    local along=facing:Dot(forward) local side=(facing-forward*along).Magnitude
    local inShape=d.Shape=="Beam" and along>0 and side<=d.Width or d.Shape=="Cone" and (facing.Magnitude<.01 or facing.Unit:Dot(forward)>=d.Dot) or d.Shape~="Beam" and d.Shape~="Cone"
    if distance<=d.Range and inShape and sight(c,m,root.Position+Vector3.new(0,1,0),r.Position+Vector3.new(0,1,0)) then table.insert(targets,{Model=m,Root=r,Humanoid=enemy,Distance=distance}) end
+  end
+ end
+ if inArena then
+  for _,targetPlayer in Players:GetPlayers() do
+   if PvP.CanDamage(player,targetPlayer) then
+    local model=targetPlayer.Character local r=model:FindFirstChild("HumanoidRootPart") local enemy=model:FindFirstChildOfClass("Humanoid")
+    local delta=r.Position-root.Position local distance=delta.Magnitude local facing=Vector3.new(delta.X,0,delta.Z)
+    local along=facing:Dot(forward) local side=(facing-forward*along).Magnitude
+    local inShape=d.Shape=="Beam" and along>0 and side<=d.Width or d.Shape=="Cone" and (facing.Magnitude<.01 or facing.Unit:Dot(forward)>=d.Dot) or d.Shape~="Beam" and d.Shape~="Cone"
+    if distance<=d.Range and inShape and sight(c,model,root.Position+Vector3.new(0,1,0),r.Position+Vector3.new(0,1,0)) then table.insert(targets,{Model=model,Root=r,Humanoid=enemy,Distance=distance,Player=targetPlayer}) end
+   end
   end
  end
  table.sort(targets,function(a,b) return a.Distance<b.Distance end)
@@ -81,10 +93,22 @@ function M.Handle(player,s,id,aimDirection)
    local previous=chain[#chain] local best local nearest=d.JumpRange
    for _,model in CS:GetTagged("Zombie") do
     local r=model:FindFirstChild("HumanoidRootPart") local enemy=model:FindFirstChildOfClass("Humanoid")
-    if not seen[model] and r and enemy and enemy.Health>0 and model:GetAttribute("ZoneId")==zone.Id then
+    if zone and not seen[model] and r and enemy and enemy.Health>0 and model:GetAttribute("ZoneId")==zone.Id then
      local distance=(r.Position-previous.Root.Position).Magnitude
      if distance<=nearest and sight(c,model,previous.Root.Position+Vector3.new(0,1,0),r.Position+Vector3.new(0,1,0),previous.Model) then
       nearest=distance best={Model=model,Root=r,Humanoid=enemy,Distance=distance}
+     end
+    end
+   end
+   if inArena then
+    for _,targetPlayer in Players:GetPlayers() do
+     local model=targetPlayer.Character
+     if not seen[model] and PvP.CanDamage(player,targetPlayer) then
+      local r=model:FindFirstChild("HumanoidRootPart") local enemy=model:FindFirstChildOfClass("Humanoid")
+      local distance=(r.Position-previous.Root.Position).Magnitude
+      if distance<=nearest and sight(c,model,previous.Root.Position+Vector3.new(0,1,0),r.Position+Vector3.new(0,1,0),previous.Model) then
+       nearest=distance best={Model=model,Root=r,Humanoid=enemy,Distance=distance,Player=targetPlayer}
+      end
      end
     end
    end
@@ -96,15 +120,18 @@ function M.Handle(player,s,id,aimDirection)
  local arcPath=id=="Arc" and {root.Position+Vector3.new(0,1,0)} or nil
  local hits=0 local impactPosition
  for i=1,math.min(#targets,d.MaxTargets) do
-  local t=targets[i] local damage=id=="Arc" and math.floor(d.Damage*d.Falloff^(i-1)+.5) or d.Damage
+  local t=targets[i] local damage=math.floor((id=="Arc" and d.Damage*d.Falloff^(i-1) or d.Damage)*power+.5)
+  if t.Player and not PvP.CanDamage(player,t.Player) then continue end
   if arcPath then table.insert(arcPath,t.Root.Position+Vector3.new(0,1,0)) end
   local delta=t.Root.Position-root.Position local flat=Vector3.new(delta.X,0,delta.Z)
   if flat.Magnitude<.01 then flat=Vector3.new(root.CFrame.LookVector.X,0,root.CFrame.LookVector.Z) end
   if flat.Magnitude<.01 then flat=Vector3.zAxis end flat=flat.Unit
   impactPosition=t.Root.Position
-  t.Model:SetAttribute("StunnedUntil",math.max(t.Model:GetAttribute("StunnedUntil") or 0,now+d.Stun))
-  NPC.Hit(t.Model,flat,true)
-  t.Humanoid:SetAttribute("LastAttacker",player.UserId) t.Humanoid:SetAttribute("LastHitAt",os.clock())
+  if not t.Player then
+   t.Model:SetAttribute("StunnedUntil",math.max(t.Model:GetAttribute("StunnedUntil") or 0,now+d.Stun*power))
+   NPC.Hit(t.Model,flat,true)
+   t.Humanoid:SetAttribute("LastAttacker",player.UserId) t.Humanoid:SetAttribute("LastHitAt",os.clock())
+  end
   t.Humanoid:TakeDamage(damage) hits+=1
   if t.Humanoid.Health>0 and not t.Root.Anchored then
    local scale=math.max(1,t.Model:GetScale()) local velocity=t.Root.AssemblyLinearVelocity

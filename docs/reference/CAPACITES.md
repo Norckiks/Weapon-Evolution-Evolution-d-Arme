@@ -1,5 +1,41 @@
 # Onde de choc
 
+La `Lance cryo` a maintenant sa propre courbe de pose : elle arme lentement le geste, puis projette les deux mains vers l'avant avec une détente rapide. `WeaponMotion.Ability` alimente la vue subjective et `CharacterCombat` pour les poses du personnage ; `ReducedMotion` continue d'atténuer le mouvement au point d'application.
+
+Le contrôle Play a repassé 13 052 échantillons sur les six capacités et les deux mains. Deux assertions contrôlent les valeurs exactes à mi-charge et mi-projection de Cryo ; la continuité, les poids, les poses finales et le rebond Slam passent aussi. Console vide, Play arrêté et Studio en Edit. Pas de capture d'image en jeu : la forme visuelle reste vérifiée par trajectoires numériques, pas par pixels.
+
+## Frappe tellurique : geste et modèle d'impact
+
+Le geste `Slam` prend une accélération d'impact plus vive, puis un rebond plus lourd et asymétrique des poignets et du torse. Il continue d'utiliser la timeline partagée entre les mains à la première personne et le corps à la troisième personne. L'effet fallback en jeu ajoute un noyau ambré et huit éclats de basalte animés ; `ReducedMotion` en réduit le nombre et coupe leurs tweens.
+
+L'asset Blender `SlamImpactStudy.blend` contient 44 meshes (1 960 polygones après réimport FBX) et l'action `SlamImpact_PopAndSettle` sur 18 images. `SlamImpact.fbx` et son aperçu sont dans `assets/Modeles_a_importer/Capacites/SlamImpact/`. Après import, grouper les pièces dans `ReplicatedStorage.SlamImpactTemplate` ; `PulseClient` l'utilise automatiquement et l'anime par tweens Roblox. Tant que le modèle n'est pas importé dans la place, le fallback reste actif.
+
+Vérification Studio : le contrôle `AbilityMotion.server.luau` passe 13 052 échantillons des six capacités et des deux mains, sans discontinuité hors seuil. Le déclenchement visuel temporaire du Slam crée 12 fissures, 12 segments d'onde, 8 éclats, un noyau et le libellé `IMPACT !`. La vérification ReducedMotion et l'apparence du FBX importé restent à faire.
+
+## Égide : réaction à un blocage
+
+`ZombieMelee` envoie maintenant `AbilityFX/AegisBlock` quand une frappe de zombie est refusée par `GuardUntil`. Le signal est limité à un par joueur toutes les 0,65 s ; il ne change ni dégâts, ni durée de garde, ni récompenses. `PulseClient` dessine une couronne frontale en segments néon violet/or, un flash lumineux et un texte cartoon « CLANG ! ». `ReducedMotion` réduit les segments à quatre et supprime leurs tweens.
+
+Vérification Play temporaire `SessionStudio` : activation de l'Égide par le remote normal, attaque du zombie refusée avec santé inchangée, deux tentatives rapprochées produisent un seul retour client (8 segments et libellé). Console vide ; profil temporaire restauré et Play arrêté, Studio revenu en Edit. Le comptage client confirme la création des éléments, pas leur aspect pixel à l'écran ; mode Réduction des mouvements et multijoueur non vérifiés.
+
+## Égide astrale : cristal multi-pièces
+
+Le template runtime `ReplicatedStorage.AegisCrystalPrototype` remplace l'ancien cristal monobloc dans `Pulse.client.luau`, avec l'ancien template gardé en secours. Le modèle généré dans Studio contient quatre MeshParts texturés : cœur violet (PrimaryPart), coque améthyste, cage dorée et éclats flottants. Le cœur a un halo violet ; coque, cage et éclats reçoivent des teintes distinctes. Il est réduit à 0,68 en troisième personne et 0,45 en première personne ; le client anime le cœur et l'orbite existante. En mouvement normal, les six cristaux se révèlent en cascade : un fondu de 0,18 s par cristal, espacé de 0,045 s ; le dernier est visible vers 0,46 s. En réduction des mouvements, ils apparaissent immédiatement. L'asset Mesh Roblox est `92567541294150`.
+
+La trajectoire ajoute maintenant une rotation axiale alternée d'environ un tour en deux secondes, avec un très léger roulis. Cette impulsion reprend l'action Blender `AegisCrystalRootAction` (images 1–49 : rotation, flottement de ±0,025 unité et pulsation d'échelle de ±3,5 %). La pulsation du cœur runtime reste inchangée. Si `ReducedMotion` est activé pendant l'orbite, l'animation s'arrête.
+
+Play a compilé le `PulseClient` modifié sans erreur de console. La sonde `AbilityFX` lancée depuis l'outil Studio n'a pas déclenché l'écouteur client ; l'orbite et son arrêt en ReducedMotion ne sont donc pas validés en rendu/trajectoire réelle.
+
+Play visuel seulement, via le RemoteEvent `AbilityFX` sans appel à la capacité serveur : les six cristaux ont chacun quatre MeshParts, le cœur comme PrimaryPart, une enveloppe verticale de 1,06 stud et collisions/touches/requêtes désactivées. Un relevé client confirme la cascade : à 0,02 s le premier est déjà visible et les cinq suivants restent masqués ; à 0,22 s le dernier est encore masqué ; à 0,46 s les six sont visibles. Un second Play avec `ReducedMotion=true` donne trois cristaux, quatre meshes chacun, tous visibles dès l'apparition, avec halo à 0,65. Pièces/niveau/PV restent à 0/1/100, console vide ; Play arrêté, retour en Edit. La capture de jeu restait masquée par l'écran de sélection de zone, donc elle ne valide pas la lisibilité finale à l'écran. Le FBX Blender détaillé reste un fichier séparé et n'a pas été importé.
+
+## Égide : affichage en première personne
+
+Dans `PulseClient`, les cristaux d'Égide sont réduits à 45 % en vue subjective, placés un peu plus loin et plus bas, avec un flottement et une inclinaison plus discrets pour dégager le centre de l'écran. En troisième personne, l'orbite garde sa taille et son amplitude habituelles. Les valeurs d'orbite sont partagées avec la boucle `PreRender`, donc le placement de départ et le mouvement restent alignés.
+
+Un clone temporaire du template actuellement chargé dans Studio a confirmé une réduction géométrique de 0,900 à 0,405 stud en hauteur. En Play, la capture subjective montre les cristaux aux bords de l'écran ; les six modèles se déplacent d'environ 0,974 stud en 0,25 s. Le test a déclenché uniquement l'événement visuel, sans combat, dégâts ni récompense ; la position et les PV sont restés inchangés, puis Play a été arrêté. Le FBX détaillé dans `assets/Modeles_a_importer/Capacites/` n'est pas encore importé dans la place, donc l'apparence de ce modèle reste à vérifier.
+
+Mise à jour du 28 octobre : les six capacités possèdent des poses procédurales distinctes pour chaque main et un mouvement de torse associé. Les études Blender dans `assets/ability_motion/` ont inspiré les gestes ; les clips du mannequin ne sont pas importés dans Studio. `WeaponMotion` et `CharacterCombat` sont synchronisés ; sauvegarde `BeforeAbilityMotion20261028`. 13 052 échantillons de pose passent en Play, et la réduction des mouvements a été mesurée sur une épaule AnimationConstraint pour les six capacités. Ce sont des contrôles synthétiques : rendu FPS, combat réel, Motor6D, mobile physique et multijoueur restent à vérifier.
+
 Nouvelle capacité niveau24 : **K/L2 — Décharge**, quatre rebonds42/32/24/18 dégâts. Six capacités au total dans le sélecteur, cinq boutons PC supplémentaires. Voir [DECHARGE.md](DECHARGE.md) pour les règles et les limites vérifiées du nouveau lot. Les paragraphes de preuves antérieures ci-dessous conservent leur portée historique.
 
 Déblocage automatique au niveau 5. **Q** au clavier, **L1** à la manette, bouton **ONDE** sur mobile. L'interface affiche le niveau requis, le manque d'endurance, l'indisponibilité ou le compte à rebours.
@@ -34,12 +70,12 @@ Les capacités se débloquent automatiquement aux niveaux 8, 12, 16 et 20. Sur c
 
 | Capacité | Niveau | Coût / délai | Effet serveur | Animation et couleur |
 | --- | ---: | --- | --- | --- |
-| Frappe tellurique (E) | 8 | 34 / 12 s | 34 dégâts, étourdissement 1,1 s et repousse forte dans un rayon de 10 studs, jusqu'à 8 zombies | Bras levés puis frappe au sol, fissures orange et or et vague de pression circulaire |
+| Frappe tellurique (E) | 8 | 34 / 12 s | 34 dégâts, étourdissement 1,1 s et repousse forte dans un rayon de 10 studs, jusqu'à 8 zombies | Bras levés, la main droite mène la frappe au sol et la gauche suit légèrement ; le torse accompagne puis rebondit. Fissures orange-or et vague de pression circulaire |
 | Lance cryo (T) | 12 | 32 / 18 s | Tir rectiligne jusqu'à 70 studs, ±4,5 studs autour de la visée (9 studs de large), 30 dégâts et gel/interruption 1,7 s ; une cible | Retrait puis estoc des bras, projectile blanc-cyan, double traînée, éclats et anneau givré à l'impact |
-| Égide astrale (H) | 16 | 30 / 24 s | Bloque les coups de mêlée zombies pendant 3,2 s ; l'attaque est aussi refusée au moment de l'impact | Bras croisés, trois anneaux segmentés, six cristaux pulsants soudés au personnage et teinte astrale |
+| Égide astrale (H) | 16 | 30 / 24 s | Bloque les coups de mêlée zombies pendant 3,2 s ; l'attaque est aussi refusée au moment de l'impact | Bras croisés, trois anneaux segmentés, six cristaux qui orbitent et pulsent autour du personnage, teinte astrale |
 | Second souffle (J) | 20 | 30 / 28 s | Rend jusqu'à 35 % des PV max, sans dépasser le maximum | Geste ramené au torse, spirale verte et or et halo qui s'ouvre au sol |
 
-Le contrôleur serveur (`PulseAbility`) vérifie l'état du joueur, la zone, le niveau, les délais, l'endurance et les obstacles ; aucun dégât ou soin n'est choisi par le client. La Lance cryo compare chaque zombie à l'axe horizontal visé, choisit le plus proche dans son couloir et arrête le rayon sur un mur solide. La protection est vérifiée dans `ZombieMelee.CanHit` au départ du coup et à son impact. `AbilityFX` ne sert qu'au rendu local. `WeaponMotion.Ability` anime les bras et le torse, consommé par `CharacterCombat` et la vue subjective de `FistsClient`; les poses prennent en charge Motor6D et AnimationConstraint. La réduction des mouvements conserve des formes fixes et atténue flashes, poses et trajectoires.
+Le contrôleur serveur (`PulseAbility`) vérifie l'état du joueur, la zone, le niveau, les délais, l'endurance et les obstacles ; aucun dégât ou soin n'est choisi par le client. La Lance cryo compare chaque zombie à l'axe horizontal visé, choisit le plus proche dans son couloir et arrête le rayon sur un mur solide. La protection est vérifiée dans `ZombieMelee.CanHit` au départ du coup et à son impact. `AbilityFX` ne sert qu'au rendu local. `WeaponMotion.Ability` anime les bras et le torse, consommé par `CharacterCombat` et la vue subjective de `FistsClient`; les poses prennent en charge Motor6D et AnimationConstraint. Après l'impact, un court rebond de poignet et d'avant-bras accompagne le retour progressif à la garde. La réduction des mouvements conserve des formes fixes et atténue flashes, poses et trajectoires.
 
 Le HUD PC garde quatre boutons supplémentaires et leurs touches. Sur tactile, un seul bouton lance la capacité sélectionnée et le chevron fait défiler les cinq capacités, pour limiter l'espace pris sur les commandes de déplacement. Le manifeste reste à 46 scripts : aucun nouveau script de démarrage.
 
@@ -75,7 +111,17 @@ Animation installée en Studio Edit puis observée en Play le 26 octobre 2026. C
 
 Le 26 octobre, la timeline de pose partagée a été échantillonnée en Play sur quatre capacités, deux sens et les frontières de phase : 826 appels ont renvoyé des CFrame finis, poids entre 0 et 1 et angles de torse finis ; les transitions mesurées restent continues à moins de 0,01 stud. Cela valide les calculs du module, pas une inspection visuelle des bras animés en situation réelle.
 
+Le 29 octobre, une nouvelle vérification Play a parcouru 13 052 échantillons des six capacités dans les deux sens : aucune valeur non finie, poids hors limites, rupture de plus de 0,08 stud/rad ou pose finale bloquée. Le geste de cryo garde deux poses de main distinctes ; le coup Slam montre un rebond mesurable après l'impact. Ces mesures ne remplacent pas une capture visuelle en combat.
+
+En Play, les cristaux de l'Égide orbitent autour du personnage via `RunService.PreRender` et s'effacent avec l'effet après 3,25 s. Un cristal s'est déplacé de 0,869 stud en 0,25 s ; avec `ReducedMotion`, le déplacement mesuré est resté à 0,0000 stud. Une première sonde a cherché le cristal avant sa création ; la sonde suivante attendait son apparition et a réussi. L'erreur `AssistantCommand: crystal missing` de la console vient de cette sonde temporaire, pas du `PulseClient`.
+
 Cette sonde ne constitue pas un déclenchement de la capacité par Q : le joueur de test était niveau 1 au refuge. Elle vérifie le rendu de l'événement accepté, pas l'équilibrage, les dégâts, un essai tactile, mobile physique ou multijoueur.
+
+Mise à jour du 29 octobre : `ReplicatedStorage.AegisCrystalTemplate` fournit le cristal astral facetté utilisé par `PulseClient` à la place de la sphère de secours. La MeshPart fait 0,34 × 0,9 × 0,34 stud, conserve son mesh et sa texture (`105775109092546`, `90659257925959`), reçoit une teinte violette et une PointLight discrète (`Brightness=0.45`, `Range=4.5`). En Edit, le modèle contient une MeshPart primaire ; en Play, un clone client a conservé mesh, dimensions, matériau, couleur et lumière.
+
+La capture Play en première personne montrait les cristaux éclairés sur les côtés et l'anneau horizontal sous le centre du viseur. La correction utilise un anneau unique plus bas et plus fin à moins de 2,5 studs de la caméra ; en vue éloignée, le code conserve les trois anneaux. La console était vide ; le personnage a été replacé à sa position initiale et Play arrêté. Une capture à la troisième personne est restée trop tardive pour observer l'effet de 3,25 s, et la trajectoire orbitale des modèles n'a pas été mesurée en images. Réduction des mouvements, mobile, manette et multijoueur restent non vérifiés.
+
+Modèle détaillé créé avec Blender 5.2.3 : `assets/Modeles_a_importer/Capacites/AegisCrystal.fbx`, 19 meshes et 543 faces ; réimporté dans Blender, son volume mesure environ 0,353 × 0,353 × 0,9 unité. L'aperçu confirme le cœur violet visible derrière la coque facettée et sa cage dorée. `PulseClient` vise le mesh `Aegis_LightCore` pour son pulsation si présent, ce qui garde la cage alignée ; les anciens templates continuent de pulser via leur pièce primaire. La source `.blend` contient une action de rotation/flottement sur 49 images, mais le FBX exporté est statique : l'animation orbitale de combat reste pilotée par `PulseClient`. Le FBX n'est pas encore dans Studio, car le pont MCP n'offre pas d'import local de FBX ; le guide `assets/Modeles_a_importer/Capacites/README.md` explique son import manuel et le réglage du PrimaryPart.
 
 Mesures de la version précédente :
 
@@ -88,3 +134,6 @@ Q réellement pressé a déclenché l'onde. Bouton inspecté sur iPhone 17 Pro s
 Jouer a aussi été activé depuis un menu portrait préparé pour le test : HasStarted false → true, menu fermé. Le premier état observé d'une autre session était déjà démarré ; il ne prouve pas un démarrage initial naturel. Voir la procédure de coordonnées dans studio/qa/README.md avant de diagnostiquer une panne d'interface à partir d'un clic automatique sans effet.
 
 Multijoueur, manette/tactile physiques, attaque ennemie précisément interrompue pendant sa préparation, autres ratios et équilibrage de longue durée restent à vérifier. Aucun paiement activé, aucune publication ni écriture de profil de production.
+# Amelioration des capacites
+
+L'Atelier propose Puissance achetable en pièces depuis l'UI, sans plafond de jeu visible. Les 25 premiers rangs ajoutent chacun 8 % aux dégâts, soins, étourdissements et à la durée de l'Égide ; après, le rendement décroît logarithmiquement. Le prix exponentiel est plafonné à 2 000 000 000 pièces et le garde-fou technique s'arrête à 1 000 000 000 rangs. Le serveur dérive le multiplicateur du profil sauvegardé (`AbilityLevel` dans `Meta`), valide l'achat avec les règles communes d'amélioration, puis applique l'effet ; le client ne choisit jamais les valeurs de combat. Les achats Robux et l'ordre de sauvegarde n'ont pas changé.

@@ -1,0 +1,36 @@
+{
+  "testId": "TEST-WEAPON-MODELS-PLAY-RETEST-LIVE-20261029",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "mode": "Studio Play, live client instance inspection",
+  "result": "PASS_RUNTIME_NOT_REPRODUCED_PIXEL_CHECK_UNAVAILABLE",
+  "checks": {
+    "activePlayerGuiModelTextMatches": 0,
+    "armoryPage": "ARMURERIE",
+    "armoryRows": 32,
+    "weaponRows": 31,
+    "viewportFrames": 31,
+    "viewportsWithoutCamera": 0,
+    "viewportsWithoutGeometry": 0,
+    "sourceWeaponModels": 30,
+    "sourceMeshParts": 335,
+    "sourceModelsWithoutMeshParts": 0,
+    "nonFistBuilds": 30,
+    "buildsWithGeometry": 30,
+    "emptyBuilds": 0,
+    "builtParts": 335
+  },
+  "method": [
+    "Confirmed the intended Studio place and began a fresh Play session.",
+    "Opened the real GameHub ARMURERIE renderer using a temporary Play-only server probe with display state matching the active test profile (level 1, 0 coins, Fists equipped); the probe self-destroyed and did not alter profile fields.",
+    "Inspected every PlayerGui text label for model/modéliser wording, all 31 weapon cards and their ViewportFrames, CurrentCameras, and descendant BaseParts.",
+    "Called the live client WeaponVisuals.Build for every non-fist catalog entry, counted returned parts, and destroyed each temporary preview clone.",
+    "Stopped Play and returned Studio to Edit. Verified the temporary probe no longer existed."
+  ],
+  "limitations": [
+    "No screenshot could be captured because Studio screen capture timed out; this verifies live UI instances and geometry, not visible pixels or whether the user sees the same window state.",
+    "The first synthetic UI packet omitted Daily and caused harness-only errors at GameHub line 776; the packet was corrected, the 31-card armory rendered, and no further line 776 errors followed.",
+    "No purchase, equip, grant, persistent profile edit, place save, or publish was performed."
+  ]
+}

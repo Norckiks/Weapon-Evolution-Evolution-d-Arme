@@ -40,6 +40,12 @@ Tous les QA sont des Scripts ordinaires temporaires en Server Play SessionStudio
 
 La caméra client reste un problème d'outillage séparé : une pose ou capture n'est pas prouvée par des coordonnées serveur. La validation des boutiques/poses reste celle de docs/reference/UI_MOBILE.md. Aucun MaterialVariant, scène permanente, paiement, DataStore ou publication ajouté.
 
+## Mise en veille hors zone — 29 octobre 2026
+
+ZombieDirector conserve les six modèles de chaque zone, mais ancre leur HumanoidRootPart et suspend leur IA tant qu'aucun joueur vivant, démarré et autorisé n'est dans cette zone. À l'entrée, les six zombies reprennent la physique et l'IA ; à la sortie, ils se remettent en veille. Les récompenses, délais d'apparition et emplacements restent inchangés.
+
+Contrôle Studio Play SessionStudio : 114/114 endormis au refuge, 6/6 réveillés en Ville et 0/108 actifs dans les autres zones ; retour au refuge remet les 114 en veille. PhysicsStepTime moyen : 0,000218 s au refuge et 0,000755 s en Ville. Une précédente mesure de 114 rigs mobiles donnait 0,002129 s ; comparaison indicative de runs distincts, pas un A/B contrôlé. Ce compteur n'est ni le temps total de frame ni une mesure serveur public. Rapport [`../../studio/qa/zombie-zone-sleep-play-check-20261029.json`](../../studio/qa/zombie-zone-sleep-play-check-20261029.json). Console vide, progression restaurée, Play arrêté et Edit rétabli.
+
 Référence Context7 : [Roblox pathfinding et chemins bloqués](https://github.com/roblox/creator-docs/blob/main/content/en-us/characters/pathfinding.md).
 
 État final : sources synchronisées/compilantes, 43 scripts actifs. Un Script précédent dans ServerStorage.BeforeZombieNavigation ; nouveau ModuleScript ZombieNavigation. Play arrêté, default/LandscapeLeft, aucun QA en Edit, console finale Play vide. Aucun achat Robux ni publication activé.

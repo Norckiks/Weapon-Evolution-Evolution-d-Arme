@@ -1,0 +1,47 @@
+{
+  "testId": "TEST-REFUGE-CAMP-PORTAL-CLEARANCE-001",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "finding": "The material-merged Refuge_04_Vie_du_camp footprint (180.45 x 118 studs) overlapped the redesigned portal rows and expedition-board line.",
+  "repair": {
+    "scale": 0.42,
+    "targetCenter": [135, 4.8426, 310],
+    "resultBoundsSize": [75.789, 9.6852, 49.6545],
+    "baseY": 0,
+    "parts": 4,
+    "backup": "ServerStorage.BeforeRefugeCampPortalClearance_20261029"
+  },
+  "editAssertions": {
+    "portalFrameFootprintOverlaps": 0,
+    "outsideCourtyard": false,
+    "overlapsActivePvpArena": false
+  },
+  "play": {
+    "persistenceMode": "SessionStudio",
+    "portalFrames": 19,
+    "maximumHorizontalFrameToFieldOffsetStuds": 0,
+    "campPortalFootprintOverlaps": 0,
+    "campPvpFootprintOverlap": false,
+    "campBaseY": 0,
+    "campParts": 4,
+    "campBlockingParts": 0,
+    "staleWeaponLabels": 0,
+    "cleanStartupConsole": "empty",
+    "playStopped": true,
+    "studioReturnedToEdit": true
+  },
+  "interactionLimits": {
+    "startButtonClick": "Studio input tool timed out after 300 seconds",
+    "tutorial": "After Start, the tutorial remains open and intentionally holds WalkSpeed at 0 until completion.",
+    "characterNavigation": "No route was traversed because the tutorial remained open.",
+    "visualCapture": "Studio screen capture timed out; no current-scene visual approval."
+  },
+  "diagnostics": {
+    "nonCleanPlayConsole": [
+      "A one-off AssistantCommand diagnostic had an invalid string.format argument.",
+      "Setting GuiService.SelectedObject to invalid GuiObject appeared during automated input."
+    ],
+    "cleanStartupRecheck": "A fresh Play session showed the menu, SessionStudio mode, and empty console before interactions."
+  },
+  "persistence": { "mode": "SessionStudio", "persistentProfileMutated": false, "rbxlSaved": false, "published": false }
+}

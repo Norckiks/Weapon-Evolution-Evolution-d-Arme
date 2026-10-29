@@ -1,0 +1,31 @@
+{
+  "testId": "TEST-WEAPON-MODELS-PLAY-RECHECK-002",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "Play",
+  "result": "PASS",
+  "fix": "Removed the obsolete ModelPending / A MODELER suffix from GameHub weapon rows.",
+  "catalog": {
+    "entries": 31,
+    "pendingEntries": 0,
+    "weaponsWithEmpty3DPreview": 0,
+    "fists": "Two gloves are added by GameHub preview; WeaponVisuals.Build intentionally returns no parts for Fists.",
+    "importedWeaponModels": 16,
+    "proceduralWeaponModels": 14,
+    "previewPartsFromWeaponVisualsBuild": 663
+  },
+  "checks": [
+    "Normal Play startup completed with an empty Studio console.",
+    "Client runtime GameHub no longer contains the obsolete A MODELER label.",
+    "All 31 catalog entries have definitions and none has ModelPending=true.",
+    "WeaponVisuals.Build generated non-empty geometry for all 30 non-fist weapons.",
+    "All 16 imported weapon models were found on the client; the remaining 14 previews are built from parts by WeaponVisuals.",
+    "Play was stopped; Studio returned to Edit."
+  ],
+  "limits": [
+    "The ARMES page was not captured or visually inspected; model presence was checked through runtime instances and part counts.",
+    "A separate attempt to force the page with an incomplete synthetic state packet produced test-only UI errors; that packet was not gameplay data, and the clean normal Play session had an empty console.",
+    "No purchases, profile grants, DataStore writes, save, or publish were performed."
+  ],
+  "backup": "ServerStorage.BeforeWeaponModelLabelFix_20261029"
+}

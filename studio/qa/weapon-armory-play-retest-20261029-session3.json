@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-29",
+  "studio": "Évolution des armes",
+  "placeId": 89391796839094,
+  "mode": "Play",
+  "result": "L’armurerie runtime montre 31 aperçus 3D non vides avec caméra; aucun texte 'model/modéliser' et aucun ModelPending.",
+  "catalogWeaponCount": 31,
+  "weaponPreviewCount": 31,
+  "previewMissingCamera": 0,
+  "previewMissingGeometry": 0,
+  "previewGeometryIncludesPrimitiveParts": true,
+  "modelLabelCount": 0,
+  "gameplayConfigModelPendingCount": 0,
+  "replicatedImportedModels": 16,
+  "replicatedImportedMeshParts": 292,
+  "player": {
+    "name": "Bruno_ban369",
+    "equippedWeapon": "Fists",
+    "coinsBeforeAfter": 0,
+    "profileGrantsPurchasesOrEquipmentChanges": false
+  },
+  "temporaryActions": [
+    "Démarrage Play; appel du service normal pour ouvrir ARMURERIE.",
+    "Un Script Play-only auto-détruit a envoyé l’état via EconomyService; il n’a pas été conservé."
+  ],
+  "playStopped": true,
+  "studioReturnedToEdit": true,
+  "console": {
+    "gameScriptErrorsObserved": false,
+    "diagnostics": [
+      "Infinite yield possible on ReplicatedStorage:WaitForChild(\"HttpService\") provenant d’une commande de diagnostic assistant mal formée.",
+      "Setting GuiService.SelectedObject to invalid GuiObject pendant l’automatisation UI."
+    ]
+  },
+  "limitations": [
+    "La capture d’écran Play a expiré; l’apparence pixel n’a pas été inspectée.",
+    "Les 14 armes hors poings non importées utilisent un assemblage de Parts Roblox, tandis que 16 armes ont des modèles MeshPart importés.",
+    "Équipement et animation d’une arme achetée non testés afin de ne pas modifier la progression du profil."
+  ]
+}

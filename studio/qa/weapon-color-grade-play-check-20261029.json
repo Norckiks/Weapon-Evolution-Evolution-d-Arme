@@ -1,0 +1,43 @@
+{
+  "testId": "TEST-WEAPON-COLOR-GRADE-001",
+  "date": "2026-10-29",
+  "place": "Évolution des armes",
+  "placeId": 89391796839094,
+  "result": "PASS_NUMERIC_REPLICATION",
+  "edit": {
+    "backup": "ServerStorage.BeforeWeaponColorGrade_20261029",
+    "saturationBefore": -0.2,
+    "saturationAfter": -0.05,
+    "contrast": 0.08,
+    "brightness": 0,
+    "clockTime": 0.75,
+    "lightingBrightness": 0.45,
+    "exposureCompensation": -0.15,
+    "globalShadows": true
+  },
+  "playClient": {
+    "gradeEnabled": true,
+    "gradeSaturation": -0.05,
+    "lightingBrightness": 0.45,
+    "exposureCompensation": -0.15,
+    "clockTime": 0.75,
+    "globalShadows": true,
+    "importedWeaponModels": 16,
+    "importedWeaponMeshParts": 292,
+    "partsBelowSaturation0_18": 0,
+    "finalWeapons": {
+      "ArcPike": { "parts": 19, "minimumPartSaturation": 0.518 },
+      "BlackoutEdge": { "parts": 19, "minimumPartSaturation": 0.58 },
+      "EclipseGlaive": { "parts": 17, "minimumPartSaturation": 0.622 }
+    }
+  },
+  "checks": [
+    "The Edit-only adjustment backed up the existing ColorCorrectionEffect and changed only SurvivalFilmGrade.Saturation.",
+    "A Play client received Saturation -0.05; the dark time, low brightness, negative exposure, and global shadows remained unchanged.",
+    "All 16 imported weapon models and 292 MeshParts replicated; none had saturation below 0.18."
+  ],
+  "limitations": [
+    "Studio screen capture timed out, so the color improvement is confirmed by properties and replication, not a screenshot inspected in pixels.",
+    "No weapon was equipped, no purchase or grant was performed, and the place was not saved or published."
+  ]
+}

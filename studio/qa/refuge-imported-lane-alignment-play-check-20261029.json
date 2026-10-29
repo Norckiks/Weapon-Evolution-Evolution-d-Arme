@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "Studio Play, SessionStudio",
+  "editBefore": {
+    "laneMeshNames": [
+      "Refuge_01_Sol_et_place_concrete",
+      "Refuge_01_Sol_et_place_yellow",
+      "Refuge_01_Sol_et_place_paint"
+    ],
+    "centerPathX": 0,
+    "importedLaneX": 32,
+    "allLaneMeshesNonCollidable": true
+  },
+  "editChange": {
+    "backup": "ServerStorage.BeforeRefugeImportedLaneAlignment_20261029",
+    "meshCount": 3,
+    "destinationX": 0,
+    "minimumPortalFrameClearanceStuds": 7.725
+  },
+  "play": {
+    "laneMeshesReplicatedAtX": 0,
+    "laneMeshesNonCollidable": true,
+    "portalCount": 19,
+    "portalCenterAperturesWithExternalCollidableHits": 0,
+    "characterNavigationTool": "Success",
+    "navigationTarget": [0, 3, 320],
+    "profileChanges": false
+  },
+  "exitState": {
+    "playStopped": true,
+    "studioMode": "Edit",
+    "backupExistsWithThreeCopies": true,
+    "laneMeshesAtX": [0, 0, 0],
+    "placeSaved": false,
+    "published": false
+  },
+  "limits": [
+    "No pixel screenshot was obtained.",
+    "The character navigation tool returned success for the target; this is not a human visual inspection of the route.",
+    "No mobile, multiplayer, performance-device, saved-place, or published-place test was performed."
+  ]
+}

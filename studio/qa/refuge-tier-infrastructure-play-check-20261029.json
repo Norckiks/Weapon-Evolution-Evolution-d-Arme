@@ -1,0 +1,86 @@
+{
+  "testId": "TEST-REFUGE-TIER-INFRASTRUCTURE-PLAY-20261029",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "Play",
+  "result": "PASS_WITH_VISUAL_LIMIT",
+  "editStateBeforePlay": {
+    "tierGates": 3,
+    "portalApproachPads": 18,
+    "decorativeParts": 90,
+    "collidableDecorativeParts": 0,
+    "queryableDecorativeParts": 0,
+    "tierLights": 6,
+    "reversibleBackupPresent": true
+  },
+  "play": {
+    "portalPrompts": 19,
+    "profilePersistenceMode": "SessionStudio",
+    "coins": 0,
+    "level": 1,
+    "equippedWeapon": "Fists",
+    "healthAfterRoute": 100,
+    "routes": [
+      {
+        "target": "row I header",
+        "position": [
+          0,
+          4,
+          246
+        ],
+        "resultDistanceStuds": 1.28
+      },
+      {
+        "target": "row I Factory threshold",
+        "position": [
+          -80,
+          4,
+          260
+        ],
+        "resultDistanceStuds": 0.89
+      },
+      {
+        "target": "row II aisle",
+        "position": [
+          0,
+          4,
+          292
+        ],
+        "resultDistanceStuds": 0.68
+      },
+      {
+        "target": "row III Eclipse threshold",
+        "position": [
+          80,
+          4,
+          350
+        ],
+        "resultDistanceStuds": 0.77
+      },
+      {
+        "target": "PVP arena access",
+        "position": [
+          118,
+          4,
+          326
+        ],
+        "resultDistanceStuds": 0.74
+      },
+      {
+        "target": "refuge return",
+        "position": [
+          0,
+          4,
+          220
+        ],
+        "resultDistanceStuds": 1.29
+      }
+    ]
+  },
+  "cleanup": "Play stopped and Studio returned to Edit. SessionStudio QA left no persistent progress changes; no save or publish was performed.",
+  "console": "One Studio UI automation warning: Setting GuiService.SelectedObject to invalid GuiObject; no Luau stack was reported.",
+  "limits": [
+    "Studio screenshot capture timed out; pixel appearance of the new supports and floor markings was not inspected.",
+    "No mobile, multiplayer, performance-device, or saved-place verification was performed."
+  ]
+}

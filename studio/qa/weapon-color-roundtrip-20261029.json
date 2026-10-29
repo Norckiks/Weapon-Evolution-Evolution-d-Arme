@@ -1,0 +1,51 @@
+{
+  "testId": "TEST-WEAPON-COLOR-ROUNDTRIP-20261029",
+  "date": "2026-10-29",
+  "tool": "Blender 5.2.3 background",
+  "assets": "assets/Modeles_a_importer/Armes",
+  "models": 16,
+  "meshParts": 292,
+  "triangles": 14104,
+  "assertions": {
+    "allFbxReimported": true,
+    "allWeaponAccentMaterialsPresent": true,
+    "allAccentMaterialsNonGray": true,
+    "uniqueAccentPaletteCount": 16,
+    "geometryBoundsFiniteAndNonzero": true
+  },
+  "visualInspection": "Apercu_arsenal.png inspected after regeneration; each blade silhouette has its own saturated color and a lighter center strip.",
+  "backup": "assets/Modeles_a_importer/Armes_pre_palette_20261029.zip",
+  "studio": {
+    "replacementApplied": false,
+    "paletteApplied": true,
+    "result": "WEAPON_PALETTE_APPLIED",
+    "modelsRecolored": 16,
+    "partsRecolored": 116,
+    "distinctSaturatedAccentHues": 16,
+    "backup": "ServerStorage.BeforeWeaponPalette_20261029",
+    "reason": "The bridge was unavailable during the Blender export pass, then reconnected; the existing Studio models and prototypes were recolored in Edit."
+  },
+  "studioPalettePass3": {
+    "testId": "TEST-WEAPON-PALETTE-ROLE-003",
+    "result": "WEAPON_PALETTE_PASS3_APPLIED",
+    "date": "2026-10-29",
+    "modelsRecolored": 16,
+    "replicatedParts": 292,
+    "prototypeParts": 292,
+    "coloredParts": 584,
+    "roles": ["blade accent", "light core", "colored fabric grip", "tinted metal shaft", "saturated metal hardware"],
+    "minimumHardwareSaturation": 0.35,
+    "playVerification": {
+      "importedModels": 16,
+      "importedParts": 292,
+      "minimumAverageSaturation": 0.6698,
+      "minimumBladeSaturation": 0.9203,
+      "minimumHardwareSaturation": 0.5802,
+      "playStopped": true,
+      "consoleOutput": "empty"
+    },
+    "backup": "ServerStorage.BeforeWeaponPalettePass3_20261029",
+    "visualCapture": "Not captured during this pass; metrics are from Studio Edit and the replicated Play client."
+  },
+  "playUiVerification": "In Play, the client received all 16 imported models with saturated distinct accent hues; the armory was opened and a visual capture showed the blue Blackout Edge and purple Eclipse Glaive. Play was stopped and Studio returned to Edit."
+}

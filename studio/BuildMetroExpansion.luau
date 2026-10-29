@@ -85,7 +85,7 @@ local function portal(parent,pos,returning)
  for _,side in {-1,1} do part(m,"Pillar",Vector3.new(.7,10,.7),pos+Vector3.new(side*5,5,0),green,Enum.Material.Neon) end
  local field=part(m,"Field",Vector3.new(9.5,8.5,.3),pos+Vector3.new(0,4.5,0),green,Enum.Material.ForceField,false)
  field.Transparency=.65 field.CanQuery=true field:SetAttribute("Destination",returning and "Camp" or "Metro")
- local prompt=Instance.new("ProximityPrompt",field) prompt.Name="ZoneTravel" prompt.ActionText=returning and "Retour au refuge" or "Entrer" prompt.ObjectText=returning and "REFUGE" or "METRO - NIV. 35" prompt.HoldDuration=.35 prompt.MaxActivationDistance=10 prompt.RequiresLineOfSight=false
+ local prompt=Instance.new("ProximityPrompt",field) prompt.Name="ZoneTravel" prompt.ActionText=returning and "Retour au refuge" or "Entrer" prompt.ObjectText=returning and "REFUGE" or "METRO OUBLIE - NIV. 35" prompt.HoldDuration=.35 prompt.MaxActivationDistance=10 prompt.RequiresLineOfSight=false
  sign(m,pos+Vector3.new(0,11,0),Vector3.new(19,2.8,.5),returning and "RETOUR REFUGE" or "METRO OUBLIE\nNIVEAU 35") m.Parent=parent
 end
 portal(group,Vector3.new(x+22,0,20),true)

@@ -1,0 +1,35 @@
+{
+  "testId": "TEST-WEAPON-ARMORY-LIVE-PLAY-RETEST-20261029",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "mode": "Fresh Roblox Studio Play session, started through GameAction.Start",
+  "result": "PASS_SYMPTOM_NOT_REPRODUCED",
+  "observed": {
+    "persistenceMode": "SessionStudio",
+    "player": "Bruno_ban369",
+    "level": 1,
+    "coins": 0,
+    "equippedWeapon": "Fists",
+    "armoryPage": "ARMURERIE",
+    "weaponCards": 31,
+    "viewportsWithCamera": 31,
+    "viewportsWithVisibleParts": 31,
+    "modelsFullyWithinPreviewCameraFrame": 31,
+    "emptyOrHiddenPreviews": 0,
+    "uiTextsContainingModelOrModeliser": 0,
+    "liveGameplayConfigModelPendingEntries": 0,
+    "replicatedWeaponModels": 30,
+    "replicatedWeaponBaseParts": 335,
+    "temporaryProbeRemoved": true,
+    "studioConsole": "empty"
+  },
+  "method": "Opened ARMURERIE through the running EconomyService in Play. Hid only the first-start tutorial ScreenGui for this temporary inspection. Checked all 31 card previews, their cameras, model visibility, and projected model bounding-box corners against each preview camera frustum.",
+  "cleanup": "Stopped Play and returned Studio to Edit. No purchase, grant, weapon equip, saved profile change, DataStore write, .rbxl save, or publish.",
+  "limitations": [
+    "No usable pixel screenshot was captured; camera framing and geometry were checked numerically, not approved visually.",
+    "The current test player had Fists equipped, so it did not inspect a held weapon on the character.",
+    "The report proves this Studio place and session only; it does not verify another Studio window, local copy, or published server.",
+    "No mobile, controller, multiplayer, or published-place validation was performed."
+  ]
+}

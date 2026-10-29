@@ -1,0 +1,47 @@
+{
+  "testId": "TEST-WEAPON-MODELS-CURRENT-PLAY-20261029",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "Studio Play, client runtime inspection",
+  "result": "PASS_ARMORY_31_VIEWPORTS_COLOR_AND_LABEL",
+  "checks": {
+    "replicatedWeaponModels": 30,
+    "sourceMeshParts": 335,
+    "sourceOtherBaseParts": 0,
+    "nonFistWeaponBuilds": 30,
+    "buildsWithGeometry": 30,
+    "emptyBuilds": 0,
+    "modelPendingDefinitions": 0,
+    "scriptTextMatches": 0,
+    "armoryUiOpened": true,
+    "armoryRows": 31,
+    "viewportFrames": 31,
+    "viewportsWithoutCamera": 0,
+    "viewportsWithoutGeometry": 0,
+    "modelLabelMatches": 0,
+    "lastThreePreviewColors": {
+      "ArcPike": { "parts": 19, "distinctColors": 5, "meanSaturation": 0.81, "core": "Neon" },
+      "BlackoutEdge": { "parts": 19, "distinctColors": 5, "meanSaturation": 0.81, "core": "Neon" },
+      "EclipseGlaive": { "parts": 17, "distinctColors": 5, "meanSaturation": 0.68, "core": "Neon" }
+    }
+  },
+  "notes": [
+    "Every non-fist weapon was built through the live ReplicatedStorage.WeaponVisuals.Build; each returned clone was counted and destroyed.",
+    "The actual GameHub armory page was opened by delivering a temporary, synthetic GameState packet to the client. It rendered 31 cards with cameras and geometry; no PlayerGui label matched model/modél.",
+    "The final three weapon previews contain five distinct colors and a Neon core each. Their live source colors also match those palettes.",
+    "Legacy ModelPending values exist in old ServerStorage snapshots; the live GameplayConfig has zero such definitions.",
+    "A first incomplete QA packet omitted Daily and logged a test-harness error. A second run used the complete packet, the armory assertions passed, Play stopped, and Studio Output was empty."
+  ],
+  "cleanup": {
+    "playStopped": true,
+    "studioMode": "Edit",
+    "profileOrDataStoreChanged": false,
+    "purchaseOrGrant": false,
+    "placeSaved": false,
+    "published": false
+  },
+  "limitations": [
+    "No usable screenshot or pixel-level visual validation; the UI was checked through live runtime instances and their color properties.",
+    "The armory received synthetic display state; purchases/equips were not performed. First-person, mobile, and multiplayer were not inspected."
+  ]
+}

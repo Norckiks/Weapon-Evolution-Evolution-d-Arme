@@ -1,14 +1,16 @@
 -- Snapshot after PreparePetRankUI; properties only, no rendered-image claim.
 local p=game.Players.LocalPlayer assert(p:GetAttribute("PersistenceMode")=="SessionStudio")
+local C=require(game.ReplicatedStorage.GameplayConfig)
 local phase=p:GetAttribute("PetRanksQAPhase")
 local row=p.PlayerGui.SurvivorHub.Window.Catalog.Pet_Civilian
 local count=0 local function check(ok,message) assert(ok,message) count+=1 end
-local rank=phase=="Max" and 3 or phase=="RankOnly" and 1 or 0
-check(row.Description.Text:find("Rang "..rank.."/3",1,true),"Rank text")
-check(row.Evolve.Text==(rank==3 and "MAX" or "EVOLUER"),"Evolution label")
+local rank=phase=="TechnicalLimit" and 1000000000 or phase=="BeyondCap" and 4 or phase=="RankOnly" and 1 or 0
+local needed=rank<1000000000 and C.PetRankCost(rank) or nil
+check(row.Description.Text:find("Rang "..string.format("%.0f",rank),1,true),"Rank text")
+check(row.Evolve.Text==(needed and "EVOLUER" or "LIMITE TECH."),"Evolution label")
 check(row.Evolve.Active==(phase=="Ready"),"Evolution enable state")
 check(row:FindFirstChild("PetsArtwork")~=nil,"Pet image")
-if rank>0 then check(row:FindFirstChild("Name").Text:find(string.rep("★",rank),1,true),"Rank stars") end
+check(row:FindFirstChild("Name").Text=="Mini Rodeur","Rank number remains compact at high levels")
 local buttons={}
 for _,v in row:GetChildren() do
  if v:IsA("TextButton") then

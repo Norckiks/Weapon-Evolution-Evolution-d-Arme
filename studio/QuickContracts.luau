@@ -1,5 +1,5 @@
 local Q={}
-Q.ZoneMultipliers={City=1,Factory=2,Lab=4,Harbor=7,Power=10,Metro=14}
+Q.ZoneMultipliers={City=1,Factory=2,Lab=4,Harbor=7,Power=10,Metro=14,Quarantine=18,Dam=22,Citadel=26,Crater=32,GlassSea=38,Skyline=44,OrbitalWreck=50,Depths=52,IronSanctum=54,LastConvoy=56,Gridfall=58,BlackoutCore=60,EclipseVault=62}
 Q.Definitions={
  {Name="Premiere sortie",Description="Elimine 3 zombies",Target=3,Coins=40,XP=20},
  {Name="Chasseur polyvalent",Description="Elimine 2 especes differentes",Target=2,Coins=60,XP=30,Variety=true},
@@ -17,7 +17,7 @@ function Q.Ensure(meta)
  if typeof(s.Seen)~="table" then s.Seen={} end
  local multiplier=s.Multiplier
  if typeof(multiplier)~="number" or multiplier~=multiplier or math.abs(multiplier)==math.huge then multiplier=1 end
- s.Multiplier=math.clamp(math.floor(multiplier),1,14)
+ s.Multiplier=math.clamp(math.floor(multiplier),1,62)
  return s,Q.Definitions[index]
 end
 function Q.Reward(s)

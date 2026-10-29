@@ -1,0 +1,47 @@
+{
+  "testId": "WEAPON-MESHPART-MODELS-PLAY-20261029",
+  "date": "2026-10-29",
+  "place": "Évolution des armes",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "mode": "Studio Play, then Edit",
+  "result": "PASS_ALL_NON_FIST_WEAPONS_BUILD_FROM_MESHPART_MODELS",
+  "catalog": {
+    "weaponDefinitions": 31,
+    "nonFistWeapons": 30,
+    "modelPendingDefinitions": 0,
+    "replicatedWeaponModels": 30,
+    "meshPartsBuiltByWeaponVisuals": 335,
+    "nonFistWeaponsWithoutMeshParts": 0,
+    "gripOffsetsFromModelPivot": 0
+  },
+  "addedModels": [
+    { "weapon": "Pipe", "meshParts": 3, "assetId": "84207041696488" },
+    { "weapon": "Bat", "meshParts": 2, "assetId": "100184545063733" },
+    { "weapon": "Axe", "meshParts": 2, "assetId": "75786807310201" },
+    { "weapon": "Sledgehammer", "meshParts": 3, "assetId": "105802326641489" },
+    { "weapon": "Machete", "meshParts": 2, "assetId": "76546528260139" },
+    { "weapon": "Pistol", "meshParts": 3, "assetId": "118662486452676" },
+    { "weapon": "Revolver", "meshParts": 3, "assetId": "104240421954123" },
+    { "weapon": "SMG", "meshParts": 3, "assetId": "137120955471900" },
+    { "weapon": "Shotgun", "meshParts": 3, "assetId": "79605637742177" },
+    { "weapon": "Katana", "meshParts": 4, "assetId": "131886291039765" },
+    { "weapon": "Carbine", "meshParts": 3, "assetId": "137276780561293" },
+    { "weapon": "Marksman", "meshParts": 5, "assetId": "125416772120729" },
+    { "weapon": "LMG", "meshParts": 3, "assetId": "121065939530181" },
+    { "weapon": "LimitedBlade", "meshParts": 4, "assetId": "135733097614440" }
+  ],
+  "checks": [
+    "Inspected the active Studio place and its ReplicatedStorage.WeaponModels folder in Edit before changing it.",
+    "Generated 14 segmented MeshPart models, normalized their grip pivot/orientation, assigned saturated materials, disabled collision/touch/query, and stored raw generator outputs as recoverable backups in ServerStorage.GeneratedWeaponModelBackups_20261029.",
+    "In Play on the Client, required the live GameplayConfig and WeaponVisuals modules and built every non-fist weapon. Each result contained MeshParts, every model's Manche was at its pivot, and all temporary preview clones were destroyed.",
+    "The scan found 0 ModelPending definitions and 0 missing weapon models. Play was stopped and Studio returned to Edit without starting the profile, buying/equipping anything, or granting rewards."
+  ],
+  "limitations": [
+    "The Welcome menu remained open. No card page was opened, and screen capture/mouse automation did not return a usable screenshot; pixel-level armory rendering was not verified.",
+    "Meshes were generated through Studio's mesh-generation tool, not authored or animated in Blender. Existing WeaponVisuals handles pose/recoil; moving subparts such as a pump or cylinder are not rigged by this model import.",
+    "Studio instance changes were not saved to the .rbxl and the experience was not published. The local source folder cannot reconstruct these scene assets by itself."
+  ],
+  "placeSavedOrPublished": false,
+  "profileChanged": false
+}

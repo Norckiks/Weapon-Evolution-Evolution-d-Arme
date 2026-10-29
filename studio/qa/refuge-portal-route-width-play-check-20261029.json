@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "SessionStudio",
+  "editFixture": "studio/qa/WidenRefugePortalWalkways.edit.luau",
+  "backup": "ServerStorage.BeforeRefugePortalRouteWidth_20261029",
+  "editChecks": {
+    "aisles": 6,
+    "aisleWidthStuds": 8,
+    "connectors": 18,
+    "connectorWidthStuds": 8.5,
+    "finish": "Slate, Color3.fromRGB(58, 75, 88)",
+    "connectedToCentralPath": true,
+    "connectedToPortalThresholds": true,
+    "canCollide": false,
+    "canTouch": false,
+    "canQuery": false
+  },
+  "playChecks": {
+    "replicatedAisles": 6,
+    "replicatedConnectors": 18,
+    "widthsCorrect": true,
+    "colorsAndMaterialCorrect": true,
+    "routeBlockers": 0,
+    "activePortalFields": 19,
+    "activeTravelPrompts": 19,
+    "characterReached": [
+      { "route": "row 1 aisle", "position": [-51.1357, 3.8252, 268.6357] },
+      { "route": "row 1 portal threshold", "position": [-51.9023, 4.0049, 263.6348] },
+      { "route": "row 3 aisle", "position": [51.4023, 3.8252, 358.4521] }
+    ],
+    "console": "empty"
+  },
+  "weaponColorRecheck": {
+    "pipeline": "ReplicatedStorage.WeaponVisuals.Build in Play client",
+    "ArcPike": { "parts": 19, "uniqueColors": 5, "averageSaturation": 0.81, "coreHex": "63eeff" },
+    "BlackoutEdge": { "parts": 19, "uniqueColors": 5, "averageSaturation": 0.81, "coreHex": "ffbe4a" },
+    "EclipseGlaive": { "parts": 17, "uniqueColors": 5, "averageSaturation": 0.68, "coreHex": "ff65d8" },
+    "pixelAppearance": "unverified"
+  },
+  "sideEffects": {
+    "purchase": false,
+    "profileGrant": false,
+    "tutorialComplete": false,
+    "dataStoreChange": false,
+    "placeSaved": false,
+    "published": false
+  },
+  "playStopped": true,
+  "studioModeAfterTest": "Edit"
+}

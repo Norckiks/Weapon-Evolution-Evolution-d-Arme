@@ -54,9 +54,12 @@ local dust=Instance.new("ParticleEmitter") dust.Name="DustMotes" dust.Texture="r
 dust.Rate=6 dust.Lifetime=NumberRange.new(3,5) dust.Speed=NumberRange.new(0.15,0.4) dust.Drag=0.5
 dust.Size=NumberSequence.new(0.05) dust.Transparency=NumberSequence.new(0.85) dust.LightInfluence=0.8 dust.SpreadAngle=Vector2.new(180,180) dust.Parent=dustAnchor
 local torchPart=anchor("Flashlight")
-local torch=Instance.new("SpotLight") torch.Name="SurvivorFlashlight" torch.Face=Enum.NormalId.Front torch.Angle=68 torch.Range=62
-torch.Brightness=2.2 torch.Color=Color3.fromRGB(251,239,210) torch.Enabled=false torch.Parent=torchPart
+local torch=Instance.new("SpotLight") torch.Name="SurvivorFlashlight" torch.Face=Enum.NormalId.Front torch.Angle=44 torch.Range=72
+torch.Brightness=8.5 torch.Color=Color3.fromRGB(255,244,224) torch.Enabled=false torch.Parent=torchPart
+local spill=Instance.new("SpotLight") spill.Name="FlashlightSpill" spill.Face=Enum.NormalId.Front spill.Angle=85 spill.Range=30
+spill.Brightness=.9 spill.Color=torch.Color spill.Shadows=false spill.Enabled=false spill.Parent=torchPart
 local torchOn=false
+player:SetAttribute("FlashlightEnabled",false)
 local function bindTouchActions()
 ContextActionService:BindAction("SurvivorFlashlight",function(_,state)
  if state==Enum.UserInputState.Begin and not UserInputService:GetFocusedTextBox() then
@@ -81,7 +84,7 @@ local function observeWorld(v)
  elseif v:IsA("BasePart") and v:GetAttribute("RadioStatic") then
   local s=sound(v,Settings.Audio.Radio,0.12,true,"WorldAmbience") s.RollOffMinDistance=2 s.RollOffMaxDistance=20
  elseif v:IsA("PointLight") or v:IsA("SpotLight") then
-  if not v:IsDescendantOf(fx) then lights[v]={brightness=v.Brightness,flicker=v:GetAttribute("FlickerBase")~=nil} end
+  if not v:IsDescendantOf(fx) then lights[v]={brightness=v.Brightness,shadows=v:GetAttribute("NightShadow")==true or v.Shadows,flicker=v:GetAttribute("FlickerBase")~=nil} end
  elseif v:IsA("Fire") and v.Parent:IsA("BasePart") and not fireSounds[v.Parent] then
   local s=sound(v.Parent,Settings.Audio.Fire,0.22,true,"WorldAmbience")
   s.RollOffMaxDistance=38 s.RollOffMinDistance=5 fireSounds[v.Parent]=s
@@ -99,7 +102,7 @@ local function tryNPC(m)
  for _,v in m:GetDescendants() do
   if v:IsA("Motor6D") or v:IsA("AnimationConstraint") then local name=v.Name:gsub(" ","") if name=="Root" then name="RootJoint" end joints[name]=v end
  end
- npcs[m]={root=r,h=h,joints=joints,phase=math.random()*6,blend=0,lastFoot=-1}
+ npcs[m]={root=r,h=h,joints=joints,kind=m:GetAttribute("ZombieType"),phase=math.random()*6,blend=0,lastFoot=-1}
  if pending[m] then pending[m]:Disconnect() pending[m]=nil end
 end
 local live=workspace:WaitForChild("LiveZombies")
@@ -150,6 +153,7 @@ RunService.RenderStepped:Connect(function(dt)
  dustAnchor.CFrame=CFrame.new(camera.CFrame.Position)
  torchPart.CFrame=camera.CFrame*CFrame.new(0.2,-0.14,-0.4)
  torch.Enabled=torchOn and alive or false torch.Shadows=high
+ spill.Enabled=torch.Enabled
  rain.Rate=alive and outdoor and player:GetAttribute("RainEnabled")~=false and (high and Settings.RainRate or 40) or 0
  dust.Rate=high and 7 or 2
  if alive then
@@ -200,6 +204,24 @@ RunService.RenderStepped:Connect(function(dt)
    elseif name=="RightShoulder" then x=-0.38+stride*0.4-attack*1.15+flinch
    elseif name=="Neck" then x=0.08+math.sin(now*1.6)*0.018-flinch*0.8 y=math.sin(now*0.7)*0.035
    elseif name=="RootJoint" then x=0.035*s.blend+lean-flinch z=math.sin(s.phase)*0.025*s.blend end
+   if s.kind=="Civilian" then
+    if name=="LeftShoulder" then x=-0.18-stride*.25-attack*.55+flinch z=-.14
+    elseif name=="RightShoulder" then x=-.48+stride*.32-attack*1.35+flinch z=.18 y=attack*.12
+    elseif name=="Neck" then z=.16+math.sin(now*.9)*.035-attack*.08
+    elseif name=="RootJoint" then z+=.08+math.sin(s.phase)*.07*s.blend y=attack*.12 end
+   elseif s.kind=="Runner" then
+    if name=="LeftHip" or name=="RightHip" then x*=1.4
+    elseif name=="LeftShoulder" then x=-.62-stride*.55-attack*.85+flinch z=-.24 y=-attack*.2
+    elseif name=="RightShoulder" then x=-.72+stride*.65-attack*1.35+flinch z=.26 y=attack*.26
+    elseif name=="Neck" then x-=.12 z=math.sin(s.phase*.5)*.07-attack*.08
+    elseif name=="RootJoint" then x+=.2+.12*s.blend+attack*.12 y=attack*.18 z+=math.sin(s.phase)*.1*s.blend end
+   elseif s.kind=="Brute" then
+    if name=="LeftHip" or name=="RightHip" then x*=0.7
+    elseif name=="LeftShoulder" then x=-.18-stride*.2-attack*1.65+flinch z=-.32-attack*.1
+    elseif name=="RightShoulder" then x=-.18+stride*.2-attack*1.65+flinch z=.32+attack*.1
+    elseif name=="Neck" then x+=.12-attack*.15 z=math.sin(now*.65)*.04
+    elseif name=="RootJoint" then x+=.08+attack*.22 z+=math.sin(s.phase)*.13*s.blend end
+   end
    local target=CFrame.new(0,name=="RootJoint" and math.sin(s.phase*2)*0.014*s.blend or 0,0)*CFrame.Angles(x,y,z)
    if player:GetAttribute("ReducedMotion") then target=CFrame.identity:Lerp(target,.25) end
    j.Transform=j.Transform:Lerp(target,1-math.exp(-dt*18))
@@ -231,12 +253,18 @@ RunService.RenderStepped:Connect(function(dt)
   labHum.Volume+=((lab and 0.065 or 0)-labHum.Volume)*0.2
   local tint=power and Color3.fromRGB(239,230,255) or harbor and Color3.fromRGB(227,239,249) or lab and Color3.fromRGB(229,247,233) or factory and Color3.fromRGB(255,242,224) or zone=="REFUGE" and Color3.fromRGB(255,251,241) or Color3.fromRGB(244,248,251)
   zoneGrade.TintColor=zoneGrade.TintColor:Lerp(tint,0.12)
+  local shadowCandidates={}
   for light,data in lights do
    if not light.Parent or not light.Parent:IsA("BasePart") then lights[light]=nil continue end
    local distance=(light.Parent.Position-camera.CFrame.Position).Magnitude
-   light.Shadows=high and light:IsA("SpotLight") and distance<65
-   if data.flicker and distance<90 then light.Brightness=data.brightness*(0.94+0.06*math.noise(now*4,light.Parent.Position.X)) end
+   if high and data.shadows and distance<65 then table.insert(shadowCandidates,{light=light,distance=distance}) end
+   if data.flicker and distance<90 then light.Brightness=data.brightness*(player:GetAttribute("ReducedMotion") and 1 or (0.94+0.06*math.noise(now*4,light.Parent.Position.X))) end
   end
+  -- Keep shadow maps on the four nearest world lights; the flashlight has its own.
+  table.sort(shadowCandidates,function(a,b) return a.distance<b.distance end)
+  local shadowed={}
+  for i=1,math.min(4,#shadowCandidates) do shadowed[shadowCandidates[i].light]=true end
+  for light in lights do if light.Parent then light.Shadows=shadowed[light]==true end end
   if high then
    for model,base in foliage do
     if not model.Parent then foliage[model]=nil

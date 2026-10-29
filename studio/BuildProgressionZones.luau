@@ -5,7 +5,7 @@ local function p(parent,name,size,pos,color,mat)
  local a=Instance.new("Part") a.Name=name a.Size=size a.Position=pos a.Color=color a.Material=mat or Enum.Material.Concrete a.Anchored=true a.TopSurface=Enum.SurfaceType.Smooth a.BottomSurface=Enum.SurfaceType.Smooth a.Parent=parent return a
 end
 local function sign(parent,cf,size,text,color)
- local a=p(parent,"ZoneSign",size,cf.Position,color,Enum.Material.Metal) a.CFrame=cf
+ local a=p(parent,"ZoneSign",size,cf.Position,color,Enum.Material.Metal) a.CFrame=cf a.CanCollide=false a.CanTouch=false a.CanQuery=false
  local s=Instance.new("SurfaceGui") s.Face=Enum.NormalId.Front s.PixelsPerStud=30 s.SizingMode=Enum.SurfaceGuiSizingMode.PixelsPerStud s.Parent=a
  local t=Instance.new("TextLabel") t.Size=UDim2.fromScale(1,1) t.BackgroundTransparency=1 t.Text=text t.TextScaled=true t.Font=Enum.Font.Oswald t.TextColor3=Color3.fromRGB(245,235,202) t.Parent=s return a
 end
@@ -19,7 +19,8 @@ local function portal(parent,zone,position,returning)
  local prompt=Instance.new("ProximityPrompt") prompt.Name="ZoneTravel" prompt.ActionText=returning and "Retour au refuge" or "Entrer"
  prompt.ObjectText=returning and "REFUGE" or zone.Name.." - NIV. "..zone.Level prompt.HoldDuration=0.35 prompt.MaxActivationDistance=10 prompt.RequiresLineOfSight=false prompt.Parent=gate
  local face=returning and CFrame.new(position+Vector3.new(0,11,0)) or CFrame.new(position+Vector3.new(0,11,0))
- sign(g,face,Vector3.new(15,2.8,0.5),returning and "RETOUR REFUGE" or zone.Name.."\nNIVEAU "..zone.Level,color:Lerp(Color3.new(0,0,0),0.6))
+ local boardWidth=zone.Id=="City" and 20 or 14
+ sign(g,face,Vector3.new(boardWidth,2.8,0.5),returning and "RETOUR REFUGE" or zone.Name.."\nNIVEAU "..zone.Level,color:Lerp(Color3.new(0,0,0),0.6))
  g.Parent=parent return g
 end
 local hub=Instance.new("Folder") hub.Name="RefugePortals" hub.Parent=root

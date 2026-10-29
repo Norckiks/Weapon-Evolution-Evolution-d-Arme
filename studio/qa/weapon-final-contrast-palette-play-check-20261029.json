@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "SessionStudio",
+  "editFixture": "studio/qa/ApplyFinalWeaponContrastPalettes.edit.luau",
+  "backup": "ServerStorage.BeforeFinalWeaponContrastPass_20261029",
+  "playChecks": {
+    "pipeline": "Client require(ReplicatedStorage.WeaponVisuals).Build(id), the same model builder used by weapon previews and equipped visuals.",
+    "weapons": {
+      "ArcPike": { "parts": 19, "uniqueColors": 5, "averageSaturation": 0.81, "coreHex": "63eeff", "hardwareHex": "2acde1" },
+      "BlackoutEdge": { "parts": 19, "uniqueColors": 5, "averageSaturation": 0.81, "coreHex": "ffbe4a", "hardwareHex": "ff8d49" },
+      "EclipseGlaive": { "parts": 17, "uniqueColors": 5, "averageSaturation": 0.68, "coreHex": "ff65d8", "hardwareHex": "ffc954" }
+    },
+    "console": "empty",
+    "uiScreenshot": false,
+    "pixelAppearance": "unverified"
+  },
+  "sideEffects": {
+    "purchase": false,
+    "profileGrant": false,
+    "weaponEquipped": false,
+    "temporarySceneObject": false,
+    "placeSaved": false,
+    "published": false
+  },
+  "playStopped": true,
+  "studioModeAfterTest": "Edit"
+}

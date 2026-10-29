@@ -1,0 +1,37 @@
+{
+  "testId": "REFUGE-PORTAL-FRAME-ACCENTS-PLAY-20261029",
+  "date": "2026-10-29",
+  "place": "Évolution des armes",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "result": "PASS_ACCENT_TINTS_REPLICATE_AND_LAYOUT_REMAINS_ALIGNED",
+  "editChange": {
+    "framesTinted": 19,
+    "tintRule": "Per-frame iron MeshPart uses the matching portal accent hue at saturation 0.42 and value 0.31.",
+    "backupFolder": "ServerStorage.BeforeRefugeFrameAccent_20261029",
+    "backupModels": 19,
+    "portalPositionsChanged": false,
+    "promptsChanged": false
+  },
+  "playClient": {
+    "frames": 19,
+    "matchingIronTints": 19,
+    "frameLights": 19,
+    "blockingFrameParts": 0,
+    "maximumHorizontalFrameToFieldOffset": 0,
+    "consoleOutput": "empty"
+  },
+  "safety": {
+    "profileStarted": false,
+    "profileChanged": false,
+    "purchasesOrGrants": false,
+    "playStopped": true,
+    "studioFinalMode": "Edit",
+    "placeSavedOrPublished": false
+  },
+  "limitations": [
+    "Studio/Windows screenshot capture timed out, so the final colors and composition were not inspected in pixels.",
+    "A full walk-through, touch device, multiplayer, and physical-device performance were not tested.",
+    "Changes are in the current Studio scene and were not saved to the .rbxl."
+  ]
+}

@@ -8,12 +8,31 @@
 | Port des cendres | 20 | 1860 / -120 | 1860 / 4 / 10 |
 | Centrale foudroyée | 28 | 2480 / -120 | 2480 / 4 / 10 |
 | Métro oublié | 35 | 3100 / -120 | 3100 / 4 / 10 |
+| Fosse de quarantaine | 45 | 3720 / -120 | 3720 / 4 / 10 |
+| Barrage des noyés | 60 | 4340 / -120 | 4340 / 4 / 10 |
+| Citadelle des cendres | 80 | 4960 / -120 | 4960 / 4 / 10 |
+| Cratère du réacteur | 100 | 5580 / -120 | 5580 / 4 / 10 |
+| Mer de verre | 120 | 6200 / -120 | 6200 / 4 / 10 |
+| Cité des antennes | 140 | 6820 / -120 | 6820 / 4 / 10 |
+| Station orbitale | 160 | 7440 / -120 | 7440 / 4 / 10 |
+| Bunker des profondeurs | 180 | 8060 / -120 | 8060 / 4 / 10 |
+| Fonderie du dernier jour | 200 | 8680 / -120 | 8680 / 4 / 10 |
+| Terminus du dernier convoi | 220 | 9300 / -120 | 9300 / 4 / 10 |
+| Grille déchue | 240 | 9920 / -120 | 9920 / 4 / 10 |
+| Noyau d'arrêt | 260 | 10540 / -120 | 10540 / 4 / 10 |
+| Voûte de l’Éclipse | 280 | 11160 / -120 | 11160 / 4 / 10 |
 
-Le métro ajoute trois espèces/pets et dossiers : [règles et preuves](METRO.md).
+Le métro ajoute trois espèces/pets et dossiers : [règles et preuves](METRO.md). Treize extensions suivent : Fosse (45), Barrage (60), Citadelle (80), Cratère du réacteur (100), Mer de verre (120), Cité des antennes (140), Station orbitale (160), Bunker des profondeurs (180), Fonderie du dernier jour (200), [Terminus du dernier convoi (220)](LAST_CONVOY.md), [Grille déchue (240)](GRIDFALL.md), [Noyau d'arrêt (260)](BLACKOUT_CORE.md) et [Voûte de l’Éclipse (280)](ECLIPSE_VAULT.md), avec trois espèces, fragments/pets, six points de spawn et dossiers par zone. Ces secteurs utilisent des blockouts géométriques temporaires, en attente des modèles définitifs. Les zombies reprennent les rigs déjà présents avec leurs variantes de teinte et d’échelle. Les armes normales ajoutées après le niveau 35 utilisent les modèles décrits dans [la progression de l'arsenal](PROGRESSION_ARMES.md) ; les 16 FBX importés vont de Hook à EclipseGlaive.
 
 La centrale ajoute trois espèces et familiers : [règles, scène, preuves serveur et validation Play restante](CENTRALE.md). Les preuves de port ci-dessous restent celles du lot historique et ne valent pas validation des nouveaux portails.
 
-WorldConfig définit les limites, six emplacements et trois espèces de chaque zone. La Ville réapparaît après 7 s ; les autres zones conservent 10 s : voir [CONTRATS_EXPRESS.md](CONTRATS_EXPRESS.md). ZoneService contrôle niveau et distance au portail côté serveur, puis éjecte vers le refuge les entrées directes non autorisées. Le refuge reste hors des zones de combat.
+WorldConfig définit les limites, six emplacements et trois espèces dans chacune des dix-neuf zones. Le Bunker, la Fonderie, le Terminus, la Grille, le Noyau et la Voûte sont documentés dans [DEPTHS.md](DEPTHS.md), [IRON_SANCTUM.md](IRON_SANCTUM.md), [LAST_CONVOY.md](LAST_CONVOY.md), [GRIDFALL.md](GRIDFALL.md), [BLACKOUT_CORE.md](BLACKOUT_CORE.md) et [ECLIPSE_VAULT.md](ECLIPSE_VAULT.md). La Ville réapparaît après 7 s ; les autres zones conservent 10 s : voir [CONTRATS_EXPRESS.md](CONTRATS_EXPRESS.md). ZoneService contrôle niveau et distance au portail côté serveur, puis éjecte vers le refuge les entrées directes non autorisées. Le refuge reste hors des zones de combat.
+
+## Zombies de la Ville
+
+Les trois zombies possèdent de nouveaux corps texturés générés dans Studio : rôdeur vêtu d'une veste, affamé à capuche et côtes apparentes, colosse massif en armure. Six maillages sont soudés aux articulations de chaque rig ; `VisualHead` reste reconnu par les tirs à la tête. Chaque espèce a des poses procédurales propres de repos, marche et attaque dans PresentationClient ; ReducedMotion les atténue. Les dégâts et délais restent ceux de ZombieMelee et WorldConfig.
+
+Le constructeur ponctuel `studio/BuildCityZombieRework.luau` a été exécuté une fois en Edit et ne doit pas être installé au démarrage ; les modèles précédents sont dans `ServerStorage.BeforeCityZombieRework`, et les sculptures sources dans `ServerStorage.CityZombieSculpts`. Les FBX et actions sous `assets/city_zombies/` sont des modèles Blender séparés, non importés dans le jeu et avec un rig différent. La capture statique a montré les nouveaux modèles ; en Play, six apparitions, les rayons de tête et calculs de dégâts, poses d'attaque et ReducedMotion ont été vérifiés par les fixtures temporaires `studio/qa/CityZombieRework.server.luau` et `CityZombiePresentation.client.luau`. Le rendu des déplacements et attaques en situation, l'import des clips Blender, AnimationConstraint et le mobile restent à vérifier.
 
 ## Départ et portails du refuge
 

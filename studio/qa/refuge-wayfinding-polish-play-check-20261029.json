@@ -1,0 +1,64 @@
+{
+  "testId": "TEST-REFUGE-WAYFINDING-POLISH-001",
+  "date": "2026-10-29",
+  "studio": "Évolution des armes",
+  "placeId": 89391796839094,
+  "mode": "Play",
+  "result": "PASS_GEOMETRY_AND_WALKTHROUGH",
+  "edit": {
+    "weaponModels": 30,
+    "weaponMeshParts": 335,
+    "macheteBladeTint": {
+      "surfaceAppearanceColor": [52, 220, 174],
+      "colorMapPreserved": true
+    },
+    "expeditionPortals": 18,
+    "cityPortal": 1,
+    "alignedFrameFieldPairs": 19,
+    "enabledTravelPrompts": 19,
+    "minimumFrameGapStuds": 11.8,
+    "minimumCentralAisleClearanceStuds": 9.9,
+    "pvpArenaFloorCenter": [130, 0.37, 326],
+    "pvpBoundsOverlapWithTierThreeSign": false,
+    "pvpAccessPathSize": [110, 0.08, 10],
+    "reversibleBackup": "ServerStorage.BeforeRefugeWayfindingPolish_20261029"
+  },
+  "play": {
+    "persistenceMode": "SessionStudio",
+    "initialProgress": {
+      "coins": 0,
+      "level": 1,
+      "equippedWeapon": "Fists"
+    },
+    "route": [
+      {
+        "target": [98, 4, 326],
+        "reached": [97.599, 3.825, 325.427],
+        "insidePvpBounds": false,
+        "health": 100
+      },
+      {
+        "target": [118, 4, 326],
+        "reached": [117.127, 4.17, 325.975],
+        "insidePvpBounds": true,
+        "health": 100
+      },
+      {
+        "target": [0, 4, 326],
+        "reached": [0.604, 3.825, 326.291],
+        "health": 100
+      }
+    ],
+    "replicatedPortals": 19,
+    "misalignedFrameFieldPairs": 0,
+    "replicatedWeaponMeshParts": 335,
+    "macheteSurfaceAppearanceColor": [52, 220, 174],
+    "console": "One non-fatal Studio UI automation warning: Setting GuiService.SelectedObject to invalid GuiObject; no script stack was reported.",
+    "stoppedAndReturnedToEdit": true
+  },
+  "limits": [
+    "The test moved one character through the route; no two-player PvP damage, mobile layout, or device performance was tested.",
+    "Studio pixel capture timed out; geometry and movement were verified, but visual appearance was not approved from a screenshot.",
+    "No DataStore-backed persistence, rbxl save, or publish was used."
+  ]
+}

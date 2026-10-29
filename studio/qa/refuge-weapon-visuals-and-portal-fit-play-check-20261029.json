@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "changes": {
+    "weaponVisuals": {
+      "script": "ReplicatedStorage.WeaponVisuals",
+      "behavior": "The Silhouette, pommel and fin accent branch uses Neon for the three final-weapon palettes; other weapons retain SmoothPlastic accents.",
+      "backup": "ServerStorage.BeforeFinalWeaponEmissionAccents_20261029/WeaponVisualsSource"
+    },
+    "portalSigns": {
+      "cityWidth": 20,
+      "expeditionWidth": 14,
+      "resizedDynamicSigns": 16,
+      "embeddedFrameLabelsOnly": ["Harbor", "Metro", "Power"],
+      "backup": "ServerStorage.BeforeRefugePortalSignFit_20261029",
+      "builderSource": "studio/BuildProgressionZones.luau"
+    }
+  },
+  "play": {
+    "armoryCards": 31,
+    "viewportsWithCamera": 31,
+    "emptyViewports": 0,
+    "viewportBaseParts": 337,
+    "modelPendingLabels": 0,
+    "replicatedWeaponModels": 30,
+    "replicatedWeaponBaseParts": 335,
+    "finalWeapons": {
+      "ArcPike": {"parts": 19, "silhouetteColor": "ffcf19", "silhouetteMaterial": "Neon", "coreColor": "63eeff", "coreMaterial": "Neon", "coreLights": 1},
+      "BlackoutEdge": {"parts": 19, "silhouetteColor": "1892ff", "silhouetteMaterial": "Neon", "coreColor": "ffbe4a", "coreMaterial": "Neon", "coreLights": 1},
+      "EclipseGlaive": {"parts": 17, "silhouetteColor": "a444ff", "silhouetteMaterial": "Neon", "coreColor": "ff65d8", "coreMaterial": "Neon", "coreLights": 1}
+    },
+    "portalPromptsEnabled": 19,
+    "portalFrameFieldHorizontalOffsetStuds": 0,
+    "dynamicSignCount": 16,
+    "minimumSameRowSignGapStuds": 10,
+    "characterNavigation": {
+      "row1Target": [-80, 4, 266],
+      "row1Reached": [-79.316, 3.825, 266.0],
+      "row2Target": [-80, 4, 311],
+      "row2Reached": [-79.989, 3.905, 310.248],
+      "row3Target": [80, 4, 357],
+      "row3Reached": [79.355, 3.825, 356.896],
+      "returnToRefugeCenterAction": "Success"
+    },
+    "player": {"level": 1, "coins": 0, "equippedWeapon": "Fists"},
+    "temporaryOpenProbeRemoved": true
+  },
+  "cleanup": {
+    "playStopped": true,
+    "studioMode": "Edit",
+    "tutorialCompleted": false,
+    "purchaseOrGrant": false,
+    "leaderstatsChanged": false,
+    "normalGameStartUsedForTraversal": true,
+    "placeSavedOrPublished": false
+  },
+  "limitations": [
+    "The Studio and Windows screenshot captures timed out, so pixel-level appearance remains unverified.",
+    "One QA assertion initially compared the full 3D centers of the low portal field and taller frame; it correctly failed on vertical offset but was too strict. The corrected X/Z comparison passed for all 19 pairs with zero horizontal offset; the measured Y difference is 3.575 studs.",
+    "Studio output retains the AssistantCommand assertion above from that QA probe; it is not a game-script error.",
+    "No mobile, controller, multiplayer, DataStore-backed persistence, rbxl save, or publish validation was performed."
+  ]
+}

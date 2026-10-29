@@ -1,9 +1,18 @@
 -- Server-owned, interruptible enemy attacks. No client attack/damage remote.
 local Players=game:GetService("Players")
+local RS=game:GetService("ReplicatedStorage")
 local Config=require(game.ReplicatedStorage:WaitForChild("WorldConfig"))
 local Zones=require(script.Parent:WaitForChild("ZoneService"))
 local Presentation=require(script.Parent:WaitForChild("NPCPresentation"))
 local M={} local Controller={} Controller.__index=Controller
+local lastAegisBlock=setmetatable({}, {__mode="k"})
+local function aegisBlockFeedback(controller,target)
+ local player=Players:GetPlayerFromCharacter(target) local root=target:FindFirstChild("HumanoidRootPart") local now=os.clock()
+ if player and root and now-(lastAegisBlock[player] or -math.huge)>.65 then
+  lastAegisBlock[player]=now
+  RS.Remotes.AbilityFX:FireAllClients("AegisBlock",player,root.Position,0,controller.Root.Position)
+ end
+end
 function M.HasSight(model,target)
  local head=model:FindFirstChild("Head") or model:FindFirstChild("HumanoidRootPart")
  local root=target and target:FindFirstChild("HumanoidRootPart") if not head or not root then return false end
@@ -62,7 +71,7 @@ function Controller:TryAttack(target)
  if self.Destroyed then return false,"Attacker" end
  if self.Busy then return false,"Busy" end
  if os.clock()<self.NextAt then return false,"Cooldown" end
- local canHit,reason=self:CanHit(target) if not canHit then return false,reason end
+ local canHit,reason=self:CanHit(target) if not canHit then if reason=="Guarded" then aegisBlockFeedback(self,target) end return false,reason end
  local windup=math.clamp(self.Def.AttackWindup or Config.AttackWindup,.18,1.5)
  local recovery=math.clamp(self.Def.AttackRecovery or Config.AttackRecovery,.15,.8)
  local delta=target.HumanoidRootPart.Position-self.Root.Position local flat=Vector3.new(delta.X,0,delta.Z)
@@ -75,9 +84,10 @@ function Controller:TryAttack(target)
  phase(self,"Windup","Pending") Presentation.Attack(self.Model)
  task.delay(windup,function()
   if self.Destroyed or self.Token~=token then return end
-  local accepted,humanoid=self:CanHit(target,facing,.3)
+  local accepted,result=self:CanHit(target,facing,.3)
   local outcome="Miss"
-  if accepted then local before=humanoid.Health humanoid:TakeDamage(self.Def.Damage) outcome=humanoid.Health<before and "Hit" or "Blocked" end
+  if accepted then local before=result.Health result:TakeDamage(self.Def.Damage) outcome=result.Health<before and "Hit" or "Blocked"
+  elseif result=="Guarded" then aegisBlockFeedback(self,target) end
   phase(self,"Recovery",outcome) Presentation.Swipe(self.Model)
   task.delay(recovery,function()
    if not self.Destroyed and self.Token==token then self.Busy=false phase(self,"Idle") end

@@ -1,0 +1,34 @@
+{
+  "testId": "TEST-IMPORTED-ENVIRONMENT-PIVOTS-PLAY-20261029",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "Studio Edit repair followed by Studio Play replication check",
+  "result": "PASS_17_PIVOTS_REPAIRED_GEOMETRY_UNCHANGED",
+  "repair": {
+    "models": 17,
+    "roots": ["Workspace.ImportedEnvironmentModels.City", "Workspace.ImportedEnvironmentModels.Refuge.Refuge_01_Sol_et_place"],
+    "operation": "Set each model WorldPivot to its current bounds center while preserving pivot rotation; no BasePart is translated or rotated.",
+    "maxOriginalPivotOffsetStuds": 399.71,
+    "originalPivotBackup": "ServerStorage.BeforeImportedEnvironmentPivotRepair_20261029"
+  },
+  "checks": {
+    "modelsCorrected": 17,
+    "basePartsVerifiedUnmoved": 114,
+    "boundsUnchanged": true,
+    "playReplication": true,
+    "playAlignedModels": 17,
+    "playReplicatedBaseParts": 114,
+    "playConsoleEmpty": true,
+    "studioReturnedToEdit": true
+  },
+  "sideEffects": {
+    "profileChanged": false,
+    "purchase": false,
+    "placeSaved": false,
+    "published": false
+  },
+  "limitations": [
+    "No pixel-level capture of the refuge was available; this pivot-only repair does not intentionally alter visible geometry.",
+    "No player walk-through, mobile, or multiplayer check was performed."
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "testId": "TEST-WEAPON-MODELS-PLAY-VERIFICATION-003",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "studio": "Évolution des armes",
+  "mode": "Play",
+  "result": "PASS",
+  "scope": "Runtime catalog and weapon preview instances; geometry counts and color properties, not pixel-level visual approval.",
+  "catalog": {
+    "weaponEntries": 31,
+    "entriesMarkedModelPending": 0,
+    "obsoleteModelLabelsInArmory": 0,
+    "armoryRows": 32,
+    "weaponCatalogRows": 31,
+    "viewportFramesWithCamera": 31,
+    "emptyPreviews": 0,
+    "previewBaseParts": 665,
+    "fists": "Two gloves are added by the armory UI; WeaponVisuals.Build intentionally returns no parts for Fists.",
+    "nonFistWeaponsBuilt": 30,
+    "partsFromWeaponVisualsBuild": 663,
+    "importedWeaponModels": 16,
+    "importedMeshParts": 292,
+    "importedPartsWithSaturationBelow0_12": 0,
+    "proceduralWeaponModels": 14
+  },
+  "newMeleeWeapons": {
+    "Machete": {
+      "proceduralParts": 23,
+      "temporaryRightHandWelds": 23,
+      "anchoredParts": 0,
+      "lowSaturationMetalParts": 0,
+      "minimumHsvSaturation": 0.2594
+    },
+    "Sledgehammer": {
+      "proceduralParts": 27,
+      "temporaryRightHandWelds": 27,
+      "anchoredParts": 0,
+      "lowSaturationMetalParts": 0,
+      "minimumHsvSaturation": 0.1364
+    },
+    "note": "These two weapons use Roblox part-built 3D models, not imported Blender meshes. The refreshed cartoon palette uses teal steel, mint edges, and rust/coral accents."
+  },
+  "playSession": {
+    "clientArmoryRendered": true,
+    "armoryWasOpenedWith": "A complete synthetic test-only GameState snapshot; no GameAction, purchase, grant, or profile field was changed.",
+    "playerStarted": false,
+    "consoleAfterCleanRun": "empty; confirmed again after the palette retest",
+    "stoppedAndReturnedToEdit": true,
+    "dataStoreWrites": false
+  },
+  "limits": [
+    "Studio screen capture and Windows window capture timed out, so the armory and weapon colors were not visually inspected in pixels.",
+    "The first disposable test used an incomplete synthetic snapshot and raised test-harness errors; a fresh Play session with a complete snapshot passed and had an empty console.",
+    "The connected Studio place was tested; no .rbxl save or experience publish was performed."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-29",
+  "place": "Évolution des armes",
+  "placeId": 89391796839094,
+  "edit": {
+    "shops": {
+      "Upgrades": [-110, 0, 225],
+      "Weapons": [110, 0, 225],
+      "Pets": [-110, 0, 247],
+      "Robux": [110, 0, 247]
+    },
+    "shopPromptsPreserved": 4,
+    "importedShellBoundsAligned": 4,
+    "portalFrames": 19,
+    "path": {"center": [0, 0.24, 290], "size": [12, 0.08, 170]},
+    "arena": {"centerZ": 326, "sizeXZ": [51.25, 32], "fightBoundsCenterZ": 326},
+    "portalArenaOverlaps": 0,
+    "backup": "ServerStorage.BeforeRefugeEntryLayout_20261029"
+  },
+  "play": {
+    "shopsWithinTargetToleranceStuds": 0.025,
+    "shopPromptsEnabledAndMapped": 4,
+    "importedShellBoundsAligned": 4,
+    "portalFrames": 19,
+    "pathCenterZ": 290,
+    "pathLength": 170,
+    "arenaCenterZ": 326,
+    "consoleOutput": "empty",
+    "stoppedAndReturnedToEdit": true
+  },
+  "visualPixelCapture": "Unavailable: Studio window capture timed out; no screenshot-based aesthetic approval.",
+  "persistence": {"profileChanged": false, "rbxlSaved": false, "experiencePublished": false}
+}

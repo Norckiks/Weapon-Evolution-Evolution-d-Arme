@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "Studio Play, SessionStudio",
+  "testPlayer": {
+    "userId": 10565455042,
+    "persistenceMode": "SessionStudio",
+    "levelBeforeTest": 1,
+    "coinsBeforeTest": 0
+  },
+  "armory": {
+    "openedThrough": "The live EconomyService sent the Weapons page state; a temporary Play-only Script self-destroyed.",
+    "visible": true,
+    "weapons": {
+      "ArcPike": { "rowVisible": true, "viewportAndCamera": true, "model": true, "parts": 19, "uniqueColors": 5, "averageSaturation": 0.829, "texturedMeshParts": 0 },
+      "BlackoutEdge": { "rowVisible": true, "viewportAndCamera": true, "model": true, "parts": 19, "uniqueColors": 5, "averageSaturation": 0.762, "texturedMeshParts": 0 },
+      "EclipseGlaive": { "rowVisible": true, "viewportAndCamera": true, "model": true, "parts": 17, "uniqueColors": 5, "averageSaturation": 0.626, "texturedMeshParts": 0 }
+    }
+  },
+  "serverPrototypes": {
+    "allThreePresent": true,
+    "partCounts": { "ArcPike": 19, "BlackoutEdge": 19, "EclipseGlaive": 17 },
+    "averageSaturation": { "ArcPike": 0.829, "BlackoutEdge": 0.762, "EclipseGlaive": 0.626 },
+    "texturedMeshParts": 0,
+    "materialVariants": 0
+  },
+  "lighting": {
+    "brightness": 0.45,
+    "exposureCompensation": -0.15,
+    "activeColorCorrectionSaturation": -0.05
+  },
+  "sideEffects": {
+    "purchaseOrReward": false,
+    "progressionGrant": false,
+    "weaponEquipped": false,
+    "temporaryScriptPresentAfterStop": false,
+    "placeSaved": false,
+    "published": false
+  },
+  "visualCapture": "Roblox Studio window capture timed out; no pixel-level appearance claim is made.",
+  "result": "The live client armory generated brightly colored previews for all three newest imported weapons. This does not prove how their equipped first-person view looks on the user's screen."
+}

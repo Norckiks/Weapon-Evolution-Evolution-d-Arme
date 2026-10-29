@@ -1,0 +1,34 @@
+{
+  "testId": "TEST-WEAPON-MODELS-PLAY-RETEST-003",
+  "date": "2026-10-29",
+  "place": "Évolution des armes",
+  "placeId": 89391796839094,
+  "mode": "Studio Play",
+  "result": "PASS_NOT_REPRODUCED",
+  "catalog": {
+    "weaponRows": 31,
+    "viewportFrames": 31,
+    "viewportsWithoutCamera": 0,
+    "previewsWithoutGeometry": 0,
+    "rowsWithModelPendingText": 0,
+    "weaponConfigEntries": 31,
+    "weaponConfigEntriesModelPending": 0,
+    "previewPartsForNonFists": 663,
+    "replicatedImportedModels": 16,
+    "equippedWeapon": "Fists",
+    "equippedWeaponModelParts": 0
+  },
+  "checks": [
+    "Opened the ARMURERIE using a temporary Play-only server script that sent the actual server profile state; the temporary script destroyed itself.",
+    "All 31 catalog rows contain a 3D ViewportFrame, CurrentCamera, and non-empty geometry.",
+    "No weapon row contains text matching model or modéliser; live GameplayConfig has no ModelPending entries.",
+    "The client received all 16 imported weapon models; WeaponVisuals.Build produced 663 parts for the 30 non-fist catalog weapons.",
+    "The player had Fists equipped, so the character correctly had no separate equipped weapon model.",
+    "Play was stopped and Studio returned to Edit."
+  ],
+  "limitations": [
+    "The report is based on runtime instances and text values, not an inspected screenshot; Studio screen capture timed out.",
+    "The automation tools for physical UI clicks timed out. UI test navigation exposed two QA-command messages in Studio Output: an invalid TextButton Activate call and an invalid GuiService.SelectedObject; no game-script error was observed.",
+    "No purchase, grant, weapon equip, or publish was performed."
+  ]
+}

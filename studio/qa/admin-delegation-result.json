@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-27",
+  "studio": {
+    "name": "Évolution des armes",
+    "placeId": 89391796839094,
+    "modeAfterTest": "Edit"
+  },
+  "backup": "ServerStorage.BeforeAdminDelegation",
+  "sourceComparisonBeforeEdit": {
+    "AdminService": true,
+    "GameHub": true
+  },
+  "sourceComparisonAfterEdit": {
+    "AdminService": true,
+    "GameHub": true
+  },
+  "playChecks": {
+    "ownerUserId": 10565455042,
+    "adminAccess": true,
+    "adminCanDelegate": true,
+    "panelCreated": true,
+    "usernameFieldCreated": true,
+    "listAdminsRemoteAccepted": true,
+    "delegatedAccountsFound": 0,
+    "studioConsoleErrors": 0,
+    "writesToDelegationStore": 0,
+    "playStopped": true
+  },
+  "notVerified": [
+    "Opening the ADMINS category by a physical button click",
+    "Granting or revoking a Roblox account",
+    "A second player or server receiving a MessagingService update",
+    "DataStore write behavior and production persistence",
+    "Physical mobile interaction"
+  ],
+  "notes": "The ListAdmins check only read the current empty delegation list. No account was added or removed and no experience was published or saved as an rbxl."
+}

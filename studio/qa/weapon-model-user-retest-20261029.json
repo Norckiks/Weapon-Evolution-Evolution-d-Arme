@@ -1,0 +1,39 @@
+{
+  "testId": "TEST-WEAPON-MODELS-USER-RETEST-004",
+  "date": "2026-10-29",
+  "place": "Évolution des armes",
+  "placeId": 89391796839094,
+  "mode": "Studio Play",
+  "result": "PASS_NOT_REPRODUCED",
+  "catalog": {
+    "weaponRows": 31,
+    "viewportFrames": 31,
+    "viewportsWithoutCamera": 0,
+    "previewsWithoutGeometry": 0,
+    "modelLabelMatches": 0,
+    "configuredWeapons": 31,
+    "modelPending": 0,
+    "importedModels": 16,
+    "proceduralModels": 14,
+    "previewBasePartsNonFists": 663,
+    "equippedWeapon": "Fists"
+  },
+  "profile": {
+    "level": 1,
+    "coins": 0,
+    "purchaseGrantOrEquip": false
+  },
+  "checks": [
+    "Opened ARMURERIE from the real server profile state with a temporary Play-only Script that was removed immediately after sending the state.",
+    "All 31 weapon cards have a ViewportFrame, a CurrentCamera, and non-empty 3D geometry.",
+    "No PlayerGui text contains model or modél; the live GameplayConfig has zero ModelPending entries.",
+    "ReplicatedStorage contains 16 imported weapon models; 14 additional weapons are assembled from Roblox parts by WeaponVisuals.Build.",
+    "Fists were equipped, so no separate weapon model was expected on the character.",
+    "Play was stopped and Studio returned to Edit."
+  ],
+  "limitations": [
+    "Studio screen capture was unavailable; this validates runtime instances and geometry, not the visible pixels of the weapon previews.",
+    "A UI automation attempt timed out and another diagnostic tried the unavailable TextButton:Activate method; that diagnostic error is harness-generated, not a game-script error.",
+    "No purchase, grant, equip, profile save, place save, or publish was performed."
+  ]
+}

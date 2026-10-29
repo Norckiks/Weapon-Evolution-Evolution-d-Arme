@@ -1,0 +1,26 @@
+{
+  "testId": "TEST-WEAPON-MODEL-USER-RETEST-SESSION2-20261029",
+  "date": "2026-10-29",
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "placeId": 89391796839094,
+  "mode": "Studio Play",
+  "result": "PASS_SYMPTOM_NOT_REPRODUCED",
+  "observed": {
+    "armoryVisible": true,
+    "pageTitle": "ARMURERIE",
+    "weaponCards": 31,
+    "viewportsWithCamera": 31,
+    "viewportsWithGeometry": 31,
+    "uiTextMatchesForModelOrModeliser": 0,
+    "liveScriptMatchesForModelPendingOrModeliser": 0,
+    "replicatedWeaponModels": 30,
+    "pendingWeaponDefinitions": 0
+  },
+  "method": "Started a fresh Studio Play session. Opened the real ARMURERIE page through a temporary ServerScript that called the running EconomyService.Send for the test player; the fixture self-destroyed. Inspected the client PlayerGui, every weapon viewport and camera, visible strings, replicated models, and active Studio script search.",
+  "cleanup": "Play stopped; Studio returned to Edit. No purchase, equip, grant, profile mutation, DataStore write, .rbxl save, or publish.",
+  "limits": [
+    "Studio could not provide a usable screenshot, so rendered pixels and what is visible in the user's separate Studio window were not confirmed.",
+    "No mobile, controller, multiplayer, saved-place, or published-server test was performed."
+  ],
+  "nextStep": "If the user still sees À modéliser, request a screenshot of that exact card and confirm the place/session; the active Play instance currently has 3D geometry and no matching label."
+}

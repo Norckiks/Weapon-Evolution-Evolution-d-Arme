@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "SessionStudio",
+  "editFixture": "studio/qa/ConnectRefugePortalWalkways.edit.luau",
+  "backup": "ServerStorage.BeforeRefugePortalWalkwayRouteFix_20261029",
+  "editResult": {
+    "rows": 3,
+    "aisles": 6,
+    "portalConnectors": 18,
+    "routesTotal": 24,
+    "routesDecorative": true
+  },
+  "playChecks": {
+    "portals": 19,
+    "enabledPrompts": 19,
+    "frameFieldHorizontalMismatches": 0,
+    "aislesReplicated": 6,
+    "connectorsReplicated": 18,
+    "routesNonCollidable": true,
+    "tallColliderOverlapsInWalkingVolume": 0,
+    "rawBoundsOverlaps": 25,
+    "rawBoundsOverlapNotes": "Mostly approach/platform slabs near the decorative floor surface; no collider taller than 1 stud intersected the walking volume.",
+    "navigationTool": "An initial attempt was made while the start/tutorial menu held WalkSpeed at 0; after starting through GameAction and dismissing only the test-session UI without sending TutorialComplete, the HumanoidRootPart reached (39.8,3.8,271.2), (28.6,3.9,264.8), and (57.3,3.9,268.9). The central aisle, one portal connector/threshold, and the outer aisle are physically reachable.",
+    "console": "empty"
+  },
+  "persistence": "SessionStudio",
+  "playStopped": true,
+  "studioModeAfterTest": "Edit",
+  "profileChanged": false,
+  "purchaseOrGrant": false,
+  "placeSaved": false,
+  "published": false,
+  "pixelCapture": false
+}

@@ -4,7 +4,6 @@ local function pose(x,y,z,rx,ry,rz)
  return CFrame.new(x,y,z)*CFrame.Angles(math.rad(rx),math.rad(ry),math.rad(rz))
 end
 local function smooth(a) return a*a*(3-2*a) end
-local function easeOutBack(a) local x=a-1 return 1+2.2*x*x*x+1.2*x*x end
 M.Profiles={
  LMG={Windup=.005,Strike=.025,Recover=.09,Pitch=1.15,Wind=pose(0,0,0,0,0,0),Hit=pose(.01,.04,.09,-5.5,0,-1.3)},
  Marksman={Windup=.02,Strike=.07,Recover=.96,Pitch=.76,Wind=pose(0,0,0,0,0,0),Hit=pose(.02,.14,.38,-22,-2,-4)},
@@ -17,32 +16,51 @@ M.Profiles={
  Pipe={Windup=.12,Strike=.08,Recover=.26,Pitch=.94,Wind=pose(.26,.17,.15,-20,25,38),Hit=pose(-.65,-.08,-.6,36,-46,-55)},
  Bat={Windup=.17,Strike=.09,Recover=.28,Pitch=.82,Wind=pose(.42,.04,.3,8,56,70),Hit=pose(-.84,.1,-.58,18,-65,-78)},
  Axe={Windup=.25,Strike=.09,Recover=.31,Pitch=.72,Wind=pose(.04,.48,.25,-65,10,12),Hit=pose(-.12,-.4,-.78,74,-8,-14)},
+ Machete={Windup=.13,Strike=.1,Recover=.3,Pitch=1.06,Wind=pose(.36,.17,.24,-15,40,58),Hit=pose(-.74,-.08,-.76,30,-48,-68)},
+ Sledgehammer={Windup=.3,Strike=.13,Recover=.47,Pitch=.62,Wind=pose(.08,.55,.32,-68,8,12),Hit=pose(-.15,-.52,-.8,72,-6,-18)},
+ Hook={Windup=.12,Strike=.08,Recover=.24,Pitch=1.03,Wind=pose(.44,.12,.2,-10,46,62),Hit=pose(-.78,-.02,-.72,24,-52,-72)},
+ Kris={Windup=.08,Strike=.06,Recover=.22,Pitch=1.18,Wind=pose(.28,.12,.1,-22,34,48),Hit=pose(-.54,.02,-.85,18,-38,-54)},
+ Spear={Windup=.2,Strike=.11,Recover=.34,Pitch=.9,Wind=pose(.06,.16,.38,-12,8,16),Hit=pose(-.04,-.02,-1.12,4,-4,-8)},
+ Cleaver={Windup=.19,Strike=.1,Recover=.3,Pitch=.86,Wind=pose(.34,.28,.2,-38,38,56),Hit=pose(-.48,-.2,-.82,44,-34,-48)},
+ WarHammer={Windup=.32,Strike=.14,Recover=.48,Pitch=.58,Wind=pose(.12,.58,.3,-76,8,16),Hit=pose(-.12,-.54,-.92,82,-8,-16)},
+ Pike={Windup=.22,Strike=.1,Recover=.35,Pitch=.84,Wind=pose(-.04,.18,.42,-14,-8,-14),Hit=pose(.06,-.02,-1.18,6,5,12)},
  Katana={Windup=.10,Strike=.07,Recover=.31,Pitch=1.22,Wind=pose(.32,.21,.08,-15,42,58),Hit=pose(-.74,-.12,-.65,28,-55,-68)},
  LimitedBlade={Windup=.14,Strike=.08,Recover=.28,Pitch=1.1,Wind=pose(-.28,.08,.26,-30,-35,-45),Hit=pose(.48,.36,-.9,-42,35,54)},
 }
-function M.Pulse(elapsed,sign)
-	if elapsed<0 or elapsed>=.86 then return CFrame.identity,0 end
-	local charge=pose(-sign*.08,.18,.2,-8,sign*5,sign*3) local hit=pose(-sign*.16,.1,-.42,-16,sign*12,sign*10)
-	if elapsed<.42 then local a=elapsed/.42 return CFrame.identity:Lerp(charge,a*a*(3-2*a)),a end
-	if elapsed<.5 then local a=(elapsed-.42)/.08 return charge:Lerp(hit,1-(1-a)^3),1 end
-	if elapsed<.55 then local kick=math.sin((elapsed-.5)/.05*math.pi) return hit*pose(0,.025*kick,.06*kick,5*kick,0,0),1 end
-	local a=math.clamp((elapsed-.55)/.31,0,1) local settle=smooth(a) return hit:Lerp(CFrame.identity,settle),1-settle
+-- Hand offsets are inspired by the six poses studied in Blender; game rigs differ.
+M.AbilityProfiles={
+ Pulse={Duration=.86,Wind=.42,Hit=.08,WindRight=pose(-.15,.14,.24,18,-20,-20),HitRight=pose(-.08,.16,-.62,-26,10,8),BodyWind=-8,BodyHit=14},
+ Slam={Duration=1.12,Wind=.34,Hit=.12,WindRight=pose(-.08,.58,.15,-88,-10,-15),HitRight=pose(-.1,-.15,-.5,70,5,10),WindLeft=pose(.12,.51,.18,-78,10,20),HitLeft=pose(.12,-.13,-.44,62,-5,-8),BodyWind=-14,BodyHit=30},
+ Frost={Duration=1.02,Wind=.31,Hit=.12,WindRight=pose(.18,.14,.38,-30,-22,-24),HitRight=pose(-.1,.11,-1.02,-12,4,4),WindLeft=pose(.16,.12,.12,-38,24,32),HitLeft=pose(.12,.03,-.35,-34,16,25),BodyWind=-6,BodyHit=10},
+ Aegis={Duration=1.15,Wind=.32,Hit=.12,WindRight=pose(-.28,.16,.12,-32,-35,-38),HitRight=pose(.22,.22,-.35,-55,20,25),BodyWind=5,BodyHit=-10},
+ SecondSouffle={Duration=1.42,Wind=.42,Hit=.3,WindRight=pose(-.22,-.04,.18,18,-28,-28),HitRight=pose(.12,.48,-.22,-58,16,20),BodyWind=10,BodyHit=-12},
+ Arc={Duration=.95,Wind=.26,Hit=.1,WindRight=pose(.25,.22,.35,-38,-25,-30),HitRight=pose(-.02,.12,-.9,-14,15,14),WindLeft=pose(.18,.12,.05,-38,25,35),HitLeft=pose(.22,.06,-.25,-30,15,30),BodyWind=-8,BodyHit=12},
+}
+local function mirror(p)
+ local x,y,z=p:ToOrientation()
+ return CFrame.new(-p.X,p.Y,p.Z)*CFrame.fromOrientation(x,-y,-z)
 end
-M.AbilityProfiles={Arc={Duration=.95,Wind=.26,Hit=.1,WindPose=pose(-.18,.24,.26,-35,-18,-24),HitPose=pose(.06,.1,-.72,-5,18,12),Body=10},Slam={Duration=1.12,Wind=.34,Hit=.12,WindPose=pose(-.04,.46,.12,-72,0,-6),HitPose=pose(-.08,-.28,-.55,78,0,4),Body=24},Frost={Duration=1.02,Wind=.31,Hit=.12,WindPose=pose(-.16,.2,.38,-28,-12,-18),HitPose=pose(-.12,.04,-.95,-8,4,0),Body=8},Aegis={Duration=1.15,Wind=.32,Hit=.12,WindPose=pose(0,.16,.08,-18,0,0),HitPose=pose(0,.18,-.12,-26,0,0),Body=-8},SecondSouffle={Duration=1.42,Wind=.42,Hit=.3,WindPose=pose(0,.34,.16,-42,0,0),HitPose=pose(0,.08,-.28,18,0,0),Body=12}}
 function M.Ability(id,elapsed,sign)
- if id=="Pulse" then local p,w=M.Pulse(elapsed,sign) return p,w,0 end
  local d=M.AbilityProfiles[id]
  if not d or elapsed<0 or elapsed>=d.Duration then return CFrame.identity,0,0 end
- local wind,hit=d.WindPose,d.HitPose
- if sign<0 then wind=pose(-wind.X,wind.Y,wind.Z,0,0,0)*CFrame.Angles(0,-math.rad(30),-math.rad(42)) hit=pose(-hit.X,hit.Y,hit.Z,0,0,0)*CFrame.Angles(0,math.rad(38),math.rad(54)) end
-	if elapsed<d.Wind then local a=elapsed/d.Wind local back=easeOutBack(a) return CFrame.identity:Lerp(wind,back),math.clamp(a,0,1),d.Body*back end
-	local strikeEnd=d.Wind+d.Hit
-	if elapsed<strikeEnd then local a=(elapsed-d.Wind)/d.Hit return wind:Lerp(hit,1-(1-a)^3),1,d.Body end
-	local recoverStart=strikeEnd+.07
-	if elapsed<recoverStart then local kick=math.sin((elapsed-strikeEnd)/.07*math.pi) return hit*pose(0,.025*kick,.055*kick,4*kick,0,0),1,d.Body end
-	local a=math.clamp((elapsed-recoverStart)/(d.Duration-recoverStart),0,1) local settle=smooth(a)
-	return hit:Lerp(CFrame.identity,settle),1-settle,d.Body*(1-settle)
+ local wind=sign<0 and (d.WindLeft or mirror(d.WindRight)) or d.WindRight
+ local hit=sign<0 and (d.HitLeft or mirror(d.HitRight)) or d.HitRight
+	if elapsed<d.Wind then local phase=elapsed/d.Wind local a=id=="Frost" and phase*phase or smooth(phase) return CFrame.identity:Lerp(wind,a),a,d.BodyWind*a end
+ local strikeEnd=d.Wind+d.Hit
+ if elapsed<strikeEnd then
+		local a=smooth((elapsed-d.Wind)/d.Hit) local impact=id=="Slam" and (1-(1-a)^3) or id=="Frost" and (1-(1-a)^4) or a
+  return wind:Lerp(hit,impact),1,d.BodyWind+(d.BodyHit-d.BodyWind)*impact
+ end
+ local recoverStart=strikeEnd+.07
+ if elapsed<recoverStart then
+  local phase=math.clamp((elapsed-strikeEnd)/.07,0,1)
+  local slam=id=="Slam" local kick=math.sin(phase*math.pi)*(slam and 1.25 or 1) local rebound=math.sin(phase*math.pi*2)*(slam and .24 or .16)
+  return hit*pose(0,(slam and .045 or .025)*kick+.012*rebound,(slam and .085 or .05)*kick+.016*math.max(rebound,0),4*kick+1.5*rebound,slam and -sign*5*kick or 0,slam and sign*8*kick or 0),1,d.BodyHit-(slam and 8*kick or 0)
+ end
+ local settle=smooth(math.clamp((elapsed-recoverStart)/(d.Duration-recoverStart),0,1))
+ return hit:Lerp(CFrame.identity,settle),1-settle,d.BodyHit*(1-settle)
 end
+function M.Pulse(elapsed,sign) return M.Ability("Pulse",elapsed,sign) end
 -- Shared normalized timeline; the server owns its start and duration.
 function M.Reload(alpha,sign,id)
  if alpha<=0 or alpha>=1 then return CFrame.identity end

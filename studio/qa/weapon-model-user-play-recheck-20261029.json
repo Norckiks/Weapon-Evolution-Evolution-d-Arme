@@ -1,0 +1,35 @@
+{
+  "testId": "TEST-WEAPON-MODEL-USER-PLAY-RECHECK-20261029",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "mode": "Studio Play, live client PlayerGui",
+  "result": "PASS_RUNTIME_SYMPTOM_NOT_REPRODUCED",
+  "method": "Started a fresh Play session, then opened ARMURERIE by calling the running EconomyService.Send from a temporary server Script; the Script self-destroyed.",
+  "observed": {
+    "persistenceMode": "SessionStudio",
+    "hasStarted": false,
+    "equippedWeapon": "Fists",
+    "coins": 0,
+    "level": 1,
+    "catalogCards": 31,
+    "viewports": 31,
+    "viewportsWithCamera": 31,
+    "viewportsWithGeometry": 31,
+    "emptyViewports": 0,
+    "uiTextsContainingModelOrModeliser": 0,
+    "modelPendingDefinitions": 0,
+    "replicatedWeaponModels": 30,
+    "modelBaseParts": 335,
+    "temporaryProbeRemoved": true,
+    "consoleOutput": "empty"
+  },
+  "interpretation": "In this Studio place and fresh Play session, every armory card had a camera and non-empty 3D preview geometry; no active UI text or weapon definition marked a model as pending. The player still had Fists equipped, so no separate held weapon model was expected.",
+  "cleanup": "Play stopped and Studio returned to Edit. No purchase, grant, weapon equip, profile change, DataStore write, place save, or publish.",
+  "limitations": [
+    "No usable Play screenshot was captured; this validates live UI instances and preview geometry, not rendered pixels.",
+    "The first-person and third-person held model appearance was not visually inspected.",
+    "Graphify index commit aa5accaf was 35 hours old and its query did not provide complete current source context; Studio runtime and current local files were used for verification.",
+    "No mobile, controller, multiplayer, or published-place verification was performed."
+  ]
+}

@@ -9,9 +9,20 @@ local car=source("Assistant-75650a7c-391e-4499-8932-1c3239eea4c6","WreckSedan")
 local weeds=source("Assistant-38136ea2-e5e1-4198-a6d1-532720a0c7e9","Weeds")
 local rubble=source("Assistant-1a8800dc-e841-43f9-a015-09e9acf53d61","Rubble")
 local folder=Instance.new("Folder") folder.Name="DetailedEnvironmentAssets" folder.Parent=workspace.PresentationV2
+local tints={
+	WreckSedan={Color3.fromRGB(171,69,56),Color3.fromRGB(77,111,79),Color3.fromRGB(154,117,56)},
+	Weeds={Color3.fromRGB(100,140,68),Color3.fromRGB(81,119,60),Color3.fromRGB(125,145,75)},
+	Rubble={Color3.fromRGB(131,121,100),Color3.fromRGB(105,116,111),Color3.fromRGB(143,130,103)},
+}
+local tintIndex={}
 local function place(template,name,position,yaw,scale)
  local m=template:Clone() m.Name=name
  if scale then m:ScaleTo(scale) end
+ local palette=tints[template.Name]
+ if palette then
+  local index=(tintIndex[template.Name] or 0)%#palette+1 tintIndex[template.Name]=index
+  for _,p in m:GetDescendants() do if p:IsA("BasePart") then p.Color=palette[index] for _,surface in p:GetChildren() do if surface:IsA("SurfaceAppearance") then surface.Color=palette[index] end end end end
+ end
  local box,size=m:GetBoundingBox()
  local target=CFrame.new(position+Vector3.new(0,size.Y/2,0))*CFrame.Angles(0,yaw or 0,0)
  m:PivotTo(target*box:ToObjectSpace(m:GetPivot()))

@@ -16,6 +16,8 @@ local function restore()
  p:SetAttribute("HasStarted",saved.Started) p:SetAttribute("InGameMenu",saved.Menu) E.Refresh(p) E.Send(p) return true
 end
 local ok,err=pcall(function()
+ check(C.PetRankCost(0)==3 and C.PetRankCost(1)==5 and C.PetRankCost(2)==7 and C.PetRankCost(3)==9,"Pet copy cost continues after the former three ranks")
+ local softPet=C.ProgressionSteps(6,.2,5) check(softPet>5 and softPet<6,"Pet rank bonus uses diminishing returns")
  m.PetRanks=nil m.Receipts.PetRanksQASentinel=true E.Send(p)
  check(typeof(m.PetRanks)=="table" and m.Receipts.PetRanksQASentinel,"Legacy profile gains ranks without losing receipts")
  m.Pets={} m.Fragments={} m.XPBoostUntil=0 m.CoinBoostUntil=0 m.SpeedLevel=0
@@ -37,7 +39,11 @@ local ok,err=pcall(function()
   local factor=1+rank*.15
   check(close(p:GetAttribute("CoinsMultiplier"),1+.9*factor) and close(p:GetAttribute("XPMultiplier"),1+.75*factor) and close(p:GetAttribute("BaseWalkSpeed"),S.WalkSpeed*(1+.1*factor)) and close(p:GetAttribute("SprintWalkSpeed"),S.SprintSpeed*(1+.1*factor)),"Rank "..rank.." applies exact coin/XP/walk/sprint bonuses")
  end
- request("UpgradePet","RailTitan") check(m.PetRanks.RailTitan==3 and m.Pets.RailTitan==1,"Maximum rank cannot consume the last copy")
+ request("UpgradePet","RailTitan") check(m.PetRanks.RailTitan==3 and m.Pets.RailTitan==1,"Insufficient copies refuse evolution and preserve the last copy")
+ m.Pets.RailTitan=10 request("UpgradePet","RailTitan")
+ check(m.PetRanks.RailTitan==4 and m.Pets.RailTitan==2,"Pet evolves beyond the former rank 3 cap")
+ m.PetRanks.RailTitan=C.ProgressionLevelLimit m.Pets.RailTitan=9 request("UpgradePet","RailTitan")
+ check(m.PetRanks.RailTitan==C.ProgressionLevelLimit and m.Pets.RailTitan==9 and C.PetRankCost(C.ProgressionLevelLimit)==nil,"Technical pet rank guard preserves copies")
  m.Pets.RailTitan=13 m.PetRanks.RailTitan=0 task.wait(.17)
  bridge:InvokeClient(p,"UpgradeBurst","RailTitan") task.wait(.18)
  check(m.PetRanks.RailTitan==1 and m.Pets.RailTitan==11,"Simultaneous burst advances once")
@@ -51,8 +57,8 @@ local ok,err=pcall(function()
  check(m.Pets.Buddy==100000 and not m.Daily.Claimed["5"],"Full inventory preserves timed pet gift")
  m.Pets.Buddy=99999 request("ClaimTime","5") check(m.Pets.Buddy==100000 and m.Daily.Claimed["5"] and m.PetRanks.Buddy==1,"Last inventory slot accepts timed gift without resetting rank")
  request("EquipPet","") check(p:GetAttribute("CoinsMultiplier")==1 and p:GetAttribute("XPMultiplier")==1 and p:GetAttribute("BaseWalkSpeed")==S.WalkSpeed,"Unequip removes all rank bonuses")
- m.PetRanks={Civilian=0/0,Runner=math.huge,Brute=-2,Worker=99,Soldier=1.9,Unknown=3} E.Send(p)
- check(m.PetRanks.Civilian==0 and m.PetRanks.Runner==0 and m.PetRanks.Brute==0 and m.PetRanks.Worker==3 and m.PetRanks.Soldier==1 and m.PetRanks.Unknown==nil,"Malformed and unknown saved ranks normalized")
+ m.PetRanks={Civilian=0/0,Runner=math.huge,Brute=-2,Worker=99,Soldier=1.9,Warden=C.ProgressionLevelLimit+1,Unknown=3} E.Send(p)
+ check(m.PetRanks.Civilian==0 and m.PetRanks.Runner==0 and m.PetRanks.Brute==0 and m.PetRanks.Worker==99 and m.PetRanks.Soldier==1 and m.PetRanks.Warden==C.ProgressionLevelLimit and m.PetRanks.Unknown==nil,"Malformed ranks normalize without restoring the old cap")
  m.PetRanks.RailTitan=3 m.Pets.RailTitan=1 m.EquippedPet="RailTitan" m.QuickContract={Index=3,Count=0,Seen={}}
  p.leaderstats.Coins.Value=0 p.leaderstats.Level.Value=1 p.Progress.XP.Value=0 E.Refresh(p)
  local target for _,v in workspace.LiveZombies:GetChildren() do if v:GetAttribute("ZombieType")=="Civilian" and v.Humanoid.Health>0 then target=v break end end assert(target)
@@ -67,9 +73,9 @@ end)
 restore() result.Value=game.HttpService:JSONEncode({Passed=ok,Error=not ok and tostring(err) or nil,Checks=checks,Restored=true})
 local prepare=Instance.new("BindableFunction",game.ServerStorage) prepare.Name="PreparePetRankUI"
 prepare.OnInvoke=function(phase)
- assert(phase=="Ready" or phase=="Locked" or phase=="Max" or phase=="RankOnly")
- m.EquippedPet="" m.Pets.Civilian=phase=="Locked" and 2 or phase=="Max" and 1 or 3
- m.PetRanks.Civilian=phase=="Max" and 3 or phase=="RankOnly" and 1 or 0 m.Fragments.Civilian=6
+ assert(phase=="Ready" or phase=="Locked" or phase=="BeyondCap" or phase=="TechnicalLimit" or phase=="RankOnly")
+ m.EquippedPet="" m.Pets.Civilian=phase=="Locked" and 2 or phase=="TechnicalLimit" and 1 or phase=="BeyondCap" and 2 or 3
+ m.PetRanks.Civilian=phase=="TechnicalLimit" and C.ProgressionLevelLimit or phase=="BeyondCap" and 4 or phase=="RankOnly" and 1 or 0 m.Fragments.Civilian=6
  p:SetAttribute("HasStarted",true) E.Refresh(p) local page if phase~="RankOnly" then page="Pets" end E.Send(p,nil,page) return true
 end
 local reset=Instance.new("BindableFunction",game.ServerStorage) reset.Name="RestorePetRanksQA" reset.OnInvoke=restore

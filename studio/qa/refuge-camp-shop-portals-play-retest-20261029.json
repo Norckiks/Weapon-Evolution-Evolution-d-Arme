@@ -1,0 +1,47 @@
+{
+  "testId": "TEST-REFUGE-CAMP-SHOP-PORTALS-PLAY-RETEST-20261029",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "result": "PASS_WALKABLE_APPROACHES",
+  "editGeometry": {
+    "campCenter": [169.5, 4.1162, 275],
+    "campSize": [64.4206, 8.2324, 42.2063],
+    "campBaseParts": 4,
+    "shopRouteParts": 16,
+    "shopRouteOverlaps": 0,
+    "nearestRouteEdgeGap": 8.2897,
+    "shops": 4,
+    "shopOverlaps": 0,
+    "portalFrames": 19,
+    "portalTravelModels": 20
+  },
+  "play": {
+    "persistenceMode": "SessionStudio",
+    "player": "Bruno_ban369",
+    "level": 1,
+    "coins": 0,
+    "equippedWeapon": "Fists",
+    "shopApproachesReached": {
+      "Upgrades": { "promptDistance": 9.01, "maxActivationDistance": 10 },
+      "Weapons": { "promptDistance": 9.06, "maxActivationDistance": 10 },
+      "Pets": { "promptDistance": 9.73, "maxActivationDistance": 10 },
+      "Robux": { "promptDistance": 9.39, "maxActivationDistance": 10 }
+    },
+    "portalApproachesReached": {
+      "City": { "promptDistance": 7.25, "maxActivationDistance": 14 },
+      "Power": { "promptDistance": 0.72, "maxActivationDistance": 14 },
+      "Gridfall": { "promptDistance": 0.86, "maxActivationDistance": 10 }
+    },
+    "zonePortalPromptsEnabled": 19,
+    "zonePortalModels": 19,
+    "consoleOutput": "empty"
+  },
+  "methodAndLimits": [
+    "Used character navigation to physically reach the four shop prompt ranges, City, the first portal row, and the last portal row; stayed in REFUGE and did not activate a portal or buy anything.",
+    "The first-start tutorial blocked navigation. For QA only, the tutorial UI was hidden and the temporary menu-open flag cleared; TutorialComplete was not sent. This does not verify the normal first-launch tutorial interaction.",
+    "A route to the center of the Robux shop model returned NoPath; that point lies inside the shop footprint. The outside approach point was reachable and inside the prompt's 10-stud range.",
+    "No pixel capture, mobile, controller, multiplayer, saved .rbxl, or published-place validation was performed. The Edit scene remains unsaved."
+  ],
+  "cleanup": "Play stopped and Studio returned to Edit. No purchases, grants, profile progression, DataStore writes, place save, or publish."
+}

@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-27",
+  "studio": {
+    "name": "Évolution des armes",
+    "placeId": 89391796839094,
+    "finalMode": "Edit",
+    "playStopped": true
+  },
+  "arena": {
+    "path": "Workspace.SurvivorArena",
+    "descendants": 21,
+    "boundsSize": [40, 22, 28],
+    "boundsCenter": [48, 11, 333],
+    "outsideZombieZones": true,
+    "externalOverlaps": []
+  },
+  "scripts": {
+    "localStudioEqual": ["FistsServer", "FirearmsServer", "PulseAbility", "PvPService"],
+    "compiled": ["FistsServer", "FirearmsServer", "PulseAbility", "PvPService"],
+    "updatedSectionsCompared": ["EconomyService PvPPreference and default", "PvPService.CanEngage and CanDamage", "GameHub Options"],
+    "backup": "ServerStorage.BeforePvPArena"
+  },
+  "playQA": {
+    "players": 1,
+    "passed": true,
+    "checks": [
+      "arena center is in bounds",
+      "arena edge is included",
+      "outside edge is rejected",
+      "all four arena corners are outside WorldConfig combat zones",
+      "arena PvP stays enabled without opt-in",
+      "outside PvP defaults off",
+      "outside PvP requires both players to opt in",
+      "mutual opt-in enables outside PvP",
+      "PvP cannot cross the arena boundary",
+      "self damage is rejected"
+    ],
+    "fixtureDestroyed": true,
+    "console": "empty"
+  },
+  "outsideArenaToggle": {
+    "default": false,
+    "visibleWithoutScrolling": true,
+    "serverAttributeEnabledByOptions": true,
+    "serverAttributeDisabledByOptions": true,
+    "buttonTextUpdates": ["ACTIF", "INACTIF"],
+    "sessionOnly": true
+  },
+  "notVerified": [
+    "damage between two opted-in clients outside the arena",
+    "multiplayer combat balance",
+    "physical touch controls",
+    "saving the rbxl or publishing"
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "coordinate_note": "Blender X/Y/Z correspond to Roblox X/Z/Y before importer axis conversion. Positions are design references, not validated Studio placements. Refuge_Reference_Arene_PVP is a reference of the existing arena, not a replacement.",
+  "modules": [
+    {
+      "name": "Refuge_01_Sol_et_place",
+      "objects": 6,
+      "vertices": 520,
+      "triangles": 828
+    },
+    {
+      "name": "Refuge_02_Porte_Ville",
+      "objects": 8,
+      "vertices": 240,
+      "triangles": 360
+    },
+    {
+      "name": "Refuge_Portal_01_Usine_Niv5",
+      "objects": 9,
+      "vertices": 469,
+      "triangles": 523
+    },
+    {
+      "name": "Refuge_Portal_02_Laboratoire_Niv12",
+      "objects": 9,
+      "vertices": 796,
+      "triangles": 852
+    },
+    {
+      "name": "Refuge_Portal_03_Port_Niv20",
+      "objects": 9,
+      "vertices": 604,
+      "triangles": 666
+    },
+    {
+      "name": "Refuge_Portal_04_Centrale_Niv28",
+      "objects": 9,
+      "vertices": 697,
+      "triangles": 751
+    },
+    {
+      "name": "Refuge_Portal_05_Metro_Niv35",
+      "objects": 9,
+      "vertices": 615,
+      "triangles": 671
+    },
+    {
+      "name": "Refuge_Portal_06_Quarantaine_Niv45",
+      "objects": 9,
+      "vertices": 631,
+      "triangles": 684
+    },
+    {
+      "name": "Refuge_Portal_07_Barrage_Niv60",
+      "objects": 9,
+      "vertices": 812,
+      "triangles": 876
+    },
+    {
+      "name": "Refuge_Portal_08_Citadelle_Niv80",
+      "objects": 9,
+      "vertices": 664,
+      "triangles": 718
+    },
+    {
+      "name": "Refuge_03_Terminal",
+      "objects": 6,
+      "vertices": 1100,
+      "triangles": 1228
+    },
+    {
+      "name": "Refuge_Abri_01",
+      "objects": 4,
+      "vertices": 240,
+      "triangles": 384
+    },
+    {
+      "name": "Refuge_Abri_02",
+      "objects": 4,
+      "vertices": 240,
+      "triangles": 384
+    },
+    {
+      "name": "Refuge_Abri_03",
+      "objects": 4,
+      "vertices": 240,
+      "triangles": 384
+    },
+    {
+      "name": "Refuge_Abri_04",
+      "objects": 4,
+      "vertices": 240,
+      "triangles": 384
+    },
+    {
+      "name": "Refuge_Boutique_01_ATELIER",
+      "objects": 6,
+      "vertices": 427,
+      "triangles": 581
+    },
+    {
+      "name": "Refuge_Boutique_02_ARMURERIE",
+      "objects": 6,
+      "vertices": 694,
+      "triangles": 848
+    },
+    {
+      "name": "Refuge_Boutique_03_PETS",
+      "objects": 6,
+      "vertices": 478,
+      "triangles": 636
+    },
+    {
+      "name": "Refuge_Boutique_04_BOUTIQUE",
+      "objects": 6,
+      "vertices": 786,
+      "triangles": 943
+    },
+    {
+      "name": "Refuge_04_Vie_du_camp",
+      "objects": 4,
+      "vertices": 1000,
+      "triangles": 1624
+    },
+    {
+      "name": "Refuge_Reference_Arene_PVP",
+      "objects": 3,
+      "vertices": 168,
+      "triangles": 284
+    },
+    {
+      "name": "Ville_01_Sol_et_avenue",
+      "objects": 4,
+      "vertices": 376,
+      "triangles": 564
+    },
+    {
+      "name": "Ville_Batiment_01",
+      "objects": 7,
+      "vertices": 2016,
+      "triangles": 3024
+    },
+    {
+      "name": "Ville_Batiment_02",
+      "objects": 6,
+      "vertices": 2432,
+      "triangles": 3648
+    },
+    {
+      "name": "Ville_Batiment_03",
+      "objects": 6,
+      "vertices": 2544,
+      "triangles": 3816
+    },
+    {
+      "name": "Ville_Batiment_04",
+      "objects": 7,
+      "vertices": 2040,
+      "triangles": 3060
+    },
+    {
+      "name": "Ville_Batiment_05",
+      "objects": 7,
+      "vertices": 1496,
+      "triangles": 2244
+    },
+    {
+      "name": "Ville_Batiment_06",
+      "objects": 6,
+      "vertices": 3368,
+      "triangles": 5052
+    },
+    {
+      "name": "Ville_Batiment_07",
+      "objects": 6,
+      "vertices": 1848,
+      "triangles": 2772
+    },
+    {
+      "name": "Ville_Batiment_08",
+      "objects": 7,
+      "vertices": 1608,
+      "triangles": 2412
+    },
+    {
+      "name": "Ville_Batiment_09",
+      "objects": 7,
+      "vertices": 2624,
+      "triangles": 3936
+    },
+    {
+      "name": "Ville_Batiment_10",
+      "objects": 6,
+      "vertices": 2056,
+      "triangles": 3084
+    },
+    {
+      "name": "Ville_Batiment_11",
+      "objects": 6,
+      "vertices": 3296,
+      "triangles": 4944
+    },
+    {
+      "name": "Ville_Batiment_12",
+      "objects": 7,
+      "vertices": 2096,
+      "triangles": 3144
+    },
+    {
+      "name": "Ville_02_Checkpoint",
+      "objects": 8,
+      "vertices": 512,
+      "triangles": 864
+    },
+    {
+      "name": "Ville_03_Carrefour_et_pharmacie",
+      "objects": 10,
+      "vertices": 1305,
+      "triangles": 2039
+    },
+    {
+      "name": "Ville_04_Barricade_finale",
+      "objects": 7,
+      "vertices": 480,
+      "triangles": 816
+    },
+    {
+      "name": "Ville_05_Details_urbains",
+      "objects": 5,
+      "vertices": 912,
+      "triangles": 1448
+    }
+  ]
+}

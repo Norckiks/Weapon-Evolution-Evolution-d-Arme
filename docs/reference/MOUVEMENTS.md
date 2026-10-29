@@ -9,11 +9,14 @@ Le contrôleur SprintServer gère désormais l'accélération et partage son end
 - V / Y : franchissement d'un obstacle bas devant soi.
 - Ctrl / B manette : dash existant.
 - O / Select manette, bouton de vue ou Options : première/troisième personne. Voir [le lot de jouabilité et ses preuves](IDEES_IMPLEMENTEES.md).
+- En troisième personne, le pointeur reste centré et masqué ; clic droit/glisser tourne la caméra. M libère le pointeur pour l'interface, puis M le reverrouille.
 - Boutons tactiles GLISSE et FRANCHIR ajoutés au groupe existant.
 
 ## Règles actuelles
 
-Contrôle caméra du 26 octobre, en troisième personne sur téléphone simulé paysage : distance tête/caméra 8,2855 studs sans obstacle, 3,0185 avec un mur temporaire placé derrière le joueur, puis 8,3131 après retrait. Cela vérifie un cas d'occlusion du contrôleur natif, pas toutes les collisions de la carte ni la rotation au clic droit.
+Contrôle caméra du 26 octobre, en troisième personne sur téléphone simulé paysage : distance tête/caméra 8,2855 studs sans obstacle, 3,0185 avec un mur temporaire placé derrière le joueur, puis 8,3131 après retrait. Cela vérifie un cas d'occlusion du contrôleur natif, pas toutes les collisions de la carte ; la rotation au clic droit n'était alors pas testée.
+
+Le 27 octobre, une session Play PC a vérifié le verrouillage du pointeur en troisième personne, son déverrouillage/reverrouillage par M et le retour au verrouillage après fermeture des options et de l'atelier. Un glisser clic droit simulé a changé l'orientation de la caméra ; aucune souris physique n'a été testée.
 
 - Accroupi : vitesse cible 8, hauteur et caméra abaissées. Cela ne garantit pas le passage sous toutes les ouvertures : les collisions du corps Roblox restent actives.
 - Marche : 18 ; sprint : 32 studs/s avant améliorations et pets. Accélération 14, freinage 18. Endurance et délais conservés.

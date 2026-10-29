@@ -8,15 +8,43 @@ local function part(name,size,pos,color,material,collide)
  p.Anchored=true p.CanCollide=collide~=false p.TopSurface=Enum.SurfaceType.Smooth p.BottomSurface=Enum.SurfaceType.Smooth p.Parent=root return p
 end
 local asphalt=Color3.fromRGB(55,65,65) local metal=Color3.fromRGB(65,75,75) local wood=Color3.fromRGB(114,91,65) local gold=Color3.fromRGB(236,188,71)
-part("CourtyardGround",Vector3.new(240,.2,132),Vector3.new(16,.1,295),asphalt,Enum.Material.Asphalt)
-part("CentralPath",Vector3.new(22,.08,125),Vector3.new(0,.24,295),Color3.fromRGB(79,84,76),Enum.Material.Concrete,false)
-for z=245,345,20 do part("PathStripe",Vector3.new(1,.06,8),Vector3.new(0,.31,z),gold,Enum.Material.SmoothPlastic,false) end
-for _,x in {-104,136} do
- part("SideFence",Vector3.new(1,6,112),Vector3.new(x,3,305),metal,Enum.Material.CorrodedMetal)
- for z=250,350,25 do part("FencePost",Vector3.new(2,8,2),Vector3.new(x,4,z),wood,Enum.Material.WoodPlanks) end
+part("CourtyardGround",Vector3.new(380,.2,190),Vector3.new(16,.1,295),asphalt,Enum.Material.Asphalt)
+part("CentralPath",Vector3.new(24,.08,170),Vector3.new(0,.24,290),Color3.fromRGB(43,54,67),Enum.Material.Slate,false)
+local shopAccess=Instance.new("Folder") shopAccess.Name="ShopAccessWalkways" shopAccess.Parent=root
+for _,side in ipairs({-1,1}) do
+ local name=side<0 and "Left" or "Right" local x=side*125 local laneStart,laneEnd=234.5,274
+ local laneLength=laneEnd-laneStart local laneCenter=(laneStart+laneEnd)/2
+ local lane=part("SideAisle_"..name,Vector3.new(8,.08,laneLength),Vector3.new(x,.24,laneCenter),Color3.fromRGB(58,75,88),Enum.Material.Slate,false)
+ lane.Parent=shopAccess lane.CanTouch=false lane.CanQuery=false
+ for _,edgeSide in ipairs({-1,1}) do
+  local edge=part("SideAisleEdge_"..name.."_"..(edgeSide<0 and "L" or "R"),Vector3.new(.14,.04,laneLength-8),Vector3.new(x+edgeSide*3.78,.31,laneCenter),Color3.fromRGB(55,178,170),Enum.Material.Neon,false)
+  edge.Parent=shopAccess edge.Transparency=.22 edge.CanTouch=false edge.CanQuery=false
+ end
+ local startX,endX=side*10.5,x local linkLength=math.abs(endX-startX) local linkCenter=(startX+endX)/2
+ local link=part("CentralConnector_"..name,Vector3.new(linkLength,.08,8),Vector3.new(linkCenter,.24,laneEnd),Color3.fromRGB(58,75,88),Enum.Material.Slate,false)
+ link.Parent=shopAccess link.CanTouch=false link.CanQuery=false
+ for _,edgeSide in ipairs({-1,1}) do
+  local edge=part("CentralConnectorEdge_"..name.."_"..(edgeSide<0 and "L" or "R"),Vector3.new(linkLength-8,.04,.14),Vector3.new(linkCenter,.31,laneEnd+edgeSide*3.78),Color3.fromRGB(55,178,170),Enum.Material.Neon,false)
+  edge.Parent=shopAccess edge.Transparency=.22 edge.CanTouch=false edge.CanQuery=false
+ end
+ local shops=side<0 and {{name="Upgrades",z=234.5},{name="Pets",z=256.5}} or {{name="Weapons",z=234.5},{name="Robux",z=256.5}}
+ for _,shop in ipairs(shops) do
+  local spurCenter=side*117.5
+  local spur=part("ShopSpur_"..shop.name.."_"..name,Vector3.new(15,.08,8),Vector3.new(spurCenter,.24,shop.z),Color3.fromRGB(58,75,88),Enum.Material.Slate,false)
+  spur.Parent=shopAccess spur.CanTouch=false spur.CanQuery=false
+ end
 end
-part("RearFence",Vector3.new(240,6,1),Vector3.new(16,3,360),metal,Enum.Material.CorrodedMetal)
-for x=-84,116,25 do part("RearPost",Vector3.new(2,8,2),Vector3.new(x,4,360),wood,Enum.Material.WoodPlanks) end
+for _,x in {-11.25,11.25} do
+ local edge=part("PathEdgeGuide_"..(x<0 and "L" or "R"),Vector3.new(.14,.04,166),Vector3.new(x,.31,290),Color3.fromRGB(55,178,170),Enum.Material.Neon,false)
+ edge.Transparency=.2 edge.CanTouch=false edge.CanQuery=false
+end
+for i=1,6 do part("PathStripe",Vector3.new(1,.06,8),Vector3.new(0,.31,226+(i-1)*28),gold,Enum.Material.SmoothPlastic,false) end
+for _,x in {-174,206} do
+	part("SideFence",Vector3.new(1,6,190),Vector3.new(x,3,295),metal,Enum.Material.CorrodedMetal)
+	for z=220,370,37.5 do part("FencePost",Vector3.new(2,8,2),Vector3.new(x,4,z),wood,Enum.Material.WoodPlanks) end
+end
+part("RearFence",Vector3.new(380,6,1),Vector3.new(16,3,390),metal,Enum.Material.CorrodedMetal)
+for x=-174,206,47.5 do part("RearPost",Vector3.new(2,8,2),Vector3.new(x,4,390),wood,Enum.Material.WoodPlanks) end
 for _,x in {-25,25} do for _,z in {250,290,330} do
  part("LampPost",Vector3.new(1,12,1),Vector3.new(x,6,z),metal,Enum.Material.Metal)
  local light=part("Lamp",Vector3.new(2,.6,2),Vector3.new(x,12,z),Color3.fromRGB(255,221,152),Enum.Material.Neon,false)

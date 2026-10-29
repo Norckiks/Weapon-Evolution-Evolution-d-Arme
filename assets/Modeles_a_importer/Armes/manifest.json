@@ -1,0 +1,130 @@
+[
+  {
+    "id": "Hook",
+    "name": "Crochet de quarantaine",
+    "file": "Hook.fbx",
+    "meshes": 17,
+    "triangles": 772,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "Kris",
+    "name": "Kris du veilleur",
+    "file": "Kris.fbx",
+    "meshes": 17,
+    "triangles": 780,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "Spear",
+    "name": "Lance de rupture",
+    "file": "Spear.fbx",
+    "meshes": 17,
+    "triangles": 740,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "Cleaver",
+    "name": "Couperet des digues",
+    "file": "Cleaver.fbx",
+    "meshes": 17,
+    "triangles": 740,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "WarHammer",
+    "name": "Marteau de siege",
+    "file": "WarHammer.fbx",
+    "meshes": 22,
+    "triangles": 1256,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "Pike",
+    "name": "Pique des remparts",
+    "file": "Pike.fbx",
+    "meshes": 17,
+    "triangles": 740,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "PhaseBlade",
+    "name": "Lame du coeur",
+    "file": "PhaseBlade.fbx",
+    "meshes": 19,
+    "triangles": 964,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "MirrorAxe",
+    "name": "Hache de verre",
+    "file": "MirrorAxe.fbx",
+    "meshes": 17,
+    "triangles": 756,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "RelayLance",
+    "name": "Lance du relais",
+    "file": "RelayLance.fbx",
+    "meshes": 19,
+    "triangles": 956,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "OrbitalSpear",
+    "name": "Lance orbitale",
+    "file": "OrbitalSpear.fbx",
+    "meshes": 19,
+    "triangles": 956,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "RiftCleaver",
+    "name": "Fendoir des abysses",
+    "file": "RiftCleaver.fbx",
+    "meshes": 17,
+    "triangles": 756,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "ForgeMaul",
+    "name": "Maillet du dernier jour",
+    "file": "ForgeMaul.fbx",
+    "meshes": 22,
+    "triangles": 1256,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "ConvoyEdge",
+    "name": "Lame du dernier convoi",
+    "file": "ConvoyEdge.fbx",
+    "meshes": 17,
+    "triangles": 748,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "ArcPike",
+    "name": "Pique de la grille",
+    "file": "ArcPike.fbx",
+    "meshes": 19,
+    "triangles": 956,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "BlackoutEdge",
+    "name": "Trancheuse du blackout",
+    "file": "BlackoutEdge.fbx",
+    "meshes": 19,
+    "triangles": 964,
+    "max_triangles_per_mesh": 108
+  },
+  {
+    "id": "EclipseGlaive",
+    "name": "Glaive de l'eclipse",
+    "file": "EclipseGlaive.fbx",
+    "meshes": 17,
+    "triangles": 764,
+    "max_triangles_per_mesh": 108
+  }
+]

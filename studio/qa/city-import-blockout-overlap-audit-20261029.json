@@ -1,0 +1,40 @@
+{
+  "testId": "AUDIT-CITY-IMPORT-BLOCKOUT-OVERLAP-20261029",
+  "date": "2026-10-29",
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "placeId": 89391796839094,
+  "mode": "Studio Edit, read-only geometry audit",
+  "result": "12_OVERLAPPING_PAIRS_CONFIRMED",
+  "scenePaths": {
+    "importedVisuals": "Workspace.ImportedEnvironmentModels.City.Ville_Batiment_01..12",
+    "legacyCollisionAndVisuals": "Workspace.ApocalypseDistrict.RuinedBlock_1..12"
+  },
+  "summary": {
+    "importedBuildings": 12,
+    "legacyBlockouts": 12,
+    "legacyCollidableParts": 918,
+    "allNearestPairsOverlapInXZ": true,
+    "nearestPairCenterGapRangeStuds": [4.82, 17.46],
+    "importedMeshesCollidable": false,
+    "legacyBlockoutPartsCollidable": true
+  },
+  "nearestPairs": [
+    {"visual":"Ville_Batiment_01","legacy":"RuinedBlock_1","centerGap":4.82,"collidableParts":69},
+    {"visual":"Ville_Batiment_02","legacy":"RuinedBlock_2","centerGap":6.80,"collidableParts":84},
+    {"visual":"Ville_Batiment_03","legacy":"RuinedBlock_3","centerGap":11.77,"collidableParts":84},
+    {"visual":"Ville_Batiment_04","legacy":"RuinedBlock_4","centerGap":11.09,"collidableParts":69},
+    {"visual":"Ville_Batiment_05","legacy":"RuinedBlock_5","centerGap":5.09,"collidableParts":52},
+    {"visual":"Ville_Batiment_06","legacy":"RuinedBlock_6","centerGap":8.39,"collidableParts":101},
+    {"visual":"Ville_Batiment_07","legacy":"RuinedBlock_9","centerGap":10.02,"collidableParts":84},
+    {"visual":"Ville_Batiment_08","legacy":"RuinedBlock_10","centerGap":6.99,"collidableParts":52},
+    {"visual":"Ville_Batiment_09","legacy":"RuinedBlock_7","centerGap":15.20,"collidableParts":69},
+    {"visual":"Ville_Batiment_10","legacy":"RuinedBlock_8","centerGap":17.46,"collidableParts":84},
+    {"visual":"Ville_Batiment_11","legacy":"RuinedBlock_11","centerGap":8.09,"collidableParts":101},
+    {"visual":"Ville_Batiment_12","legacy":"RuinedBlock_12","centerGap":4.96,"collidableParts":69}
+  ],
+  "interpretation": "All 12 imported meshes overlap an older, visible, collidable structure. The old group is the effective collision geometry; hiding or deleting it without replacing its collision would create invisible blockers or let players pass through the imported buildings.",
+  "geometryOnlyLimit": "AABB overlap and instance flags do not reveal exact visual surface alignment, door openings, or the player's intended access inside buildings. No screenshot was available.",
+  "sideEffects": {"sceneChanged":false,"profileChanged":false,"saved":false,"published":false},
+  "nextStep": "Compare mesh contours and legacy openings, then build replacement collision around imported City meshes and validate street/door paths before hiding any legacy visuals."
+}
+

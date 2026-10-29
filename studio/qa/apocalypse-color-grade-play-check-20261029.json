@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "edit": {
+    "ApocalypseGradeSaturationBefore": -0.28,
+    "ApocalypseGradeSaturationAfter": -0.05,
+    "SurvivalFilmGradeSaturation": -0.05,
+    "backup": "ServerStorage.BeforeApocalypseGradeColorPass_20261029"
+  },
+  "playClient": {
+    "ApocalypseGradeSaturation": -0.05,
+    "SurvivalFilmGradeSaturation": -0.05,
+    "clockTime": 0.75,
+    "brightness": 0.45,
+    "exposureCompensation": -0.15,
+    "latestWeapons": {
+      "ArcPike": { "meshParts": 19, "uniqueColors": 5, "greyParts": 0, "minimumSaturation": 0.519 },
+      "BlackoutEdge": { "meshParts": 19, "uniqueColors": 5, "greyParts": 0, "minimumSaturation": 0.580 },
+      "EclipseGlaive": { "meshParts": 17, "uniqueColors": 5, "greyParts": 0, "minimumSaturation": 0.622 }
+    },
+    "refugeTravelGates": 19,
+    "refugeTravelPrompts": 19,
+    "consoleOutput": "empty"
+  },
+  "endState": "Play stopped; Studio returned to Edit",
+  "limits": [
+    "Screenshot capture unavailable; rendered colors were not visually inspected.",
+    "No mobile, multiplayer, performance, save, or publish test performed."
+  ]
+}

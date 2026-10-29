@@ -1,0 +1,39 @@
+{
+  "testId": "TEST-WEAPON-MODELS-PLAY-USER-FOLLOWUP-20261029",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "mode": "Studio Play, actual PlayerGui runtime inspection",
+  "result": "PASS_RUNTIME_SYMPTOM_NOT_REPRODUCED",
+  "checks": {
+    "hasStarted": false,
+    "armoryPageVisible": true,
+    "weaponDefinitions": 30,
+    "definitionsMarkedModelPending": 0,
+    "missingImportedWeaponModels": 0,
+    "weaponCards": 31,
+    "weaponViewports": 31,
+    "viewportsWithCamera": 31,
+    "previewGeometryParts": 337,
+    "sourceModels": 30,
+    "sourceMeshParts": 335,
+    "uiModelTextMatches": 0,
+    "temporaryProbeDestroyed": true,
+    "playStopped": true
+  },
+  "method": [
+    "Started a fresh Play session in Studio place 89391796839094.",
+    "Sent the actual loaded EconomyService state to the client with Open=Weapons using a temporary server Script in Play; it self-destroyed immediately after sending.",
+    "Inspected all weapon cards, ViewportFrames, camera references, descendant geometry, displayed text, live weapon definitions, and imported model IDs in the client.",
+    "Stopped Play and verified Studio returned to Edit."
+  ],
+  "notes": [
+    "The 337 preview parts include the two primitive glove parts used for Fists; the 30 non-fist weapon models account for 335 imported MeshParts.",
+    "Studio script search found the obsolete A MODELER text only in ServerStorage.BeforeWeaponModelLabelFix_20261029.GameHub, a retained backup; it was not in the active PlayerGui or weapon definitions.",
+    "One unsuccessful tooling attempt called a nonexistent GuiButton:Activate method and left that diagnostic in Studio Output; it did not modify game data or prevent the subsequent successful render."
+  ],
+  "limitations": [
+    "No usable Play screenshot was available, so this confirms live UI instances and model geometry, not pixel appearance.",
+    "No purchase, equip, grant, profile change, DataStore write, place save, or publish was performed; HasStarted remained false."
+  ]
+}

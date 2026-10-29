@@ -1,0 +1,40 @@
+{
+  "testId": "TEST-PORTAL-GUIDANCE-LIGHTING-001",
+  "date": "2026-10-29",
+  "studio": {
+    "name": "Évolution des armes",
+    "placeId": 89391796839094,
+    "editBackup": "ServerStorage.BeforePortalGuidanceLighting_20261029",
+    "finalMode": "Edit"
+  },
+  "edit": {
+    "configuredZones": 19,
+    "visualFrames": 19,
+    "accentPointLights": 19,
+    "promptsBefore": 19,
+    "promptsAfter": 19,
+    "travelFieldsChanged": 0,
+    "lightBrightness": 0.55,
+    "lightRangeStuds": 16,
+    "lightShadows": false
+  },
+  "play": {
+    "clientFrames": 19,
+    "clientAccentPointLights": 19,
+    "clientPrompts": 19,
+    "clientFields": 19,
+    "badLightProperties": 0,
+    "consoleOutput": "empty",
+    "playStopped": true
+  },
+  "visualReview": {
+    "studioCapture": "timed out",
+    "windowsCapture": "timed out",
+    "pixelAppearanceConfirmed": false
+  },
+  "limits": [
+    "Mobile performance and actual on-screen readability were not verified.",
+    "Portal travel interactions were not replayed in this lighting-only pass.",
+    "No .rbxl save or experience publish was performed."
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "testId": "TEST-TUTORIAL-RESPONSIVE-SCALE-PLAY-20261029",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "Play",
+  "result": "PASS_WITH_INPUT_LIMIT",
+  "before": {
+    "cameraViewport": [
+      1,
+      1
+    ],
+    "screenGuiSize": [
+      800,
+      600
+    ],
+    "tutorialUIScale": 1e-07,
+    "nextButtonSizeApproximately": [
+      1.7e-05,
+      7.8e-06
+    ]
+  },
+  "repair": {
+    "source": "studio/GameHub.client.luau",
+    "layoutBasis": "SurvivorHub ScreenGui.AbsoluteSize",
+    "refresh": "AbsoluteSize property changed signal plus deferred initial layout",
+    "boundsGuard": "Only calculate when width and height exceed 24 px; clamp scale to 0.1..1",
+    "gamepadFocus": "Set tutorial selection only when GamepadEnabled and the button remains visible/selectable; delay until after the panel transition"
+  },
+  "after": {
+    "cameraViewport": [
+      1,
+      1
+    ],
+    "screenGuiSize": [
+      800,
+      600
+    ],
+    "tutorialUIScale": 1,
+    "tutorialSize": [
+      560,
+      480
+    ],
+    "nextButtonSize": [
+      170,
+      78
+    ],
+    "gamepadEnabled": false
+  },
+  "console": "Fresh Play after the GamepadEnabled guard returned no console output.",
+  "profile": {
+    "persistenceMode": "SessionStudio",
+    "coins": 0,
+    "level": 1,
+    "equippedWeapon": "Fists"
+  },
+  "cleanup": "Play stopped. No tutorial completion, purchase, DataStore write, .rbxl save, or publish.",
+  "limits": [
+    "The mouse-input tool timed out; an injected Right keypress reported success but the tutorial stayed on step 1, so button interaction is not verified.",
+    "No screenshot, portrait/landscape device, or physical gamepad validation."
+  ]
+}

@@ -1,8 +1,8 @@
 # Primes de niveau
 
-Depuis le lot Métro : onzième prime au niveau35,9 000pièces, même reçu serveur. Voir [METRO.md](METRO.md).
+Depuis l'ajout de la Voûte de l’Éclipse, le catalogue comporte 42 primes, des niveaux 2 à 280 ; les paliers 270 et 280 ajoutent respectivement 520 000 et 560 000 pièces. Les reçus serveur existants restent utilisés. Voir [ECLIPSE_VAULT.md](ECLIPSE_VAULT.md).
 
-Dans CADEAUX & PALIERS (raccourci G), une carte présente le premier palier non récupéré. Atteindre le niveau requis permet de récupérer des pièces, puis la carte passe au suivant ; elle disparaît après les dix primes. Le compteur Cadeaux inclut ces primes disponibles, en plus des cadeaux de temps. Aucun XP n'est accordé par ces primes : elles n'entraînent pas une boucle de niveaux gratuits.
+Dans CADEAUX & PALIERS (raccourci G), une carte présente le premier palier non récupéré. Atteindre le niveau requis permet de récupérer des pièces, puis la carte passe au suivant ; elle disparaît après les 42 primes. Le compteur Cadeaux inclut ces primes disponibles, en plus des cadeaux de temps. Aucun XP n'est accordé par ces primes : elles n'entraînent pas une boucle de niveaux gratuits.
 
 | Niveau | Pièces |
 | --- | --- |
@@ -16,6 +16,38 @@ Dans CADEAUX & PALIERS (raccourci G), une carte présente le premier palier non 
 | 20 | 3 500 |
 | 22 | 4 000 |
 | 28 | 6 000 |
+| 35 | 9 000 |
+| 40 | 11 000 |
+| 45 | 12 500 |
+| 48 | 14 000 |
+| 50 | 15 500 |
+| 55 | 18 000 |
+| 60 | 22 000 |
+| 64 | 25 000 |
+| 65 | 27 000 |
+| 70 | 32 000 |
+| 72 | 35 000 |
+| 80 | 45 000 |
+| 90 | 55 000 |
+| 100 | 70 000 |
+| 110 | 85 000 |
+| 120 | 100 000 |
+| 130 | 120 000 |
+| 140 | 140 000 |
+| 150 | 160 000 |
+| 160 | 180 000 |
+| 170 | 200 000 |
+| 180 | 225 000 |
+| 190 | 250 000 |
+| 200 | 280 000 |
+| 210 | 310 000 |
+| 220 | 340 000 |
+| 230 | 370 000 |
+| 240 | 400 000 |
+| 250 | 440 000 |
+| 260 | 480 000 |
+| 270 | 520 000 |
+| 280 | 560 000 |
 
 Les anciens joueurs peuvent récupérer les paliers déjà atteints. Une prime est unique par profil, sans remise à zéro quotidienne ; ce sont des récompenses fixes, non multipliées par les pets ou bonus temporaires. Le plafond de pièces de deux milliards est conservé : ClaimLevel refuse désormais avant tout reçu si la prime entière ne tient pas dans le solde disponible. Elle reste à récupérer après une dépense. Une place exactement suffisante est acceptée. L'UI affiche DEPENSE D'ABORD et exclut cette prime du nombre de primes de niveau prêtes. Cette garde concerne uniquement les primes de niveau ; le comportement des autres sources de récompenses n'a pas été modifié.
 

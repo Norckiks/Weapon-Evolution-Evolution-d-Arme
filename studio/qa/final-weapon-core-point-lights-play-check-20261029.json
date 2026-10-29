@@ -1,0 +1,50 @@
+{
+  "testId": "TEST-FINAL-WEAPON-CORE-POINT-LIGHTS-PLAY-20261029",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "result": "PASS_LIGHTS_CLONE_IN_REAL_PREVIEWS_AND_BUILD",
+  "edit": {
+    "replicatedModels": 3,
+    "prototypeModels": 3,
+    "coresWithPointLight": 6,
+    "settings": { "brightness": 0.65, "range": 6, "shadows": false },
+    "backup": "ServerStorage.BeforeFinalWeaponCorePointLights_20261029",
+    "coreColors": {
+      "ArcPike": "63eeff",
+      "BlackoutEdge": "ffbe4a",
+      "EclipseGlaive": "ff65d8"
+    }
+  },
+  "play": {
+    "persistenceMode": "SessionStudio",
+    "level": 1,
+    "coins": 0,
+    "equippedWeapon": "Fists",
+    "armoryCards": 31,
+    "previewsWithCamera": 31,
+    "previewsWithModel": 31,
+    "visiblePreviewParts": 337,
+    "finalPreviewsWithMatchingNeonCoreAndPointLight": {
+      "ArcPike": true,
+      "BlackoutEdge": true,
+      "EclipseGlaive": true
+    },
+    "WeaponVisualsBuildClonesWithOneValidLight": {
+      "ArcPike": true,
+      "BlackoutEdge": true,
+      "EclipseGlaive": true
+    },
+    "temporaryProbeRemoved": true,
+    "consoleOutput": "empty",
+    "studioAfterTest": "Edit"
+  },
+  "method": "Added one PointLight to each named Neon Noyau on the three replicated models and three server import prototypes. In Play opened the real armory with a temporary self-destroying server probe, inspected its client ViewportFrames, then called the actual WeaponVisuals.Build for each final weapon and destroyed those temporary clones.",
+  "limits": [
+    "No usable Studio pixel capture was available; the test proves runtime light instances and settings, not rendered appearance or whether the glow is visually strong enough.",
+    "The player remained equipped with Fists; this did not equip a final weapon on the character or verify first-/third-person pixels.",
+    "No mobile, controller, multiplayer, saved .rbxl, or published-place validation was performed.",
+    "The Edit scene remains unsaved."
+  ],
+  "cleanup": "Stopped Play and returned to Edit. No purchase, grant, profile progression, DataStore write, place save, or publish."
+}

@@ -1,0 +1,28 @@
+{
+  "placeId": 89391796839094,
+  "studio": "Évolution des armes",
+  "modeBefore": "Edit",
+  "modeAfter": "Edit",
+  "playCheck": {
+    "armoryOpened": true,
+    "openedBy": "temporary server Play Script calling the existing EconomyService.Send(player, nil, 'Weapons')",
+    "temporaryScriptSelfDestroyed": true,
+    "hasStarted": false,
+    "equippedWeapon": "Fists",
+    "replicatedWeaponModels": 30,
+    "weaponRows": 31,
+    "viewportFrames": 31,
+    "viewportsWithCamera": 31,
+    "viewportsWithGeometry": 31,
+    "emptyViewports": 0,
+    "modelPendingTextMatches": 0,
+    "modelOrModeliserTextMatchesInWeaponRows": 0,
+    "equippedWeaponVisualParts": 0
+  },
+  "result": "The reported placeholder label and empty 3D preview were not reproduced in this Studio Play session. The player was still using fists; no separate held weapon model was expected.",
+  "limits": [
+    "No pixel screenshot was inspected, so visual recognizability and render quality are not confirmed.",
+    "No weapon was bought or equipped; the loaded profile was not modified."
+  ],
+  "cleanup": "Play stopped; Studio returned to Edit; the temporary server Script was absent after returning to Edit. No .rbxl save or publish."
+}

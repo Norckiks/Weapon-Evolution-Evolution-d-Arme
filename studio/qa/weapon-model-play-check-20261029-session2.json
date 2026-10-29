@@ -1,0 +1,40 @@
+{
+  "testId": "TEST-WEAPON-MODELS-PLAY-CHECK-SESSION-2",
+  "date": "2026-10-29",
+  "place": "Évolution des armes",
+  "placeId": 89391796839094,
+  "mode": "Studio Play",
+  "result": "PASS_LABEL_AND_PREVIEWS_NOT_REPRODUCED",
+  "catalog": {
+    "weaponRows": 31,
+    "viewports": 31,
+    "viewportsMissingCamera": 0,
+    "viewportsWithoutGeometry": 0,
+    "viewportsWithZeroBounds": 0,
+    "visibleLabelsContainingModelOrModeliser": 0,
+    "gameplayConfigModelPending": 0,
+    "replicatedImportedWeaponModels": 16,
+    "importedMeshParts": 292,
+    "previewParts": 665,
+    "previewPartsOtherThanFists": 663,
+    "equippedWeapon": "Fists"
+  },
+  "notImportedAsMeshModels": [
+    "Axe", "Bat", "Carbine", "Katana", "LMG", "LimitedBlade", "Machete",
+    "Marksman", "Pipe", "Pistol", "Revolver", "SMG", "Shotgun", "Sledgehammer"
+  ],
+  "checks": [
+    "Opened ARMURERIE in Play via a temporary server Script calling the real EconomyService.Send for the current profile; the opener destroyed itself.",
+    "All 31 weapon ViewportFrames had a camera, non-empty BasePart geometry, and non-zero bounds.",
+    "No visible PlayerGui text contained model/modéliser and the live GameplayConfig had no ModelPending entries.",
+    "All 16 imported weapon models replicated to the client (292 MeshParts); the other 14 non-fist weapons use Roblox Part geometry from WeaponVisuals.Build.",
+    "The player's equipped weapon remained Fists; no purchase, grant, equip, or profile change was performed.",
+    "Play was stopped and Studio returned to Edit; the temporary opener was absent in both Play and Edit."
+  ],
+  "limitations": [
+    "No inspectable Play screenshot was captured, so rendered pixels were not confirmed.",
+    "A Studio AssistantCommand diagnostic error was present in Output: 'Material/palette check failed ArcPike'; it was not emitted by the temporary armory opener and no GameHub/EconomyService stack was returned.",
+    "The 14 listed weapons have 3D Part-based previews, not imported MeshPart/FBX models; if the complaint refers to those, custom imported models are still absent."
+  ],
+  "placeSavedOrPublished": false
+}

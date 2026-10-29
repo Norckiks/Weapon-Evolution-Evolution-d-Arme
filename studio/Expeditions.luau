@@ -1,7 +1,7 @@
 -- Shared definitions and bounded profile rules. EconomyService alone authorizes claims/rewards.
 local W=require(script.Parent.WorldConfig)
 local X={}
-X.Rewards={City={Coins=120,XP=60},Factory={Coins=550,XP=240},Lab={Coins=1400,XP=650},Harbor={Coins=3000,XP=1300},Power={Coins=6000,XP=2600},Metro={Coins=10000,XP=4500}}
+X.Rewards={City={Coins=120,XP=60},Factory={Coins=550,XP=240},Lab={Coins=1400,XP=650},Harbor={Coins=3000,XP=1300},Power={Coins=6000,XP=2600},Metro={Coins=10000,XP=4500},Quarantine={Coins=15000,XP=6800},Dam={Coins=22000,XP=9800},Citadel={Coins=32000,XP=14500},Crater={Coins=42000,XP=19000},GlassSea={Coins=62000,XP=29000},Skyline={Coins=90000,XP=43000},OrbitalWreck={Coins=120000,XP=55000},Depths={Coins=160000,XP=72000},IronSanctum={Coins=180000,XP=80000},LastConvoy={Coins=220000,XP=100000},Gridfall={Coins=280000,XP=130000},BlackoutCore={Coins=350000,XP=170000},EclipseVault={Coins=430000,XP=210000}}
 X.Steps={{Name="Prendre pied",Target=6},{Name="Connaitre la menace",Target=3,Variety=true},{Name="Nettoyer le secteur",Target=18}}
 local zones={} local species={}
 for _,zone in W.Zones do

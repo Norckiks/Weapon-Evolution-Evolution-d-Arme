@@ -1,0 +1,43 @@
+{
+  "testId": "TEST-REFUGE-DETACHED-ENVIRONMENT-001",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "finding": "Model:PivotTo updated five custom WorldPivots, but the imported refuge mesh geometry remained far from the targets.",
+  "repair": "Translate descendant BaseParts to place each model footprint at its intended X/Z and rest its bounding-box base at Y=0.",
+  "models": [
+    { "name": "Refuge_Abri_01", "beforeBoundsCenter": [-194, -0.1, 617.8], "size": [18, 7.39, 14], "targetBase": [-145, 0, 235], "partsTranslated": 4, "afterBaseErrorStuds": 0 },
+    { "name": "Refuge_Abri_02", "beforeBoundsCenter": [226, 0.9, 617.8], "size": [18, 7.39, 14], "targetBase": [177, 0, 235], "partsTranslated": 4, "afterBaseErrorStuds": 0 },
+    { "name": "Refuge_Abri_03", "beforeBoundsCenter": [-69, 3.9, 782.8], "size": [18, 7.39, 14], "targetBase": [-145, 0, 365], "partsTranslated": 4, "afterBaseErrorStuds": 0 },
+    { "name": "Refuge_Abri_04", "beforeBoundsCenter": [282, 3.9, 816.8], "size": [18, 7.39, 14], "targetBase": [177, 0, 365], "partsTranslated": 4, "afterBaseErrorStuds": 0 },
+    { "name": "Refuge_03_Terminal", "beforeBoundsCenter": [-75, 10.8, 629], "size": [88, 21, 72], "targetBase": [-130, 0, 300], "partsTranslated": 6, "afterBaseErrorStuds": 0 }
+  ],
+  "editBackup": "ServerStorage.BeforeRefugeGeometryPass2_20261029",
+  "builderUpdated": "studio/qa/RefugePortalHubRedesign.server.luau",
+  "play": {
+    "correctedRefugeModels": 5,
+    "maximumBaseErrorStuds": 0,
+    "refugeDecorBlockers": 0,
+    "portalFramesMatchedToGates": 19,
+    "incorrectFramePairs": 0,
+    "portalFrameBlockers": 0,
+    "worldConfigLabels": 18,
+    "tierHeaders": 3,
+    "consoleOutput": "empty",
+    "playStopped": true,
+    "studioReturnedToEdit": true
+  },
+  "playRecheck20261029": {
+    "portalFramesMatchedByModelName": 19,
+    "maximumHorizontalFrameToFieldOffsetStuds": 0,
+    "portalFramePartsBlocking": 0,
+    "weaponLabelsContainingModelPendingText": 0,
+    "replicatedImportedWeaponModels": 16,
+    "replicatedImportedWeaponBaseParts": 292,
+    "minimumImportedWeaponPartColorSaturation": 0.5,
+    "consoleOutput": "empty",
+    "playStopped": true,
+    "studioReturnedToEdit": true
+  },
+  "visualCapture": "Not captured during this pass; footprint, bounds, and collision settings were measured from Edit and the replicated Play client.",
+  "persistence": { "rbxlSaved": false, "published": false, "profileChanged": false }
+}

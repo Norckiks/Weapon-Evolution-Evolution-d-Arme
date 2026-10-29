@@ -37,7 +37,7 @@ local function build()
  panel=Instance.new("Frame") panel.Name="Card" panel.AnchorPoint=Vector2.new(.5,.5) panel.Position=UDim2.fromScale(.5,.5) panel.Size=UDim2.fromOffset(560,650) panel.BackgroundColor3=CREAM panel.Parent=shade decorate(panel)
  scale=Instance.new("UIScale") scale.Parent=panel
  title=label(panel,"Title",UDim2.fromOffset(20,14),UDim2.fromOffset(520,56),28)
- viewport=Instance.new("ViewportFrame") viewport.Name="RewardPreview" viewport.Position=UDim2.fromOffset(20,78) viewport.Size=UDim2.fromOffset(520,260) viewport.BackgroundColor3=Color3.fromRGB(58,71,96) viewport.Ambient=Color3.fromRGB(210,215,235) viewport.LightColor=Color3.fromRGB(255,240,205) viewport.Parent=panel decorate(viewport)
+ viewport=Instance.new("ViewportFrame") viewport.Name="RewardPreview" viewport.Position=UDim2.fromOffset(20,78) viewport.Size=UDim2.fromOffset(520,260) viewport.BackgroundColor3=Color3.fromRGB(58,71,96) viewport.Ambient=Color3.fromRGB(235,240,255) viewport.LightColor=Color3.fromRGB(255,252,240) viewport.Parent=panel decorate(viewport)
  local camera=Instance.new("Camera") camera.FieldOfView=38 camera.Parent=viewport viewport.CurrentCamera=camera
  info=label(panel,"Details",UDim2.fromOffset(22,350),UDim2.fromOffset(516,176),18) info.TextYAlignment=Enum.TextYAlignment.Top
  local function button(name,y,color)

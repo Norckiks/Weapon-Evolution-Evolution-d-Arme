@@ -18,6 +18,8 @@ local ok,err=xpcall(function()
  check(A.IsOwner(p),"Owner authorized")
  local foreign={UserId=42,AdminAccess=true}
  check(not A.Handle(foreign,"Coins",nil,1000),"Foreign ID rejected despite forged attribute")
+ check(not A.Handle(foreign,"GrantAdmin","AnotherUser",1),"Delegated access cannot grant admin")
+ check(not A.Handle(foreign,"ListAdmins",nil,1),"Delegated access cannot list or manage admin grants")
  p:SetAttribute("HasStarted",false)
  check(not call("Coins",nil,1),"Before Start rejected")
  p:SetAttribute("HasStarted",true)

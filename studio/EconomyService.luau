@@ -42,7 +42,7 @@ local function map(value) return typeof(value)=="table" and value or {} end
 local function day() return math.floor(os.time()/86400) end
 local function daily(m)
  m.PetRanks=map(m.PetRanks)
- for id,rank in m.PetRanks do if not C.Pets[id] then m.PetRanks[id]=nil else m.PetRanks[id]=n(rank,C.PetRanks.Max) end end
+ for id,rank in m.PetRanks do if not C.Pets[id] then m.PetRanks[id]=nil else m.PetRanks[id]=n(rank,C.ProgressionLevelLimit) end end
  m.Login=map(m.Login) m.Login.Step=n(m.Login.Step,#C.LoginRewards-1) m.Login.Day=n(m.Login.Day,1000000)
  if typeof(m.Daily)~="table" or m.Daily.Day~=day() then m.Daily={Day=day(),Seconds=0,Kills=0,Claimed={},Missions={}} end
  local d=m.Daily d.Seconds=n(d.Seconds,86400) d.Kills=n(d.Kills,1000000) d.Claimed=map(d.Claimed) d.Missions=map(d.Missions)
@@ -52,8 +52,8 @@ end
 local function profile(p)
  local m=profiles[p] if m then daily(m) return m end
  m=P.GetMeta(p) if not m then return nil end
- m.HealthLevel=n(m.HealthLevel,C.Upgrades.Health.Max) m.SpeedLevel=n(m.SpeedLevel,C.Upgrades.Speed.Max)
- m.StaminaLevel=n(m.StaminaLevel,C.Upgrades.Stamina.Max)
+ m.HealthLevel=n(m.HealthLevel,C.ProgressionLevelLimit) m.SpeedLevel=n(m.SpeedLevel,C.ProgressionLevelLimit)
+ m.StaminaLevel=n(m.StaminaLevel,C.ProgressionLevelLimit) m.AbilityLevel=n(m.AbilityLevel,C.ProgressionLevelLimit)
  m.Weapons=map(m.Weapons) m.Weapons.Fists=true
  for id,v in m.Weapons do if not C.Weapons[id] or v~=true then m.Weapons[id]=nil end end
  if not C.Weapons[m.EquippedWeapon] or not m.Weapons[m.EquippedWeapon] then m.EquippedWeapon="Fists" end
@@ -73,9 +73,11 @@ local function weaponModel(p,m)
  if m.EquippedWeapon=="Fists" then return end
  local model,pieces=Visuals.Build(m.EquippedWeapon)
  local mechanisms=0
+ local importedModels=ReplicatedStorage:FindFirstChild("WeaponModels")
+ local importedMelee=not C.Weapons[m.EquippedWeapon].Firearm and importedModels and importedModels:FindFirstChild(m.EquippedWeapon)
  for _,item in pieces do
   local v=item.part v.Anchored=false v.Massless=true
-  local grip=C.Weapons[m.EquippedWeapon].Firearm and CFrame.new(0,-.15,-.08)*CFrame.Angles(-math.pi/2,0,0) or CFrame.new(0,-0.5,-0.15)*CFrame.Angles(0,0,math.rad(180))
+  local grip=C.Weapons[m.EquippedWeapon].Firearm and CFrame.new(0,-.15,-.08)*CFrame.Angles(-math.pi/2,0,0) or importedMelee and CFrame.new(0,-0.5,-0.15) or CFrame.new(0,-0.5,-0.15)*CFrame.Angles(0,0,math.rad(180))
   v.CFrame=hand.CFrame*grip*item.rel
   local moving=Motion.IsMechanism(m.EquippedWeapon,v.Name)
   local weld=Instance.new(moving and "Motor6D" or "WeldConstraint")
@@ -90,12 +92,13 @@ function E.Refresh(p)
  if m.XPBoostUntil>os.time() then xp*=2 end if m.CoinBoostUntil>os.time() then coins*=2 end
  p:SetAttribute("XPMultiplier",xp) p:SetAttribute("CoinsMultiplier",coins)
  p:SetAttribute("EquippedPet",m.EquippedPet) p:SetAttribute("EquippedWeapon",m.EquippedWeapon)
- p:SetAttribute("BaseWalkSpeed",(Sprint.WalkSpeed+m.SpeedLevel*C.Upgrades.Speed.Step)*(1+speedBonus))
- p:SetAttribute("SprintWalkSpeed",(Sprint.SprintSpeed+m.SpeedLevel*C.Upgrades.Speed.Step)*(1+speedBonus))
- p:SetAttribute("StaminaCapacity",Sprint.MaxStamina+m.StaminaLevel*C.Upgrades.Stamina.Step)
+ p:SetAttribute("BaseWalkSpeed",(Sprint.WalkSpeed+C.UpgradeSteps("Speed",m.SpeedLevel)*C.Upgrades.Speed.Step)*(1+speedBonus))
+ p:SetAttribute("SprintWalkSpeed",(Sprint.SprintSpeed+C.UpgradeSteps("Speed",m.SpeedLevel)*C.Upgrades.Speed.Step)*(1+speedBonus))
+ p:SetAttribute("StaminaCapacity",Sprint.MaxStamina+C.UpgradeSteps("Stamina",m.StaminaLevel)*C.Upgrades.Stamina.Step)
+ p:SetAttribute("AbilityPowerMultiplier",1+C.UpgradeSteps("Ability",m.AbilityLevel)*C.Upgrades.Ability.Step)
  local h=p.Character and p.Character:FindFirstChildOfClass("Humanoid")
  if h and h.Health>0 then
-  local max=100+m.HealthLevel*C.Upgrades.Health.Step
+  local max=100+C.UpgradeSteps("Health",m.HealthLevel)*C.Upgrades.Health.Step
   if h.MaxHealth~=max then local diff=max-h.MaxHealth h.MaxHealth=max h.Health=math.clamp(h.Health+diff,1,max) end
  end
  weaponModel(p,m)
@@ -105,7 +108,7 @@ function E.Send(p,note,open)
  local contract=Contracts.Ensure(m)
  Expeditions.Ensure(m)
  local ls=p:FindFirstChild("leaderstats") if not ls then return end
- state:FireClient(p,{Kind="State",Note=note,Open=open,Data={PetRanks=m.PetRanks,Login=m.Login,LoginReady=m.Login.Day<day(),CratesAllowed=cratePolicy[p]==true,Contract=contract,Expeditions=m.Expeditions,LevelRewards=m.LevelRewards,HealthLevel=m.HealthLevel,SpeedLevel=m.SpeedLevel,StaminaLevel=m.StaminaLevel,Weapons=m.Weapons,EquippedWeapon=m.EquippedWeapon,Fragments=m.Fragments,Pets=m.Pets,EquippedPet=m.EquippedPet,XPBoostUntil=m.XPBoostUntil,CoinBoostUntil=m.CoinBoostUntil,Daily=m.Daily,Coins=ls.Coins.Value,Level=ls.Level.Value,CoinsMultiplier=p:GetAttribute("CoinsMultiplier") or 1,XPMultiplier=p:GetAttribute("XPMultiplier") or 1,HasStarted=p:GetAttribute("HasStarted")==true}})
+ state:FireClient(p,{Kind="State",Note=note,Open=open,Data={PetRanks=m.PetRanks,Login=m.Login,LoginReady=m.Login.Day<day(),CratesAllowed=cratePolicy[p]==true,Contract=contract,Expeditions=m.Expeditions,LevelRewards=m.LevelRewards,HealthLevel=m.HealthLevel,SpeedLevel=m.SpeedLevel,StaminaLevel=m.StaminaLevel,AbilityLevel=m.AbilityLevel,Weapons=m.Weapons,EquippedWeapon=m.EquippedWeapon,Fragments=m.Fragments,Pets=m.Pets,EquippedPet=m.EquippedPet,XPBoostUntil=m.XPBoostUntil,CoinBoostUntil=m.CoinBoostUntil,Daily=m.Daily,Coins=ls.Coins.Value,Level=ls.Level.Value,CoinsMultiplier=p:GetAttribute("CoinsMultiplier") or 1,XPMultiplier=p:GetAttribute("XPMultiplier") or 1,HasStarted=p:GetAttribute("HasStarted")==true,TutorialCompleted=m.TutorialCompleted==true}})
 end
 local function nearShop(p,id)
  local r=p.Character and p.Character:FindFirstChild("HumanoidRootPart")
@@ -143,6 +146,11 @@ function E.Handle(p,verb,id)
  if verb=="Sync" then E.Send(p) return end
  if verb=="Start" then p:SetAttribute("HasStarted",true) p:SetAttribute("InGameMenu",false) E.Send(p,"CTRL : dash · 3 fragments identiques = 1 pet") return end
  if not p:GetAttribute("HasStarted") then return end
+ if verb=="TutorialComplete" then m.TutorialCompleted=true task.spawn(P.Save,p,false) E.Send(p) return end
+ if verb=="PvPPreference" then
+  if typeof(id)=="boolean" then p:SetAttribute("PvPEnabled",id) end
+  return
+ end
  if typeof(id)~="string" or #id>64 then return end
  local ls=p.leaderstats local note local changed=false
  if verb=="OpenCrate" then
@@ -166,7 +174,7 @@ function E.Handle(p,verb,id)
  if verb=="Upgrade" then
   local def=C.Upgrades[id] if not def then return end
   local key=id.."Level" local lv=m[key]
-  if lv>=def.Max then E.Send(p,"Amelioration au maximum !") return end
+  if lv>=C.ProgressionLevelLimit then E.Send(p,"Limite technique atteinte.") return end
   local cost=C.UpgradeCost(id,lv) if ls.Coins.Value<cost then E.Send(p,"Pas assez de pieces.") return end
   ls.Coins.Value-=cost m[key]+=1 changed=true note=def.Name.." amelioree !"
  elseif verb=="BuyWeapon" then
@@ -184,8 +192,8 @@ function E.Handle(p,verb,id)
   if m.EquippedPet=="" then m.EquippedPet=id end changed=true note="Fusion reussie : "..C.Pets[id].Name.." !"
  elseif verb=="UpgradePet" then
   if not C.Pets[id] then return end
-  local rank=m.PetRanks[id] or 0 local needed=C.PetRanks.Copies[rank+1]
-  if not needed then return end
+  local rank=m.PetRanks[id] or 0 local needed=C.PetRankCost(rank)
+  if not needed then E.Send(p,"Limite technique atteinte.") return end
   if (m.Pets[id] or 0)<needed then E.Send(p,"Il faut "..needed.." copies identiques pour evoluer.") return end
   -- Keep one usable copy; inventory and rank change together without yielding.
   m.Pets[id]-=needed-1 m.PetRanks[id]=rank+1
@@ -257,7 +265,7 @@ function E.Init()
  if started then return end started=true P.Init()
  require(script.Parent:WaitForChild("AdminService")).Init(E)
  local function added(p)
-  p:SetAttribute("HasStarted",false) p:SetAttribute("InGameMenu",true)
+  p:SetAttribute("HasStarted",false) p:SetAttribute("InGameMenu",true) p:SetAttribute("PvPEnabled",false)
   p:SetAttribute("BestKillChain",0) clearChain(p)
   task.spawn(function()
    local ok,policy=pcall(function() return game:GetService("PolicyService"):GetPolicyInfoForPlayerAsync(p) end)

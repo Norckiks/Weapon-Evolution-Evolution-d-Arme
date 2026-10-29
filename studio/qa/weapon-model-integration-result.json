@@ -1,0 +1,53 @@
+{
+  "testId": "TEST-WEAPON-MODELS-001",
+  "date": "2026-10-28",
+  "studio": "Évolution des armes",
+  "edit": {
+    "mode": "Edit",
+    "replicatedWeaponModels": 16,
+    "missingModels": [],
+    "catalogPendingMarkers": 0,
+    "freshModuleCloneAssertions": "passed",
+    "monetizationEnabled": false,
+    "productsRemainUnconfigured": true
+  },
+  "play": {
+    "armoryRows": 16,
+    "viewportsWithCamera": 16,
+    "pendingLabels": 0,
+    "meshPartsByWeapon": {
+      "Hook": 17,
+      "Kris": 17,
+      "Spear": 17,
+      "Cleaver": 17,
+      "WarHammer": 22,
+      "Pike": 17,
+      "PhaseBlade": 19,
+      "MirrorAxe": 17,
+      "RelayLance": 19,
+      "OrbitalSpear": 19,
+      "RiftCleaver": 17,
+      "ForgeMaul": 22,
+      "ConvoyEdge": 17,
+      "ArcPike": 19,
+      "BlackoutEdge": 19,
+      "EclipseGlaive": 17
+    },
+    "temporaryStudioAdminGrant": true,
+    "equippedWeapon": "Hook",
+    "serverMeshParts": 17,
+    "serverPartsWeldedToRightHand": 17,
+    "serverAnchoredMeshParts": 0,
+    "rightHandRelativeGripStuds": [0, -0.5, -0.15],
+    "firstPersonViewmodelMeshParts": 17,
+    "firstPersonCameraLocalMinStuds": [0.5233, -1.1912, -2.3074],
+    "firstPersonCameraLocalMaxStuds": [0.7869, 0.5798, -1.5366],
+    "finalSessionConsole": "empty",
+    "sessionsStoppedAndEditRestored": true
+  },
+  "notVerified": [
+    "Screenshot inspection timed out; mesh and camera checks are instance-level evidence, not visual approval.",
+    "Weapon strike animation and damage after the imported model integration.",
+    "Purchases, mobile, multiplayer, DataStore persistence, .rbxl save, or publication."
+  ]
+}

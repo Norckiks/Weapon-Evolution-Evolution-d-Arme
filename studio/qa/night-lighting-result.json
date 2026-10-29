@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-27",
+  "placeId": 89391796839094,
+  "backup": "ServerStorage.BeforeNightLighting",
+  "edit": {
+    "clockTime": 0.75,
+    "brightness": 0.45,
+    "exposure": -0.15,
+    "lightsBackedUp": 98,
+    "lightsModifiedDuringBuild": 87,
+    "shadowIntentLights": 69,
+    "enabledWorldShadowsAtLoad": 0,
+    "cloudInstances": 1,
+    "presentationSourceSynced": true,
+    "presentationCompiled": true
+  },
+  "flashlight": {
+    "coreAngle": 44,
+    "coreRange": 72,
+    "coreBrightness": 8.5,
+    "haloRange": 30,
+    "nativeKeyboardFToggleObserved": true,
+    "coreAndHaloToggleTogether": true
+  },
+  "finalPlay": {
+    "fixture": "NightLighting.client.luau",
+    "mode": "SessionStudio",
+    "hasStarted": false,
+    "landscapeViewport": "750x381",
+    "portraitViewport": "401x778",
+    "cityHighWorldShadows": 2,
+    "factoryHighWorldShadows": 4,
+    "factoryStandardWorldShadows": 0,
+    "torchShadowsHigh": true,
+    "torchShadowsStandard": false,
+    "fixtureRestored": true,
+    "finalConsoleEmpty": true,
+    "playStopped": true
+  },
+  "capturesInspected": [
+    "NightBeforeCity",
+    "NightCityCalibratedOn",
+    "NightCityFinalOff",
+    "NightRefugeOff",
+    "NightCityStandardOn",
+    "NightMobileLandscapeOn",
+    "NightFactoryPortraitActual",
+    "NightFactoryPortraitOff"
+  ],
+  "capturesExportedToDisk": false,
+  "endState": {"studioMode": "Edit", "simulator": "default", "orientation": "LandscapeLeft"},
+  "limitations": [
+    "Visual camera fixture, not a gameplay traversal or combat test",
+    "PC images were used for calibration before the final world shadow budget change",
+    "No physical touch, real gamepad, real phone performance or full six-zone playthrough",
+    "Intermediate Studio launches had CoreScript timeout and missing HUD errors; cause not isolated",
+    "Temporary duplicate Clouds backup was corrected; final cloud count is one",
+    "No FPS claim, rbxl save, publication or rollback execution"
+  ],
+  "graphify": {"commit": "aa5acca", "nodes": 656, "edges": 871, "reindexedAfterChanges": false}
+}

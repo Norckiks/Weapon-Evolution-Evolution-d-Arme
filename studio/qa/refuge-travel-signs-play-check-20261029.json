@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "edit": {
+    "changedSigns": 13,
+    "signsAfterFix": 16,
+    "backup": "ServerStorage.BeforeRefugeTravelSigns_20261029",
+    "panelSize": [22, 2.8, 0.5],
+    "gapAt30StudSpacing": 8
+  },
+  "playClient": {
+    "travelPrompts": 19,
+    "travelSigns": 16,
+    "wrongPortalSignTexts": 0,
+    "signsWiderThan22Studs": 0,
+    "zonesWithoutStandaloneSign": ["Harbor", "Power", "Metro"],
+    "frameLabelsRectoVerso": 36,
+    "wrongFrameLabelTexts": 0,
+    "missingFrameLabelFaces": 0,
+    "consoleOutput": "empty"
+  },
+  "endState": "Play stopped; Studio returned to Edit",
+  "limits": [
+    "Studio screenshot capture timed out; visual pixel approval not obtained.",
+    "No player traversal, mobile, multiplayer, DataStore, save, or publish test performed."
+  ]
+}

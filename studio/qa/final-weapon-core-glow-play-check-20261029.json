@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-29",
+  "place": "Évolution des armes",
+  "placeId": 89391796839094,
+  "edit": {
+    "weapons": ["ArcPike", "BlackoutEdge", "EclipseGlaive"],
+    "replicatedAndPrototypeCoreParts": 6,
+    "material": "Enum.Material.Neon",
+    "hsv": {"saturation": 0.723, "value": 0.976},
+    "backup": "ServerStorage.BeforeFinalWeaponCoreGlow_20261029"
+  },
+  "play": {
+    "builder": "ReplicatedStorage.WeaponVisuals.Build",
+    "ArcPike": {"parts": 19, "coreColor": "gold", "coreMaterial": "Enum.Material.Neon"},
+    "BlackoutEdge": {"parts": 19, "coreColor": "blue", "coreMaterial": "Enum.Material.Neon"},
+    "EclipseGlaive": {"parts": 17, "coreColor": "violet", "coreMaterial": "Enum.Material.Neon"},
+    "consoleOutput": "empty",
+    "stoppedAndReturnedToEdit": true
+  },
+  "visualPixelCapture": "Unavailable: Studio window capture timed out; material/color replication verified through runtime instances, not screenshot.",
+  "persistence": {"profileChanged": false, "purchaseOrEquip": false, "rbxlSaved": false, "experiencePublished": false}
+}

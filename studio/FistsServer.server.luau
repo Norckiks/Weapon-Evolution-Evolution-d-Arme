@@ -11,6 +11,7 @@ local PunchHitRemote = Remotes:WaitForChild("PunchHit")
 
 -- État par joueur (cooldown + combo), côté serveur = source de vérité
 local NPCPresentation = require(script.Parent:WaitForChild("NPCPresentation"))
+local PvP = require(script.Parent:WaitForChild("PvPService"))
 local states = {}
 
 Players.PlayerRemoving:Connect(function(player)
@@ -81,10 +82,14 @@ PunchRemote.OnServerEvent:Connect(function(player, direction)
 	if not result then return end
 
 	local targetModel = result.Instance:FindFirstAncestorOfClass("Model")
-	if not targetModel or not CollectionService:HasTag(targetModel, "Zombie") then return end
+	if not targetModel then return end
+	local targetPlayer=Players:GetPlayerFromCharacter(targetModel)
+	if targetPlayer then
+		if not PvP.CanDamage(player,targetPlayer) then return end
+	elseif not CollectionService:HasTag(targetModel,"Zombie") then return end
 
 	local zoneId = targetModel:GetAttribute("ZoneId")
-	if zoneId then
+	if not targetPlayer and zoneId then
 		local world = require(ReplicatedStorage.WorldConfig)
 		local zone = world.ZoneAt(head.Position)
 		if not zone or zone.Id ~= zoneId or not require(script.Parent.ZoneService).CanAccess(player, zone) then return end
@@ -94,8 +99,10 @@ PunchRemote.OnServerEvent:Connect(function(player, direction)
 
 	-- 5) Dégâts
 	local damage = weapon.Damage * (heavy and Config.HeavyMultiplier or 1)
-	targetHumanoid:SetAttribute("LastAttacker", player.UserId) -- pour récompenser les Coins plus tard
-	targetHumanoid:SetAttribute("LastHitAt", os.clock())
+	if not targetPlayer then
+		targetHumanoid:SetAttribute("LastAttacker", player.UserId) -- pour récompenser les Coins plus tard
+		targetHumanoid:SetAttribute("LastHitAt", os.clock())
+	end
 	targetHumanoid:TakeDamage(damage)
 	local killed = targetHumanoid.Health <= 0
 
@@ -105,7 +112,7 @@ PunchRemote.OnServerEvent:Connect(function(player, direction)
 		local kb = heavy and Config.HeavyKnockback or Config.Knockback
 		root.AssemblyLinearVelocity = root.AssemblyLinearVelocity + direction * kb + Vector3.new(0, heavy and 18 or 6, 0)
 	end
-	NPCPresentation.Hit(targetModel, direction, heavy)
+	if not targetPlayer then NPCPresentation.Hit(targetModel, direction, heavy) end
 	playHitSound(root or result.Instance, heavy)
 
 	-- 7) Feedback pour le joueur qui a frappé

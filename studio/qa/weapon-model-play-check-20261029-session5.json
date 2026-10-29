@@ -1,0 +1,39 @@
+{
+  "testId": "TEST-WEAPON-MODELS-PLAY-SESSION5-20261029",
+  "date": "2026-10-29",
+  "place": "Évolution des armes",
+  "placeId": 89391796839094,
+  "mode": "Studio Play",
+  "result": "PASS_NOT_REPRODUCED",
+  "play": {
+    "armoryOpened": true,
+    "openedThrough": "Temporary Play-only server Script calling the running EconomyService.Send(player, nil, 'Weapons'); fixture self-destroyed.",
+    "catalogRows": 31,
+    "viewportFrames": 31,
+    "viewportsWithoutCamera": 0,
+    "previewsWithoutGeometry": 0,
+    "rowsContainingModelOrModeliserText": 0,
+    "replicatedWeaponModels": 30,
+    "equippedWeapon": "Fists",
+    "equippedWeaponVisualParts": 0
+  },
+  "editSnapshot": {
+    "replicatedWeaponModels": 30,
+    "baseParts": 335,
+    "meshParts": 335,
+    "sourceModelPendingOccurrences": 0,
+    "hsvMeasurement": "local _, saturation = part.Color:ToHSV()",
+    "minimumPartSaturation": 0.1099476,
+    "maximumPartSaturation": 0.9241071,
+    "partsBelowSaturation018": 4,
+    "paletteRollbackBackupPresent": true
+  },
+  "interpretation": "The 30 non-fist weapons have replicated model geometry and the armory previews render geometry in runtime instances. The player had Fists equipped, so no separate held weapon model was expected. The user's reported marker was not reproduced in this Studio place/session.",
+  "cleanup": "Play stopped and Studio returned to Edit. No weapon purchase, grant, persistent profile mutation, DataStore write, .rbxl save, or publish.",
+  "limitations": [
+    "Studio mouse automation timed out; the armory was opened through a temporary server test fixture rather than a physical click.",
+    "No screenshot was captured, so this verifies runtime UI instances and geometry, not rendered pixels.",
+    "The equipped first-person weapon was not visually checked; the test player had Fists equipped.",
+    "No mobile, controller, or multiplayer test was performed."
+  ]
+}

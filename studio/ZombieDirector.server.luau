@@ -71,6 +71,7 @@ local function spawnZombie(zone,slot,index)
  for _,p in m:GetDescendants() do if p:IsA("BasePart") then p.CollisionGroup="LiveZombies" end end
  m.Parent=folder
  for _,p in m:GetDescendants() do if p:IsA("BasePart") and not p.Anchored then pcall(function() p:SetNetworkOwner(nil) end) end end
+ r.Anchored=true
  CollectionService:AddTag(m,"Zombie")
  local s={model=m,humanoid=h,root=r,zone=zone,def=def,home=home,attackAt=0,phase=math.random()*6,joints={},slot=slot}
  s.melee=ZombieMelee.new(m,def,zone) s.navigator=Navigation.new(m,def)
@@ -126,9 +127,23 @@ while true do
  end
  if think<0.3 then continue end
  think=0
+ local present={}
+ for _,p in Players:GetPlayers() do
+  local c=p.Character local r=c and c:FindFirstChild("HumanoidRootPart") local h=c and c:FindFirstChildOfClass("Humanoid")
+  if r and h and h.Health>0 and p:GetAttribute("HasStarted")==true then
+   local zone=Config.ZoneAt(r.Position)
+   if zone and Zones.CanAccess(p,zone) then present[zone.Id]=true end
+  end
+ end
  for _,slot in slots do if not slot.model and os.clock()>=slot.nextSpawn then spawnZombie(slot.zone,slot,slot.index) end end
  for m,s in active do
   if s.humanoid.Health<=0 then continue end
+  local awake=present[s.zone.Id]==true
+  if s.awake~=awake then
+   s.awake=awake s.root.Anchored=not awake
+   if not awake then s.humanoid:Move(Vector3.zero) s.navigator:Pause() end
+  end
+  if not awake then continue end
   if (m:GetAttribute("StunnedUntil") or 0)>workspace:GetServerTimeNow() then
    s.humanoid.WalkSpeed=0 s.navigator:Pause() s.humanoid:Move(Vector3.zero) continue
   end

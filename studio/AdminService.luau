@@ -1,20 +1,106 @@
 local Players=game:GetService("Players")
 local RS=game:GetService("ReplicatedStorage")
+local DataStoreService=game:GetService("DataStoreService")
+local MessagingService=game:GetService("MessagingService")
 local RunService=game:GetService("RunService")
 local P=require(script.Parent:WaitForChild("ProgressionService"))
 local C=require(RS:WaitForChild("GameplayConfig"))
 local A={}
 local OWNER_USER_ID=10565455042 -- Bruno_ban369, verified from the connected Studio account.
 local requests={}
+local delegateStore=DataStoreService:GetDataStore("AdminDelegates_v1")
+local DELEGATE_TOPIC="WeaponEvolution_AdminDelegates_v1"
+local delegates={}
+local delegatesReady=false
+local delegatesLoadedAt=0
 local economy
 function A.IsOwner(player)
  return player.UserId==OWNER_USER_ID
 end
+local function isAdmin(player)
+ local delegate=delegates[tostring(player.UserId)]
+ return A.IsOwner(player) or (delegatesReady and (delegate==true or typeof(delegate)=="string"))
+end
+local function setAccess(player)
+ player:SetAttribute("AdminCanDelegate",A.IsOwner(player))
+ local allowed=isAdmin(player)
+ if allowed~=nil then player:SetAttribute("AdminAccess",allowed) end
+end
+local function loadDelegates()
+ local ok,stored=pcall(function() return delegateStore:GetAsync("UserIds") end)
+ if not ok then return false end
+ delegates=typeof(stored)=="table" and stored or {}
+ delegatesReady=true
+ delegatesLoadedAt=os.clock()
+ for _,player in Players:GetPlayers() do setAccess(player) end
+ return true
+end
+local function notifyServers()
+ return pcall(function() MessagingService:PublishAsync(DELEGATE_TOPIC,"refresh") end)
+end
 function A.Handle(player,verb,value,amount)
- if not A.IsOwner(player) then return false,"Acces refuse." end
+ if not A.IsOwner(player) and (not delegatesReady or os.clock()-delegatesLoadedAt>=5) and not loadDelegates() then
+  return false,"Liste admins indisponible."
+ end
+ if not isAdmin(player) then return false,"Acces refuse." end
  local now=os.clock()
  if now-(requests[player] or -100)<.3 then return false,"Attends un instant." end
  requests[player]=now
+ if verb=="ListAdmins" then
+  if not A.IsOwner(player) then return false,"Acces refuse." end
+  if not delegatesReady and not loadDelegates() then return false,"Liste indisponible : DataStore non charge." end
+  local ids={} for userId,username in delegates do table.insert(ids,{UserId=userId,Username=typeof(username)=="string" and username or userId}) end
+  table.sort(ids,function(a,b) return a.Username:lower()<b.Username:lower() end)
+  return true,"Admins delegues",ids
+ end
+ if verb=="GrantAdmin" or verb=="RevokeAdmin" then
+  if not A.IsOwner(player) then return false,"Seul le proprietaire peut gerer les admins." end
+  if not delegatesReady then return false,"Liste indisponible : DataStore non charge." end
+  if verb=="GrantAdmin" then
+   if typeof(value)~="string" or #value<3 or #value>20 or not value:match("^[%w_]+$") then return false,"Entre un nom d'utilisateur Roblox valide." end
+   local ok,userIdOrError=pcall(function() return Players:GetUserIdFromNameAsync(value) end)
+   if not ok then return false,"Nom introuvable : verifie le nom d'utilisateur Roblox." end
+   local userId=userIdOrError
+   if userId==OWNER_USER_ID then return false,"Tu es deja proprietaire." end
+   if delegates[tostring(userId)] then return false,"Cette personne est deja admin." end
+   local count=0 for _ in delegates do count+=1 end
+   if count>=50 then return false,"Limite de 50 admins delegues atteinte." end
+   local full=false
+   local saved,newList=pcall(function()
+    return delegateStore:UpdateAsync("UserIds",function(current)
+     full=false
+     current=typeof(current)=="table" and current or {}
+     local count=0 for _ in current do count+=1 end
+     if not current[tostring(userId)] and count>=50 then full=true return nil end
+     current[tostring(userId)]=value
+     return current
+    end)
+   end)
+   if full then return false,"Limite de 50 admins delegues atteinte." end
+   if not saved or typeof(newList)~="table" then return false,"Sauvegarde incertaine : reconnecte-toi puis verifie la liste." end
+   delegates=newList
+   delegatesLoadedAt=os.clock()
+   for _,target in Players:GetPlayers() do if target.UserId==userId then setAccess(target) end end
+   local notified=notifyServers()
+   return true,"Admin ajoute : "..value.." ("..userId..")."..(notified and "" or " Sync autres serveurs non confirmee.")
+  end
+  if typeof(value)~="string" or not value:match("^%d+$") then return false,"Identifiant invalide." end
+  local userId=tonumber(value)
+  if not userId or userId==OWNER_USER_ID or not delegates[value] then return false,"Admin delegue introuvable." end
+  local saved,newList=pcall(function()
+   return delegateStore:UpdateAsync("UserIds",function(current)
+    current=typeof(current)=="table" and current or {}
+    current[value]=nil
+    return current
+   end)
+  end)
+  if not saved or typeof(newList)~="table" then return false,"Sauvegarde incertaine : reconnecte-toi puis verifie la liste." end
+  delegates=newList
+  delegatesLoadedAt=os.clock()
+  for _,target in Players:GetPlayers() do if target.UserId==userId then setAccess(target) end end
+  local notified=notifyServers()
+  return true,"Acces admin retire pour "..value.."."..(notified and "" or " Sync autres serveurs non confirmee.")
+ end
  if not player:GetAttribute("ProgressReady") then return false,"Profil en chargement." end
  if not RunService:IsStudio() and player:GetAttribute("PersistenceMode")~="Saved" then return false,"Sauvegarde indisponible : attribution bloquee." end
  if verb=="Status" then return true,RunService:IsStudio() and "Studio : gains temporaires, effaces a l'arret." or "Gains permanents : sauvegarde normale du compte." end
@@ -55,9 +141,19 @@ function A.Init(service)
  economy=service
  local remote=Instance.new("RemoteFunction") remote.Name="AdminAction" remote.Parent=RS.Remotes
  remote.OnServerInvoke=A.Handle
- local function added(player) player:SetAttribute("AdminAccess",A.IsOwner(player)) end
+ local function added(player) setAccess(player) end
  Players.PlayerAdded:Connect(added)
  Players.PlayerRemoving:Connect(function(player) requests[player]=nil end)
  for _,player in Players:GetPlayers() do added(player) end
+ task.spawn(function()
+  loadDelegates()
+ end)
+ task.spawn(function()
+  pcall(function()
+   MessagingService:SubscribeAsync(DELEGATE_TOPIC,function()
+    task.spawn(loadDelegates)
+   end)
+  end)
+ end)
 end
 return A

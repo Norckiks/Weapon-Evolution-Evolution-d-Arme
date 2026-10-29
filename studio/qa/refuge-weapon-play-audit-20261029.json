@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "mode": "Studio Play, then Edit",
+  "playChecks": {
+    "portals": {
+      "approachTarget": "6 studs from each Field toward the side nearest the spawn; target height matched the HumanoidRootPart",
+      "accessible": 19,
+      "total": 19,
+      "allPathStatusesSuccess": true
+    },
+    "shops": {
+      "approachTarget": "ShopSpur walkway centers at character root height",
+      "accessible": 4,
+      "total": 4,
+      "allPathStatusesSuccess": true,
+      "promptDistanceStuds": 9.1,
+      "promptMaxActivationDistanceStuds": 10
+    },
+    "importedWeapons": {
+      "testedThrough": "Client require(ReplicatedStorage.WeaponVisuals).Build(id)",
+      "coloredModels": 16,
+      "totalModels": 16,
+      "minimumDistinctColorsPerModel": 5,
+      "averageSaturationRange": [0.67, 0.82],
+      "finalThreeHaveNeonCore": ["ArcPike", "BlackoutEdge", "EclipseGlaive"]
+    },
+    "studioAfterStop": "Edit",
+    "consoleAfterStop": "empty"
+  },
+  "sideEffects": {
+    "purchase": false,
+    "profileChange": false,
+    "sceneEdit": false,
+    "placeSaved": false,
+    "published": false
+  },
+  "limits": [
+    "Roblox Studio screen capture and Windows window capture both timed out; rendered pixels were not visually confirmed.",
+    "WeaponVisuals.Build output was inspected, but the three final weapons were not equipped for a first-person visual check.",
+    "No mobile, multiplayer, physical prompt activation, or public-server test was performed."
+  ]
+}

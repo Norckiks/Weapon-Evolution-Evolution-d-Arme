@@ -50,21 +50,123 @@ local function button(parent,value,pos,size,color,fn,enabled)
   b.Activated:Connect(fn)
  end return b
 end
-local welcomeArt=Instance.new("ImageLabel") welcomeArt.Name="WelcomeIllustration" welcomeArt.Size=UDim2.fromScale(1,1) welcomeArt.BackgroundColor3=INK welcomeArt.Image=Art.Welcome welcomeArt.ScaleType=Enum.ScaleType.Crop welcomeArt.ZIndex=0 welcomeArt.Parent=gui
-local backdrop=Instance.new("Frame") backdrop.Name="Backdrop" backdrop.Size=UDim2.fromScale(1,1) backdrop.BackgroundColor3=INK backdrop.BackgroundTransparency=0.36 backdrop.BorderSizePixel=0 backdrop.Parent=gui
-local main=frame(gui,"Welcome",UDim2.fromScale(0.5,0.5),UDim2.fromOffset(500,450),CREAM) main.AnchorPoint=Vector2.new(0.5,0.5)
-local ms=Instance.new("UIScale") ms.Parent=main
-local brand=text(main,"Brand","WEAPON EVOLUTION",UDim2.fromOffset(28,20),UDim2.fromOffset(444,60),34,INK) brand.TextXAlignment=Enum.TextXAlignment.Center
-local sub=text(main,"Subtitle","SURVIE ZOMBIE",UDim2.fromOffset(28,78),UDim2.fromOffset(444,30),20,Color3.fromRGB(193,101,61)) sub.TextXAlignment=Enum.TextXAlignment.Center
-local steps={{"01","COMBATS",RED},{"02","EVOLUE",GOLD},{"03","COLLECTIONNE",BLUE}}
-for i,step in steps do
- local card=frame(main,"Step"..i,UDim2.fromOffset(27+(i-1)*151,118),UDim2.fromOffset(142,75),step[3])
- local number=text(card,"Number",step[1],UDim2.fromOffset(8,5),UDim2.fromOffset(126,32),27) number.TextXAlignment=Enum.TextXAlignment.Center
- number.Visible=false Art.Icon(card,({"Weapons","XP","Pets"})[i],44,UDim2.fromOffset(49,0))
- local title=text(card,"Title",step[2],UDim2.fromOffset(5,42),UDim2.fromOffset(132,22),13) title.TextXAlignment=Enum.TextXAlignment.Center
+local welcomeArt=Instance.new("ViewportFrame") welcomeArt.Name="WelcomeIllustration" welcomeArt.Size=UDim2.fromScale(1,1) welcomeArt.BackgroundColor3=Color3.fromRGB(9,12,17) welcomeArt.BorderSizePixel=0 welcomeArt.ZIndex=0 welcomeArt.Ambient=Color3.fromRGB(67,75,83) welcomeArt.LightColor=Color3.fromRGB(184,197,207) welcomeArt.LightDirection=Vector3.new(-1,-1,-.7) welcomeArt.Parent=gui
+local menuCamera=Instance.new("Camera") menuCamera.FieldOfView=40 menuCamera.Parent=welcomeArt welcomeArt.CurrentCamera=menuCamera
+local menuWorld=Instance.new("WorldModel") menuWorld.Parent=welcomeArt
+local function scenePart(name,size,cf,color,material)
+ local p=Instance.new("Part") p.Name=name p.Size=size p.CFrame=cf p.Color=color p.Material=material or Enum.Material.Concrete p.Anchored=true p.CanCollide=false p.Parent=menuWorld return p
 end
-local play=button(main,"JOUER",UDim2.fromOffset(70,217),UDim2.fromOffset(360,66),GREEN,function() if player:GetAttribute("ProgressReady") then action:FireServer("Start") end end) play.Name="Play" play.TextSize=29
-local startHint=text(main,"StartHint","ENTREE / A : JOUER",UDim2.fromOffset(70,423),UDim2.fromOffset(360,18),13) startHint.TextXAlignment=Enum.TextXAlignment.Center
+scenePart("Street",Vector3.new(60,.5,80),CFrame.new(0,-.3,-12),Color3.fromRGB(30,33,34),Enum.Material.Asphalt)
+local menuTemplate=RS:WaitForChild("PresentationAssets"):FindFirstChild("MenuQuarantine")
+if menuTemplate then
+ local environment=menuTemplate:Clone() environment.Parent=menuWorld
+else
+scenePart("BuildingLeft",Vector3.new(8,18,28),CFrame.new(-13,8,-9),Color3.fromRGB(35,39,42))
+scenePart("BuildingRight",Vector3.new(8,21,28),CFrame.new(14,10,-13),Color3.fromRGB(28,32,35))
+scenePart("FarWall",Vector3.new(34,15,2),CFrame.new(0,7,-28),Color3.fromRGB(38,40,40))
+for _,x in {-8,8} do
+ for _,z in {-21,-15,-9,-3} do
+  for _,y in {4,8,12} do
+   scenePart("Window",Vector3.new(.08,2,1.6),CFrame.new(x,y,z),Color3.fromRGB(12,16,18))
+  end
+ end
+end
+end
+for z=-23,5,7 do scenePart("RoadMark",Vector3.new(.16,.02,2.5),CFrame.new(0,-.03,z),Color3.fromRGB(76,70,57)) end
+local assets=RS:WaitForChild("PresentationAssets")
+local function sceneModel(name,cf)
+ local source=assets:FindFirstChild(name) if not source then return end
+ local model=source:Clone()
+ for _,part in model:GetDescendants() do if part:IsA("BasePart") then part.Anchored=true part.CanCollide=false end end
+ model.Parent=menuWorld model:PivotTo(cf) return model
+end
+sceneModel("WreckSedan",CFrame.new(-5,1.9,-6)*CFrame.Angles(0,math.rad(30),0))
+sceneModel("Rubble",CFrame.new(7,1.2,-8))
+sceneModel("Weeds",CFrame.new(3,.3,-3))
+local menuZombie=sceneModel("CivilianBody",CFrame.new(2,3,-1)*CFrame.Angles(0,math.rad(180),0))
+local menuLimbs={}
+if menuZombie then for _,part in menuZombie:GetDescendants() do
+ if part:IsA("BasePart") and (part.Name=="LeftArm_geom" or part.Name=="RightArm_geom" or part.Name=="Head_geom") then
+  local offset=part.Name=="Head_geom" and -.35 or part.Size.Y*.34
+  table.insert(menuLimbs,{Part=part,Base=part.CFrame,Pivot=CFrame.new(0,offset,0),Side=part.Name=="LeftArm_geom" and -1 or 1})
+ end
+end end
+local cinemaStart local cinemaFinish
+local shots={
+ {From=Vector3.new(5,7,19),To=Vector3.new(2,5,13),Look=Vector3.new(0,3,-10),Title="LA VILLE EST TOMBÉE",Line="Les rues se sont tues. Puis les pas sont revenus."},
+ {From=Vector3.new(-10,5,12),To=Vector3.new(-8,5,10),Look=Vector3.new(-1,4,-1),Title="ILS NE DORMENT PLUS",Line="Chaque bruit attire ce qui rôde dans l'obscurité."},
+ {From=Vector3.new(4,5,12),To=Vector3.new(2,5,10),Look=Vector3.new(-1,4,-1),Title="SURVIS JUSQU'AU MATIN",Line="Trouve une arme. Reste en vie. Reconstruis l'espoir."},
+}
+local cinemaLayer=Instance.new("Frame") cinemaLayer.Name="Prologue" cinemaLayer.Size=UDim2.fromScale(1,1) cinemaLayer.BackgroundTransparency=1 cinemaLayer.Visible=false cinemaLayer.Parent=welcomeArt
+local shade=Instance.new("Frame") shade.Size=UDim2.fromScale(1,1) shade.BackgroundColor3=Color3.fromRGB(4,7,11) shade.BorderSizePixel=0 shade.ZIndex=2 shade.Parent=cinemaLayer
+for _,y in {0,.82} do
+ local bar=Instance.new("Frame") bar.Position=UDim2.fromScale(0,y) bar.Size=UDim2.fromScale(1,.18) bar.BackgroundColor3=Color3.fromRGB(4,7,11) bar.BorderSizePixel=0 bar.ZIndex=3 bar.Parent=cinemaLayer
+end
+local cinemaTitle=text(cinemaLayer,"Title","",UDim2.fromScale(.06,.84),UDim2.fromScale(.88,.065),26,Color3.fromRGB(233,226,208))
+cinemaTitle.Font=Enum.Font.SpecialElite cinemaTitle.TextScaled=true cinemaTitle.ZIndex=4
+local titleLimit=Instance.new("UITextSizeConstraint") titleLimit.MaxTextSize=26 titleLimit.MinTextSize=12 titleLimit.Parent=cinemaTitle
+local cinemaLine=text(cinemaLayer,"Caption","",UDim2.fromScale(.06,.915),UDim2.fromScale(.88,.06),16,Color3.fromRGB(190,179,165))
+cinemaLine.TextScaled=true cinemaLine.ZIndex=4
+local lineLimit=Instance.new("UITextSizeConstraint") lineLimit.MaxTextSize=16 lineLimit.MinTextSize=10 lineLimit.Parent=cinemaLine
+local cinemaSkip=button(cinemaLayer,"PASSER",UDim2.new(1,-148,0,20),UDim2.fromOffset(128,48),Color3.fromRGB(106,42,36),function() if cinemaFinish then cinemaFinish() end end)
+cinemaSkip.ZIndex=5 cinemaSkip.TextColor3=Color3.fromRGB(241,231,214)
+local function setMenuCamera(t)
+ local reduced=player:GetAttribute("ReducedMotion")==true
+ local portraitMenu=welcomeArt.AbsoluteSize.X<welcomeArt.AbsoluteSize.Y
+ menuCamera.FieldOfView=portraitMenu and cinemaStart and 70 or 40
+ local drift=reduced and 0 or math.sin(t*.28)*.3
+ menuCamera.CFrame=CFrame.lookAt(Vector3.new(1+drift,4.6,18),Vector3.new(portraitMenu and 1 or -3,3.4,-4))
+ if cinemaStart then
+  local elapsed=t-cinemaStart
+  if elapsed>=24 or player:GetAttribute("HasStarted")==true then
+   if cinemaFinish then cinemaFinish() end
+  else
+   local shot=shots[math.floor(elapsed/8)+1] local phase=elapsed%8
+   local u=reduced and 0 or phase/8
+   u=u*u*(3-2*u)
+   menuCamera.CFrame=CFrame.lookAt(shot.From:Lerp(shot.To,u),shot.Look)
+   shade.BackgroundTransparency=math.min(1,phase/.65,(8-phase)/.65)
+   cinemaTitle.Text=shot.Title cinemaLine.Text=shot.Line
+   cinemaTitle.TextTransparency=1-math.clamp((phase-.4)/.6,0,1)
+   cinemaLine.TextTransparency=1-math.clamp((phase-1)/.7,0,1)
+  end
+ end
+ for _,limb in menuLimbs do
+  local sway=reduced and 0 or math.sin(t*.85+limb.Side)*.035
+  limb.Part.CFrame=limb.Base*limb.Pivot*CFrame.Angles(sway,0,sway*limb.Side*.5)*limb.Pivot:Inverse()
+ end
+end
+setMenuCamera(0)
+RunService.RenderStepped:Connect(function() if welcomeArt.Visible then setMenuCamera(os.clock()) elseif cinemaStart and cinemaFinish then cinemaFinish() end end)
+local backdrop=Instance.new("Frame") backdrop.Name="Backdrop" backdrop.Size=UDim2.fromScale(1,1) backdrop.BackgroundColor3=Color3.fromRGB(4,7,11) backdrop.BackgroundTransparency=0 backdrop.BorderSizePixel=0 backdrop.Parent=gui
+local menuGradient=Instance.new("UIGradient") menuGradient.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,.04),NumberSequenceKeypoint.new(.38,.18),NumberSequenceKeypoint.new(.7,.85),NumberSequenceKeypoint.new(1,.62)}) menuGradient.Parent=backdrop
+local main=frame(gui,"Welcome",UDim2.fromScale(0.5,0.5),UDim2.fromOffset(500,510),Color3.fromRGB(15,18,21)) main.AnchorPoint=Vector2.new(0.5,0.5)
+main.BackgroundTransparency=1
+main:FindFirstChildOfClass("UIGradient"):Destroy()
+main:FindFirstChildOfClass("UIStroke").Enabled=false
+local ms=Instance.new("UIScale") ms.Parent=main
+local cinemaReplay
+cinemaReplay=button(main,"03   VOIR LE PROLOGUE",UDim2.fromOffset(28,408),UDim2.fromOffset(420,56),Color3.fromRGB(24,30,31),function()
+ if not main.Visible or player:GetAttribute("HasStarted")==true then return end
+ cinemaStart=os.clock() cinemaLayer.Visible=true main.Visible=false cinemaReplay.Visible=false welcomeArt.ZIndex=3
+ if GuiService.SelectedObject then GuiService.SelectedObject=cinemaSkip end
+end)
+cinemaReplay.Name="WatchPrologue" cinemaReplay.TextColor3=Color3.fromRGB(241,231,214) cinemaReplay.ZIndex=5
+cinemaFinish=function()
+ cinemaStart=nil cinemaLayer.Visible=false cinemaReplay.Visible=true welcomeArt.ZIndex=0
+ main.Visible=player:GetAttribute("HasStarted")~=true
+ menuCamera.FieldOfView=40
+ if GuiService.SelectedObject==cinemaSkip then GuiService.SelectedObject=cinemaReplay end
+end
+UIS.InputBegan:Connect(function(input,processed)
+ if cinemaStart and not processed and (input.KeyCode==Enum.KeyCode.Space or input.KeyCode==Enum.KeyCode.ButtonB) then cinemaFinish() end
+end)
+
+local brand=text(main,"Brand","WEAPON\nEVOLUTION",UDim2.fromOffset(28,42),UDim2.fromOffset(444,138),68,Color3.fromRGB(233,226,208)) brand.Font=Enum.Font.Creepster
+local sub=text(main,"Subtitle","ZONE DE QUARANTAINE  /  01",UDim2.fromOffset(30,12),UDim2.fromOffset(444,26),14,Color3.fromRGB(184,133,94)) sub.Font=Enum.Font.SpecialElite
+local warning=text(main,"Warning","Le refuge tient encore.\nDehors, la nuit appartient aux infectés.",UDim2.fromOffset(30,192),UDim2.fromOffset(410,48),18,Color3.fromRGB(175,187,184)) warning.Font=Enum.Font.SpecialElite
+local play=button(main,"01   JOUER",UDim2.fromOffset(28,260),UDim2.fromOffset(420,70),Color3.fromRGB(113,42,34),function() if player:GetAttribute("ProgressReady") then action:FireServer("Start") end end) play.Name="Play" play.TextSize=28 play.Font=Enum.Font.SpecialElite play.TextColor3=Color3.fromRGB(241,231,214)
+local startHint=text(main,"StartHint","ENTRÉE / A  ·  REJOINDRE LE REFUGE",UDim2.fromOffset(30,482),UDim2.fromOffset(430,22),12,Color3.fromRGB(150,164,159)) startHint.Font=Enum.Font.SpecialElite
 CAS:BindAction("SurvivalStart",function(_,phase)
  if not main.Visible or player:GetAttribute("HasStarted")==true or UIS:GetFocusedTextBox() or (GuiService.SelectedObject and GuiService.SelectedObject~=play) then return Enum.ContextActionResult.Pass end
  if phase==Enum.UserInputState.Begin and player:GetAttribute("ProgressReady")==true then action:FireServer("Start") end
@@ -72,7 +174,7 @@ CAS:BindAction("SurvivalStart",function(_,phase)
 end,false,Enum.KeyCode.Return,Enum.KeyCode.ButtonA,Enum.KeyCode.ButtonStart)
 local function readyChanged()
  local ready=player:GetAttribute("ProgressReady")==true
- play.Text=ready and "JOUER  >" or "CHARGEMENT..." play.BackgroundColor3=ready and GREEN or Color3.fromRGB(173,181,187)
+ play.Text=ready and "01   JOUER" or "CHARGEMENT..." play.BackgroundColor3=ready and Color3.fromRGB(106,42,36) or Color3.fromRGB(55,58,60)
 end
 player:GetAttributeChangedSignal("ProgressReady"):Connect(readyChanged) readyChanged()
 local window=frame(gui,"Window",UDim2.fromScale(0.5,0.5),UDim2.fromOffset(720,490),CREAM) window.AnchorPoint=Vector2.new(0.5,0.5) window.Visible=false
@@ -97,18 +199,50 @@ local dashLabel=text(dashCard,"Label","CTRL · DASH",UDim2.fromOffset(6,1),UDim2
 local state local currentPage="Upgrades" local locked=false local savedCamera local toastSerial=0 local render
 local renderGeneration=0 local pendingPageReset=false
 local layoutWindow
+local tutorialCards={
+ {"LES PREMIERS PAS","Déplace-toi avec ZQSD ou les flèches. MAJ / L3 te fait sprinter, CTRL / B déclenche le dash et F allume la lampe (haut du pavé sur manette). Sur téléphone, utilise les boutons affichés.","ZQSD · MAJ / L3 · CTRL / B · F / ↑"},
+ {"FAIRE FACE AUX ZOMBIES","Tu commences avec tes poings. Clique ou touche l’écran pour frapper ; quand tu achètes une arme, équipe-la dans ARMES. Les armes à feu se rechargent avec R ou X.","CLIC / TOUCHER · R / X POUR RECHARGER"},
+ {"PIÈCES, XP ET FRAGMENTS","Chaque zombie vaincu donne des pièces et de l’XP. Il peut aussi laisser un fragment propre à son espèce : rassemble 3 fragments identiques pour fabriquer son pet.","1 CHANCE SUR 3 · 3 FRAGMENTS IDENTIQUES"},
+ {"AMÉLIORE TON ÉQUIPEMENT","Ouvre MENU, puis ATELIER pour améliorer ta vie, ta vitesse ou ton endurance. Dans ARMES, achète et équipe des armes avec tes pièces, même loin des boutiques.","MENU · ATELIER · ARMES"},
+ {"EXPLORE À TON RYTHME","Les portails indiquent le niveau requis pour chaque zone. Suis le guide à l’écran ; dans MISSIONS, consulte tes contrats et récupère les récompenses disponibles.","NIVEAU REQUIS · PORTAIL · MISSIONS"},
+}
+local tutorialIndex=1 local tutorialShown=false
+local tutorial=frame(gui,"Tutorial",UDim2.fromScale(.5,.5),UDim2.fromOffset(560,480),Color3.fromRGB(20,22,24)) tutorial.AnchorPoint=Vector2.new(.5,.5) tutorial.Visible=false
+tutorial:FindFirstChildOfClass("UIGradient"):Destroy() tutorial:FindFirstChildOfClass("UIStroke").Color=Color3.fromRGB(105,65,54)
+local tutorialScale=Instance.new("UIScale") tutorialScale.Parent=tutorial
+local tutorialHeading=text(tutorial,"Heading","GUIDE DE SURVIE",UDim2.fromOffset(30,24),UDim2.fromOffset(380,36),26,Color3.fromRGB(236,226,205))
+local tutorialCount=text(tutorial,"Step","ÉTAPE 1 / 5",UDim2.fromOffset(30,66),UDim2.fromOffset(500,22),13,Color3.fromRGB(183,127,103))
+local tutorialTitle=text(tutorial,"Title","",UDim2.fromOffset(30,105),UDim2.fromOffset(500,42),24,Color3.fromRGB(255,205,119))
+local tutorialBody=text(tutorial,"Body","",UDim2.fromOffset(30,154),UDim2.fromOffset(500,126),19,Color3.fromRGB(235,230,216)) tutorialBody.TextYAlignment=Enum.TextYAlignment.Top
+local tutorialHint=frame(tutorial,"Controls",UDim2.fromOffset(30,292),UDim2.fromOffset(500,66),Color3.fromRGB(43,39,39)) tutorialHint:FindFirstChildOfClass("UIGradient"):Destroy() tutorialHint:FindFirstChildOfClass("UIStroke").Color=Color3.fromRGB(105,65,54)
+local tutorialKeys=text(tutorialHint,"Keys","",UDim2.fromOffset(12,5),UDim2.new(1,-24,1,-10),16,Color3.fromRGB(246,193,141)) tutorialKeys.TextXAlignment=Enum.TextXAlignment.Center
+local tutorialPrevious=button(tutorial,"PRÉCÉDENT",UDim2.fromOffset(30,390),UDim2.fromOffset(170,78),Color3.fromRGB(51,57,58),function() end)
+local tutorialSkip=button(tutorial,"PASSER",UDim2.fromOffset(424,20),UDim2.fromOffset(110,58),Color3.fromRGB(92,45,39),function() end)
+local tutorialNext=button(tutorial,"SUIVANT",UDim2.fromOffset(364,390),UDim2.fromOffset(170,78),Color3.fromRGB(112,54,43),function() end)
+local function layoutTutorial()
+ local viewport=gui.AbsoluteSize
+ if viewport.X>24 and viewport.Y>24 then tutorialScale.Scale=math.clamp(math.min(1,(viewport.X-24)/560,(viewport.Y-24)/480),.1,1) end
+end
+local function updateTutorial()
+ local card=tutorialCards[tutorialIndex]
+ tutorialCount.Text="ÉTAPE "..tutorialIndex.." / "..#tutorialCards
+ tutorialTitle.Text=card[1] tutorialBody.Text=card[2] tutorialKeys.Text=card[3]
+ tutorialPrevious.Active=tutorialIndex>1 tutorialPrevious.Selectable=tutorialPrevious.Active
+ tutorialPrevious.BackgroundColor3=tutorialPrevious.Active and Color3.fromRGB(51,57,58) or Color3.fromRGB(36,39,40)
+ tutorialNext.Text=tutorialIndex==#tutorialCards and "C’EST PARTI" or "SUIVANT"
+end
 local function portraitCatalog()
  local camera=workspace.CurrentCamera
  return UIS.TouchEnabled and camera and camera.ViewportSize.Y>camera.ViewportSize.X
 end
 local pageNames={Upgrades="ATELIER",Weapons="ARMURERIE",Pets="FRAGMENTS & PETS",Time="CADEAUX & PALIERS",Missions="MISSIONS & DOSSIERS",Robux="BOUTIQUE ROBUX",Options="OPTIONS",Crates="CAISSES"}
 local function lock()
- local open=main.Visible or window.Visible or player:GetAttribute("CrateRevealOpen")==true or player:GetAttribute("AdminPanelOpen")==true
+ local open=main.Visible or window.Visible or tutorial.Visible or player:GetAttribute("CrateRevealOpen")==true or player:GetAttribute("AdminPanelOpen")==true
  if open and not locked then savedCamera=workspace.CurrentCamera.CFrame end
  player:SetAttribute("GameMenuOpen",open) action:FireServer("MenuState",open or player:GetAttribute("OptionsOpen")==true)
  backdrop.Visible=open
  welcomeArt.Visible=player:GetAttribute("HasStarted")~=true
- if not open and locked then workspace.CurrentCamera.CameraType=Enum.CameraType.Custom UIS.MouseBehavior=player:GetAttribute("ThirdPerson") and Enum.MouseBehavior.Default or Enum.MouseBehavior.LockCenter UIS.MouseIconEnabled=player:GetAttribute("ThirdPerson")==true end
+ if not open and locked then workspace.CurrentCamera.CameraType=Enum.CameraType.Custom UIS.MouseBehavior=Enum.MouseBehavior.LockCenter UIS.MouseIconEnabled=false end
  locked=open
  local hud=player.PlayerGui:FindFirstChild("SurvivalHUD") if hud then hud.Enabled=player:GetAttribute("HasStarted")==true end
 end
@@ -126,8 +260,46 @@ local function open(page)
   TweenService:Create(window,TweenInfo.new(.24,Enum.EasingStyle.Back,Enum.EasingDirection.Out),{Position=UDim2.fromScale(.5,.5)}):Play()
  end
 end
-button(main,"OPTIONS",UDim2.fromOffset(70,299),UDim2.fromOffset(360,60),BLUE,function() open("Options") end).Name="Options"
-local tip=text(main,"Tip","3 fragments du meme zombie = 1 pet\nAchete tes armes directement depuis le menu !",UDim2.fromOffset(36,368),UDim2.fromOffset(428,52),14) tip.TextXAlignment=Enum.TextXAlignment.Center
+local function closeTutorial(markComplete)
+ tutorial.Visible=false
+ main.Visible=player:GetAttribute("HasStarted")~=true
+ lock()
+ if markComplete and player:GetAttribute("HasStarted")==true then action:FireServer("TutorialComplete") end
+end
+local function showTutorial()
+ tutorialIndex=1 tutorial.Visible=true main.Visible=false window.Visible=false
+ layoutTutorial() updateTutorial() lock()
+ task.delay(player:GetAttribute("ReducedMotion") and .1 or .5,function()
+  if UIS.GamepadEnabled and tutorial.Visible and tutorialNext.Visible and tutorialNext.Selectable and tutorialNext:IsDescendantOf(gui) then GuiService.SelectedObject=tutorialNext end
+ end)
+ if not player:GetAttribute("ReducedMotion") then
+  tutorial.Position=UDim2.new(.5,0,.5,18)
+  TweenService:Create(tutorial,TweenInfo.new(.2,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Position=UDim2.fromScale(.5,.5)}):Play()
+ end
+end
+local function previousTutorial() if tutorialIndex>1 then tutorialIndex-=1 updateTutorial() end end
+local function nextTutorial()
+ if tutorialIndex<#tutorialCards then tutorialIndex+=1 updateTutorial() else closeTutorial(true) end
+end
+tutorialPrevious.Activated:Connect(previousTutorial)
+tutorialNext.Activated:Connect(nextTutorial)
+tutorialSkip.Activated:Connect(function() closeTutorial(true) end)
+UIS.InputBegan:Connect(function(input)
+ if not tutorial.Visible then return end
+ if input.KeyCode==Enum.KeyCode.Left then previousTutorial()
+ elseif input.KeyCode==Enum.KeyCode.Right or input.KeyCode==Enum.KeyCode.Return or input.KeyCode==Enum.KeyCode.KeypadEnter then nextTutorial()
+ elseif input.KeyCode==Enum.KeyCode.Escape then closeTutorial(true) end
+end)
+gui:GetPropertyChangedSignal("AbsoluteSize"):Connect(layoutTutorial)
+task.defer(layoutTutorial)
+local menuOptions=button(main,"02   OPTIONS",UDim2.fromOffset(28,344),UDim2.fromOffset(420,56),Color3.fromRGB(24,30,31),function() open("Options") end) menuOptions.Name="Options" menuOptions.Font=Enum.Font.SpecialElite menuOptions.TextColor3=Color3.fromRGB(222,219,205) menuOptions.TextSize=20
+for _,b in {play,menuOptions,cinemaReplay} do
+ b.TextXAlignment=Enum.TextXAlignment.Left
+ local padding=Instance.new("UIPadding") padding.PaddingLeft=UDim.new(0,22) padding.Parent=b
+ b:FindFirstChildOfClass("UICorner").CornerRadius=UDim.new(0,3)
+ b:FindFirstChildOfClass("UIStroke").Color=Color3.fromRGB(83,76,63)
+end
+cinemaReplay.Font=Enum.Font.SpecialElite cinemaReplay.TextSize=18
 button(window,"X",UDim2.fromOffset(660,14),UDim2.fromOffset(42,32),RED,close).Name="Close"
 local tabButtons={}
 for i,id in {"Upgrades","Weapons","Pets","Time","Missions","Robux","Options","Crates"} do
@@ -203,20 +375,31 @@ local previews={}
 local function weaponPreview(parent,id)
  local portrait=portraitCatalog()
  local viewport=Instance.new("ViewportFrame") viewport.Name="WeaponPreview" viewport.Position=UDim2.fromOffset(portrait and 16 or 8,portrait and 16 or 7) viewport.Size=UDim2.fromOffset(portrait and 96 or 82,portrait and 96 or 82)
- viewport.BackgroundColor3=Color3.fromRGB(42,53,78) viewport.BorderSizePixel=0 viewport.Ambient=Color3.fromRGB(190,200,220) viewport.LightColor=Color3.fromRGB(255,242,216) viewport.Parent=parent round(viewport,14)
- local cam=Instance.new("Camera") cam.FieldOfView=34 cam.CFrame=CFrame.lookAt(Vector3.new(3,2.2,5.3),Vector3.new(0,1,0)) cam.Parent=viewport viewport.CurrentCamera=cam
+ viewport.BackgroundColor3=Color3.fromRGB(42,53,78) viewport.BorderSizePixel=0 viewport.Ambient=Color3.fromRGB(235,240,255) viewport.LightColor=Color3.fromRGB(255,252,240) viewport.Parent=parent round(viewport,14)
+ local cam=Instance.new("Camera") cam.FieldOfView=34 cam.Parent=viewport viewport.CurrentCamera=cam
  local model,pieces=WeaponVisuals.Build(id) model.Parent=viewport
  if id=="Fists" then
   for _,x in {-.35,.35} do local glove=Instance.new("Part") glove.Size=Vector3.new(.52,.6,.65) glove.Color=C.Weapons.Fists.Color glove.CFrame=CFrame.new(x,1,0) glove.Parent=model end
  end
- table.insert(previews,{viewport=viewport,model=model,base=model:GetPivot()})
+ local bounds,size=model:GetBoundingBox()
+ local center=bounds.Position
+ local halfVertical=math.rad(cam.FieldOfView/2)
+ local halfHorizontal=math.atan(math.tan(halfVertical)*viewport.Size.X.Offset/viewport.Size.Y.Offset)
+ local radius=math.max(size.Magnitude/2,.6)
+ local distance=radius/math.sin(math.min(halfVertical,halfHorizontal))*1.15
+ local direction=Vector3.new(3,2.2,5.3).Unit
+ cam.CFrame=CFrame.lookAt(center+direction*distance,center)
+ table.insert(previews,{viewport=viewport,model=model,base=model:GetPivot(),center=center})
  parent.Name="Weapon_"..id
  parent:FindFirstChild("Name").Position=UDim2.fromOffset(portrait and 128 or 102,portrait and 10 or 7) parent:FindFirstChild("Name").Size=UDim2.fromOffset(portrait and 522 or 365,portrait and 48 or 29)
  parent.Description.Position=UDim2.fromOffset(portrait and 128 or 102,portrait and 64 or 39) parent.Description.Size=UDim2.fromOffset(portrait and 522 or 365,portrait and 80 or 48)
 end
 RunService.RenderStepped:Connect(function()
  if not window.Visible or currentPage~="Weapons" or player:GetAttribute("ReducedMotion") then return end
- for _,item in previews do if item.viewport.Parent then item.model:PivotTo(CFrame.Angles(0,math.sin(os.clock()*.7)*.32,0)*item.base) end end
+ for _,item in previews do if item.viewport.Parent then
+  local turn=CFrame.new(item.center)*CFrame.Angles(0,math.sin(os.clock()*.7)*.32,0)*CFrame.new(-item.center)
+  item.model:PivotTo(turn*item.base)
+ end end
 end)
 local function timeString(seconds)
  seconds=math.max(0,math.ceil(seconds)) return string.format("%02d:%02d",math.floor(seconds/60),seconds%60)
@@ -286,14 +469,14 @@ render=function()
  local s=state
  bonus.Text=string.format("%d pieces   |   Gains zombies : pieces x%.2f / XP x%.2f   |   Un pet actif",s.Coins,s.CoinsMultiplier,s.XPMultiplier)
  if currentPage=="Upgrades" then
-  note.Text="Ameliorations permanentes : achete ici, ou que tu sois !"
-  for _,id in {"Health","Speed","Stamina"} do
-   local d=C.Upgrades[id] local lv=s[id.."Level"] or 0
-   local desc=id=="Health" and ("Vie max : "..(100+lv*d.Step).." PV · +20 PV par amelioration") or id=="Stamina" and ("Endurance max : "..(100+lv*d.Step).." · +20 par amelioration") or ("+"..string.format("%.1f",lv*d.Step).." vitesse · marche et sprint")
-   local f=row(d.Name.." · "..lv.."/"..d.Max,desc,nil,100)
+  note.Text="Ameliorations permanentes sans plafond de jeu visible."
+  for _,id in {"Health","Speed","Stamina","Ability"} do
+   local d=C.Upgrades[id] local lv=s[id.."Level"] or 0 local value=C.UpgradeSteps(id,lv)*d.Step
+   local desc=id=="Health" and string.format("Vie max : %.1f PV · rendement décroissant après le rang 25",100+value) or id=="Stamina" and string.format("Endurance max : %.1f · rendement décroissant après le rang 25",100+value) or id=="Ability" and ("Puissance des capacites : x"..string.format("%.2f",1+value).." · rendement décroissant après le rang 25") or ("Vitesse bonus : +"..string.format("%.1f",value).." · marche/sprint · rendement décroissant après 25")
+   local f=row(d.Name.." · RANG "..string.format("%.0f",lv),desc,nil,100)
    f.Name="Upgrade_"..id rowIcon(f,id=="Stamina" and "XP" or id)
-   progressBar(f,lv/d.Max,id=="Health" and RED or BLUE)
-   local cost=C.UpgradeCost(id,lv) rowButton(f,lv>=d.Max and "MAXIMUM" or cost.." pieces",function() send("Upgrade",id) end,GREEN,lv<d.Max and s.Coins>=cost)
+
+   local cost=C.UpgradeCost(id,lv) rowButton(f,lv>=C.ProgressionLevelLimit and "LIMITE TECH." or cost.." pieces",function() send("Upgrade",id) end,GREEN,lv<C.ProgressionLevelLimit and s.Coins>=cost)
   end
  elseif currentPage=="Weapons" then
   note.Text="Achete et equipe ici, ou que tu sois ! Armes a feu : tete x"..C.HeadshotMultiplier.."."
@@ -325,15 +508,15 @@ render=function()
    rowButton(f,"DETAILS",function() CrateReveal.Confirm(id,function() send("OpenCrate",id) end) end,GOLD,s.CratesAllowed and s.Level>=d.Level and s.Coins>=d.Cost)
   end
  elseif currentPage=="Pets" then
-  note.Text="3 fragments = 1 pet · Evolue avec des copies identiques, une copie conservee."
+  note.Text="3 fragments = 1 pet · evolue avec des copies identiques · rangs sans plafond visible."
   for _,id in C.PetOrder do
    local pet=C.Pets[id] local count=s.Pets[id] or 0 local fragments=s.Fragments[id] or 0
-   local rank=(s.PetRanks or {})[id] or 0 local needed=C.PetRanks.Copies[rank+1]
+   local rank=(s.PetRanks or {})[id] or 0 local needed=C.PetRankCost(rank)
    local desc=petBonus(id,rank).."\n"..(id=="Buddy" and "Cadeau des 30 minutes" or "Fragments : "..fragments.."/3").." · Copies : "..count
-   desc..="\nRang "..rank.."/"..C.PetRanks.Max..(needed and (" · Evolution : "..needed.." copies") or " · Maximum")
-   local f=row(pet.Name..(rank>0 and (" "..string.rep("★",rank)) or ""),desc,Color3.fromRGB(230,246,221),104) f.Name="Pet_"..id rowIcon(f,"Pets")
+   desc..="\nRang "..string.format("%.0f",rank)..(needed and (" · Evolution : "..needed.." copies") or " · Limite technique")
+   local f=row(pet.Name,desc,Color3.fromRGB(230,246,221),104) f.Name="Pet_"..id rowIcon(f,"Pets")
    if not portraitCatalog() then f:FindFirstChild("Name").Position=UDim2.fromOffset(46,5) f:FindFirstChild("Name").Size=UDim2.fromOffset(232,29) f.Description.Size=UDim2.fromOffset(260,64) end
-   local evolve=rowButton(f,needed and "EVOLUER" or "MAX",function() send("UpgradePet",id) end,GREEN,needed~=nil and count>=(needed or math.huge),286,120) evolve.Name="Evolve"
+   local evolve=rowButton(f,needed and "EVOLUER" or "LIMITE TECH.",function() send("UpgradePet",id) end,GREEN,needed~=nil and count>=needed,286,120) evolve.Name="Evolve"
    if id~="Buddy" then rowButton(f,"FUSIONNER",function() send("Fuse",id) end,GOLD,fragments>=3 and count<100000,416,116) end
    local equipped=s.EquippedPet==id
    rowButton(f,equipped and "RANGER" or "EQUIPER",function() send("EquipPet",equipped and "" or id) end,BLUE,count>0,542,112)
@@ -416,6 +599,11 @@ render=function()
   rowButton(f,s.Weapons.LimitedBlade and "POSSEDEE" or enabled and "ACHETER" or "BIENTOT",function() send("Robux","LimitedBlade") end,GOLD,enabled and not s.Weapons.LimitedBlade)
  elseif currentPage=="Options" then
   note.Text="Reglages de cette session. CTRL : dash · MAJ : sprint · F : torche."
+  local guide=row("GUIDE DE SURVIE","Revoir les commandes, les armes, les fragments et les zones.") guide.Name="Option_Tutorial"
+  rowButton(guide,"OUVRIR LE TUTORIEL",showTutorial,BLUE,true)
+  local optedIn=player:GetAttribute("PvPEnabled")==true
+  local pvp=row("PVP HORS ARÈNE","Les deux joueurs doivent activer ce réglage pour se battre ailleurs.") pvp.Name="Option_PvPEnabled"
+  rowButton(pvp,optedIn and "ACTIF" or "INACTIF",function() action:FireServer("PvPPreference",not optedIn) end,optedIn and BLUE or RED,player:GetAttribute("HasStarted")==true)
   for _,o in {{"ThirdPerson","Vue du personnage","3E PERSONNE","1RE PERSONNE",true},{"HighGraphics","Qualite graphique","ELEVEE","STANDARD",false},{"RainEnabled","Pluie","ACTIVE","COUPEE",false},{"ReducedMotion","Camera douce","ACTIVE","COUPEE",true},{"SFXEnabled","Effets sonores","ACTIFS","COUPES",false}} do
    local value=player:GetAttribute(o[1]) local on=o[5] and value==true or not o[5] and value~=false
    local f=row(o[2],o[1]=="ThirdPerson" and "O : changer de vue. Clic droit / glisser : tourner la camera." or o[1]=="ReducedMotion" and "Reduit les mouvements de camera et les variations de champ de vision." or "Personnalise l'ambiance du jeu.") f.Name="Option_"..o[1]
@@ -427,6 +615,7 @@ render=function()
   scroll.CanvasPosition=Vector2.new(0,math.clamp(canvas.Y,0,math.max(0,extent)))
  end end)
 end
+player:GetAttributeChangedSignal("PvPEnabled"):Connect(function() if window.Visible and currentPage=="Options" then render() end end)
 local function notify(message)
  if window.Visible then note.Text=message return end
  toastSerial+=1 local serial=toastSerial toastText.Text=message toast.Visible=true
@@ -434,7 +623,7 @@ local function notify(message)
 end
 local renderedSignature
 local function catalogSignature(data)
- local selected={CratesAllowed=data.CratesAllowed,Page=currentPage,Coins=data.Coins,Level=data.Level,Health=data.HealthLevel,Speed=data.SpeedLevel,Stamina=data.StaminaLevel,Weapon=data.EquippedWeapon,Weapons=data.Weapons,PetRanks=data.PetRanks,Pets=data.Pets,Fragments=data.Fragments,Pet=data.EquippedPet,XP=data.XPMultiplier,Money=data.CoinsMultiplier}
+ local selected={CratesAllowed=data.CratesAllowed,Page=currentPage,Coins=data.Coins,Level=data.Level,Health=data.HealthLevel,Speed=data.SpeedLevel,Stamina=data.StaminaLevel,Ability=data.AbilityLevel,Weapon=data.EquippedWeapon,Weapons=data.Weapons,PetRanks=data.PetRanks,Pets=data.Pets,Fragments=data.Fragments,Pet=data.EquippedPet,XP=data.XPMultiplier,Money=data.CoinsMultiplier}
  if currentPage=="Time" then
   selected.Login=data.Login selected.LoginReady=data.LoginReady
   selected.LevelRewards=data.LevelRewards
@@ -468,6 +657,7 @@ remote.OnClientEvent:Connect(function(packet)
  if packet.Kind=="CrateError" then CrateReveal.Error(packet.Note) return end
  if packet.Kind~="State" then return end
  state=packet.Data
+ if state.HasStarted==true and state.TutorialCompleted~=true and not tutorialShown then tutorialShown=true showTutorial() end
  refreshContractText()
  local signature=catalogSignature(state)
  if packet.Open then open(packet.Open) elseif window.Visible and signature~=renderedSignature then render() end
@@ -549,8 +739,22 @@ end
 local function resize()
  local camera=workspace.CurrentCamera if not camera then return end local v=camera.ViewportSize
  if v.X<100 or v.Y<100 then return end -- Studio can briefly expose a 1 x 1 viewport before the client tab renders.
- ms.Scale=math.min(UIS.TouchEnabled and 1 or .80,(v.X-30)/500,(v.Y-30)/450) ws.Scale=math.min(1,(v.X-24)/720,(v.Y-24)/490) ts.Scale=math.min(1,(v.X-30)/390)
- main.Position=UDim2.fromScale(v.X>=1000 and .73 or .5,.5)
+ local compactMenu=v.X>v.Y and v.Y<500
+ local menuHeight=compactMenu and 336 or 530
+ local availableHeight=v.Y-GuiService:GetGuiInset().Y
+ main.Size=UDim2.fromOffset(500,menuHeight)
+ brand.Position=UDim2.fromOffset(28,compactMenu and 34 or 42) brand.Size=UDim2.fromOffset(444,compactMenu and 50 or 138) brand.TextSize=compactMenu and 34 or 68 brand.Text=compactMenu and "WEAPON EVOLUTION" or "WEAPON\nEVOLUTION"
+ warning.Position=UDim2.fromOffset(30,compactMenu and 90 or 192) warning.TextSize=compactMenu and 16 or 18
+ play.Position=UDim2.fromOffset(28,compactMenu and 146 or 260) play.Size=UDim2.fromOffset(420,compactMenu and 54 or 70)
+ menuOptions.Position=UDim2.fromOffset(28,compactMenu and 204 or 344) menuOptions.Size=UDim2.fromOffset(420,62)
+ cinemaReplay.Position=UDim2.fromOffset(28,compactMenu and 272 or 414) cinemaReplay.Size=UDim2.fromOffset(420,62)
+ startHint.Visible=not compactMenu startHint.Position=UDim2.fromOffset(30,500)
+ ms.Scale=math.min(1,(v.X-40)/500,(availableHeight-24)/menuHeight) ws.Scale=math.min(1,(v.X-24)/720,(v.Y-24)/490) ts.Scale=math.min(1,(v.X-30)/390)
+ main.AnchorPoint=Vector2.zero
+ local menuX=v.X>v.Y and math.max(24,v.X*.25-250*ms.Scale) or (v.X-500*ms.Scale)*.5
+ local menuY=math.max(12,(availableHeight-menuHeight*ms.Scale)*(v.X>v.Y and .5 or .58))
+ main.Position=UDim2.fromOffset(menuX-gui.AbsolutePosition.X,menuY-gui.AbsolutePosition.Y)
+ menuGradient.Rotation=v.X>v.Y and 0 or 90
  local landscape=UIS.TouchEnabled and v.X>v.Y and v.Y<500
  quick.AnchorPoint=landscape and Vector2.new(.5,0) or Vector2.new(1,0)
  quick.Position=landscape and UDim2.new(.5,0,0,134) or UDim2.new(1,-18,0,152)
@@ -607,7 +811,7 @@ RunService.Heartbeat:Connect(function(dt)
  local touchGui=player.PlayerGui:FindFirstChild("TouchGui") if touchGui then touchGui.Enabled=playing and not locked and not player:GetAttribute("OptionsOpen") end
  quick.Visible=playing and not locked and not player:GetAttribute("OptionsOpen") dashCard.Visible=quick.Visible and not UIS.TouchEnabled
  contractCard.Visible=quick.Visible and not UIS.TouchEnabled and workspace.CurrentCamera.ViewportSize.X>=1000 and workspace.CurrentCamera.ViewportSize.Y>=600
- play.Text=player:GetAttribute("ProgressReady") and "JOUER" or "CHARGEMENT..."
+ play.Text=player:GetAttribute("ProgressReady") and "01   JOUER" or "CHARGEMENT..."
  local c=player.Character local remaining=c and math.max(0,(c:GetAttribute("DashReadyAt") or 0)-workspace:GetServerTimeNow()) or 0
  local stamina=c and (c:GetAttribute("Stamina") or 0) or 0
  dashLabel.Text=remaining>0 and string.format("DASH · %.1f s",remaining) or stamina<C.Dash.Cost and "DASH · 25 ENDURANCE" or UIS.TouchEnabled and "DASH PRET" or "CTRL · DASH PRET"
@@ -653,9 +857,9 @@ RunService.Heartbeat:Connect(function(dt)
   for _,level in C.LevelRewardOrder do if state.Level>=level and state.Coins<=2000000000-C.LevelRewards[level] and (state.LevelRewards or {})[tostring(level)]~=true then ready+=1 end end
   gift.Text=ready>0 and "CADEAUX ("..ready..") [G]" or "CADEAUX [G]"
   local upgradeReady=false
-  for _,id in {"Health","Speed","Stamina"} do
+  for _,id in {"Health","Speed","Stamina","Ability"} do
    local level=state[id.."Level"] or 0
-   if level<C.Upgrades[id].Max and state.Coins>=C.UpgradeCost(id,level) then upgradeReady=true break end
+   if level<C.ProgressionLevelLimit and state.Coins>=C.UpgradeCost(id,level) then upgradeReady=true break end
   end
   shopShortcut.Text=UIS.TouchEnabled and ((upgradeReady and "ATELIER !" or "MENU")..(ready>0 and " +"..ready or "")) or (upgradeReady and "ATELIER ! [B]" or "BOUTIQUES [B]")
  end
@@ -753,9 +957,11 @@ task.spawn(function()
  text(panel,"QuantityLabel","QUANTITE",UDim2.fromOffset(16,62),UDim2.new(.5,-24,0,44),16)
  local quantity=Instance.new("TextBox") quantity.Name="Quantity" quantity.Text="1" quantity.ClearTextOnFocus=false quantity.PlaceholderText="1 a 1000000" quantity.Font=Enum.Font.FredokaOne quantity.TextSize=20 quantity.TextColor3=INK quantity.BackgroundColor3=Color3.new(1,1,1) quantity.Position=UDim2.new(.5,0,0,62) quantity.Size=UDim2.new(.5,-16,0,44) quantity.Parent=panel round(quantity,10) stroke(quantity,2)
  local categories={{"Coins","PIECES"},{"Levels","NIVEAUX"},{"XP","XP"},{"Weapon","ARMES"},{"Pet","PETS"},{"Fragments","FRAGMENTS"}}
+ if player:GetAttribute("AdminCanDelegate")==true then table.insert(categories,{"Admins","ADMINS"}) end
  local category=1
  local list=Instance.new("ScrollingFrame") list.Name="Items" list.BackgroundTransparency=1 list.BorderSizePixel=0 list.Position=UDim2.fromOffset(16,168) list.Size=UDim2.new(1,-32,1,-240) list.CanvasSize=UDim2.new() list.AutomaticCanvasSize=Enum.AutomaticSize.Y list.ScrollBarThickness=5 list.Parent=panel
  local flow=Instance.new("UIListLayout") flow.Padding=UDim.new(0,8) flow.SortOrder=Enum.SortOrder.LayoutOrder flow.Parent=list
+ local targetName=Instance.new("TextBox") targetName.Name="TargetUsername" targetName.Text="" targetName.PlaceholderText="Nom d'utilisateur Roblox" targetName.ClearTextOnFocus=false targetName.Font=Enum.Font.FredokaOne targetName.TextSize=18 targetName.TextColor3=INK targetName.BackgroundColor3=Color3.new(1,1,1) targetName.Size=UDim2.new(1,-10,0,44) targetName.Parent=list round(targetName,10) stroke(targetName,2)
  local selectCategory
  local function give(verb,id)
   if busy then return end
@@ -767,19 +973,45 @@ task.spawn(function()
   status.TextColor3=ok and accepted and INK or Color3.fromRGB(151,55,45)
   task.wait(.35) busy=false
  end
+ local function manage(verb,id)
+  if busy then return false end
+  busy=true status.Text="Mise a jour des acces..."
+  local ok,accepted,message=pcall(function() return adminRemote:InvokeServer(verb,id,1) end)
+  status.Text=ok and (message.."\n"..mode) or "Connexion interrompue : acces non confirme."
+  status.TextColor3=ok and accepted and INK or Color3.fromRGB(151,55,45)
+  busy=false
+  return ok and accepted
+ end
  local function renderAdmin()
-  for _,child in list:GetChildren() do if child:IsA("GuiObject") then child:Destroy() end end
+  for _,child in list:GetChildren() do if child:IsA("GuiObject") and child~=targetName then child:Destroy() end end
   list.CanvasPosition=Vector2.zero
   local verb=categories[category][1]
   selectCategory.Text="<  "..categories[category][2].."  >"
   quantity.Visible=verb~="Weapon"
-  panel.QuantityLabel.Text=verb=="Weapon" and "Une copie · equipement conserve" or "QUANTITE"
+  targetName.Visible=verb=="Admins"
+  panel.QuantityLabel.Text=verb=="Admins" and "NOM ROBLOX" or (verb=="Weapon" and "Une copie · equipement conserve" or "QUANTITE")
   panel.QuantityLabel.Size=verb=="Weapon" and UDim2.new(1,-32,0,44) or UDim2.new(.5,-24,0,44)
   local function row(id,label,index)
    local b=button(list,"+  "..label,UDim2.new(),UDim2.new(1,-10,0,48),GREEN,function() give(verb,id) end)
    b.Name=id or verb b.LayoutOrder=index
   end
-  if verb=="Weapon" then
+  if verb=="Admins" then
+   quantity.Visible=false
+   local add=button(list,"+  DONNER LES ACCES ADMIN",UDim2.new(),UDim2.new(1,-10,0,48),GREEN,function()
+    if manage("GrantAdmin",targetName.Text) then targetName.Text="" task.delay(.35,renderAdmin) end
+   end)
+   add.Name="GrantAdmin" add.LayoutOrder=1
+   local ok,accepted,message,ids=pcall(function() return adminRemote:InvokeServer("ListAdmins",nil,1) end)
+   if ok and accepted and typeof(ids)=="table" then
+    if #ids==0 then text(list,"NoDelegates","Aucun admin delegue",UDim2.new(),UDim2.new(1,-10,0,42),16).LayoutOrder=2 end
+    for i,delegate in ids do
+     local revoke=button(list,"RETIRER  ·  "..delegate.Username,UDim2.new(),UDim2.new(1,-10,0,48),RED,function()
+      if manage("RevokeAdmin",delegate.UserId) then task.delay(.35,renderAdmin) end
+     end)
+     revoke.Name="Revoke_"..delegate.UserId revoke.LayoutOrder=i+2
+    end
+   else status.Text=(ok and tostring(message) or "Connexion interrompue").."\n"..mode end
+  elseif verb=="Weapon" then
    for i,id in C.WeaponOrder do row(id,C.Weapons[id].Name,i) end
   elseif verb=="Pet" or verb=="Fragments" then
    for i,id in C.PetOrder do if verb=="Pet" or id~="Buddy" then row(id,C.Pets[id].Name,i) end end
@@ -794,5 +1026,9 @@ task.spawn(function()
  entryVisible()
  UIS.InputBegan:Connect(function(input,processed) if not processed and not UIS:GetFocusedTextBox() and input.KeyCode==Enum.KeyCode.F4 then toggle() end end)
  player.CharacterAdded:Connect(function() panel.Visible=false player:SetAttribute("AdminPanelOpen",false) end)
+ player:GetAttributeChangedSignal("AdminAccess"):Connect(function()
+  local allowed=player:GetAttribute("AdminAccess")==true
+  adminGui.Enabled=allowed
+  if not allowed then panel.Visible=false player:SetAttribute("AdminPanelOpen",false) end
+ end)
 end)
-

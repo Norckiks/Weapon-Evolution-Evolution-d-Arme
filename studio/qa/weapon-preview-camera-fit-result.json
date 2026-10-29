@@ -1,0 +1,56 @@
+{
+  "testId": "TEST-WEAPON-PREVIEW-FRAMING-001",
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "change": "WeaponPreview now frames the complete model bounds with a perspective camera sized from the bounding sphere, and spins around the visual center.",
+  "editAssertions": {
+    "catalogEntries": 31,
+    "oldFixedCameraCroppedModels": 9,
+    "oldFixedCameraCroppedIds": [
+      "Katana",
+      "LMG",
+      "Spear",
+      "Pike",
+      "RelayLance",
+      "OrbitalSpear",
+      "ArcPike",
+      "EclipseGlaive",
+      "LimitedBlade"
+    ],
+    "fittedModels": 31,
+    "rotationRadians": [-0.32, 0.32],
+    "maxNormalizedScreenExtent": 0.856,
+    "result": "PASS"
+  },
+  "play": {
+    "modeAtTest": "Play",
+    "activeClientGameHubContainsCameraFit": true,
+    "fittedModels": 31,
+    "maxNormalizedScreenExtent": 0.856,
+    "generatedBasePartsIncludingFistGloves": 665,
+    "importedWeaponModels": 16,
+    "importedMeshParts": 292,
+    "consoleOutput": "empty",
+    "playStopped": true,
+    "studioReturnedToEdit": true
+  },
+  "currentImportedWeaponPalette": {
+    "models": 16,
+    "parts": 292,
+    "grayParts": 0,
+    "minimumModelAverageSaturation": 0.670,
+    "recentModels": {
+      "ArcPike": 0.810,
+      "BlackoutEdge": 0.697,
+      "EclipseGlaive": 0.728
+    }
+  },
+  "visualCapture": "Not captured: ARMES page was not opened in this session. Numeric camera-fit assertions do not replace an on-screen visual review.",
+  "persistence": {
+    "profileChanged": false,
+    "purchasePerformed": false,
+    "rbxlSaved": false,
+    "published": false
+  },
+  "backup": "ServerStorage.BeforeWeaponPreviewCameraFit_20261029"
+}

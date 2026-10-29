@@ -129,7 +129,7 @@ local function toggle()
  else
   camera.CameraType=previousCameraType
   -- Menu entry resets voluntary mouse release; restore combat input on close.
-  if player:GetAttribute("MouseUnlocked") or player:GetAttribute("ThirdPerson")==true then
+  if player:GetAttribute("MouseUnlocked") then
    UserInputService.MouseBehavior=Enum.MouseBehavior.Default UserInputService.MouseIconEnabled=true
   else
    UserInputService.MouseIconEnabled=false
@@ -173,7 +173,7 @@ local function applyMouseState()
  local active=canUseMouse()
  mouseBtn.Modal=mouseUnlocked and active or false
  if UserInputService.TouchEnabled or not UserInputService.MouseEnabled then return end
- if mouseUnlocked or not active or player:GetAttribute("ThirdPerson")==true then
+ if mouseUnlocked or not active then
   UserInputService.MouseBehavior=Enum.MouseBehavior.Default UserInputService.MouseIconEnabled=true
  else
   UserInputService.MouseBehavior=Enum.MouseBehavior.LockCenter UserInputService.MouseIconEnabled=false

@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-29",
+  "place": "Évolution des armes",
+  "placeId": 89391796839094,
+  "test": "Studio Play armory UI inspection",
+  "method": "Temporary server Script called the real EconomyService.Send(player, nil, \"Weapons\") and destroyed itself.",
+  "session": {
+    "modeAfterTest": "Edit",
+    "hasStarted": true,
+    "level": 1,
+    "coins": 0,
+    "equippedWeapon": "Fists",
+    "purchaseGrantOrEquip": false
+  },
+  "armory": {
+    "weaponCards": 31,
+    "viewportFrames": 31,
+    "viewportsMissingCameraOrGeometry": 0,
+    "modelPendingTextLabels": 0,
+    "nextWeaponGoalRowHasWeaponPreview": false
+  },
+  "output": {
+    "gameScriptErrorsObserved": 0,
+    "automationWarnings": 3,
+    "warning": "GuiService.SelectedObject to invalid GuiObject"
+  },
+  "visualPixelCapture": "Unavailable: Studio window capture timed out; this result is runtime instance inspection, not screenshot approval.",
+  "result": "The reported missing-model label and empty 3D weapon previews were not reproduced in this Studio Play session."
+}

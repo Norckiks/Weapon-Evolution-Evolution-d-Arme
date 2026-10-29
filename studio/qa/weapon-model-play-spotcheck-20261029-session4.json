@@ -1,0 +1,32 @@
+{
+  "testId": "TEST-WEAPON-MODELS-PLAY-SPOTCHECK-004",
+  "date": "2026-10-29",
+  "place": "Évolution des armes",
+  "placeId": 89391796839094,
+  "mode": "Studio Play",
+  "result": "MODEL_PENDING_NOT_REPRODUCED",
+  "runtime": {
+    "weaponDefinitions": 31,
+    "weaponDefinitionsModelPending": 0,
+    "importedWeaponModels": 16,
+    "importedWeaponMeshParts": 292,
+    "fallbackWeaponBuilds": 14,
+    "fallbackBuildParts": 371,
+    "fistsBuildParts": 0,
+    "equippedWeapon": "Fists",
+    "persistenceMode": "SessionStudio",
+    "coins": 0,
+    "level": 1
+  },
+  "checks": [
+    "In Play, required GameplayConfig and ran WeaponVisuals.Build for every WeaponOrder entry on the client; every non-fist weapon returned non-empty geometry.",
+    "The 16 imported models have 292 MeshParts. The other 14 non-fist entries, including LimitedBlade, are currently built from 371 Roblox Parts rather than imported MeshParts.",
+    "Live GameHub weapon-card source contains no model-pending label branch; the loaded weapon definitions contain no ModelPending=true entry.",
+    "The equipped weapon was Fists, so no separate weapon model was expected on the character.",
+    "No purchase, grant, equip, or reward was triggered. Play was stopped and Studio returned to Edit."
+  ],
+  "limitations": [
+    "The armory page could not be opened with the Studio mouse automation; physical click and screen-capture calls timed out. The on-screen pixels and the reported label were therefore not verified in this session.",
+    "This spot check proves client-side geometry generation and active source/config state, not that every weapon is an imported Blender mesh or visually approved."
+  ]
+}

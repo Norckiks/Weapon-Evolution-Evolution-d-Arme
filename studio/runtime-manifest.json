@@ -2,9 +2,9 @@
   "version": 1,
   "inspectedAt": "2026-10-26",
   "place": "Ã‰volution des armes",
-  "placeId": 78882167241715,
+  "placeId": 89391796839094,
   "originalPlace": "76184777294422_AutoRecovery_0.rbxl",
-  "note": "Mapping only. Does not reconstruct terrain, models, GUI instances, assets or remotes. Never install builders or QA as runtime scripts.",
+  "note": "Mapping only. PlaceId confirmed with the owner on 2026-10-27; AdminService and GameHub were compared in Studio during that session. Does not reconstruct terrain, models, GUI instances, assets or remotes. Never install builders or QA as runtime scripts.",
   "scripts": [
     {
       "path": "ReplicatedStorage.CrateReveal",
@@ -40,6 +40,11 @@
       "path": "ServerScriptService.PulseAbility",
       "class": "ModuleScript",
       "file": "studio/PulseAbility.luau"
+    },
+    {
+      "path": "ServerScriptService.PvPService",
+      "class": "ModuleScript",
+      "file": "studio/PvPService.luau"
     },
     {
       "path": "StarterPlayer.StarterPlayerScripts.PulseClient",

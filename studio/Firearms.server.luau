@@ -3,6 +3,7 @@ local RS=game:GetService("ReplicatedStorage")
 local CollectionService=game:GetService("CollectionService")
 local C=require(RS:WaitForChild("GameplayConfig"))
 local Ballistics=require(RS:WaitForChild("FirearmBallistics"))
+local PvP=require(script.Parent:WaitForChild("PvPService"))
 local remotes=RS:WaitForChild("Remotes")
 local function remote(name)
  local r=remotes:FindFirstChild(name) or Instance.new("RemoteEvent") r.Name=name r.Parent=remotes return r
@@ -39,10 +40,10 @@ local function startReload(p)
  end)
 end
 reload.OnServerEvent:Connect(startReload)
-local function zombie(part)
+local function combatTarget(part)
  local x=part
  while x and x~=workspace do
-  if x:IsA("Model") and CollectionService:HasTag(x,"Zombie") then return x end
+  if x:IsA("Model") and (CollectionService:HasTag(x,"Zombie") or Players:GetPlayerFromCharacter(x)) then return x end
   x=x.Parent
  end
 end
@@ -53,7 +54,7 @@ local function trace(character,origin,direction)
   params.FilterDescendantsInstances=exclude
   result=workspace:Raycast(origin,direction,params)
   if not result then return end
-  local target=zombie(result.Instance)
+  local target=combatTarget(result.Instance)
   if target or result.Instance.CanCollide then return result,target end
   table.insert(exclude,result.Instance)
  end
@@ -85,12 +86,18 @@ shoot.OnServerEvent:Connect(function(p,direction)
  for target,entry in damage do
   local h=target:FindFirstChildOfClass("Humanoid")
   if h and h.Health>0 then
-   local zoneId=target:GetAttribute("ZoneId")
-   if zoneId then
-    local world=require(RS.WorldConfig) local zone=world.ZoneAt(origin)
-    if not zone or zone.Id~=zoneId or not require(script.Parent.ZoneService).CanAccess(p,zone) then continue end
+   local targetPlayer=Players:GetPlayerFromCharacter(target)
+   if targetPlayer then
+    if not PvP.CanDamage(p,targetPlayer) then continue end
+   else
+    if not CollectionService:HasTag(target,"Zombie") then continue end
+    local zoneId=target:GetAttribute("ZoneId")
+    if zoneId then
+     local world=require(RS.WorldConfig) local zone=world.ZoneAt(origin)
+     if not zone or zone.Id~=zoneId or not require(script.Parent.ZoneService).CanAccess(p,zone) then continue end
+    end
+    h:SetAttribute("LastAttacker",p.UserId) h:SetAttribute("LastHitAt",os.clock())
    end
-   h:SetAttribute("LastAttacker",p.UserId) h:SetAttribute("LastHitAt",os.clock())
    h:TakeDamage(entry.Amount) remotes.PunchHit:FireClient(p,entry.Critical,h.Health<=0,entry.Amount,entry.Position,entry.Critical and "Headshot" or nil)
   end
  end

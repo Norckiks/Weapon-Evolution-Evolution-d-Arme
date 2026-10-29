@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-29",
+  "placeId": 89391796839094,
+  "checks": {
+    "totalModels": 114,
+    "zones": 19,
+    "modelsPerZone": 6,
+    "refugeAwake": 0,
+    "refugeSleeping": 114,
+    "cityAwake": 6,
+    "otherZonesAwakeInCity": 0,
+    "sleepAgainAfterLeaving": 114,
+    "progressionRestored": true,
+    "consoleAfterStop": "empty",
+    "studioAfterStop": "Edit"
+  },
+  "physicsStepSeconds": {
+    "refugeNoActiveZone": {"average": 0.00021803893941978457, "p95": 0.00036128435749560595, "samples": 120},
+    "citySixAwake": {"average": 0.0007553843199275434, "p95": 0.0008615694823674858, "samples": 120},
+    "previous114MobileMeasurement": {"average": 0.00212877, "p95": 0.0022322, "samples": 240, "note": "Earlier Studio Play run; indicative comparison, not a controlled same-run A/B."}
+  },
+  "limits": [
+    "PhysicsStepTime is not total frame time or a live-server benchmark.",
+    "No multiplayer, mobile-device, or visual animation check was performed.",
+    "The 114 models remain present; off-zone physics and AI work are suspended."
+  ]
+}

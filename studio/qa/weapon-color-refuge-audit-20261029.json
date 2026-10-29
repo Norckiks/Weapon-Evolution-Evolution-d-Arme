@@ -1,0 +1,57 @@
+{
+  "testId": "WEAPON-SURFACE-TINT-REFUGE-AUDIT-20261029",
+  "date": "2026-10-29",
+  "place": "Évolution des armes",
+  "placeId": 89391796839094,
+  "studioId": "7f35ea02-80cf-4c99-8967-4fc169a4d44c",
+  "studioFinalMode": "Edit",
+  "changes": {
+    "generatedWeaponsTinted": 14,
+    "meshParts": 43,
+    "surfaceAppearances": 43,
+    "colorMapsPreserved": 43,
+    "previousTextureIDValuesClearedAfterTransfer": 43,
+    "backup": "ServerStorage.BeforeWeaponTextureTint_20261029",
+    "specialPalettes": {
+      "Pistol": ["#DE913E", "#2DB7C6", "#FFCB5B"],
+      "Revolver": ["#AE5D32", "#E27B2A", "#56B8BF"]
+    }
+  },
+  "playCheck": {
+    "nonFistWeaponBuilds": 30,
+    "meshPartsBuilt": 335,
+    "missingModels": 0,
+    "modelPendingDefinitions": 0,
+    "tintMapValidationErrors": 0,
+    "studioOutput": "empty",
+    "profileChanged": false,
+    "purchasesOrGrants": false
+  },
+  "refugeAudit": {
+    "portalFields": 19,
+    "enabledPrompts": 19,
+    "matchingVisibleFrames": 19,
+    "frameLights": 19,
+    "framesWithCollision": 0,
+    "fieldsWithCollision": 0,
+    "maximumHorizontalFieldOffset": 0,
+    "minimumHorizontalFrameClearance": 11.8,
+    "unlabeledPortals": 0,
+    "legacyCitadelLabelsVisible": 0
+  },
+  "sourceReferences": {
+    "graphify": {
+      "repository": "Norckiks/Weapon-Evolution-Evolution-d-Arme",
+      "commit": "aa5accaf54f21dd3d5ff998241e893db83faafc7",
+      "indexedAt": "2026-10-27T19:45:42Z",
+      "note": "Stale index; live Studio and local source were used for verification."
+    },
+    "context7": "https://create.roblox.com/docs/art/modeling/surface-appearance"
+  },
+  "limitations": [
+    "The Windows/Studio screenshot capture timed out, so surface colors and the refuge were not inspected in pixels.",
+    "No full walk-through, touch device, multiplayer, or real-world frame-rate check was performed.",
+    "The Experience was not saved to .rbxl or published."
+  ],
+  "placeSavedOrPublished": false
+}

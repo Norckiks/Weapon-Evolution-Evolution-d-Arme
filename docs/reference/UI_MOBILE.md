@@ -1,5 +1,11 @@
 # Interfaces portrait — état de vérification
 
+## Tutoriel de démarrage : échelle initiale — 29 octobre 2026
+
+Un test Play a observé `Camera.ViewportSize = 1×1` au démarrage tandis que `SurvivorHub.AbsoluteSize = 800×600`. L’ancien calcul donnait à `UIScale` la valeur minimale `1e-7` et réduisait le bouton à presque zéro. `GameHub` calcule désormais depuis `ScreenGui.AbsoluteSize`, ne calcule rien tant que la largeur ou hauteur vaut ≤24 px, puis borne l’échelle entre 0,1 et 1 ; il recalcule quand la taille du ScreenGui change. Après correction : échelle 1, tutoriel 560×480 et bouton 170×78 dans 800×600. Play Console vide après le garde de focus manette. Rapport : [`tutorial-responsive-scale-play-check-20261029.json`](../../studio/qa/tutorial-responsive-scale-play-check-20261029.json).
+
+Limites : le clic outil a expiré et la touche Right n'a pas changé d’étape ; pas de capture pixel, appareil portrait/paysage ou manette physique. L’adaptation mathématique est mesurée sur le viewport 800×600 seulement.
+
 Dernier changement Pets : troisième action Évoluer, colonnes séparées, carte PC104, image26 dans le titre ; [règles et limites](EVOLUTION_PETS.md).42 assertions locales passent, mais aucun nouveau relevé mobile/TextFits/capture : les preuves anciennes ci-dessous ne couvrent pas cette disposition.
 
 ## États critiques et changement de périphérique
@@ -103,3 +109,7 @@ Le correctif d’orientation des armes a été mesuré avec une vraie caméra PC
 6. Contrôler retour paysage/PC, position conservée au rafraîchissement, remise en haut au changement de page, textes longs et ReducedMotion. Capturer les pages finales, puis arrêter Play et auditer 43 scripts.
 
 Références Context7 consultées : [adaptation des interfaces](https://github.com/roblox/creator-docs/blob/main/content/en-us/production/publishing/adaptive-design.md), [ScrollingFrame](https://github.com/roblox/creator-docs/blob/main/content/en-us/ui/scrolling-frames.md), [ViewportSize](https://create.roblox.com/docs/reference/engine/classes/Camera). Codex on Crack doctor : workflow-ready, sans rôle délégué ; travail direct. Panel : state_unreadable, aucune approbation revendiquée.
+
+## Tentative mobile du 29 octobre 2026
+
+Le simulateur a accepté `iphone_17_pro` et l'orientation Portrait et a annoncé 874×402, mais la caméra client en Play est restée à 1×1 ; le menu Pets n'a donc pas pu être mesuré. Le test n'est pas une validation ni un défaut UI confirmé. Aucun script UI changé. La session Play a été arrêtée, le simulateur réinitialisé à `default`, Studio est revenu en Edit et la console était vide. Le démarrage Play et `MenuState` ont été utilisés sans `TutorialComplete`, achat, attribution ou changement de progression. Le simulateur refuse l'orientation LandscapeLeft lorsque le profil `default` est actif ; état final rapporté : `default` / LandscapeRight. Reprendre avec une vraie vue client (>100×100) avant d'inspecter les pages.

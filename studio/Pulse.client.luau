@@ -96,6 +96,19 @@ RunService.Heartbeat:Connect(function(dt)
  button:SetAttribute("Ready",canUse)
 end)
 local effects=Instance.new("Folder") effects.Name="LocalPulseFX" effects.Parent=workspace
+local orbitingCrystals={}
+RunService.PreRender:Connect(function()
+ if not next(orbitingCrystals) then return end
+ local now=os.clock()
+ local reduced=player:GetAttribute("ReducedMotion")==true
+ for crystal,orbit in orbitingCrystals do
+  if not crystal.Parent or not orbit.Root.Parent or now>=orbit.Expires or reduced then orbitingCrystals[crystal]=nil continue end
+  local elapsed=now-orbit.Started local angle=orbit.Angle+elapsed*1.8 local bob=math.sin(elapsed*2.5+orbit.Phase)
+  local point=Vector3.new(math.cos(angle)*orbit.Radius,orbit.Height+bob*orbit.Bob,math.sin(angle)*orbit.Radius)
+  local spin=elapsed*math.pi*(orbit.Phase%2==0 and 1 or -1) local precession=math.sin(elapsed*2.5+orbit.Phase)*.06
+  crystal:PivotTo(orbit.Root.CFrame*CFrame.new(point)*CFrame.Angles(bob*orbit.Tilt,-angle,bob*orbit.Tilt)*CFrame.Angles(0,spin,precession))
+ end
+end)
 fx.OnClientEvent:Connect(function(shooter,position,hits)
  if typeof(position)~="Vector3" or position~=position then return end
  local camera=workspace.CurrentCamera if not camera or (camera.CFrame.Position-position).Magnitude>100 then return end
@@ -162,10 +175,35 @@ fx.OnClientEvent:Connect(function(shooter,position,hits)
  end)
 end)
 abilityFx.OnClientEvent:Connect(function(id,shooter,position,hits,endpoint)
- local d=Abilities[id]
+ local d=Abilities[id] or (id=="AegisBlock" and Abilities.Aegis)
  if not d or typeof(position)~="Vector3" or position~=position then return end
  local camera=workspace.CurrentCamera if not camera or (camera.CFrame.Position-position).Magnitude>100 then return end
  local reduced=player:GetAttribute("ReducedMotion")==true local color=d.Color local center=position-Vector3.new(0,2.25,0)
+ if id=="AegisBlock" then
+  local forward=typeof(endpoint)=="Vector3" and position-endpoint or Vector3.new(0,0,-1)
+  forward=Vector3.new(forward.X,0,forward.Z) if forward.Magnitude<.01 then forward=Vector3.new(0,0,-1) else forward=forward.Unit end
+  local right=Vector3.yAxis:Cross(forward) if right.Magnitude<.01 then right=Vector3.xAxis else right=right.Unit end
+  local up=forward:Cross(right).Unit local blockCenter=position+Vector3.new(0,1.35,0) local count=reduced and 4 or 8
+  local anchor=Instance.new("Part") anchor.Name="AegisBlockFX" anchor.Size=Vector3.new(.1,.1,.1) anchor.Transparency=1 anchor.Anchored=true anchor.CanCollide=false anchor.CanTouch=false anchor.CanQuery=false anchor.Position=blockCenter anchor.Parent=effects Debris:AddItem(anchor,.65)
+  local glow=Instance.new("PointLight") glow.Color=color glow.Brightness=reduced and .7 or 2.4 glow.Range=reduced and 5 or 10 glow.Shadows=false glow.Parent=anchor
+  if not reduced then Tween:Create(glow,TweenInfo.new(.28,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Brightness=0,Range=3}):Play() end
+  local radius=1.05
+  for i=1,count do
+   local a=(i-.5)*math.pi*2/count local b=(i+.5)*math.pi*2/count
+   local p0=blockCenter+(right*math.cos(a)+up*math.sin(a))*radius local p1=blockCenter+(right*math.cos(b)+up*math.sin(b))*radius
+   local tangent=(-right*math.sin((a+b)/2)+up*math.cos((a+b)/2)).Unit local mid=(p0+p1)/2
+   local segment=Instance.new("Part") segment.Name="AegisBlockSegment" segment.Size=Vector3.new(.1,.1,(p1-p0).Magnitude) segment.Material=Enum.Material.Neon segment.Color=i%2==0 and color or Color3.fromRGB(255,224,133) segment.Transparency=reduced and .28 or .04 segment.Anchored=true segment.CanCollide=false segment.CanTouch=false segment.CanQuery=false segment.CastShadow=false segment.CFrame=CFrame.lookAt(mid,mid+tangent,forward) segment.Parent=effects
+   if not reduced then
+    local outMid=blockCenter+(right*math.cos((a+b)/2)+up*math.sin((a+b)/2))*1.45
+    Tween:Create(segment,TweenInfo.new(.24,Enum.EasingStyle.Back,Enum.EasingDirection.Out),{CFrame=CFrame.lookAt(outMid,outMid+tangent,forward),Transparency=1}):Play()
+   end
+   Debris:AddItem(segment,.3)
+  end
+  local label=Instance.new("BillboardGui") label.Name="AegisBlockCallout" label.Size=UDim2.fromOffset(reduced and 90 or 150,reduced and 28 or 42) label.StudsOffsetWorldSpace=Vector3.new(0,2.6,0) label.AlwaysOnTop=true label.MaxDistance=75 label.Parent=anchor
+  local text=Instance.new("TextLabel") text.Size=UDim2.fromScale(1,1) text.BackgroundTransparency=1 text.Font=Enum.Font.Cartoon text.Text=reduced and "BLOQUÉ !" or "CLANG !" text.TextSize=reduced and 20 or 30 text.TextColor3=Color3.fromRGB(255,224,133) text.TextStrokeColor3=Color3.fromRGB(38,48,68) text.TextStrokeTransparency=0 text.Parent=label
+  if not reduced then Tween:Create(label,TweenInfo.new(.24,Enum.EasingStyle.Back,Enum.EasingDirection.Out),{StudsOffsetWorldSpace=Vector3.new(0,3.4,0)}):Play() task.delay(.12,function() if text.Parent then Tween:Create(text,TweenInfo.new(.2),{TextTransparency=1,TextStrokeTransparency=1}):Play() end end) end
+  return
+ end
  local anchor=Instance.new("Part") anchor.Name="AbilityFXAnchor" anchor.Size=Vector3.new(.1,.1,.1) anchor.Transparency=1 anchor.Anchored=true anchor.CanCollide=false anchor.CanTouch=false anchor.CanQuery=false anchor.Position=position anchor.Parent=effects Debris:AddItem(anchor,id=="Aegis" and 3.6 or 2)
  local tint=Instance.new("ColorCorrectionEffect") tint.Name=id.."Tint" tint.TintColor=Color3.new(1,1,1) tint.Parent=camera Debris:AddItem(tint,1.3)
  Tween:Create(tint,TweenInfo.new(reduced and .16 or .36,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TintColor=reduced and Color3.new(.94,.9,1) or color:Lerp(Color3.new(1,1,1),.48),Saturation=reduced and 0 or .1,Contrast=reduced and 0 or .08}):Play()
@@ -226,33 +264,78 @@ abilityFx.OnClientEvent:Connect(function(id,shooter,position,hits,endpoint)
  elseif id=="Aegis" then
   local root=shooter.Character and shooter.Character:FindFirstChild("HumanoidRootPart")
   if root then
-   local segments=reduced and 8 or 12 local radius=3.2
-   for i=1,(reduced and 1 or 3) do for j=1,segments do
+   local firstPerson=(camera.CFrame.Position-root.Position).Magnitude<2.5
+   local segments=reduced and 8 or 12 local planeCount=(reduced or firstPerson) and 1 or 3 local radius=firstPerson and 2.35 or 3.2
+   local planeHeight=firstPerson and -.45 or 1.15
+   for i=1,planeCount do for j=1,segments do
     local a=(j-.5)*math.pi*2/segments local axis=i==1 and "Horizontal" or i==2 and "VerticalX" or "VerticalZ"
-    local point=axis=="Horizontal" and Vector3.new(math.cos(a)*radius,1.15,math.sin(a)*radius) or axis=="VerticalX" and Vector3.new(math.cos(a)*radius,1.15+math.sin(a)*radius,0) or Vector3.new(0,1.15+math.sin(a)*radius,math.cos(a)*radius)
+    local point=axis=="Horizontal" and Vector3.new(math.cos(a)*radius,planeHeight,math.sin(a)*radius) or axis=="VerticalX" and Vector3.new(math.cos(a)*radius,planeHeight+math.sin(a)*radius,0) or Vector3.new(0,planeHeight+math.sin(a)*radius,math.cos(a)*radius)
     local tangent=axis=="Horizontal" and Vector3.new(-math.sin(a),0,math.cos(a)) or axis=="VerticalX" and Vector3.new(-math.sin(a),math.cos(a),0) or Vector3.new(0,math.cos(a),-math.sin(a))
-    local ring=Instance.new("Part") ring.Name="AegisHalo" ring.Size=Vector3.new(.17,.17,2*radius*math.sin(math.pi/segments)*1.18) ring.Material=Enum.Material.Neon ring.Color=i==2 and Color3.new(1,1,1) or color ring.Transparency=reduced and .62 or .12 ring.Anchored=false ring.Massless=true ring.CanCollide=false ring.CanTouch=false ring.CanQuery=false ring.CastShadow=false
+    local ring=Instance.new("Part") ring.Name="AegisHalo" ring.Size=Vector3.new(firstPerson and .13 or .17,firstPerson and .13 or .17,2*radius*math.sin(math.pi/segments)*1.18) ring.Material=Enum.Material.Neon ring.Color=i==2 and Color3.new(1,1,1) or color ring.Transparency=reduced and .62 or firstPerson and .32 or .12 ring.Anchored=false ring.Massless=true ring.CanCollide=false ring.CanTouch=false ring.CanQuery=false ring.CastShadow=false
     local worldPoint=root.CFrame:PointToWorldSpace(point) local worldTangent=root.CFrame:VectorToWorldSpace(tangent) ring.CFrame=CFrame.lookAt(worldPoint,worldPoint+worldTangent) ring.Parent=effects
     local weld=Instance.new("WeldConstraint") weld.Part0=root weld.Part1=ring weld.Parent=ring
     if not reduced then Tween:Create(ring,TweenInfo.new(2.8,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut),{Transparency=.52}):Play() end Debris:AddItem(ring,3.25)
    end end
    for i=1,(reduced and 3 or 6) do
-    local a=i*math.pi*2/(reduced and 3 or 6) local point=Vector3.new(math.cos(a)*1.85,1.4,math.sin(a)*1.85)
-    local crystal=Instance.new("Part") crystal.Name="AegisOrbitCrystal" crystal.Shape=Enum.PartType.Ball crystal.Size=Vector3.new(.28,.28,.28) crystal.Material=Enum.Material.Neon crystal.Color=i%2==0 and Color3.new(1,1,1) or color crystal.Transparency=reduced and .5 or .08 crystal.Anchored=false crystal.Massless=true crystal.CanCollide=false crystal.CanTouch=false crystal.CanQuery=false crystal.CastShadow=false crystal.CFrame=root.CFrame*CFrame.new(point)*CFrame.Angles(0,-a,0) crystal.Parent=effects
-    local weld=Instance.new("WeldConstraint") weld.Part0=root weld.Part1=crystal weld.Parent=crystal
-    if not reduced then Tween:Create(crystal,TweenInfo.new(.48,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,-1,true),{Size=Vector3.new(.42,.42,.42),Transparency=.42}):Play() end Debris:AddItem(crystal,3.25)
+    local a=i*math.pi*2/(reduced and 3 or 6) local orbitRadius=firstPerson and 2.2 or 1.85 local orbitHeight=firstPerson and 1 or 1.4 local point=Vector3.new(math.cos(a)*orbitRadius,orbitHeight,math.sin(a)*orbitRadius)
+    local template=RS:FindFirstChild("AegisCrystalPrototype") or RS:FindFirstChild("AegisCrystalTemplate")
+    local prototype=template and template.Name=="AegisCrystalPrototype"
+    local crystal=template and template:IsA("Model") and template.PrimaryPart and template:Clone()
+    if not crystal then
+     crystal=Instance.new("Model") local core=Instance.new("Part") core.Name="FallbackCore" core.Shape=Enum.PartType.Ball core.Size=Vector3.new(.28,.28,.28) core.Material=Enum.Material.Neon core.Color=color core.Transparency=reduced and .5 or .08 core.Parent=crystal crystal.PrimaryPart=core
+    end
+    crystal.Name="AegisOrbitCrystal" crystal.Parent=effects
+    if prototype then crystal:ScaleTo(firstPerson and .45 or .68) elseif firstPerson then crystal:ScaleTo(.45) end
+    local reveal=TweenInfo.new(.18,Enum.EasingStyle.Quad,Enum.EasingDirection.Out,0,false,reduced and 0 or (i-1)*.045)
+    for _,part in crystal:GetDescendants() do if part:IsA("BasePart") then
+     part.Anchored=true part.CanCollide=false part.CanTouch=false part.CanQuery=false part.CastShadow=false
+     if not reduced then local transparency=part.Transparency part.Transparency=1 Tween:Create(part,reveal,{Transparency=transparency}):Play() end
+    end end
+    crystal:PivotTo(root.CFrame*CFrame.new(point)*CFrame.Angles(0,-a,0))
+    if not reduced then
+     orbitingCrystals[crystal]={Root=root,Angle=a,Phase=i,Started=os.clock(),Expires=os.clock()+3.25,Radius=orbitRadius,Height=orbitHeight,Bob=firstPerson and .06 or .14,Tilt=firstPerson and .04 or .1}
+     local core=crystal:FindFirstChild("Aegis_LightCore",true)
+     if not core or not core:IsA("BasePart") then core=crystal.PrimaryPart end
+     local glow=core:FindFirstChild("AstralGlow")
+     if glow and glow:IsA("PointLight") then local brightness=glow.Brightness glow.Brightness=0 Tween:Create(glow,reveal,{Brightness=brightness}):Play() end
+     Tween:Create(core,TweenInfo.new(.48,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,-1,true),{Size=core.Size*1.14}):Play()
+    end
+    Debris:AddItem(crystal,3.25)
    end
   end
  elseif id=="Slam" then
-  for i=1,(reduced and 6 or 12) do
-   local a=i*math.pi*2/(reduced and 6 or 12) local ray=Instance.new("Part") ray.Name="SlamGroundCrack" ray.Size=Vector3.new(.22,.09,reduced and 2.4 or 4) ray.Material=Enum.Material.Neon ray.Color=i%3==0 and Color3.fromRGB(255,238,151) or color ray.Transparency=.06 ray.Anchored=true ray.CanCollide=false ray.CanTouch=false ray.CanQuery=false ray.CastShadow=false ray.CFrame=CFrame.new(center+Vector3.new(0,.08,0))*CFrame.Angles(0,-a,0) ray.Parent=effects
-   if not reduced then Tween:Create(ray,TweenInfo.new(.34,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{Size=Vector3.new(.08,.04,10),Transparency=1}):Play() else ray.Transparency=.2 end Debris:AddItem(ray,.4)
-  end
-  local ringCount=reduced and 6 or 12
-  for i=1,ringCount do
-   local a=(i-.5)*math.pi*2/ringCount local radial=Vector3.new(math.cos(a),0,math.sin(a)) local tangent=Vector3.new(-radial.Z,0,radial.X)
-   local wave=Instance.new("Part") wave.Name="SlamPressureWave" wave.Size=Vector3.new(.18,.07,1.5) wave.Material=Enum.Material.Neon wave.Color=i%3==0 and Color3.fromRGB(255,238,151) or color wave.Transparency=reduced and .4 or .08 wave.Anchored=true wave.CanCollide=false wave.CanTouch=false wave.CanQuery=false wave.CastShadow=false wave.CFrame=CFrame.lookAt(center+radial*1.7+Vector3.new(0,.13,0),center+radial*1.7+tangent+Vector3.new(0,.13,0)) wave.Parent=effects
-   if not reduced then Tween:Create(wave,TweenInfo.new(.36,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{CFrame=CFrame.lookAt(center+radial*7+Vector3.new(0,.13,0),center+radial*7+tangent+Vector3.new(0,.13,0)),Size=Vector3.new(.1,.04,2.2),Transparency=1}):Play() end Debris:AddItem(wave,.4)
+  local template=RS:FindFirstChild("SlamImpactTemplate")
+  if template and template:IsA("Model") then
+   local model=template:Clone() model.Name="SlamImpact" model.Parent=effects
+   local parts={} for _,part in model:GetDescendants() do if part:IsA("BasePart") then part.Anchored=true part.CanCollide=false part.CanTouch=false part.CanQuery=false part.CastShadow=false table.insert(parts,part) end end
+   local pivot=model:GetPivot() local bounds,size=model:GetBoundingBox() local bottom=pivot:PointToObjectSpace(bounds.Position-Vector3.yAxis*(size.Y/2))
+   local target=CFrame.new(center-pivot.Rotation:VectorToWorldSpace(bottom))*pivot.Rotation
+   local start=target*CFrame.new(0,-.38,0)*CFrame.Angles(0,0,math.rad(-5))
+   model:PivotTo(reduced and target or start)
+   if reduced then for _,part in parts do part.Transparency=math.max(part.Transparency,.38) end else
+    local mover=Instance.new("CFrameValue") mover.Value=start mover.Parent=effects mover:GetPropertyChangedSignal("Value"):Connect(function() if model.Parent then model:PivotTo(mover.Value) end end)
+    Tween:Create(mover,TweenInfo.new(.26,Enum.EasingStyle.Back,Enum.EasingDirection.Out),{Value=target}):Play() Debris:AddItem(mover,.5)
+    for _,part in parts do Tween:Create(part,TweenInfo.new(.38,Enum.EasingStyle.Quad,Enum.EasingDirection.Out,0,false,.08),{Transparency=1}):Play() end
+   end
+   Debris:AddItem(model,.48)
+  else
+   for i=1,(reduced and 6 or 12) do
+    local a=i*math.pi*2/(reduced and 6 or 12) local ray=Instance.new("Part") ray.Name="SlamGroundCrack" ray.Size=Vector3.new(.22,.09,reduced and 2.4 or 4) ray.Material=Enum.Material.Neon ray.Color=i%3==0 and Color3.fromRGB(255,238,151) or color ray.Transparency=.06 ray.Anchored=true ray.CanCollide=false ray.CanTouch=false ray.CanQuery=false ray.CastShadow=false ray.CFrame=CFrame.new(center+Vector3.new(0,.08,0))*CFrame.Angles(0,-a,0) ray.Parent=effects
+    if not reduced then Tween:Create(ray,TweenInfo.new(.34,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{Size=Vector3.new(.08,.04,10),Transparency=1}):Play() else ray.Transparency=.2 end Debris:AddItem(ray,.4)
+   end
+   local ringCount=reduced and 6 or 12
+   for i=1,ringCount do
+    local a=(i-.5)*math.pi*2/ringCount local radial=Vector3.new(math.cos(a),0,math.sin(a)) local tangent=Vector3.new(-radial.Z,0,radial.X)
+    local wave=Instance.new("Part") wave.Name="SlamPressureWave" wave.Size=Vector3.new(.18,.07,1.5) wave.Material=Enum.Material.Neon wave.Color=i%3==0 and Color3.fromRGB(255,238,151) or color wave.Transparency=reduced and .4 or .08 wave.Anchored=true wave.CanCollide=false wave.CanTouch=false wave.CanQuery=false wave.CastShadow=false wave.CFrame=CFrame.lookAt(center+radial*1.7+Vector3.new(0,.13,0),center+radial*1.7+tangent+Vector3.new(0,.13,0)) wave.Parent=effects
+    if not reduced then Tween:Create(wave,TweenInfo.new(.36,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{CFrame=CFrame.lookAt(center+radial*7+Vector3.new(0,.13,0),center+radial*7+tangent+Vector3.new(0,.13,0)),Size=Vector3.new(.1,.04,2.2),Transparency=1}):Play() end Debris:AddItem(wave,.4)
+   end
+   local shards=reduced and 4 or 8
+   for i=1,shards do
+    local a=i*math.pi*2/shards local radial=Vector3.new(math.cos(a),0,math.sin(a)) local shard=Instance.new("WedgePart") shard.Name="SlamCraterShard" shard.Size=Vector3.new(.34,.18,.86) shard.Material=Enum.Material.Slate shard.Color=Color3.fromRGB(53,61,70) shard.Transparency=reduced and .25 or .04 shard.Anchored=true shard.CanCollide=false shard.CanTouch=false shard.CanQuery=false shard.CastShadow=false shard.CFrame=CFrame.new(center+radial*.85+Vector3.new(0,.15,0))*CFrame.lookAt(Vector3.zero,radial).Rotation*CFrame.Angles(math.rad(-16),0,0) shard.Parent=effects
+    if not reduced then Tween:Create(shard,TweenInfo.new(.32,Enum.EasingStyle.Back,Enum.EasingDirection.Out),{Position=shard.Position+radial*1.35+Vector3.new(0,.9,0),Transparency=1}):Play() end Debris:AddItem(shard,.36)
+   end
+   local core=Instance.new("Part") core.Name="SlamImpactCore" core.Shape=Enum.PartType.Ball core.Size=Vector3.new(1.2,.25,1.2) core.Material=Enum.Material.Neon core.Color=Color3.fromRGB(255,216,125) core.Transparency=reduced and .35 or .08 core.Anchored=true core.CanCollide=false core.CanTouch=false core.CanQuery=false core.CastShadow=false core.Position=center+Vector3.new(0,.14,0) core.Parent=effects
+   if not reduced then Tween:Create(core,TweenInfo.new(.24,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{Size=Vector3.new(3.2,.08,3.2),Transparency=1}):Play() end Debris:AddItem(core,.28)
   end
  elseif id=="SecondSouffle" then
   for i=1,(reduced and 4 or 12) do

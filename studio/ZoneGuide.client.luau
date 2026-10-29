@@ -23,7 +23,7 @@ local pending,lastLevel
 local fields={}
 local rectangles={}
 local refreshAt=0
-local short={City="VILLE",Factory="USINE",Lab="LABO",Harbor="PORT",Power="CENTRALE",Metro="METRO"}
+local short={City="VILLE",Factory="USINE",Lab="LABO",Harbor="PORT",Power="CENTRALE",Metro="METRO",Quarantine="FOSSE",Dam="BARRAGE",Citadel="CITADELLE"}
 local function clear(reason)
  pending=nil marker.Visible=false world.Enabled=false world.Adornee=nil
  gui:SetAttribute("DestinationZone",nil) gui:SetAttribute("TargetPosition",nil) gui:SetAttribute("GuidanceStage",reason or "Idle")
